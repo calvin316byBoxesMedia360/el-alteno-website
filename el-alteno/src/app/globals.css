@@ -1,0 +1,103 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  /* El Alteño Brand Colors — Warm Artisanal */
+  --color-terracota:       #C65D3B;
+  --color-terracota-dark:  #A84A2C;
+  --color-olive:           #6B7A4F;
+  --color-mustard:         #C99A3F;
+  --color-cream-bg:        #FAF6EF;
+  --color-cream-surface:   #F0E6D6;
+  --color-warm-muted:      #8A7E6F;
+  --color-warm-text:       #2E2620;
+
+  /* shadcn tokens mapped to our palette */
+  --color-background:      var(--background);
+  --color-foreground:      var(--foreground);
+  --color-primary:         var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary:       var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted:           var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent:          var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-card:            var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-border:          var(--border);
+  --color-ring:            var(--ring);
+  --color-destructive:     var(--destructive);
+
+  --font-sans:    var(--font-lato);
+  --font-heading: var(--font-playfair);
+  --font-mono:    ui-monospace, monospace;
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+}
+
+:root {
+  --background:             #FAF6EF;
+  --foreground:             #2E2620;
+  --card:                   #F0E6D6;
+  --card-foreground:        #2E2620;
+  --popover:                #FFFFFF;
+  --popover-foreground:     #2E2620;
+  --primary:                #C65D3B;
+  --primary-foreground:     #FFFFFF;
+  --secondary:              #F0E6D6;
+  --secondary-foreground:   #2E2620;
+  --muted:                  #EFE8DB;
+  --muted-foreground:       #8A7E6F;
+  --accent:                 #6B7A4F;
+  --accent-foreground:      #FFFFFF;
+  --destructive:            #C0392B;
+  --border:                 #E5D9C5;
+  --input:                  #E5D9C5;
+  --ring:                   #C65D3B;
+  --radius:                 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-[#FAF6EF] text-[#2E2620] font-sans antialiased;
+    /* Subtle paper texture */
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(140, 120, 90, 0.04) 1px, transparent 0);
+    background-size: 24px 24px;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-playfair), Georgia, serif;
+  }
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Section spacing */
+.section-padding {
+  @apply py-20 px-6 md:px-12 lg:px-16;
+}
+
+/* Decorative border — papel picado zigzag */
+.zigzag-border {
+  background-image:
+    linear-gradient(135deg, #FAF6EF 25%, transparent 25%) -10px 0,
+    linear-gradient(225deg, #FAF6EF 25%, transparent 25%) -10px 0,
+    linear-gradient(315deg, #FAF6EF 25%, transparent 25%),
+    linear-gradient(45deg,  #FAF6EF 25%, transparent 25%);
+  background-size: 20px 20px;
+  background-color: #C65D3B;
+  height: 16px;
+  width: 100%;
+}

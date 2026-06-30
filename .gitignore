@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+el-alteno/node_modules/
+
+# Next.js build
+el-alteno/.next/
+el-alteno/out/
+
+# Env
+.env.local
+el-alteno/.env.local
+*.env.local
+
+# External tool clones (not part of this project)
+the-architect/
+claude-webkit/
+
+# OS / editor
+.DS_Store
+Thumbs.db
