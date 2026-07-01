@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { MenuCategory, MenuItem } from "@/types/menu";
 import MenuItemCard from "./MenuItem";
+import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface Props {
   categories: MenuCategory[];
@@ -10,42 +12,57 @@ interface Props {
 }
 
 export default function MenuTabs({ categories, items }: Props) {
+  const { locale, t } = useLanguage();
   const [active, setActive] = useState(categories[0].id);
 
   const filtered = items.filter((i) => i.category === active && i.available);
 
   return (
-    <div>
+    <div className="px-4 md:px-0">
       {/* Tab nav — scrollable on mobile */}
-      <div className="overflow-x-auto pb-2 mb-8">
-        <div className="flex gap-2 min-w-max">
+      <div className="overflow-x-auto pb-4 mb-8 scrollbar-thin scrollbar-thumb-white/10">
+        <div className="flex gap-2.5 min-w-max">
           {categories.map((cat) => (
             <button
               key={cat.id}
               onClick={() => setActive(cat.id)}
-              className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all ${
+              className={`px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
                 active === cat.id
-                  ? "bg-[#C65D3B] text-white shadow"
-                  : "bg-white text-[#8A7E6F] border border-[#E5D9C5] hover:border-[#C65D3B] hover:text-[#C65D3B]"
+                  ? "bg-terracota text-white shadow-lg shadow-terracota/20 border border-transparent"
+                  : "bg-[#1E1A17] text-muted-foreground border border-[#E5D9C5]/10 hover:border-mustard/40 hover:text-mustard"
               }`}
             >
-              {cat.label}
+              {locale === "en" ? cat.label : cat.labelEs}
             </button>
           ))}
         </div>
       </div>
 
-      {/* Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-        {filtered.map((item) => (
-          <MenuItemCard key={item.id} item={item} />
-        ))}
+      {/* Grid with animation */}
+      <motion.div 
+        layout
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+      >
+        <AnimatePresence mode="popLayout">
+          {filtered.map((item) => (
+            <motion.div
+              layout
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.25 }}
+              key={item.id}
+            >
+              <MenuItemCard item={item} />
+            </motion.div>
+          ))}
+        </AnimatePresence>
         {filtered.length === 0 && (
-          <p className="col-span-full text-center text-[#8A7E6F] py-12">
-            Coming soon!
+          <p className="col-span-full text-center text-muted-foreground py-16">
+            {t("Coming soon!", "¡Próximamente!")}
           </p>
         )}
-      </div>
+      </motion.div>
     </div>
   );
 }

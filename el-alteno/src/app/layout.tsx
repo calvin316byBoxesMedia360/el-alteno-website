@@ -38,6 +38,10 @@ export const metadata: Metadata = {
   },
 };
 
+import WatermarkBg from "@/components/ui/WatermarkBg";
+import { LanguageProvider } from "@/context/LanguageContext";
+import { ThemeProvider } from "@/context/ThemeContext";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -45,7 +49,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${playfair.variable} ${lato.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-[#FFFBF5]">{children}</body>
+      <body className="min-h-full flex flex-col bg-[#161311] relative overflow-x-hidden">
+        <ThemeProvider>
+          <LanguageProvider>
+            <WatermarkBg />
+            {children}
+          </LanguageProvider>
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
