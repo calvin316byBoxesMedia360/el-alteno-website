@@ -1,25 +1,41 @@
 # El Alteño — Contexto del Proyecto
 
-> **Para cualquier IA o desarrollador que retome este proyecto:** Lee este archivo primero. Contiene todo el contexto de las decisiones tomadas hasta ahora.
+> **Para cualquier IA o desarrollador que retome este proyecto:** lee este archivo primero.
+> Para desplegar, lee además [`DEPLOYMENT.md`](DEPLOYMENT.md) — contiene configuración que no vive en el código.
 
 ---
 
 ## Estado Actual
 
-**Fase:** Sitio CONSTRUIDO y funcionando. Refinando estética.
+**El sitio está CONSTRUIDO y EN VIVO.**
 
-**El proyecto Next.js está en la subcarpeta `el-alteno/`** — completamente funcional, build pasa sin errores.
+| | |
+|---|---|
+| **URL en producción** | https://web-production-004ee.up.railway.app |
+| **Repo** | https://github.com/calvin316byBoxesMedia360/el-alteno-website (público) |
+| **Plataforma** | Railway (deploy automático al hacer push a `master`) |
 
-**Cómo correrlo:**
+### Cómo correrlo localmente
+
 ```bash
-cd el-alteno
-npm install        # solo la primera vez en un IDE nuevo
-npm run dev        # → http://localhost:3000
+cd el-alteno          # ← la app vive en esta subcarpeta, NO en la raíz
+npm install           # solo la primera vez
+npm run dev           # → http://localhost:3000
 ```
 
-**Última decisión visual (aplicada):** Paleta cambiada a **"Cálido Artesanal"** — el cliente NO quería los rojos/naranjas saturados originales.
+---
 
-**Siguiente acción sugerida:** Continuar refinando estética (tipografía, espaciado, animaciones Framer Motion), reemplazar emojis restantes con fotos reales, configurar Formspree, y deploy a Vercel.
+## ⚠️ Lo primero que debes saber
+
+**1. La app Next.js está en la subcarpeta `el-alteno/`, no en la raíz del repo.**
+Cualquier plataforma de hosting necesita `Root Directory = el-alteno`. Sin eso, el build falla.
+
+**2. Falta configurar `NEXT_PUBLIC_FORMSPREE_ID`.**
+El formulario de eventos la necesita. Ver [`el-alteno/.env.example`](el-alteno/.env.example).
+Sin ella el formulario **falla en silencio** — el visitante cree que envió su solicitud y nunca llega.
+
+**3. La carpeta `/public/` de la raíz son imágenes fuente, no las del sitio.**
+Las que el sitio usa están en `el-alteno/public/images/`.
 
 ---
 
@@ -30,7 +46,7 @@ npm run dev        # → http://localhost:3000
 | Restaurante | El Alteño — Auténtica Comida Mexicana |
 | Dirección | 323 Main St, Watsonville, CA 95076 |
 | Teléfono | 831.768.9876 |
-| Horario | Mar–Sáb 11am–8pm · Dom 9am–8pm (desayunos Dom 9–11:45am) |
+| Horario | Mar–Sáb 11am–8pm · Dom 9am–8pm (desayunos Dom 9–11:45am) · Lunes cerrado |
 | Pagos | DoorDash, Uber Eats, Visa, Mastercard, Zelle |
 
 ---
@@ -39,105 +55,107 @@ npm run dev        # → http://localhost:3000
 
 - **Audiencia:** 90% turistas, 10% locales. Muchos referidos por contactos del restaurante.
 - **Dos pilares de ingresos:**
-  1. Comedor para turistas (menú digital es el gancho principal)
+  1. Comedor para turistas (el menú digital es el gancho principal)
   2. Eventos privados — Abr–Dic, viernes/sáb/dom con agenda llena, hasta 100 personas, hasta 2 eventos simultáneos
-- **DoorDash:** Ya tienen cuenta activa. Una vez el sitio esté live, DoorDash los referirá en su plataforma.
-- **Reservas hoy:** Por teléfono o presencial. El sitio añadirá formulario + WhatsApp.
+- **DoorDash:** ya tienen cuenta activa. Una vez el sitio esté consolidado, DoorDash los referirá en su plataforma. **Este fue el motivo original de construir el sitio.**
+- **Reservas de eventos hoy:** por teléfono o presencial. El sitio añade formulario web como canal adicional.
 
 ---
 
-## Identidad Visual (extraída del material físico en `/public/`)
+## Stack Real (verificado en el código)
 
-- **Logo:** "EL ALTEÑO" en rojo intenso con outline blanco, tipografía script/display. Motivo de arco colonial con paisaje mexicano. Banderas MX + US.
-- **Tagline:** Auténtica Comida Mexicana
-- **Paleta:** Rojo (#C0392B aprox), verde, naranja/ámbar, crema
-- **Estilo:** Calidez mexicana tradicional — no estética genérica de IA
-- **Nota:** El logo será recreado en SVG/alta calidad por el desarrollador
+```
+Next.js 16.2.9 (App Router)
+React 19.2.4
+TypeScript 5
+Tailwind CSS v4
+shadcn/ui + @base-ui/react
+Framer Motion 12
+lucide-react (iconos)
+```
+
+**Nota sobre i18n:** `next-intl` está en `package.json` pero **no se usa para routing**. El idioma se maneja con un Context propio (`src/context/LanguageContext.tsx`) que hace toggle en cliente. No hay rutas `/en` ni `/es` — es una sola ruta con estado.
+
+**Modo claro/oscuro:** vía `src/context/ThemeContext.tsx` + la clase `.dark` en `globals.css`.
 
 ---
 
-## Categorías del Menú (del menú físico fotografiado)
+## Estructura del Código
 
-| Sección | Notas |
+```
+el-alteno-website/               ← raíz del repo
+├── CONTEXT.md                   ← este archivo
+├── DEPLOYMENT.md                ← config de deploy (Root Directory, env vars)
+├── public/                      ← imágenes FUENTE originales (no las usa el sitio)
+└── el-alteno/                   ← ★ LA APP
+    ├── .env.example             ← variables necesarias
+    ├── README.md
+    ├── CLAUDE.md / AGENTS.md    ← instrucciones para agentes de IA
+    ├── src/
+    │   ├── app/
+    │   │   ├── layout.tsx       # Fuentes, metadata SEO, providers
+    │   │   ├── page.tsx         # Home — ensambla todas las secciones
+    │   │   └── menu/page.tsx    # ★ Página standalone del menú (para QR en mesa)
+    │   ├── components/
+    │   │   ├── layout/          # Navbar, Footer
+    │   │   ├── sections/        # Hero, About, MenuSection, Events, Cocktails, Location
+    │   │   ├── menu/            # MenuTabs, MenuItem
+    │   │   └── ui/              # shadcn + WatermarkBg
+    │   ├── context/
+    │   │   ├── LanguageContext.tsx   # ★ Toggle ES/EN
+    │   │   └── ThemeContext.tsx      # ★ Modo claro/oscuro
+    │   ├── data/menu.ts         # ★ TODO EL MENÚ (50+ platillos, EN+ES)
+    │   ├── types/menu.ts
+    │   └── lib/utils.ts
+    └── public/
+        ├── images/logo/         # logo.png
+        ├── images/dishes/       # 11 fotos de platillos
+        ├── images/cocktails/    # cantarito, sunrise, chavela
+        ├── images/location/     # plaza_watsonville.png
+        └── videos/hero-bg.mp4   # video de fondo del hero
+```
+
+---
+
+## Sistema Visual — "Cálido Artesanal"
+
+> ⚠️ El cliente **RECHAZÓ** la paleta original de rojos/naranjas saturados. No volver a ella.
+
+Definido en `el-alteno/src/app/globals.css`.
+
+**Modo claro:**
+| Rol | Hex |
 |---|---|
-| Aperitivos / Appetizers | Tostadas de Camarón, Vuelve a la Vida, etc. |
-| Mariscos / Sea Food | Camarones a la Diabla, Huachinango, etc. (sección fuerte) |
-| Parilladas | |
-| Especialidades de la Casa | Molcajetes, Sopa Pastor, Chiles Rellenos, Pipián Mole, etc. |
-| Enchiladas | Mole Rojo, Chipotle, Camarón, Verde de Langosta, Mariscos, etc. |
-| Burritos | Clásicos + Burritos Creativos |
-| Fajitas | Pollo, Steak, Camarón, mixtas |
-| Vegetariano | |
-| Cócteles | Sunrise, Chavela, Cantarito (con fotos disponibles) |
-| Ensaladas / Salads | |
-| Desayunos | Solo domingos |
-| Lunch | Mar–Sáb 11am–2pm |
-| Brunch | Domingos |
-| Dinner | |
+| Fondo | `#FAF6EF` (crema cálido) |
+| Texto | `#2E2620` (café oscuro cálido) |
+| Primario | `#C65D3B` (terracota) |
+| Acento | `#C99A3F` (mostaza) |
+| Muted | `#8A7E6F` |
+
+**Modo oscuro:**
+| Rol | Hex |
+|---|---|
+| Fondo | `#161311` (carbón heritage) |
+| Texto | `#FAF6EF` |
+| Primario | `#C65D3B` (mismo terracota) |
+| Acento | `#C99A3F` |
+
+**Tipografía:** Playfair Display (títulos) + Lato (cuerpo), vía `next/font/google`.
+
+**Detalles de estilo:** textura de ruido orgánico en el fondo, patrón inspirado en talavera, borde papel picado, glass cards con backdrop-blur.
 
 ---
 
-## Arquitectura Aprobada
+## Assets — Fotos Disponibles
 
-### Stack Técnico
-```
-Next.js 15 (App Router)
-Tailwind CSS 4
-shadcn/ui
-TypeScript
-Framer Motion
-Vercel (deploy)
-```
+**Platillos con foto real (11):**
+camarones-diabla · camarones-vallarta · carne-asada · combo-enchilada-sope · enchilada-salsa-verde · enchiladas-pollo · fajitas-pollo · filete-parrilla · mojarra-frita · sopes
 
-### Estructura del Sitio
-```
-/ (Home — una sola página scrolleable)
-├── Navbar — Logo + links + toggle ES/EN
-├── Hero — Foto del restaurante + cócteles + CTA "See Menu" / "Reserve Event"
-├── About — Historia breve, "Auténtica Comida Mexicana", Watsonville CA
-├── Menu — Tabs por categoría (Mariscos, Especialidades, Burritos, Desayunos, etc.)
-├── Events — Fotos del salón + formulario de contacto/WhatsApp
-├── Cocktails — Sunrise, Chavela, Cantarito con fotos
-├── Hours & Location — Google Maps embed + horarios + métodos de pago
-└── Footer — Links DoorDash / Uber Eats + teléfono + dirección
+**Cócteles (3):** cantarito · sunrise · chavela
 
-/menu (standalone) — Página dedicada solo al menú, para QR code en mesa
-```
+**Otros:** logo.png · plaza_watsonville.png · hero-bg.mp4
 
-### Idioma
-- Inglés como idioma principal (audiencia 90% turistas en CA)
-- Toggle ES/EN en el navbar
-
-### Reservas de Eventos
-- Formulario: nombre, fecha, número de personas, tipo de evento
-- Envío: Formspree (gratis, sin backend) → email + WhatsApp
-- Sin pasarela de pago ni carrito
-
-### Dominio Candidato
-- `elalteno.restaurant` (pendiente verificar disponibilidad)
-
----
-
-## Assets Disponibles
-
-```
-/public/
-├── WhatsApp Image 2026-06-30 at 2.01.45 PM.jpeg  → Portada del menú (logo + interior)
-├── WhatsApp Image 2026-06-30 at 2.02.36 PM.jpeg  → Flyer con logo, horarios, contacto, cócteles
-├── WhatsApp Image 2026-06-30 at 2.51.50 PM.jpeg  → Menú interior página 1 (Aperitivos, Mariscos, Parilladas)
-├── WhatsApp Image 2026-06-30 at 2.52.00 PM.jpeg  → Menú interior página 2 (Especialidades, Enchiladas, Burritos)
-```
-
-**Fotos de platillos:** El desarrollador tiene fotos adicionales (pendiente de compartir/organizar).
-
----
-
-## Herramientas Instaladas en Este Proyecto
-
-| Carpeta | Qué es | Cómo usar |
-|---|---|---|
-| `the-architect/` | Meta-agente para generar blueprints | `cd the-architect && claude` |
-| `claude-webkit/` | Constructor de sitios web con 13 skills | `cd claude-webkit && claude` |
+Los platillos sin foto muestran un emoji de placeholder.
 
 ---
 
@@ -146,102 +164,54 @@ Vercel (deploy)
 | Decisión | Resultado |
 |---|---|
 | ¿Landing page o sitio completo? | Sitio completo (menú + eventos son pilares separados) |
-| ¿CMS o estático? | Estático (menú cambia 1-2 veces/año) |
-| ¿Idioma? | Inglés principal + toggle español |
-| ¿Carrito/pagos? | No — solo presentación y contacto |
-| ¿Reservas? | Formulario Formspree → email + WhatsApp |
-| ¿Deploy? | Vercel |
-| ¿Stack? | Next.js 15 + Tailwind + shadcn/ui + Framer Motion |
-
----
-
-## Paleta Visual ACTUAL — "Cálido Artesanal"
-
-> El cliente RECHAZÓ la paleta original (rojos/naranjas saturados). Esta es la aprobada.
-
-| Rol | Hex | Uso |
-|---|---|---|
-| Fondo | `#FAF6EF` | Crema hueso, con textura sutil de papel |
-| Superficie/cards | `#F0E6D6` | Crema más cálido |
-| Primario | `#C65D3B` | Terracota — CTAs, links, acentos |
-| Primario oscuro | `#A84A2C` | Hover |
-| Acento | `#6B7A4F` | Verde olivo |
-| Mostaza | `#C99A3F` | Detalles, precios |
-| Texto | `#2E2620` | Café cálido (no negro) |
-| Muted | `#8A7E6F` | Texto secundario |
-| Borde | `#E5D9C5` | Bordes suaves |
-| Hero | Degradado `#3D3226 → #6B4A35 → #A84A2C` | Café oscuro a terracota |
-
-Tipografía: **Playfair Display** (títulos) + **Lato** (cuerpo), vía `next/font/google`.
-Definida en `el-alteno/src/app/globals.css`.
-
----
-
-## Estructura del Código Construido
-
-```
-el-alteno/
-├── src/
-│   ├── app/
-│   │   ├── layout.tsx          # Fuentes + metadata SEO
-│   │   ├── page.tsx            # Ensambla todas las secciones
-│   │   └── globals.css         # ★ PALETA Y DESIGN SYSTEM aquí
-│   ├── components/
-│   │   ├── layout/Navbar.tsx   # Logo + nav + mobile hamburger
-│   │   ├── layout/Footer.tsx
-│   │   ├── sections/Hero.tsx
-│   │   ├── sections/About.tsx
-│   │   ├── sections/MenuSection.tsx
-│   │   ├── sections/Events.tsx     # Formulario Formspree
-│   │   ├── sections/Cocktails.tsx
-│   │   ├── sections/Location.tsx
-│   │   └── menu/MenuTabs.tsx + MenuItem.tsx
-│   ├── data/menu.ts            # ★ TODO EL MENÚ (55+ platillos, EN+ES)
-│   └── types/menu.ts
-└── public/images/
-    ├── logo/logo.png          # Logo en alta calidad
-    └── dishes/                # mojarra-frita, camarones-vallarta, enchiladas-pollo
-```
-
----
-
-## Fotos Disponibles (con foto real, resto usa emoji 🍽️)
-
-- ✅ Mojarra Frita (seafood)
-- ✅ Camarones a la Vallarta (seafood)
-- ✅ Enchiladas de Mole Rojo (enchiladas)
-- ⏳ Faltan fotos del resto de platillos
+| ¿CMS o estático? | Estático — el menú cambia 1-2 veces al año |
+| ¿Idioma? | Bilingüe con toggle en cliente (no rutas separadas) |
+| ¿Carrito / pagos? | **No** — solo presentación y contacto |
+| ¿Reservas? | Formulario Formspree, con teléfono como fallback visible |
+| ¿Paleta? | Cálido Artesanal (el cliente rechazó los rojos saturados) |
+| ¿Modo oscuro? | Sí, agregado después |
+| ¿Hosting? | Railway (el blueprint sugería Vercel — ver DEPLOYMENT.md para el trade-off) |
 
 ---
 
 ## Pendientes
 
-- [x] Generar blueprint completo → `the-architect/output/el-alteno-blueprint.md`
-- [x] Digitalizar menú completo desde fotos → `el-alteno/src/data/menu.ts`
-- [x] Logo en alta calidad integrado
-- [x] Construir el sitio (Next.js funcionando)
-- [x] Paleta "Cálido Artesanal" aplicada
-- [ ] Afinar tipografía, espaciado, animaciones Framer Motion
-- [ ] Conseguir e integrar fotos del resto de platillos
-- [ ] Configurar Formspree: crear cuenta gratis → poner ID en `el-alteno/.env.local`
-- [ ] Actualizar iframe de Google Maps con URL real
-- [ ] Verificar disponibilidad de dominio `elalteno.restaurant`
-- [ ] Crear página standalone `/menu` para QR en mesa
-- [ ] Deploy a Vercel (`cd el-alteno && npx vercel --yes`)
-- [ ] Compartir URL con DoorDash
+**Críticos:**
+- [ ] Configurar `NEXT_PUBLIC_FORMSPREE_ID` en Railway y verificar que llega el correo de prueba
+- [ ] Actualizar el iframe de Google Maps en `Location.tsx` con la URL real del negocio
+
+**Importantes:**
+- [ ] Verificar disponibilidad del dominio `elalteno.restaurant` y conectarlo
+- [ ] Conseguir fotos del resto de platillos
+- [ ] Generar el código QR apuntando a `/menu` para las mesas
+- [ ] Compartir la URL con DoorDash (objetivo original del proyecto)
+
+**Opcionales:**
+- [ ] Evaluar migrar a Vercel (gratis vs ~$5/mes en Railway — ver DEPLOYMENT.md)
+- [ ] Auditoría SEO y de accesibilidad antes del lanzamiento formal
 
 ---
 
 ## Para Retomar en Otro IDE
 
-1. Abre la carpeta raíz `El Alteno rest` en tu IDE
-2. Lee este `CONTEXT.md` completo
-3. `cd el-alteno && npm install && npm run dev`
-4. El design system vive en `el-alteno/src/app/globals.css` — cambia colores ahí
-5. El menú vive en `el-alteno/src/data/menu.ts`
-6. Build de verificación: `npm run build` (debe pasar sin errores)
+```bash
+git clone https://github.com/calvin316byBoxesMedia360/el-alteno-website.git
+cd el-alteno-website/el-alteno
+cp .env.example .env.local    # y llena NEXT_PUBLIC_FORMSPREE_ID
+npm install
+npm run dev
+```
+
+**Dónde tocar qué:**
+| Quiero cambiar… | Archivo |
+|---|---|
+| Colores / tipografía | `el-alteno/src/app/globals.css` |
+| Platillos, precios, descripciones | `el-alteno/src/data/menu.ts` |
+| Textos de secciones | El `.tsx` de la sección — usan `t("English", "Español")` |
+| Orden de secciones | `el-alteno/src/app/page.tsx` |
+
+**Siempre antes de subir:** `npm run build` debe pasar sin errores.
 
 ---
 
-*Última actualización: 2026-06-30 — sitio construido, paleta Cálido Artesanal aplicada*
-*Desarrollado con Claude Code*
+*Última actualización: 2026-07-27 — sitio en vivo en Railway, documentación de deploy y variables agregada*
