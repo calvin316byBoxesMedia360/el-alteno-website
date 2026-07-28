@@ -40,15 +40,11 @@ export default function Footer() {
             </li>
             <li className="flex justify-between gap-4 border-b border-white/5 pb-1">
               <span>{t("Sunday", "Domingo")}</span>
-              <span className="text-white font-medium">9:00 AM – 8:00 PM</span>
+              <span className="text-white font-medium">11:00 AM – 8:00 PM</span>
             </li>
             <li className="flex justify-between gap-4 text-xs text-muted-foreground/75">
-              <span>↳ {t("Sunday Breakfast", "Desayuno Dominical")}</span>
-              <span>9:00 – 11:45 AM</span>
-            </li>
-            <li className="flex justify-between gap-4 text-xs text-muted-foreground/75">
-              <span>↳ {t("Lunch Special (Tue–Sat)", "Almuerzo (Mar–Sáb)")}</span>
-              <span>11:00 AM – 2:00 PM</span>
+              <span>↳ {t("Lunch Specials", "Especiales de Lunch")}</span>
+              <span>11:00 AM – 3:00 PM</span>
             </li>
             <li className="mt-2 pt-2 text-terracota font-bold uppercase tracking-wider text-xs">
               {t("Monday — Closed", "Lunes — Cerrado")}

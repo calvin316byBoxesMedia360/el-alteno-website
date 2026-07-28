@@ -1,15 +1,18 @@
 export type MenuCategoryId =
-  | "appetizers"
   | "seafood"
   | "specialties"
   | "enchiladas"
   | "burritos"
   | "fajitas"
+  | "appetizers"
   | "vegetarian"
-  | "cocktails"
+  | "parrilladas"
+  | "tacos"
   | "salads"
-  | "breakfast"
-  | "lunch";
+  | "seafoodCocktails"
+  | "alacarta"
+  | "lunch"
+  | "desserts";
 
 export interface MenuCategory {
   id: MenuCategoryId;
@@ -17,6 +20,9 @@ export interface MenuCategory {
   labelEs: string;
   icon: string;
   order: number;
+  /** Optional line shown above the grid, e.g. "All plates served with rice, beans & corn tortillas" */
+  note?: string;
+  noteEs?: string;
 }
 
 export interface MenuItem {

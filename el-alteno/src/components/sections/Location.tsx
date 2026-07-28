@@ -130,15 +130,11 @@ export default function Location() {
                     </div>
                     <div className="flex justify-between border-b border-white/5 pb-1">
                       <span>{t("Sunday", "Domingo")}</span>
-                      <span className="text-foreground font-semibold">9:00 AM – 8:00 PM</span>
+                      <span className="text-foreground font-semibold">11:00 AM – 8:00 PM</span>
                     </div>
                     <div className="pl-4 text-xs flex justify-between text-muted-foreground/75">
-                      <span>↳ {t("Sunday Breakfast", "Desayuno Dominical")}</span>
-                      <span>9:00 AM – 11:45 AM</span>
-                    </div>
-                    <div className="pl-4 text-xs flex justify-between text-muted-foreground/75">
-                      <span>↳ {t("Lunch Special (Tue–Sat)", "Especial Almuerzo (Mar–Sáb)")}</span>
-                      <span>11:00 AM – 2:00 PM</span>
+                      <span>↳ {t("Lunch Specials", "Especiales de Lunch")}</span>
+                      <span>11:00 AM – 3:00 PM</span>
                     </div>
                     <div className="flex justify-between text-terracota font-bold pt-1">
                       <span>{t("Monday", "Lunes")}</span>

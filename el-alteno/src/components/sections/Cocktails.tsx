@@ -16,8 +16,8 @@ const cocktails = [
       "Tequila, lime, grapefruit, and orange juice served in a traditional clay cup over ice. The classic Jalisco cocktail — citrusy, refreshing, and unmistakably Mexican.",
     descriptionEs:
       "Tequila, limón, toronja y jugo de naranja servido en un cantarito de barro tradicional con hielo. El clásico cóctel jalisciense: cítrico, refrescante e indudablemente mexicano.",
-    badge: "Most Popular",
-    badgeEs: "El Más Popular",
+    badge: "Signature",
+    badgeEs: "De la Casa",
   },
   {
     id: "sunrise",
@@ -28,8 +28,8 @@ const cocktails = [
       "Premium tequila, fresh orange juice, and sweet grenadine layered beautifully to create a stunning sunrise gradient. Elegant, sweet, and photo-ready.",
     descriptionEs:
       "Tequila premium, jugo de naranja fresco y granadina dulce servidos en capas para crear el degradado de un hermoso amanecer. Elegante, dulce y perfecto para fotos.",
-    badge: "Classic",
-    badgeEs: "Clásico",
+    badge: "Signature",
+    badgeEs: "De la Casa",
   },
   {
     id: "chavela",
@@ -40,8 +40,8 @@ const cocktails = [
       "Chilled Mexican beer mixed with fresh lime juice, Clamato, hot sauce, and Worcestershire in a tajín and salt-rimmed glass. Bold, savory, and perfect with mariscos.",
     descriptionEs:
       "Cerveza mexicana fría mezclada con jugo de limón fresco, Clamato, salsa picante y salsa inglesa en un vaso escarchado con sal y tajín. Intenso, sabroso e ideal con mariscos.",
-    badge: "House Special",
-    badgeEs: "Especial de la Casa",
+    badge: "Signature",
+    badgeEs: "De la Casa",
   },
 ];
 
@@ -82,8 +82,8 @@ export default function Cocktails() {
             className="text-muted-foreground text-sm md:text-lg max-w-xl mx-auto"
           >
             {t(
-              "Three handcrafted drinks that define the El Alteño experience. Each one made with premium spirits and fresh, authentic ingredients.",
-              "Tres bebidas artesanales que definen la experiencia El Alteño. Cada una preparada con licores premium e ingredientes frescos y auténticos."
+              "Three drinks from our bar. Ask your server for the full drink list.",
+              "Tres bebidas de nuestra barra. Pregunta a tu mesero por la lista completa."
             )}
           </motion.p>
         </div>
@@ -140,7 +140,10 @@ export default function Cocktails() {
                   <span className="text-xs uppercase tracking-wider text-mustard font-semibold">
                     {t("Handcrafted", "Artesanal")}
                   </span>
-                  <span className="text-lg font-bold text-foreground">$9.99</span>
+                  {/* No price shown — drink prices are not on the printed menu. See MENU-SOURCE.md. */}
+                  <span className="text-xs text-muted-foreground">
+                    {t("Ask your server", "Pregunta a tu mesero")}
+                  </span>
                 </div>
               </div>
             </motion.div>
@@ -155,8 +158,8 @@ export default function Cocktails() {
           className="text-center text-xs md:text-sm text-muted-foreground mt-12 px-4"
         >
           {t(
-            "We also serve a full bar including imported beers, red & white wines, premium margaritas, and non-alcoholic options. Ask your server.",
-            "También contamos con barra completa que incluye cervezas importadas, vinos tintos y blancos, margaritas premium y opciones sin alcohol. Pregunte a su mesero."
+            "Our full bar is open during service. Ask your server about beer, wine and other drinks.",
+            "Nuestra barra está abierta durante el servicio. Pregunta a tu mesero por cervezas, vinos y otras bebidas."
           )}
         </motion.p>
       </div>
@@ -208,8 +211,9 @@ export default function Cocktails() {
                         {locale === "en" ? selectedCocktail.nameEs : selectedCocktail.name}
                       </span>
                     </h3>
-                    <span className="text-mustard font-extrabold text-base md:text-lg shrink-0">
-                      $9.99
+                    {/* No price shown — drink prices are not on the printed menu. See MENU-SOURCE.md. */}
+                    <span className="text-muted-foreground text-xs shrink-0 text-right">
+                      {t("Ask your server", "Pregunta a tu mesero")}
                     </span>
                   </div>
                   

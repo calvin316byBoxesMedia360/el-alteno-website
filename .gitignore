@@ -18,3 +18,15 @@ claude-webkit/
 # OS / editor
 .DS_Store
 Thumbs.db
+
+# Working copies of assets already committed under el-alteno/public/images/.
+# Keeping both would duplicate ~37MB in git history for no benefit.
+public/cantarito.jpg
+public/carne_asada.png
+public/chavela.png
+public/combo_enchilada_sope.png
+public/enchilada_salsa_verde.png
+public/hero_provisional.mp4
+public/plaza_watsonville.png
+public/sopes.png
+public/sunrise.png
