@@ -23,7 +23,7 @@ const cocktails = [
     id: "sunrise",
     name: "Tequila Sunrise",
     nameEs: "Tequila Sunrise",
-    image: "/images/cocktails/sunrise.png",
+    image: "/images/cocktails/sunrise.webp",
     description:
       "Premium tequila, fresh orange juice, and sweet grenadine layered beautifully to create a stunning sunrise gradient. Elegant, sweet, and photo-ready.",
     descriptionEs:

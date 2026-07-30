@@ -13,7 +13,7 @@ export default function Location() {
       {/* Subtle overlay background for the section */}
       <div className="absolute inset-0 z-0 opacity-10 mix-blend-overlay">
         <Image
-          src="/images/location/plaza_watsonville.png"
+          src="/images/location/plaza_watsonville.webp"
           alt="Watsonville Plaza Background"
           fill
           className="object-cover"

@@ -73,7 +73,7 @@ export const menuItems: MenuItem[] = [
     descriptionEs: "Camarones en nuestra salsa de chile picante de la casa.",
     price: 15.99,
     category: "seafood",
-    image: "/images/dishes/camarones-diabla.png",
+    image: "/images/dishes/camarones-diabla.webp",
     tags: ["spicy"],
     available: true,
   },
@@ -145,7 +145,7 @@ export const menuItems: MenuItem[] = [
     descriptionEs: "Camarones salteados o empanizados en nuestra salsa, envueltos en tocino y servidos con arroz, frijoles refritos, guacamole y papas.",
     price: 15.99,
     category: "seafood",
-    image: "/images/dishes/camarones-vallarta.png",
+    image: "/images/dishes/camarones-vallarta.webp",
     tags: [],
     available: true,
   },
@@ -211,7 +211,7 @@ export const menuItems: MenuItem[] = [
   },
   // PLACEHOLDER — the restaurant confirmed they still serve Mojarra Frita, but it
   // is not on the printed flyer so we have no price for it. Photo is ready at
-  // /images/dishes/mojarra-frita.png. To publish: set the real price and flip
+  // /images/dishes/mojarra-frita.webp. To publish: set the real price and flip
   // `available` to true. Do NOT guess the price.
   {
     id: "mojarra-frita",
@@ -221,7 +221,7 @@ export const menuItems: MenuItem[] = [
     descriptionEs: "Mojarra entera frita, crujiente por fuera y suave por dentro, servida con papas, frijoles refritos, arroz y tomate fresco.",
     price: 0, // ← TODO: confirm price with the restaurant before enabling
     category: "seafood",
-    image: "/images/dishes/mojarra-frita.png",
+    image: "/images/dishes/mojarra-frita.webp",
     tags: [],
     available: false, // hidden from the site until the price is confirmed
   },
@@ -295,7 +295,7 @@ export const menuItems: MenuItem[] = [
     descriptionEs: "Dos sopes rellenos de pollo al chipotle con naranja o res marinada, con col, crema, guacamole, salsa fresca y queso fresco. Arroz y frijoles.",
     price: 13.99,
     category: "specialties",
-    image: "/images/dishes/sopes.png",
+    image: "/images/dishes/sopes.webp",
     tags: [],
     available: true,
   },
@@ -379,7 +379,7 @@ export const menuItems: MenuItem[] = [
     descriptionEs: "Res asada, nopal, cebolla, arroz, frijoles, ensalada y tortillas.",
     price: 17.99,
     category: "specialties",
-    image: "/images/dishes/carne-asada.png",
+    image: "/images/dishes/carne-asada.webp",
     tags: [],
     available: true,
   },
@@ -441,7 +441,7 @@ export const menuItems: MenuItem[] = [
     descriptionEs: "Dos enchiladas de pollo bañadas en mole rojo de Puebla, con crema, guacamole y queso fresco. Arroz y frijoles.",
     price: 14.99,
     category: "enchiladas",
-    image: "/images/dishes/enchiladas-pollo.png",
+    image: "/images/dishes/enchiladas-pollo.webp",
     tags: [],
     available: true,
   },
@@ -453,7 +453,7 @@ export const menuItems: MenuItem[] = [
     descriptionEs: "Dos enchiladas rellenas de pollo al chipotle con tomatillo, bañadas en pipián mole verde, con crema, guacamole y queso fresco. Arroz, frijoles y tortillas.",
     price: 14.99,
     category: "enchiladas",
-    image: "/images/dishes/enchilada-salsa-verde.png",
+    image: "/images/dishes/enchilada-salsa-verde.webp",
     tags: [],
     available: true,
   },
@@ -625,7 +625,7 @@ export const menuItems: MenuItem[] = [
     descriptionEs: "Servidas en sartén caliente con pimiento rojo y champiñones. Incluye arroz, frijoles, crema, guacamole, salsa fresca y tortillas calientes.",
     price: 15.99,
     category: "fajitas",
-    image: "/images/dishes/fajitas-pollo.png",
+    image: "/images/dishes/fajitas-pollo.webp",
     tags: [],
     available: true,
   },
