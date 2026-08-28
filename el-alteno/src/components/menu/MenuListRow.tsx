@@ -17,7 +17,7 @@ export default function MenuListRow({ item }: { item: MenuItemType }) {
   return (
     <div className="group break-inside-avoid mb-6">
       <div className="flex items-baseline gap-2">
-        <h3 className="font-heading font-bold text-[#FAF6EF] text-sm md:text-base leading-tight group-hover:text-[#C99A3F] transition-colors">
+        <h3 className="font-heading font-bold text-foreground text-sm md:text-base leading-tight group-hover:text-[#C99A3F] transition-colors">
           {locale === "en" ? item.name : item.nameEs}
         </h3>
         <span
