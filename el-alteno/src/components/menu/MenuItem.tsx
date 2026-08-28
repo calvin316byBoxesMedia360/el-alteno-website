@@ -7,26 +7,16 @@ import { Badge } from "@/components/ui/badge";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
-
-const categoryPlaceholders: Record<string, string> = {
-  seafood: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=500&q=80",
-  specialties: "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=500&q=80",
-  appetizers: "https://images.unsplash.com/photo-1615870216519-2f9fa575fa5c?w=500&q=80",
-  enchiladas: "https://images.unsplash.com/photo-1534790566855-4cb788d389ec?w=500&q=80",
-  burritos: "https://images.unsplash.com/photo-1626700051175-6518c4793f4f?w=500&q=80",
-  fajitas: "https://images.unsplash.com/photo-1534939561126-855b8675edd7?w=500&q=80",
-  vegetarian: "https://images.unsplash.com/photo-1582234375422-57ed544850d5?w=500&q=80",
-  cocktails: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=500&q=80",
-  salads: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500&q=80",
-  breakfast: "https://images.unsplash.com/photo-1525351484163-7529414344d8?w=500&q=80",
-  lunch: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=500&q=80",
-};
+import MenuListRow from "./MenuListRow";
 
 export default function MenuItem({ item }: { item: MenuItemType }) {
   const { locale, t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   
-  const displayImage = item.image || categoryPlaceholders[item.category] || "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=500&q=80";
+  // No photograph of our own means no image at all — the dish reads as a
+  // printed-menu row instead of borrowing a stock photo.
+  if (!item.image) return <MenuListRow item={item} />;
+  const displayImage = item.image;
 
   return (
     <>

@@ -2,20 +2,90 @@ import Image from "next/image";
 import Link from "next/link";
 import { categories, menuItems } from "@/data/menu";
 import { Badge } from "@/components/ui/badge";
+import { MenuItem } from "@/types/menu";
 
-const categoryPlaceholders: Record<string, string> = {
-  seafood: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=500&q=80",
-  specialties: "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=500&q=80",
-  appetizers: "https://images.unsplash.com/photo-1615870216519-2f9fa575fa5c?w=500&q=80",
-  enchiladas: "https://images.unsplash.com/photo-1534790566855-4cb788d389ec?w=500&q=80",
-  burritos: "https://images.unsplash.com/photo-1626700051175-6518c4793f4f?w=500&q=80",
-  fajitas: "https://images.unsplash.com/photo-1534939561126-855b8675edd7?w=500&q=80",
-  vegetarian: "https://images.unsplash.com/photo-1582234375422-57ed544850d5?w=500&q=80",
-  cocktails: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=500&q=80",
-  salads: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500&q=80",
-  breakfast: "https://images.unsplash.com/photo-1525351484163-7529414344d8?w=500&q=80",
-  lunch: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=500&q=80",
-};
+function ItemTags({ item, className = "" }: { item: MenuItem; className?: string }) {
+  if (!item.tags.some((x) => ["popular", "spicy", "signature"].includes(x))) return null;
+  return (
+    <div className={`flex flex-wrap gap-1 ${className}`}>
+      {item.tags.includes("popular") && (
+        <Badge className="bg-[#C65D3B] text-white text-[9px] px-1.5 py-0">Popular</Badge>
+      )}
+      {item.tags.includes("spicy") && (
+        <Badge className="bg-[#C99A3F] text-white text-[9px] px-1.5 py-0">🌶 Spicy</Badge>
+      )}
+      {item.tags.includes("signature") && (
+        <Badge className="bg-[#6B7A4F] text-white text-[9px] px-1.5 py-0">Signature</Badge>
+      )}
+    </div>
+  );
+}
+
+/** Card for a dish photographed at the restaurant. Only 18 dishes have one. */
+function PhotoCard({ item }: { item: MenuItem }) {
+  return (
+    <div className="bg-white rounded-xl border border-[#E5D9C5] overflow-hidden shadow-sm flex">
+      {/* Image side */}
+      <div className="relative w-24 sm:w-32 h-auto min-h-[96px] bg-[#F0E6D6] shrink-0">
+        <Image src={item.image!} alt={item.name} fill className="object-cover" />
+      </div>
+
+      {/* Content side */}
+      <div className="p-3 flex flex-col justify-between flex-1">
+        <div>
+          <div className="flex items-start justify-between gap-2 mb-1">
+            <h3
+              className="font-bold text-[#2E2620] text-sm leading-tight"
+              style={{ fontFamily: "var(--font-playfair)" }}
+            >
+              {item.name}{" "}
+              <span className="text-[#8A7E6F] font-sans font-normal text-xs block mt-0.5">
+                {item.nameEs}
+              </span>
+            </h3>
+            <span className="text-[#C99A3F] font-bold text-sm shrink-0">
+              ${item.price.toFixed(2)}
+            </span>
+          </div>
+          <p className="text-[#8A7E6F] text-[11px] leading-snug mb-1">{item.description}</p>
+          <p className="text-[#8A7E6F] italic text-[11px] leading-snug">{item.descriptionEs}</p>
+        </div>
+
+        <ItemTags item={item} className="mt-2" />
+      </div>
+    </div>
+  );
+}
+
+/**
+ * Printed-menu row for the 65 dishes with no photograph of their own.
+ * No image slot and no stock photography: name, dotted leader, price.
+ */
+function ListRow({ item }: { item: MenuItem }) {
+  return (
+    <div className="break-inside-avoid mb-5">
+      <div className="flex items-baseline gap-2">
+        <h3
+          className="font-bold text-[#2E2620] text-sm leading-tight"
+          style={{ fontFamily: "var(--font-playfair)" }}
+        >
+          {item.name}
+        </h3>
+        <span
+          aria-hidden
+          className="flex-1 border-b border-dotted border-[#C99A3F]/45 relative -top-1"
+        />
+        <span className="text-[#C99A3F] font-bold text-sm shrink-0 tabular-nums">
+          ${item.price.toFixed(2)}
+        </span>
+      </div>
+      <p className="text-[#8A7E6F] text-[11px] leading-snug">{item.nameEs}</p>
+      <p className="text-[#8A7E6F] text-[11px] leading-snug mt-1">{item.description}</p>
+      <p className="text-[#8A7E6F] italic text-[11px] leading-snug">{item.descriptionEs}</p>
+      <ItemTags item={item} className="mt-1.5" />
+    </div>
+  );
+}
 
 export default function QRMenuPage() {
   return (
@@ -84,6 +154,9 @@ export default function QRMenuPage() {
             const items = menuItems.filter((item) => item.category === cat.id && item.available);
             if (items.length === 0) return null;
 
+            const withPhoto = items.filter((item) => item.image);
+            const withoutPhoto = items.filter((item) => !item.image);
+
             return (
               <section key={cat.id} id={cat.id} className="scroll-mt-24">
                 <div className="flex items-center gap-4 mb-6">
@@ -91,64 +164,39 @@ export default function QRMenuPage() {
                     className="text-2xl font-bold text-[#C65D3B] whitespace-nowrap"
                     style={{ fontFamily: "var(--font-playfair)" }}
                   >
-                    {cat.label} <span className="text-sm font-medium text-[#8A7E6F] font-sans">/ {cat.labelEs}</span>
+                    {cat.label}{" "}
+                    <span className="text-sm font-medium text-[#8A7E6F] font-sans">
+                      / {cat.labelEs}
+                    </span>
                   </h2>
                   <div className="h-px bg-[#E5D9C5] w-full" />
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {items.map((item) => (
-                    <div
-                      key={item.id}
-                      className="bg-white rounded-xl border border-[#E5D9C5] overflow-hidden shadow-sm flex"
-                    >
-                      {/* Image side */}
-                      <div className="relative w-24 sm:w-32 h-auto min-h-[96px] bg-[#F0E6D6] shrink-0">
-                        <Image
-                          src={item.image || categoryPlaceholders[item.category] || "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=500&q=80"}
-                          alt={item.name}
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
+                {withPhoto.length > 0 && (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {withPhoto.map((item) => (
+                      <PhotoCard key={item.id} item={item} />
+                    ))}
+                  </div>
+                )}
 
-                      {/* Content side */}
-                      <div className="p-3 flex flex-col justify-between flex-1">
-                        <div>
-                          <div className="flex items-start justify-between gap-2 mb-1">
-                            <h3
-                              className="font-bold text-[#2E2620] text-sm leading-tight"
-                              style={{ fontFamily: "var(--font-playfair)" }}
-                            >
-                              {item.name} <span className="text-[#8A7E6F] font-sans font-normal text-xs block mt-0.5">{item.nameEs}</span>
-                            </h3>
-                            <span className="text-[#C99A3F] font-bold text-sm shrink-0">
-                              ${item.price.toFixed(2)}
-                            </span>
-                          </div>
-                          <p className="text-[#8A7E6F] text-[11px] leading-snug mb-1">
-                            {item.description}
-                          </p>
-                          <p className="text-[#8A7E6F] italic text-[11px] leading-snug">
-                            {item.descriptionEs}
-                          </p>
-                        </div>
-                        
-                        <div className="flex flex-wrap gap-1 mt-2">
-                          {item.tags.includes("popular") && (
-                            <Badge className="bg-[#C65D3B] text-white text-[9px] px-1.5 py-0">Popular</Badge>
-                          )}
-                          {item.tags.includes("spicy") && (
-                            <Badge className="bg-[#C99A3F] text-white text-[9px] px-1.5 py-0">🌶 Spicy</Badge>
-                          )}
-                          {item.tags.includes("signature") && (
-                            <Badge className="bg-[#6B7A4F] text-white text-[9px] px-1.5 py-0">Signature</Badge>
-                          )}
-                        </div>
+                {withoutPhoto.length > 0 && (
+                  <div className={withPhoto.length > 0 ? "mt-8" : ""}>
+                    {withPhoto.length > 0 && (
+                      <div className="flex items-center gap-3 mb-5">
+                        <span className="text-[#C99A3F] text-[10px] font-bold uppercase tracking-[0.2em] whitespace-nowrap">
+                          Also on the menu / También en la carta
+                        </span>
+                        <span className="h-px flex-1 bg-[#E5D9C5]" />
                       </div>
+                    )}
+                    <div className="columns-1 md:columns-2 gap-x-10">
+                      {withoutPhoto.map((item) => (
+                        <ListRow key={item.id} item={item} />
+                      ))}
                     </div>
-                  ))}
-                </div>
+                  </div>
+                )}
               </section>
             );
           })}
