@@ -39,7 +39,9 @@ export default function Hero() {
           {...entrance(0)}
           className="mb-7 flex items-center justify-center gap-4 text-[11px] font-bold uppercase tracking-[0.24em] text-[#D8A34B] sm:text-xs md:mb-8 md:text-sm"
         >
-          <span>MX&nbsp; {t("Welcome", "Bienvenidos")}</span>
+          {/* Fixed label — one greeting per flag, not a localisable string.
+              Wrapping it in t() read "MX Welcome · US Welcome" in English. */}
+          <span>MX&nbsp; Bienvenidos</span>
           <span className="h-7 w-px bg-[#D8A34B]/70" aria-hidden="true" />
           <span>US&nbsp; Welcome</span>
         </motion.div>
