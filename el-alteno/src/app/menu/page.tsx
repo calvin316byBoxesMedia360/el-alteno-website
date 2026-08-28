@@ -105,7 +105,7 @@ export default function QRMenuPage() {
               alt="El Alteño"
               fill
               className="object-contain"
-              priority
+              loading="eager"
             />
           </div>
           <a

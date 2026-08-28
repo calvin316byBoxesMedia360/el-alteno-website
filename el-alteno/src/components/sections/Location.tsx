@@ -17,7 +17,6 @@ export default function Location() {
           alt="Watsonville Plaza Background"
           fill
           className="object-cover"
-          priority
         />
       </div>
 

@@ -34,7 +34,7 @@ export default function Navbar() {
             alt="El Alteño Logo"
             width={100}
             height={60}
-            priority
+            loading="eager"
             className="h-10 w-auto object-contain brightness-100 dark:brightness-100 transition-all"
           />
         </a>
