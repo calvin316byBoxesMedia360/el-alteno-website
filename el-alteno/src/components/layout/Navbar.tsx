@@ -28,7 +28,7 @@ export default function Navbar() {
         className="max-w-5xl mx-auto bg-card/90 backdrop-blur-md border border-mustard/20 h-16 rounded-full px-6 flex items-center justify-between shadow-xl pointer-events-auto transition-colors duration-300"
       >
         {/* Logo */}
-        <a href="#" className="flex items-center">
+        <a href="#" className="flex items-center min-h-11">
           <Image
             src="/images/logo/logo.png"
             alt="El Alteño Logo"
@@ -54,7 +54,7 @@ export default function Navbar() {
           {/* Theme Toggle Desktop */}
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-full border border-mustard/25 text-mustard hover:bg-mustard/10 transition-all cursor-pointer"
+            className="min-h-11 min-w-11 flex items-center justify-center rounded-full border border-mustard/25 text-mustard hover:bg-mustard/10 transition-all cursor-pointer"
             aria-label="Toggle Theme"
           >
             {theme === "dark" ? <Sun size={14} /> : <Moon size={14} />}
@@ -63,7 +63,7 @@ export default function Navbar() {
           {/* Language Toggle Desktop */}
           <button
             onClick={() => setLocale(locale === "en" ? "es" : "en")}
-            className="text-[10px] tracking-wider font-extrabold px-3 py-1.5 rounded-full border border-mustard/25 text-mustard hover:bg-mustard/10 transition-all flex items-center gap-1.5 cursor-pointer uppercase"
+            className="text-[10px] tracking-wider font-extrabold px-3 min-h-11 rounded-full border border-mustard/25 text-mustard hover:bg-mustard/10 transition-all flex items-center gap-1.5 cursor-pointer uppercase"
           >
             <Globe size={12} />
             <span>{locale === "en" ? "Español" : "English"}</span>
@@ -84,7 +84,7 @@ export default function Navbar() {
           {/* Theme Toggle Mobile */}
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-full border border-mustard/25 text-mustard hover:bg-mustard/10 transition-all cursor-pointer"
+            className="min-h-11 min-w-11 flex items-center justify-center rounded-full border border-mustard/25 text-mustard hover:bg-mustard/10 transition-all cursor-pointer"
             aria-label="Toggle Theme"
           >
             {theme === "dark" ? <Sun size={12} /> : <Moon size={12} />}
@@ -93,7 +93,7 @@ export default function Navbar() {
           {/* Language Toggle Mobile */}
           <button
             onClick={() => setLocale(locale === "en" ? "es" : "en")}
-            className="text-[10px] tracking-wider font-extrabold px-2.5 py-1.5 rounded-full border border-mustard/25 text-mustard hover:bg-mustard/10 transition-all flex items-center gap-1 cursor-pointer uppercase"
+            className="text-[10px] tracking-wider font-extrabold px-2.5 min-h-11 rounded-full border border-mustard/25 text-mustard hover:bg-mustard/10 transition-all flex items-center gap-1 cursor-pointer uppercase"
           >
             <Globe size={11} />
             <span>{locale === "en" ? "ES" : "EN"}</span>
@@ -101,7 +101,7 @@ export default function Navbar() {
 
           {/* Mobile hamburger */}
           <button
-            className="p-2 text-foreground"
+            className="min-h-11 min-w-11 flex items-center justify-center text-foreground"
             onClick={() => setOpen(!open)}
             aria-label="Toggle menu"
           >

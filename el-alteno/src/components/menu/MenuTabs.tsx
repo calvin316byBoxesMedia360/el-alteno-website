@@ -31,7 +31,7 @@ export default function MenuTabs({ categories, items }: Props) {
             <button
               key={cat.id}
               onClick={() => setActive(cat.id)}
-              className={`px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
+              className={`px-5 min-h-11 rounded-full text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
                 active === cat.id
                   ? "bg-terracota text-white shadow-lg shadow-terracota/20 border border-transparent"
                   : "bg-[#1E1A17] text-muted-foreground border border-[#E5D9C5]/10 hover:border-mustard/40 hover:text-mustard"
