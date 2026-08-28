@@ -44,14 +44,14 @@ export default function MenuItem({ item }: { item: MenuItemType }) {
         <div className="p-5 flex flex-col flex-1 justify-between">
           <div>
             <div className="flex items-start justify-between gap-2 mb-2">
-              <h3 className="font-bold text-[#FAF6EF] text-sm md:text-base leading-tight group-hover:text-[#C99A3F] transition-colors font-heading">
+              <h3 className="font-bold text-[#FAF6EF] text-xl md:text-2xl leading-tight group-hover:text-[#C99A3F] transition-colors font-heading">
                 {locale === "en" ? item.name : item.nameEs}
               </h3>
-              <span className="text-mustard font-extrabold text-sm md:text-base shrink-0">
+              <span className="text-mustard font-extrabold text-xl md:text-2xl shrink-0">
                 ${item.price.toFixed(2)}
               </span>
             </div>
-            <p className="text-muted-foreground text-xs leading-relaxed line-clamp-3 mb-4">
+            <p className="text-muted-foreground text-lg leading-relaxed line-clamp-3 mb-4">
               {locale === "en" ? item.description : item.descriptionEs}
             </p>
           </div>
