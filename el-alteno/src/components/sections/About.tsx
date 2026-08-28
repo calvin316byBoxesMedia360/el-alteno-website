@@ -6,28 +6,28 @@ import { useLanguage } from "@/context/LanguageContext";
 
 const featureCards = [
   {
-    icon: "/images/about/shrimp.png",
+    icon: "/images/about/shrimp.webp",
     label: "Fresh Mariscos",
     labelEs: "Mariscos Frescos",
     detail: "Seafood prepared daily",
     detailEs: "Mariscos frescos diario",
   },
   {
-    icon: "/images/about/celebration.png",
+    icon: "/images/about/celebration.webp",
     label: "Private Events",
     labelEs: "Eventos Privados",
     detail: "Up to 100 guests",
     detailEs: "Hasta 100 personas",
   },
   {
-    icon: "/images/about/cocktail.png",
+    icon: "/images/about/cocktail.webp",
     label: "Signature Drinks",
     labelEs: "Bebidas de la Casa",
     detail: "Cantaritos & more",
     detailEs: "Cantaritos y más",
   },
   {
-    icon: "/images/about/takeout.png",
+    icon: "/images/about/takeout.webp",
     label: "Online Ordering",
     labelEs: "Pedidos en Línea",
     detail: "DoorDash & Uber Eats",
@@ -46,7 +46,7 @@ export default function About() {
     >
       <div className="pointer-events-none absolute inset-0 -z-30" aria-hidden="true">
         <Image
-          src="/images/about/story-food-frame.png"
+          src="/images/about/story-food-frame.webp"
           alt=""
           fill
           sizes="100vw"
@@ -119,7 +119,7 @@ export default function About() {
           <div className="relative mb-3 min-h-[126px] overflow-hidden rounded-2xl border border-[#E1A24A]/80 bg-[radial-gradient(circle_at_82%_42%,rgba(248,160,91,.2),transparent_34%),linear-gradient(135deg,#9c3f1d,#6d2715)] px-4 py-4 shadow-[inset_0_1px_0_rgba(255,211,137,.2),0_14px_32px_rgba(79,25,10,.28)] sm:min-h-[146px] sm:px-6 sm:py-5">
             <div className="pointer-events-none absolute right-2 top-1/2 h-[52%] w-[29%] -translate-y-1/2 sm:right-5 sm:h-[58%] sm:w-[30%]">
               <Image
-                src="/images/about/tortilla-engraving.png"
+                src="/images/about/tortilla-engraving.webp"
                 alt=""
                 fill
                 sizes="(max-width: 768px) 26vw, 220px"
