@@ -213,7 +213,7 @@ Use a prompt under 200 tokens:
 Cinematic overhead close-up of an authentic Mexican tortilla station. The frame contains only clean hands and forearms, a metal tortilla press, corn masa, and a seasoned black comal. A small masa ball is pressed, lifted carefully, placed beside several cooking tortillas, then flipped once as light steam rises. Warm amber kitchen light, tactile masa texture, realistic food motion, centered action, locked camera, seamless loop-friendly ending. Branding, faces, torsos, captions, and written graphics are absent.
 ```
 
-Submit with Seedance 2.0, duration `6`, aspect ratio `16:9`, review resolution `720p`, no audio parameter, `--wait`, and JSON output.
+Submit with Seedance 2.0, duration `6`, aspect ratio `16:9`, review resolution `720p`, explicit `--generate_audio false`, `--wait`, and JSON output. The current model schema defaults `generate_audio` to `true`, so omitting this flag would violate the approved silent-video requirement.
 
 **Step 4: Generate candidate B**
 
@@ -223,7 +223,7 @@ Use:
 Tight low side-angle macro shot across a hot black comal in a traditional Mexican kitchen. Only hands and forearms enter the frame. A freshly pressed corn tortilla lands on the griddle, tiny bubbles form, it puffs gently, then the hands flip it as soft steam catches warm terracotta light. Shallow depth of field, crisp tortilla texture, subtle natural camera energy, centered action, loop-friendly ending. Branding, faces, bodies, captions, and written graphics are absent.
 ```
 
-Submit with the same six-second, `16:9`, `720p`, silent parameters and wait for completion.
+Submit with the same six-second, `16:9`, `720p`, explicit `--generate_audio false` parameters and wait for completion.
 
 **Step 5: Present both results and pause**
 
