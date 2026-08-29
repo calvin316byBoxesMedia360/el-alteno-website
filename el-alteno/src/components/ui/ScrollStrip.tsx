@@ -57,9 +57,13 @@ export default function ScrollStrip({
     el.addEventListener("scroll", measure, { passive: true });
     const ro = new ResizeObserver(measure);
     ro.observe(el);
+    Array.from(el.children).forEach((child) => ro.observe(child));
+    const mo = new MutationObserver(measure);
+    mo.observe(el, { characterData: true, childList: true, subtree: true });
     return () => {
       el.removeEventListener("scroll", measure);
       ro.disconnect();
+      mo.disconnect();
     };
   }, [measure]);
 
@@ -68,6 +72,7 @@ export default function ScrollStrip({
     const el = ref.current;
     if (!el) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const timers: number[] = [];
 
     const io = new IntersectionObserver(
       (entries) => {
@@ -77,15 +82,15 @@ export default function ScrollStrip({
         io.disconnect();
         const t1 = window.setTimeout(() => el.scrollTo({ left: 40, behavior: "smooth" }), 600);
         const t2 = window.setTimeout(() => el.scrollTo({ left: 0, behavior: "smooth" }), 1250);
-        return () => {
-          window.clearTimeout(t1);
-          window.clearTimeout(t2);
-        };
+        timers.push(t1, t2);
       },
       { threshold: 0.6 }
     );
     io.observe(el);
-    return () => io.disconnect();
+    return () => {
+      io.disconnect();
+      timers.forEach((timer) => window.clearTimeout(timer));
+    };
   }, []);
 
   const step = (dir: 1 | -1) => {
@@ -113,6 +118,7 @@ export default function ScrollStrip({
       <button
         type="button"
         aria-label="Anterior"
+        disabled={!left}
         onClick={() => step(-1)}
         className={`${arrow} -left-1 ${left ? "opacity-100" : "pointer-events-none opacity-0"}`}
       >
@@ -132,6 +138,7 @@ export default function ScrollStrip({
       <button
         type="button"
         aria-label="Siguiente"
+        disabled={!right}
         onClick={() => step(1)}
         className={`${arrow} -right-1 ${right ? "opacity-100" : "pointer-events-none opacity-0"}`}
       >

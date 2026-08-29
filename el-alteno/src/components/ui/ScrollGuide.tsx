@@ -82,7 +82,7 @@ export default function ScrollGuide() {
       <a
         href="#about"
         aria-label={t("Scroll to explore", "Desplázate para explorar")}
-        className="fixed bottom-4 left-1/2 z-30 flex -translate-x-1/2 flex-col items-center gap-1.5 sm:bottom-6 sm:gap-2"
+        className="fixed bottom-4 left-4 z-30 flex flex-col items-center gap-1.5 sm:bottom-6 sm:left-6 sm:gap-2"
         style={{
           opacity: heroOpacity,
           pointerEvents: heroOpacity < 0.15 ? "none" : "auto",
@@ -108,7 +108,7 @@ export default function ScrollGuide() {
       <div
         aria-hidden
         className="pointer-events-none fixed left-3 top-1/2 z-30 hidden -translate-y-1/2 md:block"
-        style={{ opacity: railOpacity, transition: "opacity 300ms ease-out" }}
+        style={{ opacity: railOpacity, transition: reduce ? "none" : "opacity 300ms ease-out" }}
       >
         <span className="relative block h-32 w-[3px] overflow-hidden rounded-full bg-foreground/12">
           <span
