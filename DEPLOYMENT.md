@@ -105,9 +105,14 @@ SSL es automático en ambas.
 ## Checklist antes de cada deploy
 
 - [ ] `cd el-alteno && npm run build` pasa sin errores
-- [ ] Probado en móvil (375px) y escritorio
+- [ ] Probado a **360, 375, 393, 412 y 430 px**, no solo en uno — son los anchos reales de Android e iPhone
+- [ ] Ningún control por debajo de 44×44 px, ningún campo de formulario bajo 16 px (Safari de iOS hace zoom y deja la página torcida)
 - [ ] Toggle ES/EN funciona en todas las secciones
-- [ ] Modo claro/oscuro funciona
+- [ ] Modo claro y oscuro, **cargando cada uno de cero**, no alternando con el conmutador (§8 del HANDOFF explica por qué)
 - [ ] Formulario de eventos envía y **llega el correo**
 - [ ] El video del hero carga (o degrada bien si no)
 - [ ] Página `/menu` carga (es la del código QR en mesa)
+
+## Nota sobre el desarrollo en red local
+
+Para revisar desde un teléfono, la IP del equipo debe estar en `allowedDevOrigins` en `el-alteno/next.config.ts`. Sin eso el móvil recibe el HTML pero no el JavaScript, y la página se ve como un esqueleto estático sin platillos. Es configuración **solo de desarrollo**: no afecta a producción.

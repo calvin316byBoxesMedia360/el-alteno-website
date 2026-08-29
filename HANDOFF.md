@@ -338,20 +338,59 @@ Encaja limpio en: fondos y texturas, material de marketing, o un hero más liger
 ## 11. Antes de desplegar
 
 1. `NEXT_PUBLIC_FORMSPREE_ID` configurado en Railway — **enviar el formulario de eventos y confirmar que llega el correo.** Sin esa variable falla en silencio: el visitante cree que reservó y no llega nada
-2. Reemplazar el iframe de Google Maps en `Location.tsx` si sigue con coordenadas de ejemplo
+2. ~~Reemplazar el iframe de Google Maps~~ — **verificado el 2026-08-28: no es un placeholder**, apunta a coordenadas reales de Watsonville (36.9099, −121.7595). Notas anteriores que decían lo contrario estaban equivocadas
 3. **Root Directory = `el-alteno`** en la plataforma de hosting. No está en el código; vive en el dashboard. Sin eso el build falla al instante
 4. `npm run build` en verde
 5. Revisado a 375 px y 1440 px, en ambos idiomas y ambos temas
 
 ---
 
-## 12. Primer paso sugerido para la sesión nueva
+## 12. Cómo empezar la siguiente sesión
 
-**Mergear el PR #2.** Todo el trabajo está hecho, verificado y publicado; producción lleva 17 commits de retraso y sigue mostrando carne sobre un platillo vegetariano y comida de otro restaurante junto a precios reales. Al mergear, cerrar PR #1 sin mergear: ya va absorbido.
+Cinco minutos de arranque, en este orden:
 
-Antes de desplegar, lo único que puede fallar en silencio es `NEXT_PUBLIC_FORMSPREE_ID` en Railway (§11).
+```bash
+cd "…/El Alteno rest/el-alteno"
+npm install          # solo la primera vez en una máquina nueva
+npm run dev          # → http://localhost:3000
+npm run build        # confirma que la base está sana antes de tocar nada
+```
 
-Después: `chavela.png` (2.2 MB en línea, §5) y los hallazgos de §6.
+Luego, antes de escribir código:
+
+1. **Lee §2** (la regla del menú) y **§6b** (las dos reglas no obvias de la paleta). Son las dos cosas que más caro han costado.
+2. **Mira §8.** Son diez trampas reales de este entorno, cada una con horas detrás. Las tres más recientes son de medición: una pestaña vieja sirve CSS viejo, medir contraste tras cambiar de tema da valores interpolados, y el servidor de desarrollo bloquea el móvil por origen cruzado.
+3. **Comprueba el estado real** antes de afirmar nada: `git status`, `gh pr view 2`, y el sitio en vivo. Producción y la rama llevan meses divergiendo.
+
+### El siguiente paso del proyecto
+
+**Mergear el PR #2 y desplegar.** No hay trabajo técnico bloqueando: está hecho, verificado y publicado.
+
+Lo que hay en juego es concreto. Producción lleva **17 commits de retraso** y hoy mismo, en el sitio que ve el público:
+
+- una fotografía de **carne** ilustra *Two Sopes de Guacamole*, un platillo **vegetariano**
+- **65 de 83 platillos** muestran comida de otro restaurante junto a precios reales, incluida la carta del código QR de mesa
+- en modo claro, la **descripción de un platillo mide 1.48:1** contra su propia tarjeta y el **precio 2.29:1**
+- el formulario de eventos **hace zoom en iPhone** y deja la página torcida, en el embudo más rentable del restaurante
+
+Orden sugerido:
+
+1. Mergear PR #2 hacia `master`. Cerrar PR #1 **sin mergear** — ya va absorbido.
+2. Confirmar `NEXT_PUBLIC_FORMSPREE_ID` en Railway y **enviar el formulario de verdad**. Es lo único que puede fallar en silencio.
+3. Verificar el sitio desplegado a 375 y 393 px, en ambos temas.
+
+### Después del despliegue
+
+| Prioridad | Qué |
+|---|---|
+| Alta | Decidir sobre los **colores de marca bajo AA** (§6) — es decisión del cliente, no una edición técnica |
+| Alta | `chavela.png`, 2.2 MB en línea (§5) — bloqueado por revisión de marcas de terceros |
+| Media | Arte oficial de las marcas de pago, en vez de los dibujos simplificados |
+| Media | Mostrar las **notas de categoría** que ya existen en los datos y no se renderizan |
+| Media | Quitar el bloque de pagos duplicado en Ubicación |
+| Baja | Dominio propio (`elalteno.restaurant`), generar el QR hacia `/menu`, y enviar la URL a DoorDash |
+
+Sigue bloqueado por el restaurante todo lo de §7 — sobre todo el precio de la Mojarra Frita y la contradicción del horario de Lunch Specials.
 
 ---
 
