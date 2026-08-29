@@ -10,10 +10,11 @@ import type { NextConfig } from "next";
  * on the LAN returns 403 for the JS chunks: the HTML renders but hydration
  * never runs, and every element Framer Motion starts at opacity 0 stays
  * invisible. Listing the machine's LAN address makes on-device review work.
- * If the router hands out a different address, update this list.
+ * Localhost is included for the in-app review; if the router hands out a
+ * different LAN address, update this list.
  */
 const nextConfig: NextConfig = {
-  allowedDevOrigins: ["192.168.1.201"],
+  allowedDevOrigins: ["127.0.0.1", "localhost", "192.168.1.201"],
 };
 
 export default nextConfig;
