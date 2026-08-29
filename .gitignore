@@ -30,3 +30,8 @@ public/hero_provisional.mp4
 public/plaza_watsonville.png
 public/sopes.png
 public/sunrise.png
+
+# Claude Code local tooling
+# Skills are vendored from claude-webkit (~1.9 MB) — reinstall with:
+#   cp -r claude-webkit/.claude/skills/<name> .claude/skills/
+.claude/skills/

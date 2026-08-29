@@ -3,7 +3,7 @@
 Official website for **El Alteño — Auténtica Comida Mexicana**, Watsonville, CA.
 Bilingual (EN/ES) site with the full digital menu, private-events booking, signature drinks and location.
 
-> **Resuming this project?** Read [`../CONTEXT.md`](../CONTEXT.md) for the full project context and [`../DEPLOYMENT.md`](../DEPLOYMENT.md) before deploying.
+> **Resuming this project?** Start with [`../HANDOFF.md`](../HANDOFF.md) — it is the current working document and supersedes `CONTEXT.md`. Read [`../DEPLOYMENT.md`](../DEPLOYMENT.md) before deploying.
 
 ---
 
@@ -75,12 +75,18 @@ Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS v4 · shadcn/u
 
 The client **rejected** a saturated red/orange palette. Keep it warm and restrained.
 
-| | Light | Dark |
+| | Light (soft beige) | Dark |
 |---|---|---|
-| Background | `#FAF6EF` | `#161311` |
-| Text | `#2E2620` | `#FAF6EF` |
-| Primary (terracota) | `#C65D3B` | `#C65D3B` |
-| Accent (mustard) | `#C99A3F` | `#C99A3F` |
+| Page background | `#D2C09C` | `#161311` |
+| Card surface | `#E4D6B8` | `rgba(250,246,239,.05)` |
+| Text | `#241E17` | `#FAF6EF` |
+| Muted text | `#554B3F` | `#A39485` |
+| Accent (`--accent`) | `#85340F` terracota | `#C99A3F` mustard |
+| Primary (buttons) | `#C65D3B` | `#C65D3B` |
+
+**Two rules that are not obvious.** Measure the *card*, not the page: on a phone the dish cards cover almost the whole screen, so the card is what sets perceived brightness. And any surface that is dark in **both** themes — the footer, the dish modal — must not read `--muted-foreground` or `--accent`, because those hold dark ink meant for beige; those surfaces take the dark values literally.
+
+Brand mustard reads 2.0:1 on beige and brand terracota 2.3:1, so **neither works as text in light mode**. Use `text-accent`, which resolves per theme. `globals.css` carries the full reasoning.
 
 Fonts: **Playfair Display** (headings) + **Lato** (body), via `next/font/google`.
 
@@ -96,14 +102,13 @@ Fonts: **Playfair Display** (headings) + **Lato** (body), via `next/font/google`
 | Lunch Specials | 11:00 AM – 3:00 PM |
 | Events | Up to 100 guests, 2 simultaneous, booked solid Fri–Sun Apr–Dec |
 | Delivery | DoorDash, Uber Eats |
-| Payments | Visa, Mastercard, Zelle |
+| Payments | Visa, Mastercard, Apple Pay, Zelle |
 
 ---
 
 ## Before Deploy
 
 - [ ] Set `NEXT_PUBLIC_FORMSPREE_ID` in the hosting dashboard, then **submit the events form and confirm the email arrives**
-- [ ] Replace the placeholder Google Maps iframe in `src/components/sections/Location.tsx`
 - [ ] `npm run build` passes
 - [ ] Checked at 375px and 1440px, both languages, both themes
 

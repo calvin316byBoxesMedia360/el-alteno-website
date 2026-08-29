@@ -1,141 +1,136 @@
 "use client";
 
-import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
+import { CalendarDays, ChevronRight, UtensilsCrossed } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function Hero() {
   const { t } = useLanguage();
+  const reduceMotion = useReducedMotion();
+
+  const entrance = (delay = 0) => ({
+    initial: reduceMotion ? false : { opacity: 0, y: 18 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: reduceMotion ? 0 : 0.65, delay, ease: "easeOut" as const },
+  });
 
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center text-white overflow-hidden bg-black"
+      className="relative isolate flex min-h-[100svh] items-center justify-center overflow-hidden bg-black text-white"
     >
-      {/* Background Video */}
       <video
         autoPlay
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover z-0 opacity-70 pointer-events-none"
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-30 h-full w-full object-cover"
       >
         <source src="/videos/hero-bg.mp4" type="video/mp4" />
-        <source src="https://assets.mixkit.co/videos/preview/mixkit-chef-preparing-mexican-food-40134-large.mp4" type="video/mp4" />
       </video>
 
-      {/* Decorative gradient & blur overlay */}
-      <div
-        className="absolute inset-0 z-0 bg-gradient-to-b from-black/50 via-[#1E1A17]/35 to-[#161311] backdrop-blur-[1px]"
-      />
-      <div
-        className="absolute inset-0 z-0 opacity-5"
-        style={{
-          backgroundImage: `radial-gradient(circle at 25px 25px, white 2px, transparent 0), radial-gradient(circle at 75px 75px, white 2px, transparent 0)`,
-          backgroundSize: "100px 100px",
-        }}
-      />
+      <div className="absolute inset-0 -z-20 bg-black/35" />
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_bottom,rgba(10,7,5,.3)_0%,rgba(10,7,5,.12)_34%,rgba(10,7,5,.58)_68%,rgba(8,6,5,.96)_100%)]" />
+      <div className="absolute inset-x-0 top-0 -z-10 h-48 bg-gradient-to-b from-black/55 to-transparent" />
 
-      {/* Content */}
-      <div className="relative z-10 text-center px-4 md:px-6 max-w-4xl mx-auto pt-24 md:pt-16">
-        {/* Welcome Flag */}
+      <div className="relative mx-auto flex w-full max-w-3xl flex-col items-center px-5 pb-10 pt-32 text-center sm:px-8 sm:pb-14 sm:pt-36 md:pt-32">
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 0.8, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="flex items-center justify-center gap-3 mb-6 text-xs md:text-sm font-bold tracking-widest uppercase text-mustard"
+          {...entrance(0)}
+          className="mb-7 flex items-center justify-center gap-4 text-[11px] font-bold uppercase tracking-[0.24em] text-[#D8A34B] sm:text-xs md:mb-8 md:text-sm"
         >
-          <span>🇲🇽 Bienvenidos</span>
-          <span className="w-px h-4 bg-white/35" />
-          <span>🇺🇸 Welcome</span>
+          {/* Fixed label — one greeting per flag, not a localisable string.
+              Wrapping it in t() read "MX Welcome · US Welcome" in English. */}
+          <span>MX&nbsp; Bienvenidos</span>
+          <span className="h-7 w-px bg-[#D8A34B]/70" aria-hidden="true" />
+          <span>US&nbsp; Welcome</span>
         </motion.div>
 
-        {/* Logo with Colonial Arch ornament frame */}
         <h1 className="sr-only">El Alteño — Auténtica Comida Mexicana</h1>
+
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="flex justify-center mb-8"
+          {...entrance(0.12)}
+          className="relative mb-7 w-full max-w-[280px] drop-shadow-[0_22px_34px_rgba(0,0,0,.48)] sm:max-w-[360px]"
         >
-          <div className="relative p-6 md:p-8 pb-5 rounded-t-full border-t border-x border-[#C99A3F]/35 bg-[#1E1A17]/70 backdrop-blur-md shadow-2xl flex flex-col items-center max-w-[280px] sm:max-w-xs md:max-w-sm overflow-hidden">
-            <div className="absolute inset-0 bg-[#FAF6EF]/5 opacity-5" />
-            <Image
-              src="/images/logo/logo.png"
-              alt="El Alteño Logo"
-              width={380}
-              height={240}
-              priority
-              className="w-40 sm:w-48 md:w-56 h-auto object-contain drop-shadow-[0_4px_16px_rgba(198,93,59,0.35)] relative z-10"
+          <svg
+            viewBox="0 0 445 381"
+            role="img"
+            aria-label="El Alteño — Auténtica Comida Mexicana"
+            className="h-auto w-full overflow-visible"
+          >
+            <defs>
+              <clipPath id="hero-emblem-clip">
+                <path d="M18 358 Q8 346 8 322 L8 112 Q8 82 36 67 Q47 60 62 60 Q88 33 122 19 Q166 1 222 1 Q279 1 323 19 Q357 33 383 60 Q398 60 409 67 Q437 82 437 112 L437 322 Q437 346 427 358 Q414 374 388 377 L57 377 Q31 374 18 358 Z" />
+              </clipPath>
+            </defs>
+            <image
+              href="/images/logo/hero-emblem-reference.png"
+              width="445"
+              height="381"
+              clipPath="url(#hero-emblem-clip)"
+              preserveAspectRatio="xMidYMid slice"
             />
-            <p className="text-[9px] sm:text-[10px] uppercase tracking-[0.25em] text-[#C99A3F] font-bold mt-3 relative z-10">
-              {t("Authentic Mexican Cuisine", "Auténtica Comida Mexicana")}
-            </p>
-          </div>
+          </svg>
         </motion.div>
 
         <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.8 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-xs sm:text-sm md:text-base text-white/95 mb-10 tracking-widest uppercase font-semibold"
+          {...entrance(0.22)}
+          className="mb-7 text-[11px] font-bold uppercase tracking-[0.16em] text-white/95 drop-shadow-md sm:text-sm md:mb-8"
         >
-          323 Main St · Watsonville, California
+          323 Main St <span className="text-[#D8A34B]">·</span> Watsonville, California
         </motion.p>
 
-        {/* CTAs */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.7 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          {...entrance(0.3)}
+          className="flex w-full max-w-[300px] flex-col gap-3.5 sm:max-w-[360px]"
         >
           <motion.a
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            whileHover={reduceMotion ? undefined : { scale: 1.015 }}
+            whileTap={reduceMotion ? undefined : { scale: 0.985 }}
             href="#menu"
-            className="w-full sm:w-auto bg-[#C65D3B] text-white font-bold px-8 py-3.5 rounded-full text-sm uppercase tracking-wider hover:bg-[#A84A2C] transition-colors shadow-lg border border-[#C99A3F]/35 cursor-pointer text-center"
+            className="group flex min-h-14 w-full items-center rounded-full border border-[#F0B55B]/75 bg-[linear-gradient(180deg,#D66B42,#B94E2E)] px-5 text-white shadow-[0_14px_32px_rgba(75,26,10,.4)] outline-none transition-colors hover:from-[#DE754D] hover:to-[#C15836] focus-visible:ring-2 focus-visible:ring-[#F1BC5D] focus-visible:ring-offset-2 focus-visible:ring-offset-black motion-reduce:transition-none sm:min-h-16 sm:px-7"
           >
-            {t("Explore Menu", "Explorar Menú")}
+            <UtensilsCrossed className="size-5 text-[#F4C56F] sm:size-6" aria-hidden="true" />
+            <span className="flex-1 text-sm font-extrabold uppercase tracking-[0.12em] sm:text-base">
+              {t("Explore Menu", "Explorar Menú")}
+            </span>
+            <ChevronRight className="size-5 text-[#F4C56F] transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none" aria-hidden="true" />
           </motion.a>
+
           <motion.a
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            whileHover={reduceMotion ? undefined : { scale: 1.015 }}
+            whileTap={reduceMotion ? undefined : { scale: 0.985 }}
             href="#events"
-            className="w-full sm:w-auto border border-white/60 text-white font-bold px-8 py-3.5 rounded-full text-sm uppercase tracking-wider hover:bg-white/10 transition-all cursor-pointer text-center"
+            className="group flex min-h-14 w-full items-center rounded-full border border-[#D8A34B]/70 bg-black/45 px-5 text-white shadow-[0_12px_28px_rgba(0,0,0,.28)] outline-none backdrop-blur-[3px] transition-colors hover:bg-black/60 focus-visible:ring-2 focus-visible:ring-[#F1BC5D] focus-visible:ring-offset-2 focus-visible:ring-offset-black motion-reduce:transition-none sm:min-h-16 sm:px-7"
           >
-            {t("Book an Event", "Reservar Evento")}
+            <CalendarDays className="size-5 text-[#D8A34B] sm:size-6" aria-hidden="true" />
+            <span className="flex-1 text-sm font-extrabold uppercase tracking-[0.12em] sm:text-base">
+              {t("Book an Event", "Reservar Evento")}
+            </span>
+            <ChevronRight className="size-5 text-[#D8A34B] transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none" aria-hidden="true" />
           </motion.a>
         </motion.div>
 
-        {/* Delivery badges */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.7 }}
-          transition={{ duration: 0.6, delay: 1 }}
-          className="mt-12 flex flex-wrap items-center justify-center gap-3 text-xs text-muted-foreground"
+          {...entrance(0.4)}
+          className="mt-8 w-full max-w-[300px] sm:mt-10 sm:max-w-[360px]"
         >
-          <span>{t("Available on", "Disponible en")}</span>
-          <span className="bg-white/5 border border-white/15 px-3.5 py-1.5 rounded-full font-bold text-white tracking-wider uppercase text-[10px]">
-            DoorDash
-          </span>
-          <span className="bg-white/5 border border-white/15 px-3.5 py-1.5 rounded-full font-bold text-white tracking-wider uppercase text-[10px]">
-            Uber Eats
-          </span>
+          <div className="mb-4 flex items-center gap-4 text-xs text-[#D8A34B]">
+            <span className="h-px flex-1 bg-gradient-to-r from-transparent to-[#D8A34B]/55" />
+            <span>{t("Available on", "Disponible en")}</span>
+            <span className="h-px flex-1 bg-gradient-to-l from-transparent to-[#D8A34B]/55" />
+          </div>
+
+          <div className="grid grid-cols-2 gap-3">
+            <span className="flex min-h-12 items-center justify-center rounded-full border border-[#D8A34B]/55 bg-black/35 px-3 text-[11px] font-extrabold uppercase tracking-[0.1em] text-white/90 backdrop-blur-[2px] sm:text-xs">
+              DoorDash
+            </span>
+            <span className="flex min-h-12 items-center justify-center rounded-full border border-[#D8A34B]/55 bg-black/35 px-3 text-[11px] font-extrabold uppercase tracking-[0.1em] text-white/90 backdrop-blur-[2px] sm:text-xs">
+              Uber Eats
+            </span>
+          </div>
         </motion.div>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.6 }}
-        transition={{ duration: 0.6, delay: 1.2 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce hidden sm:block"
-      >
-        <div className="w-5 h-8 border-2 border-white/60 rounded-full flex justify-center pt-1">
-          <div className="w-1 h-2 bg-white/80 rounded-full" />
-        </div>
-      </motion.div>
     </section>
   );
 }

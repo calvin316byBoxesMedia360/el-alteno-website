@@ -1,7 +1,12 @@
 # El Alteño — Contexto del Proyecto
 
-> **Para cualquier IA o desarrollador que retome este proyecto:** lee este archivo primero.
-> Para desplegar, lee además [`DEPLOYMENT.md`](DEPLOYMENT.md) — contiene configuración que no vive en el código.
+> ## ⚠️ Este documento quedó atrás
+>
+> Refleja el estado del **27 de julio de 2026** y varias de sus afirmaciones ya no son ciertas — entre ellas la paleta del modo claro y el inventario de imágenes.
+>
+> **Empieza por [`HANDOFF.md`](HANDOFF.md)**, que es el documento vivo. Este se conserva por el trasfondo: por qué existe el proyecto, qué rechazó el cliente y cómo se llegó hasta aquí.
+>
+> Para desplegar, [`DEPLOYMENT.md`](DEPLOYMENT.md) sigue vigente.
 
 ---
 
@@ -123,8 +128,9 @@ el-alteno-website/               ← raíz del repo
 
 Definido en `el-alteno/src/app/globals.css`.
 
-**Modo claro:**
-| Rol | Hex |
+**Modo claro:** 🔴 **estos valores ya no son los del sitio.** El tema claro se rehizo en beige suave el 2026-08-28, porque este crema deslumbraba en un teléfono y dejaba precios y descripciones ilegibles. Los valores vigentes están en `globals.css` y explicados en `HANDOFF.md` §6b. **No copies la tabla de abajo.**
+
+| Rol | Hex (histórico, retirado) |
 |---|---|
 | Fondo | `#FAF6EF` (crema cálido) |
 | Texto | `#2E2620` (café oscuro cálido) |

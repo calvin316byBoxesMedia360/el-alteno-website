@@ -41,25 +41,48 @@
   --radius-xl: calc(var(--radius) * 1.4);
 }
 
+/*
+  Light theme — soft beige, sized to what a phone screen actually shows.
+
+  Measure the CARD, not the page. On a phone the dish cards cover nearly the
+  whole viewport, so the card is the surface that lights up the room. An
+  earlier pass dropped the page to #EDE2CE but left the card at #F7F0E2 —
+  87.6% luminance, barely below the original cream — and the screen stayed
+  just as bright. The card now sits at 68%, a 22% drop from that, and the
+  page at 54%.
+
+  The page is deliberately darker than the card, not the other way round:
+  cards have to read as objects. That gap is 1.24:1, which is subtle on its
+  own, so --border carries a heavier alpha than usual to draw the edge.
+
+  Ink is darkened to hold AA on the deeper surface. Against the card: a dish
+  name 11.5:1, its description 5.9:1, its price 5.9:1. The accent is a deeper
+  terracota than the brand's #C65D3B, which reads only 2.3:1 on beige — the
+  brand value stays in dark mode and on solid-fill buttons.
+
+  Any surface that is dark in BOTH themes (footer, dish modal) must not read
+  --muted-foreground or --accent: those now hold dark ink meant for beige.
+  Those surfaces take the dark palette literally.
+*/
 :root {
-  --background:             #FAF6EF; /* Organic balanced warm cream (not harsh) */
-  --foreground:             #2E2620; /* Warm dark brown text */
-  --card:                   rgba(240, 230, 214, 0.65); /* Soft clay card overlay */
-  --card-foreground:        #2E2620;
-  --popover:                #FAF6EF;
-  --popover-foreground:     #2E2620;
+  --background:             #D2C09C; /* soft beige ground */
+  --foreground:             #241E17; /* warm near-black ink */
+  --card:                   #E4D6B8; /* beige surface, lighter than the ground */
+  --card-foreground:        #241E17;
+  --popover:                #E4D6B8;
+  --popover-foreground:     #241E17;
   --primary:                #C65D3B;
   --primary-foreground:     #FFFFFF;
-  --secondary:              rgba(46, 38, 32, 0.05);
-  --secondary-foreground:   #2E2620;
-  --muted:                  #F0E6D6;
-  --muted-foreground:       #8A7E6F;
-  --accent:                 #C99A3F;
-  --accent-foreground:      #FAF6EF;
-  --destructive:            #E74C3C;
-  --border:                 rgba(46, 38, 32, 0.12);
-  --input:                  rgba(46, 38, 32, 0.08);
-  --ring:                   #C65D3B;
+  --secondary:              rgba(36, 30, 23, 0.06);
+  --secondary-foreground:   #241E17;
+  --muted:                  #CFBE9B;
+  --muted-foreground:       #554B3F; /* 5.9:1 on the card */
+  --accent:                 #85340F; /* terracota ink for prices — 5.4:1 */
+  --accent-foreground:      #E4D6B8;
+  --destructive:            #9E2A20;
+  --border:                 rgba(36, 30, 23, 0.22); /* card edges have to read */
+  --input:                  rgba(36, 30, 23, 0.12);
+  --ring:                   #85340F;
   --radius:                 0.75rem;
 }
 
@@ -129,6 +152,31 @@ html {
   background-size: 40px 40px;
   background-position: 0 0, 20px 20px;
   opacity: 0.05;
+}
+
+/* The light that travels down the hero's scroll invitation. It rests at the
+   top, falls, and dims out before repeating, so the eye is drawn downward
+   rather than to a blinking object. */
+@keyframes scroll-guide-fall {
+  0%        { transform: translate(-50%, -6px); opacity: 0; }
+  18%       { opacity: 1; }
+  72%       { opacity: 1; }
+  100%      { transform: translate(-50%, var(--scroll-guide-fall)); opacity: 0; }
+}
+
+/* The hero leaves about 80px clear under its last content on a phone, so the
+   rail is shorter there and the light falls a shorter distance to match. */
+.scroll-guide-spark {
+  --scroll-guide-fall: 30px;
+  animation: scroll-guide-fall 2.4s cubic-bezier(0.45, 0, 0.25, 1) infinite;
+}
+
+@media (min-width: 640px) {
+  .scroll-guide-spark { --scroll-guide-fall: 56px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-guide-spark { animation: none; }
 }
 
 /* Decorative border — papel picado zigzag */

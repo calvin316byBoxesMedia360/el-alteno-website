@@ -45,7 +45,7 @@ export default function Events() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <p className="text-mustard text-xs md:text-sm font-bold tracking-widest uppercase mb-3">
+          <p className="text-accent text-xs md:text-sm font-bold tracking-widest uppercase mb-3">
             {t("Private Events", "Eventos Privados")}
           </p>
           <h2 className="text-3xl md:text-5xl font-heading font-bold mb-6 leading-tight">
@@ -60,12 +60,12 @@ export default function Events() {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
             <div className="bg-card border border-[#E5D9C5]/10 rounded-2xl p-5 text-center shadow-lg">
-              <Users size={24} className="text-mustard mx-auto mb-2" />
+              <Users size={24} className="text-accent mx-auto mb-2" />
               <p className="text-2xl font-heading font-bold text-foreground">100</p>
               <p className="text-xs text-muted-foreground">{t("max guests", "máx. invitados")}</p>
             </div>
             <div className="bg-card border border-[#E5D9C5]/10 rounded-2xl p-5 text-center shadow-lg">
-              <Calendar size={24} className="text-mustard mx-auto mb-2" />
+              <Calendar size={24} className="text-accent mx-auto mb-2" />
               <p className="text-2xl font-heading font-bold text-foreground">2</p>
               <p className="text-xs text-muted-foreground">{t("spaces available", "salones disponibles")}</p>
             </div>
@@ -95,9 +95,9 @@ export default function Events() {
           </div>
 
           <div className="flex items-center gap-3 text-muted-foreground">
-            <Phone size={16} className="text-mustard" />
+            <Phone size={16} className="text-accent" />
             <span>{t("Prefer to call?", "¿Prefieres llamar?")}</span>
-            <a href="tel:8317689876" className="text-foreground font-bold hover:text-mustard transition-colors">
+            <a href="tel:8317689876" className="inline-flex items-center min-h-11 text-foreground font-bold hover:text-accent transition-colors">
               (831) 768-9876
             </a>
           </div>
@@ -140,7 +140,7 @@ export default function Events() {
                     required
                     type="text"
                     placeholder={t("Your name", "Tu nombre")}
-                    className="w-full bg-background border border-[#E5D9C5]/15 rounded-xl px-4 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-terracota"
+                    className="w-full bg-background border border-[#E5D9C5]/15 rounded-xl px-4 py-3 text-base md:text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-terracota"
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
                   />
@@ -153,7 +153,7 @@ export default function Events() {
                     id="phone"
                     type="tel"
                     placeholder="(831) 000-0000"
-                    className="w-full bg-background border border-[#E5D9C5]/15 rounded-xl px-4 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-terracota"
+                    className="w-full bg-background border border-[#E5D9C5]/15 rounded-xl px-4 py-3 text-base md:text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-terracota"
                     value={form.phone}
                     onChange={(e) => setForm({ ...form, phone: e.target.value })}
                   />
@@ -168,7 +168,7 @@ export default function Events() {
                   required
                   type="email"
                   placeholder="you@example.com"
-                  className="w-full bg-background border border-[#E5D9C5]/15 rounded-xl px-4 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-terracota"
+                  className="w-full bg-background border border-[#E5D9C5]/15 rounded-xl px-4 py-3 text-base md:text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-terracota"
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
                 />
@@ -182,7 +182,7 @@ export default function Events() {
                     id="date"
                     required
                     type="date"
-                    className="w-full bg-background border border-[#E5D9C5]/15 rounded-xl px-4 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-terracota scheme-light dark:scheme-dark"
+                    className="w-full bg-background border border-[#E5D9C5]/15 rounded-xl px-4 py-3 text-base md:text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-terracota scheme-light dark:scheme-dark"
                     value={form.date}
                     onChange={(e) => setForm({ ...form, date: e.target.value })}
                   />
@@ -198,7 +198,7 @@ export default function Events() {
                     min="1"
                     max="100"
                     placeholder="50"
-                    className="w-full bg-background border border-[#E5D9C5]/15 rounded-xl px-4 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-terracota"
+                    className="w-full bg-background border border-[#E5D9C5]/15 rounded-xl px-4 py-3 text-base md:text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-terracota"
                     value={form.guests}
                     onChange={(e) => setForm({ ...form, guests: e.target.value })}
                   />
@@ -211,7 +211,7 @@ export default function Events() {
                 <select
                   id="eventType"
                   required
-                  className="w-full bg-background border border-[#E5D9C5]/15 rounded-xl px-4 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-terracota"
+                  className="w-full bg-background border border-[#E5D9C5]/15 rounded-xl px-4 py-3 text-base md:text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-terracota"
                   value={form.eventType}
                   onChange={(e) => setForm({ ...form, eventType: e.target.value })}
                 >
@@ -232,7 +232,7 @@ export default function Events() {
                   id="message"
                   rows={3}
                   placeholder={t("Tell us more about your event…", "Cuéntanos más sobre tu evento…")}
-                  className="w-full bg-background border border-[#E5D9C5]/15 rounded-xl px-4 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-terracota resize-none"
+                  className="w-full bg-background border border-[#E5D9C5]/15 rounded-xl px-4 py-3 text-base md:text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-terracota resize-none"
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
                 />
@@ -248,7 +248,7 @@ export default function Events() {
               <button
                 type="submit"
                 disabled={status === "sending"}
-                className="w-full bg-terracota text-white font-bold py-3 rounded-xl hover:bg-terracota-dark transition-colors disabled:opacity-60 cursor-pointer shadow-lg uppercase tracking-wider text-xs"
+                className="w-full min-h-12 bg-terracota text-white font-bold py-3 rounded-xl hover:bg-terracota-dark transition-colors disabled:opacity-60 cursor-pointer shadow-lg uppercase tracking-wider text-xs"
               >
                 {status === "sending" ? t("Sending…", "Enviando…") : t("Send Request", "Enviar Solicitud")}
               </button>
