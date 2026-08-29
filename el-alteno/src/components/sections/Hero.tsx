@@ -17,25 +17,26 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative isolate flex min-h-[100svh] items-center justify-center overflow-hidden bg-black text-white"
+      className="relative isolate overflow-hidden bg-[#161311] text-white md:flex md:min-h-[100svh] md:items-center md:justify-center"
     >
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-30 h-full w-full object-cover"
-      >
-        <source media="(max-width: 767px)" src="/videos/hero-bg-mobile.mp4" type="video/mp4" />
-        <source src="/videos/hero-bg.mp4" type="video/mp4" />
-      </video>
+      <div className="relative z-0 w-full shrink-0 md:absolute md:inset-0">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          aria-hidden="true"
+          className="pointer-events-none block aspect-video h-auto w-full object-contain md:h-full md:aspect-auto md:object-cover"
+        >
+          <source src="/videos/hero-bg.mp4" type="video/mp4" />
+        </video>
 
-      <div className="absolute inset-0 -z-20 bg-black/35" />
-      <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_bottom,rgba(10,7,5,.3)_0%,rgba(10,7,5,.12)_34%,rgba(10,7,5,.58)_68%,rgba(8,6,5,.96)_100%)]" />
-      <div className="absolute inset-x-0 top-0 -z-10 h-48 bg-gradient-to-b from-black/55 to-transparent" />
+        <div className="absolute inset-0 bg-black/20 md:bg-black/35" />
+        <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-b from-transparent to-[#161311] md:inset-0 md:h-auto md:bg-[linear-gradient(to_bottom,rgba(10,7,5,.3)_0%,rgba(10,7,5,.12)_34%,rgba(10,7,5,.58)_68%,rgba(8,6,5,.96)_100%)]" />
+        <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/35 to-transparent md:h-48 md:from-black/55" />
+      </div>
 
-      <div className="relative mx-auto flex w-full max-w-3xl flex-col items-center px-5 pb-10 pt-32 text-center sm:px-8 sm:pb-14 sm:pt-36 md:pt-32">
+      <div className="relative z-10 mx-auto flex w-full max-w-3xl flex-col items-center bg-[#161311] px-5 pb-10 pt-7 text-center sm:px-8 sm:pb-14 sm:pt-8 md:bg-transparent md:pt-32">
         <motion.div
           {...entrance(0)}
           className="order-2 mb-7 flex items-center justify-center gap-4 text-[11px] font-bold uppercase tracking-[0.24em] text-[#D8A34B] sm:text-xs md:order-none md:mb-8 md:text-sm"
@@ -51,7 +52,7 @@ export default function Hero() {
 
         <motion.div
           {...entrance(0.12)}
-          className="order-1 relative -top-48 -mb-24 w-full max-w-[190px] drop-shadow-[0_22px_34px_rgba(0,0,0,.48)] sm:-top-32 sm:-mb-16 sm:max-w-[300px] md:order-none md:top-0 md:mb-7 md:max-w-[360px]"
+          className="order-1 mb-5 w-full max-w-[190px] drop-shadow-[0_22px_34px_rgba(0,0,0,.48)] sm:mb-7 sm:max-w-[280px] md:order-none md:mb-7 md:max-w-[360px]"
         >
           <svg
             viewBox="0 0 445 381"
