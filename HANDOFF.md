@@ -2,7 +2,7 @@
 
 > **Lee este archivo completo antes de tocar nada.** Está escrito para que una sesión sin contexto previo pueda continuar el proyecto sin repetir errores que ya costaron caro.
 >
-> Última actualización: **2026-08-28** · commit local `ed69146`
+> Última actualización: **2026-08-28** · rama publicada, **17 commits por delante de `master`** · PR [#2](https://github.com/calvin316byBoxesMedia360/el-alteno-website/pull/2) abierto
 
 ---
 
@@ -13,9 +13,12 @@ cd "C:\Users\no\Documents\Sandbox Boxes\El Alteno rest\el-alteno"
 npm run dev          # → http://localhost:3000
 ```
 
-- Rama activa: `feat/consolidate-menu-assets` (commit `ed69146`, **sin publicar**)
+- Rama activa: `feat/consolidate-menu-assets`, publicada, con PR #2 hacia `master`
 - La app Next.js vive en la subcarpeta `el-alteno/`, **no en la raíz del repo**
 - Producción: https://web-production-004ee.up.railway.app (sirve `master` = `a190c4d`)
+
+**Para revisar en el teléfono** (mismo Wi-Fi): `http://192.168.1.201:3000`
+La IP es DHCP; si el router la cambia hay que actualizar `allowedDevOrigins` en `next.config.ts`, o el móvil recibirá el HTML sin el JavaScript (§8).
 
 ---
 
@@ -90,19 +93,31 @@ El Alteno rest/                    ← raíz del repo git
 | `master` | `a190c4d` | Lo que ve el público | **LIVE** |
 | `chore/convert-approved-images-webp` | `bdf2ce9` | 10 conversiones WebP | PR #1 en **draft** |
 | `review/live-sections` | `7721779` | Rediseño Hero/About (hecho por Codex) | sin mergear |
-| `feat/consolidate-menu-assets` | `ed69146` | 11 fotos + 3 correcciones + pasos 1–3 | **solo local, 5 commits por delante** |
+| `feat/consolidate-menu-assets` | ver abajo | todo el trabajo desde el flyer | **PR #2 abierto** |
 
-Los cinco commits locales sin publicar:
+Los 17 commits que `master` no tiene, del más reciente al más antiguo:
 
 ```
+786b1c5  chore(dev): allow the LAN origin so the site can be reviewed on a phone
+c948c27  chore: drop the light-mode comparison route
+da3647e  fix(theme): lower the surface a phone actually shows, and let cards read
+6f20727  feat(theme): rebuild the light theme as warm paper, readable in both
+42a2962  fix(images): replace the deprecated priority prop, and stop preloading a backdrop
+8fafc1d  fix(mobile): stop the iOS zoom trap and size every tap target
+d39a4b9  feat(footer): payment marks, stronger delivery buttons, build credit
+2e707a0  feat(menu): scale dish names and descriptions by 1.5x
+c9cc664  chore(assets): add the August 2026 flyer and the new logo master
+dd04d45  docs: version the handoff and bring it up to date
 ed69146  fix(menu): make the printed-menu rows legible in light theme
 5e6052f  chore(images): convert about/ assets to WebP, sized to their render slots
 1533508  fix(hero): stop translating the per-flag greeting
 f2c7bba  feat(menu): replace stock photography with printed-menu rows
 acad2cc  feat(menu): add 11 dish photos and correct three misassigned images
+7721779  feat: refine mobile hero and story section
+bdf2ce9  chore(images): convert approved assets to WebP
 ```
 
-🔴 **Producción está siete commits atrás.** Lo publicado no incluye las conversiones WebP, el rediseño, las correcciones de fotos, ni el retiro del stock.
+🔴 **Producción está 17 commits atrás.** Lo publicado no incluye las conversiones WebP, el rediseño, las correcciones de fotos, el retiro del stock, la paleta clara nueva, ni ninguna de las correcciones móviles.
 
 **Consecuencia concreta:** la foto que muestra **carne** ilustrando *Two Sopes de Guacamole* —platillo **vegetariano**— sigue en línea, y los 65 platillos sin foto siguen mostrando comida de otro restaurante junto a precios reales.
 
@@ -170,17 +185,38 @@ Se eligió la variante **B · lista de carta** tras comparar tres diseños en pa
 **Paso 3 · Optimizar las seis imágenes de `about/`** ✅ **hecho** (`5e6052f`)
 De 4.9 MB a 864 KB. No llegó a los 700 KB que estimaba el plan: alcanzarlos exigía bajar del piso de calidad del proyecto o recortar resolución por debajo de un margen cómodo de DPR. Si se quiere el número más ajustado, con iconos a 192 px y el grabado a 512 px queda en ~645 KB, todo por encima del piso.
 
-**Paso 4 · Publicar y desplegar** 🔴 **pendiente — requiere decisión**
-Subir `feat/consolidate-menu-assets`, abrir PR, definir orden de merge hacia `master`, y decidir qué se hace con PR #1 y con `review/live-sections`.
+**Paso 4 · Publicar y desplegar** 🟡 **PR #2 abierto, falta mergear**
+Rama publicada y PR #2 abierto hacia `master`. Contiene también los commits de PR #1 y de `review/live-sections`, así que al mergearlo ambos quedan absorbidos; PR #1 se cierra sin mergear.
 
-### Hallazgos abiertos de esta sesión
+**Paso 5 · Correcciones sobre el sitio vivo** ✅ **hecho**
+Texto de platillos a 1.5× (17 px en descripciones, recorte a 4 líneas), pie con marcas de pago y autoría, paleta clara rehecha en beige, optimización móvil, y navegación (§6b).
+
+---
+
+## 6b. La paleta clara, y por qué es así
+
+Vale la pena leer esto antes de tocar colores, porque hay dos reglas que no son obvias.
+
+**Se mide la TARJETA, no la página.** En un teléfono las tarjetas de platillo cubren casi todo el viewport. Un primer intento bajó el fondo de página a `#EDE2CE` y reportó «−17 % de brillo», pero dejó la tarjeta en `#F7F0E2` —87.6 %, apenas por debajo del crema original— y la pantalla siguió deslumbrando. Hoy la tarjeta está en **68 %** y la página en **54 %**.
+
+**La página es más oscura que la tarjeta, a propósito**, para que las tarjetas se lean como objetos. Esa diferencia es de 1.24:1, que por sí sola es sutil, así que `--border` lleva un alfa más alto de lo normal (0.22) para dibujar el canto.
+
+**Cualquier superficie oscura en AMBOS temas** —el pie, la ventana de detalle del platillo— **no puede leer `--muted-foreground` ni `--accent`**, porque ahora contienen tinta oscura pensada para beige. Esas superficies toman la paleta oscura de forma literal.
+
+El mostaza `#C99A3F` da 2.0:1 sobre beige y el terracota de marca `#C65D3B` da 2.3:1: ninguno sirve como texto en claro. El token `accent` resuelve a un terracota profundo en claro y a mostaza en oscuro, así que **usa `text-accent`, no literales**. El valor de marca se reserva para modo oscuro y para botones de relleno sólido, donde el blanco va encima.
+
+Contrastes actuales dentro de la tarjeta en claro: nombre 11.5:1 · descripción 5.9:1 · precio 5.9:1.
+
+### Hallazgos abiertos
 
 | | Qué | Dónde |
 |---|---|---|
-| 🟡 | **`priority` está deprecado en Next 16** en favor de `preload`; la doc recomienda `loading="eager"` o `fetchPriority="high"` en la mayoría de casos. Tres usos siguen en el código | `app/menu/page.tsx:108` · `layout/Navbar.tsx:37` · `sections/Location.tsx:20` |
-| 🟡 | En **tema claro** el precio en mustard sobre crema da **2.38:1** y la descripción **3.68:1**. Es el estilo de la casa ya presente (la página del QR usa mustard para precios sobre crema), no algo que introdujera el paso 1 — pero un precio es información, no adorno | `MenuListRow.tsx` · `menu/page.tsx` · `MenuSection.tsx` |
+| 🟡 | **Colores de marca bajo AA**, iguales en ambos temas: blanco sobre el rojo DoorDash `#FF3008` da **3.7:1** y blanco sobre terracota **4.17:1**. Son los colores propios de esas empresas — requiere decisión del cliente, no una edición silenciosa | `Footer.tsx` · botones primarios |
 | 🟡 | Las **notas de categoría** (`note` / `noteEs` en `menu.ts`: «Flour tortilla, rice, beans…», el horario de Lunch Specials) existen en los datos pero **no se muestran en ninguna de las dos vistas** | `MenuTabs.tsx` · `menu/page.tsx` |
+| 🟡 | La sección de ubicación **repite** los medios de pago como fichas de texto, duplicando lo que el pie ya muestra con marcas | `Location.tsx` |
+| 🟡 | Las marcas de pago son **dibujos simplificados, no el arte oficial**. Las seis empresas publican sus archivos con reglas de uso | `layout/PaymentMarks.tsx` |
 | 🟡 | 2 errores de lint **preexistentes** (`setState` dentro de `useEffect`) y 1 warning de import sin usar | `LanguageContext.tsx:22` · `ThemeContext.tsx:20` · `Location.tsx:4` |
+| 🟡 | `el-alteno/public/images/dishes/burrito.jpeg` está sin versionar y sin asignar. **Mirar la foto antes de asignarla** — tres asignaciones por nombre de archivo ya resultaron falsas | — |
 
 ---
 
@@ -211,6 +247,12 @@ Originales PNG de `about/`: `el-alteno-reports/backup-about-png-20260828-0834/`
 ## 8. Trampas de este entorno
 
 Estas ya costaron tiempo. Están documentadas para no repetirlas.
+
+**El servidor de desarrollo rechaza otros orígenes.** Abrir el sitio desde el móvil por la IP de red devuelve **403 en los recursos de desarrollo**: el HTML llega, el JavaScript no, la hidratación nunca corre, y todo lo que Framer Motion arranca en `opacity: 0` se queda invisible. Se ve el esqueleto estático —video, títulos, pestañas, pie— y nada más. La solución es `allowedDevOrigins` en `next.config.ts`. Si el síntoma es «cargó a medias en el móvil», es esto.
+
+**Medir contraste justo después de cambiar de tema da valores falsos.** El `body` tiene `transition-colors duration-300`, así que `getComputedStyle` devuelve colores interpolados a mitad de camino. Una auditoría así reportó 49 fallos inexistentes en modo oscuro. **Cargar cada tema de cero** (`localStorage.setItem('theme', …)` + recarga) en vez de pulsar el conmutador.
+
+**`oklab()` y `lab()` rompen los parseadores de color caseros.** Chrome devuelve esos formatos cuando hay opacidad, y una expresión regular de dígitos los interpreta como casi negro, produciendo falsos fallos de contraste. Componer el color en un `<canvas>` deja que el motor lo resuelva, sea cual sea el formato.
 
 **Una pestaña de larga vida sirve CSS viejo.** Tras varias recompilaciones de Turbopack, una pestaña abierta puede quedarse con una hoja de estilos anterior. Da lecturas imposibles: la variable `--foreground` resuelve al valor correcto y el `color` computado es el del tema contrario. **Ante un resultado que se contradice a sí mismo, abrir pestaña nueva y volver a medir** antes de creerle.
 
@@ -305,6 +347,21 @@ Encaja limpio en: fondos y texturas, material de marketing, o un hero más liger
 
 ## 12. Primer paso sugerido para la sesión nueva
 
-**Cerrar el paso 4.** El trabajo técnico de los pasos 1–3 está hecho, verificado y commiteado; lo único que falta es una decisión de publicación: orden de merge entre `feat/consolidate-menu-assets`, `review/live-sections` y PR #1, y si `HANDOFF.md` entra al repo o se queda fuera.
+**Mergear el PR #2.** Todo el trabajo está hecho, verificado y publicado; producción lleva 17 commits de retraso y sigue mostrando carne sobre un platillo vegetariano y comida de otro restaurante junto a precios reales. Al mergear, cerrar PR #1 sin mergear: ya va absorbido.
 
-Después de eso, los candidatos son `chavela.png` (2.2 MB en línea) y los tres `priority` deprecados, ambos en §6.
+Antes de desplegar, lo único que puede fallar en silencio es `NEXT_PUBLIC_FORMSPREE_ID` en Railway (§11).
+
+Después: `chavela.png` (2.2 MB en línea, §5) y los hallazgos de §6.
+
+---
+
+## 13. Componentes propios que conviene conocer
+
+| Componente | Qué resuelve |
+|---|---|
+| `ui/ScrollStrip.tsx` | Tira horizontal que **admite que se desplaza**. Difumina el borde por donde continúa, dibuja una barra que muestra cuánto estás viendo, y la primera vez que entra en pantalla se desplaza y vuelve. Ese último gesto se salta con `prefers-reduced-motion`. Lo usan las pestañas del menú y los anclajes del QR |
+| `ui/ScrollGuide.tsx` | Invitación a bajar del Hero (línea con una luz que cae, y es un enlace real a `#about`) más un raíl fino a la izquierda que se llena durante el recorrido de descubrimiento y se retira al terminar Cócteles, justo antes de la petición de reserva |
+| `layout/PaymentMarks.tsx` | Marcas de pago y reparto en SVG en línea, sin depender de terceros. **No son el arte oficial** |
+| `menu/MenuListRow.tsx` | Renglón de carta impresa para los 65 platillos sin fotografía propia |
+
+**Orden de secciones** (2026-08-28): Hero → About → Menú → **Cócteles → Eventos** → Ubicación. Cócteles se lee como parte del menú; Eventos es la petición de reserva y va después de haber visto la comida.

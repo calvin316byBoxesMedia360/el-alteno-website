@@ -3,6 +3,7 @@ import Link from "next/link";
 import { categories, menuItems } from "@/data/menu";
 import { Badge } from "@/components/ui/badge";
 import { MenuItem } from "@/types/menu";
+import ScrollStrip from "@/components/ui/ScrollStrip";
 
 function ItemTags({ item, className = "" }: { item: MenuItem; className?: string }) {
   if (!item.tags.some((x) => ["popular", "spicy", "signature"].includes(x))) return null;
@@ -134,18 +135,20 @@ export default function QRMenuPage() {
         </div>
 
         {/* Quick Jump Anchors */}
-        <div className="overflow-x-auto pb-3 mb-8 -mx-4 px-4 sticky top-[60px] bg-[#D2C09C]/90 backdrop-blur-md py-2 z-20 border-b border-[#C0AE8B]/40">
-          <div className="flex gap-2 min-w-max">
-            {categories.map((cat) => (
-              <a
-                key={cat.id}
-                href={`#${cat.id}`}
-                className="px-3.5 min-h-11 inline-flex items-center rounded-full text-xs font-medium bg-[#E4D6B8] text-[#554B3F] border border-[#C0AE8B] hover:border-[#C65D3B] hover:text-[#C65D3B] transition-all shadow-sm"
-              >
-                {cat.label} / {cat.labelEs}
-              </a>
-            ))}
-          </div>
+        <div className="mb-8 -mx-4 px-4 sticky top-[60px] bg-[#D2C09C]/90 backdrop-blur-md py-2 z-20 border-b border-[#C0AE8B]/40">
+          <ScrollStrip ariaLabel="Categorías">
+            <div className="flex gap-2 min-w-max pb-1">
+              {categories.map((cat) => (
+                <a
+                  key={cat.id}
+                  href={`#${cat.id}`}
+                  className="px-3.5 min-h-11 inline-flex items-center rounded-full text-xs font-medium bg-[#E4D6B8] text-[#554B3F] border border-[#C0AE8B] hover:border-[#C65D3B] hover:text-[#C65D3B] transition-all shadow-sm"
+                >
+                  {cat.label} / {cat.labelEs}
+                </a>
+              ))}
+            </div>
+          </ScrollStrip>
         </div>
 
         {/* Menu Sections */}

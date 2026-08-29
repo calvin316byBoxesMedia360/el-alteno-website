@@ -1,0 +1,152 @@
+"use client";
+
+import { useCallback, useEffect, useRef, useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+
+/**
+ * Horizontal strip that admits it scrolls.
+ *
+ * A row of chips that overflows gives the reader no signal that more exists
+ * past the edge — on a phone there is not even a scrollbar. Three signals are
+ * layered here, weakest to strongest:
+ *
+ *   1. the edge the content continues past is faded out, so a chip is always
+ *      cut mid-shape rather than ending cleanly at the viewport
+ *   2. a hairline under the strip shows how much of it you are seeing and
+ *      where you are in it
+ *   3. the first time the strip comes into view it scrolls a little and comes
+ *      back — the one signal nobody misses, and the only one that costs
+ *      motion, so it is skipped under prefers-reduced-motion
+ *
+ * Arrows appear only where a pointer exists; on touch the fade and the nudge
+ * carry it.
+ */
+export default function ScrollStrip({
+  children,
+  className = "",
+  ariaLabel,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  ariaLabel?: string;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const nudged = useRef(false);
+  const [left, setLeft] = useState(false);
+  const [right, setRight] = useState(false);
+  const [bar, setBar] = useState({ w: 0, x: 0 });
+
+  const measure = useCallback(() => {
+    const el = ref.current;
+    if (!el) return;
+    const max = el.scrollWidth - el.clientWidth;
+    setLeft(el.scrollLeft > 2);
+    setRight(el.scrollLeft < max - 2);
+    if (max <= 2) {
+      setBar({ w: 0, x: 0 });
+      return;
+    }
+    const w = (el.clientWidth / el.scrollWidth) * 100;
+    setBar({ w, x: (el.scrollLeft / max) * (100 - w) });
+  }, []);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    measure();
+    el.addEventListener("scroll", measure, { passive: true });
+    const ro = new ResizeObserver(measure);
+    ro.observe(el);
+    return () => {
+      el.removeEventListener("scroll", measure);
+      ro.disconnect();
+    };
+  }, [measure]);
+
+  // Show, once, that the strip moves.
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (!entries[0].isIntersecting || nudged.current) return;
+        if (el.scrollWidth - el.clientWidth < 24) return;
+        nudged.current = true;
+        io.disconnect();
+        const t1 = window.setTimeout(() => el.scrollTo({ left: 40, behavior: "smooth" }), 600);
+        const t2 = window.setTimeout(() => el.scrollTo({ left: 0, behavior: "smooth" }), 1250);
+        return () => {
+          window.clearTimeout(t1);
+          window.clearTimeout(t2);
+        };
+      },
+      { threshold: 0.6 }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  const step = (dir: 1 | -1) => {
+    const el = ref.current;
+    if (!el) return;
+    el.scrollBy({ left: dir * Math.max(180, el.clientWidth * 0.7), behavior: "smooth" });
+  };
+
+  const mask =
+    left && right
+      ? "linear-gradient(to right, transparent 0, #000 28px, #000 calc(100% - 28px), transparent 100%)"
+      : left
+        ? "linear-gradient(to right, transparent 0, #000 28px, #000 100%)"
+        : right
+          ? "linear-gradient(to right, #000 calc(100% - 28px), transparent 100%)"
+          : undefined;
+
+  const arrow =
+    "hidden md:flex absolute top-1/2 -translate-y-1/2 z-10 size-11 items-center justify-center rounded-full " +
+    "bg-card/90 backdrop-blur-md border border-border text-foreground shadow-lg " +
+    "transition-opacity hover:bg-card cursor-pointer";
+
+  return (
+    <div className={`relative ${className}`}>
+      <button
+        type="button"
+        aria-label="Anterior"
+        onClick={() => step(-1)}
+        className={`${arrow} -left-1 ${left ? "opacity-100" : "pointer-events-none opacity-0"}`}
+      >
+        <ChevronLeft size={18} />
+      </button>
+
+      <div
+        ref={ref}
+        role={ariaLabel ? "group" : undefined}
+        aria-label={ariaLabel}
+        className="overflow-x-auto overscroll-x-contain [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+        style={{ maskImage: mask, WebkitMaskImage: mask }}
+      >
+        {children}
+      </div>
+
+      <button
+        type="button"
+        aria-label="Siguiente"
+        onClick={() => step(1)}
+        className={`${arrow} -right-1 ${right ? "opacity-100" : "pointer-events-none opacity-0"}`}
+      >
+        <ChevronRight size={18} />
+      </button>
+
+      {/* How much of the strip you are seeing, and where in it you are. */}
+      {bar.w > 0 && bar.w < 99 && (
+        <div aria-hidden className="mt-2 h-[3px] w-full rounded-full bg-foreground/10">
+          <div
+            className="h-full rounded-full bg-accent/70 transition-[margin] duration-150"
+            style={{ width: `${bar.w}%`, marginLeft: `${bar.x}%` }}
+          />
+        </div>
+      )}
+    </div>
+  );
+}

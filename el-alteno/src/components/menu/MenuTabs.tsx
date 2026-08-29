@@ -6,6 +6,7 @@ import MenuItemCard from "./MenuItem";
 import MenuListRow from "./MenuListRow";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
+import ScrollStrip from "@/components/ui/ScrollStrip";
 
 interface Props {
   categories: MenuCategory[];
@@ -24,9 +25,12 @@ export default function MenuTabs({ categories, items }: Props) {
 
   return (
     <div className="px-4 md:px-0">
-      {/* Tab nav — scrollable on mobile */}
-      <div className="overflow-x-auto pb-4 mb-8 scrollbar-thin scrollbar-thumb-white/10">
-        <div className="flex gap-2.5 min-w-max">
+      {/* Fourteen categories never fit one screen, so the strip has to say so. */}
+      <ScrollStrip
+        className="mb-8"
+        ariaLabel={t("Menu categories", "Categorías del menú")}
+      >
+        <div className="flex gap-2.5 min-w-max pb-1">
           {categories.map((cat) => (
             <button
               key={cat.id}
@@ -41,7 +45,7 @@ export default function MenuTabs({ categories, items }: Props) {
             </button>
           ))}
         </div>
-      </div>
+      </ScrollStrip>
 
       {/* Photographed dishes — card grid */}
       {withPhoto.length > 0 && (
