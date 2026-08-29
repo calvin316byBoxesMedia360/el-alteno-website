@@ -30,7 +30,7 @@ export default function Navbar() {
         {/* Logo */}
         <a href="#" className="flex items-center min-h-11">
           <Image
-            src="/images/logo/logo.png"
+            src="/images/logo/logo-v2.png"
             alt="El Alteño Logo"
             width={100}
             height={60}
