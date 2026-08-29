@@ -26,7 +26,7 @@ export default function MenuItem({ item }: { item: MenuItemType }) {
         to 1.5:1. It now takes a paper surface in light and the original dark
         one under `dark:`.
       */}
-      <div className="group bg-card dark:bg-[#1E1A17]/60 backdrop-blur-md rounded-2xl border border-border dark:border-[#C99A3F]/15 hover:border-[#A8481F]/45 dark:hover:border-[#C99A3F]/45 overflow-hidden shadow-lg shadow-[#2A231D]/5 dark:shadow-xl hover:shadow-xl dark:hover:shadow-[0_10px_30px_rgba(0,0,0,0.4)] transition-all duration-300 flex flex-col transform hover:-translate-y-1 h-full">
+      <div className="group bg-card dark:bg-[#1E1A17]/60 backdrop-blur-md rounded-2xl border border-border dark:border-[#C99A3F]/15 hover:border-accent/45 overflow-hidden shadow-lg shadow-[#2A231D]/5 dark:shadow-xl hover:shadow-xl dark:hover:shadow-[0_10px_30px_rgba(0,0,0,0.4)] transition-all duration-300 flex flex-col transform hover:-translate-y-1 h-full">
         {/* Photo Container - Click to expand */}
         <div
           onClick={() => setIsOpen(true)}
@@ -50,10 +50,10 @@ export default function MenuItem({ item }: { item: MenuItemType }) {
         <div className="p-5 flex flex-col flex-1 justify-between">
           <div>
             <div className="flex items-start justify-between gap-2 mb-2">
-              <h3 className="font-bold text-foreground dark:text-[#FAF6EF] text-xl md:text-2xl leading-tight group-hover:text-[#A8481F] dark:group-hover:text-[#C99A3F] transition-colors font-heading">
+              <h3 className="font-bold text-foreground dark:text-[#FAF6EF] text-xl md:text-2xl leading-tight group-hover:text-accent transition-colors font-heading">
                 {locale === "en" ? item.name : item.nameEs}
               </h3>
-              <span className="text-[#A8481F] dark:text-accent font-extrabold text-xl md:text-2xl shrink-0">
+              <span className="text-accent font-extrabold text-xl md:text-2xl shrink-0">
                 ${item.price.toFixed(2)}
               </span>
             </div>
@@ -128,7 +128,9 @@ export default function MenuItem({ item }: { item: MenuItemType }) {
                         {locale === "en" ? item.nameEs : item.name}
                       </span>
                     </h3>
-                    <span className="text-accent font-extrabold text-base md:text-lg shrink-0">
+                    {/* The modal is dark in both themes, so it takes the dark
+                        palette literally rather than the accent token. */}
+                    <span className="text-[#C99A3F] font-extrabold text-base md:text-lg shrink-0">
                       ${item.price.toFixed(2)}
                     </span>
                   </div>

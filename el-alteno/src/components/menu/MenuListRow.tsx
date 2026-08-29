@@ -17,14 +17,14 @@ export default function MenuListRow({ item }: { item: MenuItemType }) {
   return (
     <div className="group break-inside-avoid mb-6">
       <div className="flex items-baseline gap-2">
-        <h3 className="font-heading font-bold text-foreground text-xl md:text-2xl leading-tight group-hover:text-[#A8481F] dark:group-hover:text-[#C99A3F] transition-colors">
+        <h3 className="font-heading font-bold text-foreground text-xl md:text-2xl leading-tight group-hover:text-accent transition-colors">
           {locale === "en" ? item.name : item.nameEs}
         </h3>
         <span
           aria-hidden
-          className="flex-1 border-b border-dotted border-[#A8481F]/40 dark:border-[#C99A3F]/35 relative -top-1"
+          className="flex-1 border-b border-dotted border-accent/45 relative -top-1"
         />
-        <span className="text-[#A8481F] dark:text-accent font-extrabold text-xl md:text-2xl shrink-0 tabular-nums">
+        <span className="text-accent font-extrabold text-xl md:text-2xl shrink-0 tabular-nums">
           ${item.price.toFixed(2)}
         </span>
       </div>

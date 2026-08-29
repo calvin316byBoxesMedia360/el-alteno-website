@@ -24,9 +24,9 @@ function ItemTags({ item, className = "" }: { item: MenuItem; className?: string
 /** Card for a dish photographed at the restaurant. Only 18 dishes have one. */
 function PhotoCard({ item }: { item: MenuItem }) {
   return (
-    <div className="bg-[#F7F0E2] rounded-xl border border-[#DDCDB2] overflow-hidden shadow-sm flex">
+    <div className="bg-[#E4D6B8] rounded-xl border border-[#C0AE8B] overflow-hidden shadow-sm flex">
       {/* Image side */}
-      <div className="relative w-24 sm:w-32 h-auto min-h-[96px] bg-[#E4D7BE] shrink-0">
+      <div className="relative w-24 sm:w-32 h-auto min-h-[96px] bg-[#CFBE9B] shrink-0">
         <Image src={item.image!} alt={item.name} fill className="object-cover" />
       </div>
 
@@ -35,20 +35,20 @@ function PhotoCard({ item }: { item: MenuItem }) {
         <div>
           <div className="flex items-start justify-between gap-2 mb-1">
             <h3
-              className="font-bold text-[#2A231D] text-sm leading-tight"
+              className="font-bold text-[#241E17] text-sm leading-tight"
               style={{ fontFamily: "var(--font-playfair)" }}
             >
               {item.name}{" "}
-              <span className="text-[#6B6054] font-sans font-normal text-xs block mt-0.5">
+              <span className="text-[#554B3F] font-sans font-normal text-xs block mt-0.5">
                 {item.nameEs}
               </span>
             </h3>
-            <span className="text-[#A8481F] font-bold text-sm shrink-0">
+            <span className="text-[#85340F] font-bold text-sm shrink-0">
               ${item.price.toFixed(2)}
             </span>
           </div>
-          <p className="text-[#6B6054] text-[11px] leading-snug mb-1">{item.description}</p>
-          <p className="text-[#6B6054] italic text-[11px] leading-snug">{item.descriptionEs}</p>
+          <p className="text-[#554B3F] text-[11px] leading-snug mb-1">{item.description}</p>
+          <p className="text-[#554B3F] italic text-[11px] leading-snug">{item.descriptionEs}</p>
         </div>
 
         <ItemTags item={item} className="mt-2" />
@@ -66,22 +66,22 @@ function ListRow({ item }: { item: MenuItem }) {
     <div className="break-inside-avoid mb-5">
       <div className="flex items-baseline gap-2">
         <h3
-          className="font-bold text-[#2A231D] text-sm leading-tight"
+          className="font-bold text-[#241E17] text-sm leading-tight"
           style={{ fontFamily: "var(--font-playfair)" }}
         >
           {item.name}
         </h3>
         <span
           aria-hidden
-          className="flex-1 border-b border-dotted border-[#A8481F]/45 relative -top-1"
+          className="flex-1 border-b border-dotted border-[#85340F]/45 relative -top-1"
         />
-        <span className="text-[#A8481F] font-bold text-sm shrink-0 tabular-nums">
+        <span className="text-[#85340F] font-bold text-sm shrink-0 tabular-nums">
           ${item.price.toFixed(2)}
         </span>
       </div>
-      <p className="text-[#6B6054] text-[11px] leading-snug">{item.nameEs}</p>
-      <p className="text-[#6B6054] text-[11px] leading-snug mt-1">{item.description}</p>
-      <p className="text-[#6B6054] italic text-[11px] leading-snug">{item.descriptionEs}</p>
+      <p className="text-[#554B3F] text-[11px] leading-snug">{item.nameEs}</p>
+      <p className="text-[#554B3F] text-[11px] leading-snug mt-1">{item.description}</p>
+      <p className="text-[#554B3F] italic text-[11px] leading-snug">{item.descriptionEs}</p>
       <ItemTags item={item} className="mt-1.5" />
     </div>
   );
@@ -89,9 +89,9 @@ function ListRow({ item }: { item: MenuItem }) {
 
 export default function QRMenuPage() {
   return (
-    <div className="min-h-screen bg-[#EDE2CE] text-[#2A231D] pb-16 font-sans">
+    <div className="min-h-screen bg-[#D2C09C] text-[#241E17] pb-16 font-sans">
       {/* Sticky Clean Header */}
-      <header className="sticky top-0 z-30 bg-[#F7F0E2]/95 backdrop-blur-sm border-b border-[#DDCDB2] py-3 px-4 shadow-sm">
+      <header className="sticky top-0 z-30 bg-[#E4D6B8]/95 backdrop-blur-sm border-b border-[#C0AE8B] py-3 px-4 shadow-sm">
         <div className="max-w-4xl mx-auto flex items-center justify-between">
           <Link
             href="/"
@@ -121,12 +121,12 @@ export default function QRMenuPage() {
       <main className="max-w-4xl mx-auto px-4 pt-6">
         <div className="text-center mb-8">
           <h1
-            className="text-3xl md:text-4xl font-bold text-[#2A231D] mb-2"
+            className="text-3xl md:text-4xl font-bold text-[#241E17] mb-2"
             style={{ fontFamily: "var(--font-playfair)" }}
           >
             Digital Menu / Menú Digital
           </h1>
-          <p className="text-xs text-[#6B6054] max-w-md mx-auto">
+          <p className="text-xs text-[#554B3F] max-w-md mx-auto">
             Bilingual tableside menu. Hand-made tortillas available with every dish.
             <br />
             Menú bilingüe. Tortillas hechas a mano disponibles con cada platillo.
@@ -134,13 +134,13 @@ export default function QRMenuPage() {
         </div>
 
         {/* Quick Jump Anchors */}
-        <div className="overflow-x-auto pb-3 mb-8 -mx-4 px-4 sticky top-[60px] bg-[#EDE2CE]/90 backdrop-blur-md py-2 z-20 border-b border-[#DDCDB2]/40">
+        <div className="overflow-x-auto pb-3 mb-8 -mx-4 px-4 sticky top-[60px] bg-[#D2C09C]/90 backdrop-blur-md py-2 z-20 border-b border-[#C0AE8B]/40">
           <div className="flex gap-2 min-w-max">
             {categories.map((cat) => (
               <a
                 key={cat.id}
                 href={`#${cat.id}`}
-                className="px-3.5 min-h-11 inline-flex items-center rounded-full text-xs font-medium bg-[#F7F0E2] text-[#6B6054] border border-[#DDCDB2] hover:border-[#C65D3B] hover:text-[#C65D3B] transition-all shadow-sm"
+                className="px-3.5 min-h-11 inline-flex items-center rounded-full text-xs font-medium bg-[#E4D6B8] text-[#554B3F] border border-[#C0AE8B] hover:border-[#C65D3B] hover:text-[#C65D3B] transition-all shadow-sm"
               >
                 {cat.label} / {cat.labelEs}
               </a>
@@ -165,11 +165,11 @@ export default function QRMenuPage() {
                     style={{ fontFamily: "var(--font-playfair)" }}
                   >
                     {cat.label}{" "}
-                    <span className="text-sm font-medium text-[#6B6054] font-sans">
+                    <span className="text-sm font-medium text-[#554B3F] font-sans">
                       / {cat.labelEs}
                     </span>
                   </h2>
-                  <div className="h-px bg-[#DDCDB2] w-full" />
+                  <div className="h-px bg-[#C0AE8B] w-full" />
                 </div>
 
                 {withPhoto.length > 0 && (
@@ -184,10 +184,10 @@ export default function QRMenuPage() {
                   <div className={withPhoto.length > 0 ? "mt-8" : ""}>
                     {withPhoto.length > 0 && (
                       <div className="flex items-center gap-3 mb-5">
-                        <span className="text-[#A8481F] text-[10px] font-bold uppercase tracking-[0.2em] whitespace-nowrap">
+                        <span className="text-[#85340F] text-[10px] font-bold uppercase tracking-[0.2em] whitespace-nowrap">
                           Also on the menu / También en la carta
                         </span>
-                        <span className="h-px flex-1 bg-[#DDCDB2]" />
+                        <span className="h-px flex-1 bg-[#C0AE8B]" />
                       </div>
                     )}
                     <div className="columns-1 md:columns-2 gap-x-10">
