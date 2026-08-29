@@ -27,6 +27,7 @@ export default function Hero() {
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-30 h-full w-full object-cover"
       >
+        <source media="(max-width: 767px)" src="/videos/hero-bg-mobile.mp4" type="video/mp4" />
         <source src="/videos/hero-bg.mp4" type="video/mp4" />
       </video>
 
@@ -37,7 +38,7 @@ export default function Hero() {
       <div className="relative mx-auto flex w-full max-w-3xl flex-col items-center px-5 pb-10 pt-32 text-center sm:px-8 sm:pb-14 sm:pt-36 md:pt-32">
         <motion.div
           {...entrance(0)}
-          className="mb-7 flex items-center justify-center gap-4 text-[11px] font-bold uppercase tracking-[0.24em] text-[#D8A34B] sm:text-xs md:mb-8 md:text-sm"
+          className="order-2 mb-7 flex items-center justify-center gap-4 text-[11px] font-bold uppercase tracking-[0.24em] text-[#D8A34B] sm:text-xs md:order-none md:mb-8 md:text-sm"
         >
           {/* Fixed label — one greeting per flag, not a localisable string.
               Wrapping it in t() read "MX Welcome · US Welcome" in English. */}
@@ -50,7 +51,7 @@ export default function Hero() {
 
         <motion.div
           {...entrance(0.12)}
-          className="relative mb-7 w-full max-w-[280px] drop-shadow-[0_22px_34px_rgba(0,0,0,.48)] sm:max-w-[360px]"
+          className="order-1 relative -top-48 -mb-24 w-full max-w-[190px] drop-shadow-[0_22px_34px_rgba(0,0,0,.48)] sm:-top-32 sm:-mb-16 sm:max-w-[300px] md:order-none md:top-0 md:mb-7 md:max-w-[360px]"
         >
           <svg
             viewBox="0 0 445 381"
@@ -75,14 +76,14 @@ export default function Hero() {
 
         <motion.p
           {...entrance(0.22)}
-          className="mb-7 text-[11px] font-bold uppercase tracking-[0.16em] text-white/95 drop-shadow-md sm:text-sm md:mb-8"
+          className="order-3 mb-7 text-[11px] font-bold uppercase tracking-[0.16em] text-white/95 drop-shadow-md sm:text-sm md:order-none md:mb-8"
         >
           323 Main St <span className="text-[#D8A34B]">·</span> Watsonville, California
         </motion.p>
 
         <motion.div
           {...entrance(0.3)}
-          className="flex w-full max-w-[300px] flex-col gap-3.5 sm:max-w-[360px]"
+          className="order-4 flex w-full max-w-[300px] flex-col gap-3.5 sm:max-w-[360px] md:order-none"
         >
           <motion.a
             whileHover={reduceMotion ? undefined : { scale: 1.015 }}
@@ -113,7 +114,7 @@ export default function Hero() {
 
         <motion.div
           {...entrance(0.4)}
-          className="mt-8 w-full max-w-[300px] sm:mt-10 sm:max-w-[360px]"
+          className="order-5 mt-8 w-full max-w-[300px] sm:mt-10 sm:max-w-[360px] md:order-none"
         >
           <div className="mb-4 flex items-center gap-4 text-xs text-[#D8A34B]">
             <span className="h-px flex-1 bg-gradient-to-r from-transparent to-[#D8A34B]/55" />
