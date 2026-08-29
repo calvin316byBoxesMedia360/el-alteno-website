@@ -1,7 +1,7 @@
 # Restaurant Polish and Tortilla Video Design
 
 **Date:** 2026-08-29  
-**Status:** Approved  
+**Status:** Approved — revised after first video review  
 **Branch:** `codex/hero-mobile-video`
 
 ## Objective
@@ -38,17 +38,17 @@ The video element will be muted, looping, inline, and decorative to assistive te
 
 ## Video production brief
 
-Generate two silent, six-second, 16:9 review candidates with Higgsfield Seedance 2.0. Essential action remains centered so responsive `object-cover` cropping does not remove the hands or tortilla.
+The first two Seedance 2.0 candidates were rejected because their rustic backgrounds did not read as a real kitchen. Generate two replacement silent, six-second, 16:9, 2K review candidates with Higgsfield MiniMax H3. Each replacement must visibly establish a modest, clean, everyday home kitchen through practical details such as pale ceramic tile, an ordinary laminate counter, a compact gas stove, simple cabinets, a towel, a dish rack, and familiar utensils. Essential action remains centered so responsive `object-cover` cropping does not remove the hands or tortilla.
 
-### Candidate A — overhead process
+### Candidate A — press to comal
 
-A stable overhead close-up shows hands pressing a corn masa ball, lifting the tortilla, placing it on a seasoned black comal, and flipping it once. Warm amber light, realistic food motion, visible masa texture, and a loop-friendly ending make the process immediately understandable.
+A stable three-quarter overhead close-up shows the pale tile backsplash, everyday counter, tortilla press, and home gas stove in one coherent working area. Hands press a corn masa ball, peel the tortilla from its liner, transfer it to a clean dark comal, and flip it once. Soft window light and an ordinary ceiling light keep the scene warm but documentary-real rather than stylized.
 
-### Candidate B — low macro finish
+### Candidate B — puff and stack
 
-A tight low side angle looks across the comal as hands place a fresh tortilla, small bubbles form, the tortilla puffs gently, and it is flipped while light steam catches terracotta-colored light. Shallow depth of field gives this option a more cinematic, tactile feel.
+A tight counter-height angle establishes a compact family kitchen through white tile, simple cabinets, a normal four-burner stove, and a sink or dish rack softly in the background. Hands place a fresh tortilla on the comal, bubbles form, it puffs gently, then it is flipped and stacked on a folded cotton towel. Shallow depth of field keeps the process tactile while retaining enough kitchen context to avoid an abstract or rustic backdrop.
 
-Both frames contain only hands, forearms, masa, press or comal, and tortillas. Branding and written graphics are absent. The two results are presented for user selection before either is integrated.
+The working action contains hands, forearms, masa, press or comal, and tortillas; no face or full person is needed. The kitchen should feel practical, contemporary, modest, and lived-in rather than luxurious, restaurant-like, farmhouse, or rustic. Branding and written graphics are absent. The two MiniMax H3 results are presented for user selection before either is integrated.
 
 ## Visual and technical alignment
 
