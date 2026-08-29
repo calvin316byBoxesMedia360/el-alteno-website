@@ -1,8 +1,9 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { CalendarDays, ChevronRight, UtensilsCrossed } from "lucide-react";
+import { ArrowUpRight, CalendarDays, ChevronRight, UtensilsCrossed } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import { DELIVERY_LINKS } from "@/lib/deliveryLinks";
 
 export default function Hero() {
   const { t } = useLanguage();
@@ -124,12 +125,32 @@ export default function Hero() {
           </div>
 
           <div className="grid grid-cols-2 gap-3">
-            <span className="flex min-h-12 items-center justify-center rounded-full border border-[#D8A34B]/55 bg-black/35 px-3 text-[11px] font-extrabold uppercase tracking-[0.1em] text-white/90 backdrop-blur-[2px] sm:text-xs">
-              DoorDash
-            </span>
-            <span className="flex min-h-12 items-center justify-center rounded-full border border-[#D8A34B]/55 bg-black/35 px-3 text-[11px] font-extrabold uppercase tracking-[0.1em] text-white/90 backdrop-blur-[2px] sm:text-xs">
-              Uber Eats
-            </span>
+            <a
+              href={DELIVERY_LINKS.doorDash}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Order from DoorDash (opens in a new tab)"
+              className="group flex min-h-12 items-center justify-center gap-1.5 rounded-full border border-[#D8A34B]/45 bg-black/30 px-3 text-[11px] font-extrabold uppercase tracking-[0.1em] text-white/85 outline-none backdrop-blur-[2px] transition-colors hover:border-[#D8A34B]/70 hover:bg-black/45 hover:text-white focus-visible:ring-2 focus-visible:ring-[#F1BC5D] focus-visible:ring-offset-2 focus-visible:ring-offset-[#161311] sm:text-xs"
+            >
+              <span>DoorDash</span>
+              <ArrowUpRight
+                className="size-3.5 text-[#D8A34B]/75 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                aria-hidden="true"
+              />
+            </a>
+            <a
+              href={DELIVERY_LINKS.uberEats}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Order from Uber Eats (opens in a new tab)"
+              className="group flex min-h-12 items-center justify-center gap-1.5 rounded-full border border-[#D8A34B]/45 bg-black/30 px-3 text-[11px] font-extrabold uppercase tracking-[0.1em] text-white/85 outline-none backdrop-blur-[2px] transition-colors hover:border-[#D8A34B]/70 hover:bg-black/45 hover:text-white focus-visible:ring-2 focus-visible:ring-[#F1BC5D] focus-visible:ring-offset-2 focus-visible:ring-offset-[#161311] sm:text-xs"
+            >
+              <span>Uber Eats</span>
+              <ArrowUpRight
+                className="size-3.5 text-[#D8A34B]/75 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                aria-hidden="true"
+              />
+            </a>
           </div>
         </motion.div>
       </div>
