@@ -34,7 +34,7 @@ export default function MenuTabs({ categories, items }: Props) {
               className={`px-5 min-h-11 rounded-full text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
                 active === cat.id
                   ? "bg-terracota text-white shadow-lg shadow-terracota/20 border border-transparent"
-                  : "bg-[#1E1A17] text-muted-foreground border border-[#E5D9C5]/10 hover:border-mustard/40 hover:text-mustard"
+                  : "bg-card dark:bg-[#1E1A17] text-muted-foreground border border-border dark:border-[#E5D9C5]/10 hover:border-[#A8481F]/50 dark:hover:border-mustard/40 hover:text-[#A8481F] dark:hover:text-accent"
               }`}
             >
               {locale === "en" ? cat.label : cat.labelEs}
@@ -77,10 +77,10 @@ export default function MenuTabs({ categories, items }: Props) {
         >
           {withPhoto.length > 0 && (
             <div className="flex items-center gap-4 mb-7">
-              <span className="text-mustard text-[11px] font-bold uppercase tracking-[0.2em] whitespace-nowrap">
+              <span className="text-[#A8481F] dark:text-accent text-[11px] font-bold uppercase tracking-[0.2em] whitespace-nowrap">
                 {t("Also on the menu", "También en la carta")}
               </span>
-              <span className="h-px flex-1 bg-[#C99A3F]/15" />
+              <span className="h-px flex-1 bg-border dark:bg-[#C99A3F]/15" />
             </div>
           )}
           <div className="columns-1 md:columns-2 gap-x-14">

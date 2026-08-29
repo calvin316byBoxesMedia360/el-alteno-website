@@ -45,7 +45,7 @@ export default function Events() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <p className="text-mustard text-xs md:text-sm font-bold tracking-widest uppercase mb-3">
+          <p className="text-accent text-xs md:text-sm font-bold tracking-widest uppercase mb-3">
             {t("Private Events", "Eventos Privados")}
           </p>
           <h2 className="text-3xl md:text-5xl font-heading font-bold mb-6 leading-tight">
@@ -60,12 +60,12 @@ export default function Events() {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
             <div className="bg-card border border-[#E5D9C5]/10 rounded-2xl p-5 text-center shadow-lg">
-              <Users size={24} className="text-mustard mx-auto mb-2" />
+              <Users size={24} className="text-accent mx-auto mb-2" />
               <p className="text-2xl font-heading font-bold text-foreground">100</p>
               <p className="text-xs text-muted-foreground">{t("max guests", "máx. invitados")}</p>
             </div>
             <div className="bg-card border border-[#E5D9C5]/10 rounded-2xl p-5 text-center shadow-lg">
-              <Calendar size={24} className="text-mustard mx-auto mb-2" />
+              <Calendar size={24} className="text-accent mx-auto mb-2" />
               <p className="text-2xl font-heading font-bold text-foreground">2</p>
               <p className="text-xs text-muted-foreground">{t("spaces available", "salones disponibles")}</p>
             </div>
@@ -95,9 +95,9 @@ export default function Events() {
           </div>
 
           <div className="flex items-center gap-3 text-muted-foreground">
-            <Phone size={16} className="text-mustard" />
+            <Phone size={16} className="text-accent" />
             <span>{t("Prefer to call?", "¿Prefieres llamar?")}</span>
-            <a href="tel:8317689876" className="inline-flex items-center min-h-11 text-foreground font-bold hover:text-mustard transition-colors">
+            <a href="tel:8317689876" className="inline-flex items-center min-h-11 text-foreground font-bold hover:text-accent transition-colors">
               (831) 768-9876
             </a>
           </div>

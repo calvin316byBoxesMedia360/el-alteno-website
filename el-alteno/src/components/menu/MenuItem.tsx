@@ -20,11 +20,17 @@ export default function MenuItem({ item }: { item: MenuItemType }) {
 
   return (
     <>
-      <div className="group bg-[#1E1A17]/60 backdrop-blur-md rounded-2xl border border-[#C99A3F]/15 hover:border-[#C99A3F]/45 overflow-hidden shadow-xl hover:shadow-[0_10px_30px_rgba(0,0,0,0.4)] transition-all duration-300 flex flex-col transform hover:-translate-y-1 h-full">
+      {/*
+        The card used to paint a fixed dark surface in both themes. Over the
+        light page that blended to a muddy grey and took the description down
+        to 1.5:1. It now takes a paper surface in light and the original dark
+        one under `dark:`.
+      */}
+      <div className="group bg-card dark:bg-[#1E1A17]/60 backdrop-blur-md rounded-2xl border border-border dark:border-[#C99A3F]/15 hover:border-[#A8481F]/45 dark:hover:border-[#C99A3F]/45 overflow-hidden shadow-lg shadow-[#2A231D]/5 dark:shadow-xl hover:shadow-xl dark:hover:shadow-[0_10px_30px_rgba(0,0,0,0.4)] transition-all duration-300 flex flex-col transform hover:-translate-y-1 h-full">
         {/* Photo Container - Click to expand */}
-        <div 
+        <div
           onClick={() => setIsOpen(true)}
-          className="relative aspect-[4/3] bg-[#2E2620] overflow-hidden cursor-zoom-in"
+          className="relative aspect-[4/3] bg-muted dark:bg-[#2E2620] overflow-hidden cursor-zoom-in"
         >
           <Image 
             src={displayImage} 
@@ -44,25 +50,25 @@ export default function MenuItem({ item }: { item: MenuItemType }) {
         <div className="p-5 flex flex-col flex-1 justify-between">
           <div>
             <div className="flex items-start justify-between gap-2 mb-2">
-              <h3 className="font-bold text-[#FAF6EF] text-xl md:text-2xl leading-tight group-hover:text-[#C99A3F] transition-colors font-heading">
+              <h3 className="font-bold text-foreground dark:text-[#FAF6EF] text-xl md:text-2xl leading-tight group-hover:text-[#A8481F] dark:group-hover:text-[#C99A3F] transition-colors font-heading">
                 {locale === "en" ? item.name : item.nameEs}
               </h3>
-              <span className="text-mustard font-extrabold text-xl md:text-2xl shrink-0">
+              <span className="text-[#A8481F] dark:text-accent font-extrabold text-xl md:text-2xl shrink-0">
                 ${item.price.toFixed(2)}
               </span>
             </div>
-            <p className="text-muted-foreground text-lg leading-relaxed line-clamp-3 mb-4">
+            <p className="text-muted-foreground text-[17px] leading-relaxed line-clamp-4 mb-4">
               {locale === "en" ? item.description : item.descriptionEs}
             </p>
           </div>
-          <div className="flex flex-wrap gap-1.5 font-sans pt-2 border-t border-white/5">
+          <div className="flex flex-wrap gap-1.5 font-sans pt-2 border-t border-border dark:border-white/5">
             {item.tags.includes("popular") && (
               <Badge className="bg-[#C65D3B] hover:bg-[#C65D3B] text-white text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-md font-semibold border-none">
                 {t("Popular", "Popular")}
               </Badge>
             )}
             {item.tags.includes("spicy") && (
-              <Badge className="bg-[#C99A3F] hover:bg-[#C99A3F] text-white text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-md font-semibold border-none">
+              <Badge className="bg-[#8A6A1E] hover:bg-[#8A6A1E] text-white text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-md font-semibold border-none">
                 🌶 {t("Spicy", "Picante")}
               </Badge>
             )}
@@ -118,11 +124,11 @@ export default function MenuItem({ item }: { item: MenuItemType }) {
                   <div className="flex items-start justify-between gap-4 mb-4 border-b border-[#C99A3F]/15 pb-4">
                     <h3 className="font-bold text-lg md:text-xl text-[#FAF6EF] leading-tight font-heading">
                       {locale === "en" ? item.name : item.nameEs}
-                      <span className="text-muted-foreground font-sans font-normal text-xs block mt-1">
+                      <span className="text-[#A39485] font-sans font-normal text-xs block mt-1">
                         {locale === "en" ? item.nameEs : item.name}
                       </span>
                     </h3>
-                    <span className="text-mustard font-extrabold text-base md:text-lg shrink-0">
+                    <span className="text-accent font-extrabold text-base md:text-lg shrink-0">
                       ${item.price.toFixed(2)}
                     </span>
                   </div>
@@ -131,7 +137,7 @@ export default function MenuItem({ item }: { item: MenuItemType }) {
                     <p className="text-[#FAF6EF]/85">
                       {locale === "en" ? item.description : item.descriptionEs}
                     </p>
-                    <p className="text-muted-foreground italic border-l-2 border-[#C99A3F]/25 pl-3">
+                    <p className="text-[#A39485] italic border-l-2 border-[#C99A3F]/25 pl-3">
                       {locale === "en" ? item.descriptionEs : item.description}
                     </p>
                   </div>

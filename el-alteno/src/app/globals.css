@@ -41,25 +41,38 @@
   --radius-xl: calc(var(--radius) * 1.4);
 }
 
+/*
+  Light theme — "carta clara", warm paper rather than bright cream.
+  The previous #FAF6EF read as glare on a phone at night. This paper sits 17%
+  lower in luminance and noticeably warmer (the blue channel drops 13% below
+  red), which is the deepest step that still keeps every piece of text at or
+  above the 4.5:1 the AA level asks for. One step further and the price falls
+  to 4.45:1.
+
+  Ink is darker than before to match: #2A231D on the card surface gives 13.6:1
+  for a dish name, 5.4:1 for its description and 5.1:1 for its price. The old
+  mustard price sat at 2.3:1 against the card, which is why prices were not
+  readable in light mode at all.
+*/
 :root {
-  --background:             #FAF6EF; /* Organic balanced warm cream (not harsh) */
-  --foreground:             #2E2620; /* Warm dark brown text */
-  --card:                   rgba(240, 230, 214, 0.65); /* Soft clay card overlay */
-  --card-foreground:        #2E2620;
-  --popover:                #FAF6EF;
-  --popover-foreground:     #2E2620;
+  --background:             #EDE2CE; /* warm paper, not bright cream */
+  --foreground:             #2A231D; /* warm near-black ink */
+  --card:                   #F7F0E2; /* card sits lighter than the page */
+  --card-foreground:        #2A231D;
+  --popover:                #F7F0E2;
+  --popover-foreground:     #2A231D;
   --primary:                #C65D3B;
   --primary-foreground:     #FFFFFF;
-  --secondary:              rgba(46, 38, 32, 0.05);
-  --secondary-foreground:   #2E2620;
-  --muted:                  #F0E6D6;
-  --muted-foreground:       #8A7E6F;
-  --accent:                 #C99A3F;
-  --accent-foreground:      #FAF6EF;
-  --destructive:            #E74C3C;
-  --border:                 rgba(46, 38, 32, 0.12);
-  --input:                  rgba(46, 38, 32, 0.08);
-  --ring:                   #C65D3B;
+  --secondary:              rgba(42, 35, 29, 0.05);
+  --secondary-foreground:   #2A231D;
+  --muted:                  #E4D7BE;
+  --muted-foreground:       #6B6054; /* 5.4:1 on the card — was 3.7:1 */
+  --accent:                 #A8481F; /* terracota ink for prices — was mustard at 2.3:1 */
+  --accent-foreground:      #F7F0E2;
+  --destructive:            #B5342A;
+  --border:                 rgba(42, 35, 29, 0.16);
+  --input:                  rgba(42, 35, 29, 0.10);
+  --ring:                   #A8481F;
   --radius:                 0.75rem;
 }
 

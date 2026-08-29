@@ -61,7 +61,7 @@ export default function Cocktails() {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-mustard text-xs md:text-sm font-bold tracking-widest uppercase mb-3"
+            className="text-accent text-xs md:text-sm font-bold tracking-widest uppercase mb-3"
           >
             {t("Signature Cocktails", "Cócteles de la Casa")}
           </motion.p>
@@ -129,7 +129,7 @@ export default function Cocktails() {
               {/* Card Body */}
               <div className="p-6 md:p-8 flex flex-col flex-grow justify-between">
                 <div>
-                  <h3 className="text-xl md:text-2xl font-heading font-bold text-foreground mb-3 group-hover:text-mustard transition-colors">
+                  <h3 className="text-xl md:text-2xl font-heading font-bold text-foreground mb-3 group-hover:text-accent transition-colors">
                     {t(c.name, c.nameEs)}
                   </h3>
                   <p className="text-muted-foreground text-xs md:text-sm leading-relaxed line-clamp-3">
@@ -137,7 +137,7 @@ export default function Cocktails() {
                   </p>
                 </div>
                 <div className="mt-6 pt-4 border-t border-[#E5D9C5]/10 flex items-center justify-between">
-                  <span className="text-xs uppercase tracking-wider text-mustard font-semibold">
+                  <span className="text-xs uppercase tracking-wider text-accent font-semibold">
                     {t("Handcrafted", "Artesanal")}
                   </span>
                   {/* No price shown — drink prices are not on the printed menu. See MENU-SOURCE.md. */}
@@ -228,7 +228,7 @@ export default function Cocktails() {
                 </div>
 
                 <div className="flex flex-wrap gap-2 mt-6 pt-4 border-t border-[#E5D9C5]/10 font-sans">
-                  <span className="text-xs uppercase tracking-wider text-mustard font-semibold">
+                  <span className="text-xs uppercase tracking-wider text-accent font-semibold">
                     {t("Handcrafted", "Artesanal")}
                   </span>
                 </div>

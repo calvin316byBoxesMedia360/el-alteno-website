@@ -29,7 +29,7 @@ export default function Location() {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-mustard text-xs md:text-sm font-bold tracking-widest uppercase mb-3"
+            className="text-accent text-xs md:text-sm font-bold tracking-widest uppercase mb-3"
           >
             {t("Find Us", "Ubicación")}
           </motion.p>
@@ -88,7 +88,7 @@ export default function Location() {
                     href="https://maps.app.goo.gl/JuMsrYVQm52sZR3X7"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-mustard text-xs font-semibold mt-2 inline-flex items-center min-h-11 gap-1 hover:underline"
+                    className="text-accent text-xs font-semibold mt-2 inline-flex items-center min-h-11 gap-1 hover:underline"
                   >
                     {t("Get Directions", "Cómo llegar")} →
                   </a>
@@ -106,7 +106,7 @@ export default function Location() {
                   </h4>
                   <a
                     href="tel:8317689876"
-                    className="inline-flex items-center min-h-11 text-muted-foreground text-sm hover:text-mustard transition-colors font-medium"
+                    className="inline-flex items-center min-h-11 text-muted-foreground text-sm hover:text-accent transition-colors font-medium"
                   >
                     (831) 768-9876
                   </a>
@@ -131,11 +131,11 @@ export default function Location() {
                       <span>{t("Sunday", "Domingo")}</span>
                       <span className="text-foreground font-semibold">11:00 AM – 8:00 PM</span>
                     </div>
-                    <div className="pl-4 text-xs flex justify-between text-muted-foreground/75">
+                    <div className="pl-4 text-xs flex justify-between text-muted-foreground">
                       <span>↳ {t("Lunch Specials", "Especiales de Lunch")}</span>
                       <span>11:00 AM – 3:00 PM</span>
                     </div>
-                    <div className="flex justify-between text-terracota font-bold pt-1">
+                    <div className="flex justify-between text-accent font-bold pt-1">
                       <span>{t("Monday", "Lunes")}</span>
                       <span className="uppercase">{t("Closed", "Cerrado")}</span>
                     </div>

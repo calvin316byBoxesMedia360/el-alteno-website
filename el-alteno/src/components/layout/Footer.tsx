@@ -22,12 +22,12 @@ export default function Footer() {
           <h3 className="text-2xl font-heading font-bold text-mustard">
             El Alteño
           </h3>
-          <p className="text-sm text-muted-foreground">{t("Authentic Mexican Cuisine", "Auténtica Comida Mexicana")}</p>
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+          <p className="text-sm text-[#A39485]">{t("Authentic Mexican Cuisine", "Auténtica Comida Mexicana")}</p>
+          <div className="flex items-center gap-2 text-sm text-[#A39485]">
             <MapPin size={14} className="text-mustard shrink-0" />
             <span>323 Main St, Watsonville, CA 95076</span>
           </div>
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+          <div className="flex items-center gap-2 text-sm text-[#A39485]">
             <Phone size={14} className="text-mustard shrink-0" />
             <a href="tel:8317689876" className="inline-flex items-center min-h-11 hover:text-mustard transition-colors font-medium">
               (831) 768-9876
@@ -41,7 +41,7 @@ export default function Footer() {
             <Clock size={16} className="text-mustard" />
             <h4 className="font-heading font-bold text-white text-lg">{t("Hours", "Horarios")}</h4>
           </div>
-          <ul className="space-y-2 text-sm text-muted-foreground">
+          <ul className="space-y-2 text-sm text-[#A39485]">
             <li className="flex justify-between gap-4 border-b border-white/5 pb-1">
               <span>{t("Tuesday – Saturday", "Martes – Sábado")}</span>
               <span className="text-white font-medium">11:00 AM – 8:00 PM</span>
@@ -50,7 +50,7 @@ export default function Footer() {
               <span>{t("Sunday", "Domingo")}</span>
               <span className="text-white font-medium">11:00 AM – 8:00 PM</span>
             </li>
-            <li className="flex justify-between gap-4 text-xs text-muted-foreground/75 ml-1 pl-3 border-l border-white/10">
+            <li className="flex justify-between gap-4 text-xs text-[#A39485] ml-1 pl-3 border-l border-white/10">
               <span>{t("Lunch Specials", "Especiales de Lunch")}</span>
               <span>11:00 AM – 3:00 PM</span>
             </li>
@@ -74,7 +74,7 @@ export default function Footer() {
                 <DoorDashMark />
                 <span className="flex flex-col leading-tight">
                   <span className="text-sm font-bold tracking-wide">DoorDash</span>
-                  <span className="text-[10px] uppercase tracking-wider text-white/80">
+                  <span className="text-[10px] uppercase tracking-wider text-white">
                     {t("Delivery & pickup", "Entrega y recoger")}
                   </span>
                 </span>
@@ -92,7 +92,7 @@ export default function Footer() {
                 <UberEatsMark />
                 <span className="flex flex-col leading-tight">
                   <span className="text-sm font-bold tracking-wide">Uber Eats</span>
-                  <span className="text-[10px] uppercase tracking-wider text-black/70">
+                  <span className="text-[10px] uppercase tracking-wider text-black">
                     {t("Delivery & pickup", "Entrega y recoger")}
                   </span>
                 </span>
@@ -105,7 +105,7 @@ export default function Footer() {
           </div>
 
           <div className="space-y-2.5">
-            <p className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground/80 font-bold">
+            <p className="text-[10px] uppercase tracking-[0.18em] text-[#A39485] font-bold">
               {t("We accept", "Aceptamos")}
             </p>
             <div className="flex flex-wrap items-center gap-2">
@@ -118,9 +118,9 @@ export default function Footer() {
 
           <div className="flex gap-2">
             <span className="text-lg">🇲🇽</span>
-            <span className="text-xs text-muted-foreground self-center">Bienvenidos</span>
+            <span className="text-xs text-[#A39485] self-center">Bienvenidos</span>
             <span className="text-lg ml-2">🇺🇸</span>
-            <span className="text-xs text-muted-foreground self-center">Welcome</span>
+            <span className="text-xs text-[#A39485] self-center">Welcome</span>
           </div>
         </div>
       </div>
@@ -131,7 +131,7 @@ export default function Footer() {
         site, so it sits alongside rather than replacing it.
       */}
       <div className="border-t border-[#E5D9C5]/10 py-6 px-6">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-[10px] uppercase tracking-widest text-muted-foreground">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-[10px] uppercase tracking-widest text-[#A39485]">
           <span>© {new Date().getFullYear()} El Alteño Restaurant · Watsonville, CA</span>
           <span className="flex items-center gap-1.5">
             {t("Site by", "Sitio por")}
