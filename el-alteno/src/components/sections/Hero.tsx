@@ -17,7 +17,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative isolate overflow-hidden bg-[#161311] text-white md:flex md:min-h-[100svh] md:items-center md:justify-center"
+      className="relative isolate overflow-hidden bg-[#161311] pt-24 text-white md:flex md:min-h-[100svh] md:items-center md:justify-center md:pt-0"
     >
       <div className="relative z-0 w-full shrink-0 md:absolute md:inset-0">
         <video
