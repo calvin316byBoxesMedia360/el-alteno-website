@@ -2,7 +2,7 @@
 
 > **Lee este archivo completo antes de tocar nada.** Está escrito para que una sesión sin contexto previo pueda continuar el proyecto sin repetir errores que ya costaron caro.
 >
-> Última actualización: **2026-08-28** · rama publicada, **17 commits por delante de `master`** · PR [#2](https://github.com/calvin316byBoxesMedia360/el-alteno-website/pull/2) abierto
+> Última actualización: **2026-08-29** · **PR #2 mergeado y desplegado.** `master` = `6fd9ac0`, y producción por fin coincide con el trabajo
 
 ---
 
@@ -13,7 +13,7 @@ cd "C:\Users\no\Documents\Sandbox Boxes\El Alteno rest\el-alteno"
 npm run dev          # → http://localhost:3000
 ```
 
-- Rama activa: `feat/consolidate-menu-assets`, publicada, con PR #2 hacia `master`
+- Rama activa: **`master`**. `feat/consolidate-menu-assets` ya está mergeada; el trabajo nuevo parte de `master`
 - La app Next.js vive en la subcarpeta `el-alteno/`, **no en la raíz del repo**
 - Producción: https://web-production-004ee.up.railway.app (sirve `master` = `a190c4d`)
 
@@ -95,7 +95,7 @@ El Alteno rest/                    ← raíz del repo git
 | `review/live-sections` | `7721779` | Rediseño Hero/About (hecho por Codex) | sin mergear |
 | `feat/consolidate-menu-assets` | ver abajo | todo el trabajo desde el flyer | **PR #2 abierto** |
 
-Los 17 commits que `master` no tiene, del más reciente al más antiguo:
+Los 17 commits que llegaron a `master` con el merge del PR #2, del más reciente al más antiguo:
 
 ```
 786b1c5  chore(dev): allow the LAN origin so the site can be reviewed on a phone
@@ -117,11 +117,11 @@ acad2cc  feat(menu): add 11 dish photos and correct three misassigned images
 bdf2ce9  chore(images): convert approved assets to WebP
 ```
 
-🔴 **Producción está 17 commits atrás.** Lo publicado no incluye las conversiones WebP, el rediseño, las correcciones de fotos, el retiro del stock, la paleta clara nueva, ni ninguna de las correcciones móviles.
+✅ **Producción está al día** desde el 2026-08-29. El merge del PR #2 disparó el despliegue automático de Railway y quedó verificado en el sitio en vivo: cero referencias a Unsplash en ambas páginas, la foto de carne ya no ilustra el platillo vegetariano, el beige nuevo sirviéndose, cero controles bajo el mínimo táctil, cero campos que disparen el zoom de iOS, cero imágenes rotas y cero errores de consola.
 
-**Consecuencia concreta:** la foto que muestra **carne** ilustrando *Two Sopes de Guacamole* —platillo **vegetariano**— sigue en línea, y los 65 platillos sin foto siguen mostrando comida de otro restaurante junto a precios reales.
+Contraste medido **en producción**, dentro de la tarjeta en modo claro: nombre 11.48:1 · descripción 5.93:1 · precio 5.85:1. Coincide con lo medido en local.
 
-**Sobre PR #1:** sus 10 conversiones ya viajan dentro de `review/live-sections` y de `ed69146`. Al mergear cualquiera de esas ramas queda absorbido — decidir si se cierra o se mergea primero.
+**Sobre PR #1:** GitHub lo marcó como *merged* por su cuenta al detectar que su commit `bdf2ce9` había llegado a `master` dentro del #2. No hizo falta cerrarlo a mano.
 
 ### Otras copias locales
 
@@ -364,25 +364,15 @@ Luego, antes de escribir código:
 
 ### El siguiente paso del proyecto
 
-**Mergear el PR #2 y desplegar.** No hay trabajo técnico bloqueando: está hecho, verificado y publicado.
+**Confirmar `NEXT_PUBLIC_FORMSPREE_ID` en Railway.** Es lo único que queda entre una reserva de evento y la nada, y es lo único que falla **en silencio**: sin esa variable el formulario no envía y el visitante cree que reservó. No se puede verificar desde el código — hay que abrir el dashboard de Railway, y luego **enviar el formulario de verdad y comprobar que llega el correo**.
 
-Lo que hay en juego es concreto. Producción lleva **17 commits de retraso** y hoy mismo, en el sitio que ve el público:
+Eso es lo único urgente. El despliegue del 2026-08-29 ya resolvió lo que estaba mal en el sitio público: la foto de carne sobre el platillo vegetariano, los 65 platillos con comida de otro restaurante junto a precios reales, los precios ilegibles en modo claro y el zoom del formulario en iPhone.
 
-- una fotografía de **carne** ilustra *Two Sopes de Guacamole*, un platillo **vegetariano**
-- **65 de 83 platillos** muestran comida de otro restaurante junto a precios reales, incluida la carta del código QR de mesa
-- en modo claro, la **descripción de un platillo mide 1.48:1** contra su propia tarjeta y el **precio 2.29:1**
-- el formulario de eventos **hace zoom en iPhone** y deja la página torcida, en el embudo más rentable del restaurante
-
-Orden sugerido:
-
-1. Mergear PR #2 hacia `master`. Cerrar PR #1 **sin mergear** — ya va absorbido.
-2. Confirmar `NEXT_PUBLIC_FORMSPREE_ID` en Railway y **enviar el formulario de verdad**. Es lo único que puede fallar en silencio.
-3. Verificar el sitio desplegado a 375 y 393 px, en ambos temas.
-
-### Después del despliegue
+### Lo que sigue, por prioridad
 
 | Prioridad | Qué |
 |---|---|
+| Alta | Confirmar `NEXT_PUBLIC_FORMSPREE_ID` en Railway y enviar el formulario de verdad (arriba) |
 | Alta | Decidir sobre los **colores de marca bajo AA** (§6) — es decisión del cliente, no una edición técnica |
 | Alta | `chavela.png`, 2.2 MB en línea (§5) — bloqueado por revisión de marcas de terceros |
 | Media | Arte oficial de las marcas de pago, en vez de los dibujos simplificados |

@@ -50,7 +50,7 @@ npm run build                  # must pass before any deploy
 |---|---|
 | **Platform** | Railway |
 | **Live URL** | https://web-production-004ee.up.railway.app |
-| **Deploys from** | `master`, automatically on push |
+| **Deploys from** | `master`, automatically on push. Last deploy: `6fd9ac0`, 2026-08-29 |
 | **Root Directory** | `el-alteno` (set in the Railway dashboard) |
 | **Build / Start** | `npm run build` / `npm start`, auto-detected via Nixpacks |
 | **Custom domain** | none yet — candidate `elalteno.restaurant` |
@@ -77,9 +77,9 @@ Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS v4 · shadcn/u
 
 | Branch | What it is |
 |---|---|
-| `master` | What the public sees. **17 commits behind.** |
-| `feat/consolidate-menu-assets` | All current work. Open as PR #2 against `master` |
-| `chore/convert-approved-images-webp` | PR #1, draft. Already contained in the branch above — close it rather than merge |
+| `master` | What the public sees. **Current** — PR #2 merged 2026-08-29 as `6fd9ac0` and deployed |
+| `feat/consolidate-menu-assets` | Merged into `master`. Kept for reference; start new work from `master` |
+| `chore/convert-approved-images-webp` | PR #1, resolved on its own when its commit reached `master` via #2 |
 | `review/live-sections` | Earlier redesign, also already contained in the branch above |
 
 ---
