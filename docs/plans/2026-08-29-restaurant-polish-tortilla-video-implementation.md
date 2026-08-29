@@ -186,48 +186,50 @@ git add -- el-alteno/src/components/sections/Hero.tsx
 git commit -m "feat(hero): activate delivery shortcuts"
 ```
 
-### Task 5: Validate Higgsfield and generate two silent candidates
+### Task 5: Generate two replacement MiniMax H3 candidates
 
 **Files:**
 - No repository changes until one candidate is selected.
 
-**Step 1: Verify account and model catalog**
+The first Seedance 2.0 candidates were rejected because the setting looked rustic instead of like an everyday kitchen. Replace them rather than integrating either original.
+
+**Step 1: Verify account and MiniMax H3 schema**
 
 ```powershell
 higgsfield account status
 higgsfield model list --json
-higgsfield model get seedance_2_0 --json
+higgsfield model get minimax_h3 --json
 ```
 
-Expected: authenticated account and a Seedance 2.0 schema supporting six seconds, `16:9`, and `720p` or `1080p`.
+Expected: authenticated account and a MiniMax H3 schema supporting six seconds, `16:9`, fixed `2K` resolution, and one output per request. Confirm the schema has no generated-audio parameter; no audio reference is supplied.
 
 **Step 2: Check generation cost if the CLI supports it**
 
-Run the exact `higgsfield generate cost` syntax indicated by the installed CLI/model schema for each six-second candidate. If a cost is displayed or the CLI requests spending confirmation, pause and get explicit user approval before submitting either job.
+Run the exact `higgsfield generate cost` syntax indicated by the installed CLI/model schema for each six-second candidate. Record the cost, then proceed without a second approval because the user explicitly authorized these two MiniMax H3 generations without another token-confirmation pause. Do not submit more than two replacement jobs.
 
 **Step 3: Generate candidate A**
 
 Use a prompt under 200 tokens:
 
 ```text
-Cinematic overhead close-up of an authentic Mexican tortilla station. The composition is tightly cropped to clean hands and forearms, a metal tortilla press, corn masa, and a seasoned black comal. A small masa ball is pressed, lifted carefully, placed beside several cooking tortillas, then flipped once as light steam rises. Warm amber kitchen light, tactile masa texture, realistic food motion, centered action, locked camera, seamless loop-friendly ending, unbranded documentary realism, clean image free of text and graphics.
+Six-second continuous documentary-style food shot inside a modest, clean, everyday family kitchen. Pale square ceramic-tile backsplash, ordinary light laminate counter, compact four-burner gas stove, simple cream cabinets, cotton towel, and familiar utensils establish a practical working home. Three-quarter overhead 35mm view, tightly composed around two adult hands and forearms. They press white corn masa in a plastic-lined metal tortilla press, peel the tortilla cleanly, transfer it to a dark steel comal beside several cooking tortillas, and flip it once. Soft afternoon window light mixed with a normal ceiling light, accurate hand mechanics, natural steam, crisp masa texture, stable camera with a very slow push-in, centered action, seamless loop-friendly ending, unbranded and text-free.
 ```
 
-Submit with Seedance 2.0, duration `6`, aspect ratio `16:9`, review resolution `720p`, explicit `--generate_audio false`, `--wait`, and JSON output. The current model schema defaults `generate_audio` to `true`, so omitting this flag would violate the approved silent-video requirement.
+Submit with MiniMax H3, duration `6`, aspect ratio `16:9`, resolution `2K`, batch size `1`, `--wait`, and JSON output. Supply no audio reference.
 
 **Step 4: Generate candidate B**
 
 Use:
 
 ```text
-Tight low side-angle macro shot across a hot black comal in a traditional Mexican kitchen. The frame is tightly cropped to hands, forearms, tortillas, and the griddle. A freshly pressed corn tortilla lands on the hot surface, tiny bubbles form, it puffs gently, then the hands flip it as soft steam catches warm terracotta light. Shallow depth of field, crisp tortilla texture, subtle natural camera energy, centered action, loop-friendly ending, unbranded documentary realism, clean image free of text and graphics.
+Six-second continuous close food documentary shot from counter height inside a modest, clean family kitchen. White ceramic-tile backsplash, simple cream cabinets, ordinary four-burner gas stove, small stainless sink, dish rack, and a folded cotton towel remain softly recognizable in the frame. A 50mm lens holds a close three-quarter angle on two adult hands and forearms working over a dark steel comal. A fresh corn tortilla is laid flat, small bubbles rise, it puffs gently, then the hands flip it and place it onto a warm stack on the towel. Soft morning window light with subtle stove warmth, shallow depth of field that preserves kitchen context, physically accurate tortilla movement, delicate steam, natural skin and masa texture, steady miniature slider movement, centered action, loop-friendly ending, unbranded and text-free.
 ```
 
-Submit with the same six-second, `16:9`, `720p`, explicit `--generate_audio false` parameters and wait for completion.
+Submit with the same six-second, `16:9`, `2K`, batch-size-one MiniMax H3 parameters and wait for completion. Supply no audio reference.
 
 **Step 5: Present both results and pause**
 
-Show both candidate previews or result URLs with their job IDs. Do not download, rename, integrate, or commit either video until the user explicitly selects A or B.
+Download both results to the workspace review-media folder because remote CDN embeds did not render in the Codex UI. Present local playable links for A and B. Do not rename either as the production asset, integrate it, or commit it until the user explicitly selects one.
 
 ### Task 6: Add the selected video to the handmade card
 
