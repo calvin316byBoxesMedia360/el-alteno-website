@@ -2,6 +2,7 @@
 
 import { Phone, MapPin, Clock, ArrowUpRight } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import { DELIVERY_LINKS } from "@/lib/deliveryLinks";
 import {
   VisaMark,
   MastercardMark,
@@ -66,7 +67,7 @@ export default function Footer() {
             <h4 className="font-heading font-bold text-white text-lg">{t("Order Online", "Pedidos en Línea")}</h4>
             <div className="flex flex-col gap-3">
               <a
-                href="https://www.doordash.com"
+                href={DELIVERY_LINKS.doorDash}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-center gap-3 bg-[#FF3008] text-white px-4 py-3.5 rounded-xl shadow-lg shadow-[#FF3008]/20 hover:shadow-xl hover:shadow-[#FF3008]/30 hover:-translate-y-0.5 transition-all duration-200"
@@ -84,7 +85,7 @@ export default function Footer() {
                 />
               </a>
               <a
-                href="https://www.ubereats.com"
+                href={DELIVERY_LINKS.uberEats}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-center gap-3 bg-[#06C167] text-black px-4 py-3.5 rounded-xl shadow-lg shadow-[#06C167]/20 hover:shadow-xl hover:shadow-[#06C167]/30 hover:-translate-y-0.5 transition-all duration-200"

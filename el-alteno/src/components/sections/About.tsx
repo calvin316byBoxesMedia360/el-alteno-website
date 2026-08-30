@@ -117,15 +117,30 @@ export default function About() {
           </div>
 
           <div className="relative mb-3 min-h-[126px] overflow-hidden rounded-2xl border border-[#E1A24A]/80 bg-[radial-gradient(circle_at_82%_42%,rgba(248,160,91,.2),transparent_34%),linear-gradient(135deg,#9c3f1d,#6d2715)] px-4 py-4 shadow-[inset_0_1px_0_rgba(255,211,137,.2),0_14px_32px_rgba(79,25,10,.28)] sm:min-h-[146px] sm:px-6 sm:py-5">
-            <div className="pointer-events-none absolute right-2 top-1/2 h-[52%] w-[29%] -translate-y-1/2 sm:right-5 sm:h-[58%] sm:w-[30%]">
+            <div className="pointer-events-none absolute inset-0" aria-hidden="true">
               <Image
-                src="/images/about/tortilla-engraving.webp"
+                src="/images/about/tortillas-handmade-poster.webp"
                 alt=""
                 fill
-                sizes="(max-width: 768px) 26vw, 220px"
-                className="object-contain object-right opacity-48 mix-blend-screen"
+                sizes="(max-width: 768px) 90vw, 768px"
+                className="object-cover object-[center_58%]"
               />
+              {!reduceMotion && (
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="metadata"
+                  poster="/images/about/tortillas-handmade-poster.webp"
+                  className="absolute inset-0 h-full w-full object-cover object-[center_58%]"
+                >
+                  <source src="/videos/tortillas-handmade.mp4" type="video/mp4" />
+                </video>
+              )}
             </div>
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(31,9,3,.96)_0%,rgba(39,12,4,.84)_42%,rgba(17,8,4,.4)_70%,rgba(9,6,4,.18)_100%)]" />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/55 to-transparent" />
             <div className="relative z-10 max-w-[73%] sm:max-w-[70%]">
               <span className="inline-flex rounded-full border border-[#F0C478]/50 bg-black/15 px-4 py-1 text-[10px] font-bold uppercase tracking-[0.22em] text-[#F4CE8B] sm:text-xs">
                 {t("Hand Made", "Hecho a Mano")}

@@ -57,9 +57,13 @@ export default function ScrollStrip({
     el.addEventListener("scroll", measure, { passive: true });
     const ro = new ResizeObserver(measure);
     ro.observe(el);
+    Array.from(el.children).forEach((child) => ro.observe(child));
+    const mo = new MutationObserver(measure);
+    mo.observe(el, { characterData: true, childList: true, subtree: true });
     return () => {
       el.removeEventListener("scroll", measure);
       ro.disconnect();
+      mo.disconnect();
     };
   }, [measure]);
 
@@ -68,6 +72,7 @@ export default function ScrollStrip({
     const el = ref.current;
     if (!el) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const timers: number[] = [];
 
     const io = new IntersectionObserver(
       (entries) => {
@@ -77,15 +82,15 @@ export default function ScrollStrip({
         io.disconnect();
         const t1 = window.setTimeout(() => el.scrollTo({ left: 40, behavior: "smooth" }), 600);
         const t2 = window.setTimeout(() => el.scrollTo({ left: 0, behavior: "smooth" }), 1250);
-        return () => {
-          window.clearTimeout(t1);
-          window.clearTimeout(t2);
-        };
+        timers.push(t1, t2);
       },
       { threshold: 0.6 }
     );
     io.observe(el);
-    return () => io.disconnect();
+    return () => {
+      io.disconnect();
+      timers.forEach((timer) => window.clearTimeout(timer));
+    };
   }, []);
 
   const step = (dir: 1 | -1) => {
@@ -103,22 +108,17 @@ export default function ScrollStrip({
           ? "linear-gradient(to right, #000 calc(100% - 28px), transparent 100%)"
           : undefined;
 
+  const hasOverflow = bar.w > 0 && bar.w < 99;
   const arrow =
-    "hidden md:flex absolute top-1/2 -translate-y-1/2 z-10 size-11 items-center justify-center rounded-full " +
-    "bg-card/90 backdrop-blur-md border border-border text-foreground shadow-lg " +
-    "transition-opacity hover:bg-card cursor-pointer";
+    "flex size-11 shrink-0 items-center justify-center rounded-full bg-transparent text-mustard " +
+    "transition-[opacity,transform] hover:scale-105 cursor-pointer";
+
+  const arrowSurface =
+    "flex size-8 items-center justify-center rounded-full bg-[#17120F]/82 dark:bg-[#0F0C0A]/88 " +
+    "backdrop-blur-md border border-mustard/35 text-mustard shadow-lg";
 
   return (
     <div className={`relative ${className}`}>
-      <button
-        type="button"
-        aria-label="Anterior"
-        onClick={() => step(-1)}
-        className={`${arrow} -left-1 ${left ? "opacity-100" : "pointer-events-none opacity-0"}`}
-      >
-        <ChevronLeft size={18} />
-      </button>
-
       <div
         ref={ref}
         role={ariaLabel ? "group" : undefined}
@@ -129,22 +129,40 @@ export default function ScrollStrip({
         {children}
       </div>
 
-      <button
-        type="button"
-        aria-label="Siguiente"
-        onClick={() => step(1)}
-        className={`${arrow} -right-1 ${right ? "opacity-100" : "pointer-events-none opacity-0"}`}
-      >
-        <ChevronRight size={18} />
-      </button>
+      {/* The lower rail keeps controls away from the category labels. */}
+      {hasOverflow && (
+        <div className="mt-2 flex items-center gap-2">
+          <button
+            type="button"
+            aria-label="Anterior"
+            disabled={!left}
+            onClick={() => step(-1)}
+            className={`${arrow} ${left ? "opacity-100" : "pointer-events-none opacity-0"}`}
+          >
+            <span className={arrowSurface}>
+              <ChevronLeft size={15} />
+            </span>
+          </button>
 
-      {/* How much of the strip you are seeing, and where in it you are. */}
-      {bar.w > 0 && bar.w < 99 && (
-        <div aria-hidden className="mt-2 h-[3px] w-full rounded-full bg-foreground/10">
-          <div
-            className="h-full rounded-full bg-accent/70 transition-[margin] duration-150"
-            style={{ width: `${bar.w}%`, marginLeft: `${bar.x}%` }}
-          />
+          {/* How much of the strip you are seeing, and where in it you are. */}
+          <div aria-hidden className="h-[3px] flex-1 rounded-full bg-foreground/10">
+            <div
+              className="h-full rounded-full bg-accent/70 transition-[margin] duration-150"
+              style={{ width: `${bar.w}%`, marginLeft: `${bar.x}%` }}
+            />
+          </div>
+
+          <button
+            type="button"
+            aria-label="Siguiente"
+            disabled={!right}
+            onClick={() => step(1)}
+            className={`${arrow} ${right ? "opacity-100" : "pointer-events-none opacity-0"}`}
+          >
+            <span className={arrowSurface}>
+              <ChevronRight size={15} />
+            </span>
+          </button>
         </div>
       )}
     </div>

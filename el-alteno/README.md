@@ -12,7 +12,7 @@ Bilingual (EN/ES) site with the full digital menu, private-events booking, signa
 ```bash
 npm install                    # first time only
 cp .env.example .env.local     # then fill in NEXT_PUBLIC_FORMSPREE_ID
-npm run dev                    # → http://localhost:3000
+npm run dev                    # prints Local and Wi-Fi URLs; binds to the LAN
 ```
 
 ```bash

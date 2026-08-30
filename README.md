@@ -33,14 +33,14 @@ Built by [Boxes Media 360](https://github.com/calvin316byBoxesMedia360) for the 
 cd el-alteno
 npm install
 cp .env.example .env.local     # then fill in NEXT_PUBLIC_FORMSPREE_ID
-npm run dev                    # → http://localhost:3000
+npm run dev                    # prints the Local and Wi-Fi URLs
 ```
 
 ```bash
 npm run build                  # must pass before any deploy
 ```
 
-**Reviewing on a phone** on the same Wi-Fi: the dev server rejects cross-origin requests for dev assets, so the machine's LAN address has to be listed in `allowedDevOrigins` in `el-alteno/next.config.ts`. Without it the phone gets the HTML but no JavaScript, and the page renders as a static shell with no dishes. See `HANDOFF.md` §8.
+**Reviewing on a phone**: connect the phone and computer to the same non-guest Wi-Fi, run `npm run dev`, and open the `Wi-Fi:` URL printed by the command (for example `http://192.168.1.201:3000`). The project now binds to all local interfaces and discovers the current LAN IPv4 address automatically, so DHCP changes do not require editing a file. If the phone cannot connect at all, check that it is not on a guest network with device isolation and that Windows allows Node on the active Private/Public network. See `HANDOFF.md` §8.
 
 ---
 

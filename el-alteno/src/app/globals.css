@@ -176,6 +176,7 @@ html {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
   .scroll-guide-spark { animation: none; }
 }
 
