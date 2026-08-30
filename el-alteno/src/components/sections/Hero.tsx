@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight, CalendarDays, ChevronRight, UtensilsCrossed } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
@@ -53,27 +54,34 @@ export default function Hero() {
 
         <motion.div
           {...entrance(0.12)}
-          className="order-1 mb-5 w-full max-w-[190px] drop-shadow-[0_22px_34px_rgba(0,0,0,.48)] sm:mb-7 sm:max-w-[280px] md:order-none md:mb-7 md:max-w-[360px]"
+          className="order-1 mb-5 w-full max-w-[300px] drop-shadow-[0_22px_34px_rgba(0,0,0,.48)] sm:mb-7 sm:max-w-[360px] md:order-none md:mb-7"
         >
-          <svg
-            viewBox="0 0 445 381"
-            role="img"
-            aria-label="El Alteño — Auténtica Comida Mexicana"
-            className="h-auto w-full overflow-visible"
-          >
-            <defs>
-              <clipPath id="hero-emblem-clip">
-                <path d="M18 358 Q8 346 8 322 L8 112 Q8 82 36 67 Q47 60 62 60 Q88 33 122 19 Q166 1 222 1 Q279 1 323 19 Q357 33 383 60 Q398 60 409 67 Q437 82 437 112 L437 322 Q437 346 427 358 Q414 374 388 377 L57 377 Q31 374 18 358 Z" />
-              </clipPath>
-            </defs>
-            <image
-              href="/images/logo/hero-emblem-reference.png"
-              width="445"
-              height="381"
-              clipPath="url(#hero-emblem-clip)"
-              preserveAspectRatio="xMidYMid slice"
-            />
-          </svg>
+          <div className="relative min-h-[126px] overflow-hidden rounded-[1.75rem] border border-[#D8A34B]/60 bg-[radial-gradient(circle_at_12%_0%,rgba(216,163,75,.16),transparent_34%),linear-gradient(145deg,rgba(29,21,15,.92),rgba(8,7,6,.84))] px-5 py-5 text-left shadow-[inset_0_1px_0_rgba(255,218,145,.12),0_18px_36px_rgba(0,0,0,.26)] sm:min-h-[142px] sm:px-7 sm:py-6">
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-[43%] opacity-[0.22]" aria-hidden="true">
+              <Image
+                src="/images/about/tortilla-engraving.webp"
+                alt=""
+                fill
+                sizes="(max-width: 640px) 130px, 170px"
+                className="object-contain object-right"
+              />
+            </div>
+            <div className="pointer-events-none absolute inset-x-5 top-0 h-px bg-gradient-to-r from-transparent via-[#E1AA51]/80 to-transparent sm:inset-x-7" />
+            <div className="relative z-10 max-w-[84%]">
+              <p className="text-[10px] font-bold uppercase tracking-[0.28em] text-[#D8A34B] sm:text-xs">
+                {t("Welcome", "Bienvenidos")}
+              </p>
+              <h2 className="mt-2 font-heading text-xl font-bold leading-tight text-[#FFF3DF] sm:text-2xl">
+                {t("Flavors that feel like home", "Sabores que se sienten como en casa")}
+              </h2>
+              <p className="mt-2 text-[11px] leading-relaxed text-[#D7C0A3] sm:text-sm">
+                {t(
+                  "Authentic Mexican cooking in the heart of Watsonville.",
+                  "Cocina mexicana auténtica en el corazón de Watsonville."
+                )}
+              </p>
+            </div>
+          </div>
         </motion.div>
 
         <motion.p
