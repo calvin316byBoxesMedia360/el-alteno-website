@@ -131,7 +131,7 @@ export default function Location() {
                     </div>
                     <div className="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-x-4 border-b border-white/5 pb-1">
                       <span className="min-w-0">{t("Sunday", "Domingo")}</span>
-                      <span className="text-foreground font-semibold whitespace-nowrap text-right">11:00 AM – 8:00 PM</span>
+                      <span className="text-foreground font-semibold whitespace-nowrap text-right">9:00 AM – 8:00 PM</span>
                     </div>
                     <div className="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-x-4 text-xs text-muted-foreground">
                       <span className="min-w-0">↳ {t("Lunch Specials", "Especiales de Lunch")}</span>
