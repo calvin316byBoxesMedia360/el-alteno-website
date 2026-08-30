@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { MapPin, Phone, Clock, DollarSign } from "lucide-react";
+import { MapPin, Phone, Clock } from "lucide-react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -57,7 +57,7 @@ export default function Location() {
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3197.669814674744!2d-121.7594801!3d36.9099496!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808e15033c4ebcf5%3A0x33e8b0b875ea467b!2s323+Main+St%2C+Watsonville%2C+CA+95076!5e0!3m2!1sen!2sus!4v1"
               width="100%"
               height="100%"
-              style={{ border: 0, filter: "grayscale(1) invert(0.9) contrast(1.2)" }}
+              style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

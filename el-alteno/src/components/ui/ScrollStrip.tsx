@@ -109,9 +109,9 @@ export default function ScrollStrip({
           : undefined;
 
   const arrow =
-    "hidden md:flex absolute top-1/2 -translate-y-1/2 z-10 size-11 items-center justify-center rounded-full " +
-    "bg-card/90 backdrop-blur-md border border-border text-foreground shadow-lg " +
-    "transition-opacity hover:bg-card cursor-pointer";
+    "flex absolute top-1/2 -translate-y-1/2 z-10 size-10 items-center justify-center rounded-full " +
+    "bg-[#17120F]/82 dark:bg-[#0F0C0A]/88 backdrop-blur-md border border-mustard/35 text-mustard shadow-lg " +
+    "transition-[opacity,background-color,transform] hover:bg-[#2A211B]/90 hover:scale-105 cursor-pointer";
 
   return (
     <div className={`relative ${className}`}>

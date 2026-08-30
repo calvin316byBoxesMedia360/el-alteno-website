@@ -18,6 +18,8 @@ export default function MenuTabs({ categories, items }: Props) {
   const [active, setActive] = useState(categories[0].id);
 
   const filtered = items.filter((i) => i.category === active && i.available);
+  const activeIndex = Math.max(0, categories.findIndex((cat) => cat.id === active));
+  const categoryPosition = `${String(activeIndex + 1).padStart(2, "0")} / ${String(categories.length).padStart(2, "0")}`;
   // Only dishes photographed at the restaurant get a card with an image.
   // The rest read as a printed carta — see MenuListRow.
   const withPhoto = filtered.filter((i) => i.image);
@@ -25,7 +27,19 @@ export default function MenuTabs({ categories, items }: Props) {
 
   return (
     <div className="px-4 md:px-0">
-      {/* Fourteen categories never fit one screen, so the strip has to say so. */}
+      <div className="mb-4 flex items-end justify-between gap-4 px-1">
+        <p className="text-accent text-[11px] font-bold uppercase tracking-[0.24em]">
+          {t("Explore the menu", "Explora el menú")}
+        </p>
+        <span
+          aria-live="polite"
+          className="shrink-0 text-[10px] font-bold tracking-[0.2em] text-muted-foreground"
+        >
+          {categoryPosition}
+        </span>
+      </div>
+
+      {/* The clipped next category, progress line, and arrows make the strip's movement legible. */}
       <ScrollStrip
         className="mb-8"
         ariaLabel={t("Menu categories", "Categorías del menú")}
@@ -37,9 +51,9 @@ export default function MenuTabs({ categories, items }: Props) {
               onClick={() => setActive(cat.id)}
               className={`px-5 min-h-11 rounded-full text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
                 active === cat.id
-                  ? "bg-terracota text-white shadow-lg shadow-terracota/20 border border-transparent"
+                  ? "min-h-12 px-6 md:px-7 flex items-center justify-center bg-terracota text-white shadow-lg shadow-terracota/20 border border-transparent"
                   : "bg-card dark:bg-[#1E1A17] text-muted-foreground border border-border dark:border-[#E5D9C5]/10 hover:border-accent/50 hover:text-accent"
-              }`}
+              } whitespace-nowrap`}
             >
               {locale === "en" ? cat.label : cat.labelEs}
             </button>
