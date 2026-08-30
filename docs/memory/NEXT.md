@@ -26,6 +26,7 @@ El comando imprime las URLs `Local:` y `Wi-Fi:`. Revisa `http://127.0.0.1:3400/`
 
 1. Confirmar la revisión local y corregir sólo defectos visuales reales.
 2. Revisar en local la tarjeta activa con `v3`.
-3. Aprobar visualmente el set recomendado del salón y el set de tres roles del bar, incluyendo `bar-candidate-02-service-v3.png` como reemplazo de la toma de servicio.
-4. Incorporar sólo los candidatos aprobados al UI; después preparar videos únicamente si aportan valor.
-5. Crear commit enfocado y abrir PR desde `codex/menu-cta-content-polish` hacia `master`; no hacer push directo a `master`.
+3. Aprobar visualmente el set recomendado del salón. En el bar ya están aprobados `bar-candidate-02-service-v3.png` y `bar-candidate-03-cocktails.png`; este último incorpora al bartender real.
+4. Solicitar autorización explícita para subir los tres anclajes del bar a Higgsfield y generar el clip silencioso de 8 s. No integrar el video hasta su revisión.
+5. Incorporar sólo los candidatos aprobados al UI; después preparar videos únicamente si aportan valor.
+6. Crear commit enfocado y abrir PR desde `codex/menu-cta-content-polish` hacia `master`; no hacer push directo a `master`.
