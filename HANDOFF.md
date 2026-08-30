@@ -2,19 +2,22 @@
 
 > **Lee este archivo completo antes de tocar nada.** Está escrito para que una sesión sin contexto previo pueda continuar el proyecto sin repetir errores que ya costaron caro.
 >
-> Última actualización: **2026-08-29** · **PR #2 mergeado y desplegado.** `master` = `6fd9ac0`, y producción por fin coincide con el trabajo
+> Última actualización: **2026-08-29** · **PR #2 mergeado y desplegado.** `master` = `6fd9ac0`. Esta revisión local continúa en una rama aislada y no se ha publicado.
 
 ---
 
 ## 0. Arranque en 30 segundos
 
 ```bash
-cd "C:\Users\no\Documents\Sandbox Boxes\El Alteno rest\el-alteno"
+cd "C:\Users\no\Documents\ChatGPT\el alteno website\el-alteno-integration-test\el-alteno"
 npm run dev          # imprime las URLs Local y Wi-Fi; escucha en la LAN
 ```
 
-- Rama activa: **`master`**. `feat/consolidate-menu-assets` ya está mergeada; el trabajo nuevo parte de `master`
+- **Worktree canónico de esta revisión:** `C:\Users\no\Documents\ChatGPT\el alteno website\el-alteno-integration-test`
+- **Rama de trabajo:** `codex/site-integration-preview` — no cambiar a `master` para revisar estos cambios
+- **Raíz de la aplicación:** `C:\Users\no\Documents\ChatGPT\el alteno website\el-alteno-integration-test\el-alteno`
 - La app Next.js vive en la subcarpeta `el-alteno/`, **no en la raíz del repo**
+- `master` permanece intacta; no hacer push desde esta revisión sin solicitar el PR explícitamente
 - Producción: https://web-production-004ee.up.railway.app (sirve `master` = `a190c4d`)
 
 **Para revisar en el teléfono** (mismo Wi-Fi): ejecuta `npm run dev` y abre la URL que el comando imprime como `Wi-Fi:`. El script escucha en `0.0.0.0` y `next.config.ts` descubre automáticamente las IPv4 LAN para `allowedDevOrigins`; no hay que editar una IP cuando DHCP la cambie.
@@ -32,7 +35,7 @@ Lo desarrolla un contratista (el usuario) para el restaurante. **No es su propio
 |---|---|
 | Dirección | 323 Main St, Watsonville, CA 95076 |
 | Teléfono | (831) 768-9876 |
-| Horario | Mar–Dom 11:00–20:00 · **lunes cerrado** |
+| Horario de esta revisión | Lunes, miércoles–sábado y domingo 11:00–20:00 · **martes cerrado** |
 | Lunch Specials | 11:00–15:00 *(el flyer se contradice, ver §7)* |
 | Eventos | hasta 100 invitados, 2 salones, llenos vie–dom de abril a diciembre |
 | Delivery | DoorDash · Uber Eats |
@@ -349,7 +352,7 @@ Encaja limpio en: fondos y texturas, material de marketing, o un hero más liger
 Cinco minutos de arranque, en este orden:
 
 ```bash
-cd "…/El Alteno rest/el-alteno"
+cd "C:\Users\no\Documents\ChatGPT\el alteno website\el-alteno-integration-test\el-alteno"
 npm install          # solo la primera vez en una máquina nueva
 npm run dev          # → http://localhost:3000
 npm run build        # confirma que la base está sana antes de tocar nada
