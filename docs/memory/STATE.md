@@ -42,7 +42,7 @@
 
 - Crear el commit de implementación de esta unidad, incluyendo sólo los assets audiovisuales aprobados y necesarios; no incluir la carpeta completa de originales `local_para_eventos/`.
 - Generar posteriormente la galería de bar/salón en paralelo, usando la guía de graduación fijada y sin mezclar sus assets con los originales no aprobados.
-- Agentes paralelos activos para la fase de imágenes: bar `01a053ed-be00-7b51-af46-e23136744e4d` y salón `01a053ed-cfd4-79d1-a323-73895259a14d`. Alcance: generar y reportar candidatos con GPT Image 2; no editar código, no commitear y no producir video hasta revisión.
+- Fase de imágenes completada para revisión: el agente del salón `01a053ed-cfd4-79d1-a323-73895259a14d` dejó 4 candidatos en `public/images/local_para_eventos/_candidates/salon/`; el set recomendado es `salon-candidate-02`, `01`, `03`, `04`. El flujo del bar `01a053ed-be00-7b51-af46-e23136744e4d` dejó `bar-candidate-01-establishing`, `02-service`, `03-cocktails` en `public/images/local_para_eventos/_candidates/bar/`; además hay tres respaldos generados localmente. Ningún candidato se incorporará al UI ni se usará para video sin aprobación visual.
 - Revisar CTA y menú en local, desktop, móvil y Wi‑Fi.
 - Preparar la primera generación audiovisual del patio con guía fija: golden hour, graduación consistente y cuatro clips modulares.
 - Integrar después los recursos aprobados de `local_para_eventos/` y abrir PR hacia `master`; no hacer push directo a `master`.
