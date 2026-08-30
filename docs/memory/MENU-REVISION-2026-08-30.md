@@ -54,7 +54,7 @@ Las dos cifras corregidas manualmente prevalecen sobre la transcripción de Plau
 - Sopa de Tortilla: $14.99.
 - Caldo de Res: $15.99.
 - Caldo de Pollo: $14.99.
-- Caldo de Birria: $18.99; especialidad de la casa preparada con birria de chivo y disponible sólo los fines de semana.
+- Caldo de Birria de Chivo: $18.99; pertenece a Caldos y está disponible sólo los fines de semana.
 
 ### Enchiladas
 
@@ -155,7 +155,7 @@ Las dos cifras corregidas manualmente prevalecen sobre la transcripción de Plau
 - Parrilla Chicken Guajillo: cambiar tortilla de espinaca por tortilla regular.
 - Mango Tango Shrimp: cambiar a tortilla regular y retirar la jícama.
 - Rock Shrimp Verde: cambiar tortilla de tomate deshidratado por tortilla regular.
-- Agregar una categoría `Caldos / Soups` con Caldo de Res ($15.99) y Caldo de Pollo ($14.99). Agregar Caldo de Birria ($18.99) a `Especialidades de la Casa`; es birria de chivo y sólo se ofrece los fines de semana.
+- Agregar una categoría `Caldos / Soups` con Caldo de Res ($15.99), Caldo de Pollo ($14.99) y Caldo de Birria de Chivo ($18.99); este último sólo se ofrece los fines de semana.
 - Domingo: abrir desde las 9:00 AM; conservar cierre a las 8:00 PM salvo instrucción contraria.
 - Agregar `Pregunte por su desayuno / Ask about breakfast` como aviso informativo, estético y llamativo; no será botón ni enlace telefónico.
 

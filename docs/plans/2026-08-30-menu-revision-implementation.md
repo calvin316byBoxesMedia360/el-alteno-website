@@ -22,8 +22,7 @@ Record the Plaud share URL, both handwritten source paths and the owner's explic
 Replace superseded prices with the approved matrix. Add:
 
 - `Mariscada a la Parrilla` at `$23.99` with mussels, crab legs and shrimp served in a hot skillet;
-- `Caldo de Res` at `$15.99` and `Caldo de Pollo` at `$14.99` under a new `CALDOS / SOUPS` section;
-- `Caldo de Birria` at `$18.99` under House Specialties, goat birria, weekends only;
+- `Caldo de Res` at `$15.99`, `Caldo de Pollo` at `$14.99` and `Caldo de Birria de Chivo` at `$18.99` under a new `CALDOS / SOUPS` section; the goat birria soup is weekends only;
 - Chicken and Shrimp Fajitas at `$24.99`;
 - Lunch Enchilada de Asada at `$12.99`;
 - Lunch Quesadilla de Carne Asada at `$13.99`, served with rice and beans.
@@ -193,7 +192,7 @@ Assert:
 - all IDs are unique;
 - every available item has a finite non-negative price;
 - `caldo-res` and `caldo-pollo` use category `soups`;
-- `caldo-birria` uses category `specialties` and mentions weekends in both languages;
+- `caldo-birria` uses category `soups`, has the full bilingual goat-birria name and mentions weekends in both languages;
 - the grilled-chicken taco name is corrected in both languages;
 - forbidden ingredients/tortillas are absent from the corrected descriptions.
 
@@ -271,12 +270,12 @@ Use the test map as the exact contract. Preserve all existing approved images an
 },
 {
   id: "caldo-birria",
-  name: "Birria Soup",
-  nameEs: "Caldo de Birria",
+  name: "Goat Birria Soup",
+  nameEs: "Caldo de Birria de Chivo",
   description: "Goat birria. Available weekends only.",
   descriptionEs: "Birria de chivo. Disponible sólo los fines de semana.",
   price: 18.99,
-  category: "specialties",
+  category: "soups",
   image: null,
   tags: [],
   available: true,
@@ -519,7 +518,7 @@ Check:
 - homepage `/#menu`;
 - standalone `/menu`;
 - category carousel and new Soups category;
-- Caldo de Birria under House Specialties;
+- Caldo de Birria de Chivo under Soups;
 - breakfast notice in light/dark and EN/ES;
 - long names and prices at 320–430 px widths;
 - Sunday schedule;

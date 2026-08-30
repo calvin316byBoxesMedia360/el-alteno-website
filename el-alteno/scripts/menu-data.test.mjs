@@ -131,7 +131,9 @@ test("menu identifiers and prices remain valid", () => {
 test("new dishes use their approved categories and facts", () => {
   assert.equal(byId.get("caldo-res")?.category, "soups");
   assert.equal(byId.get("caldo-pollo")?.category, "soups");
-  assert.equal(byId.get("caldo-birria")?.category, "specialties");
+  assert.equal(byId.get("caldo-birria")?.category, "soups");
+  assert.equal(byId.get("caldo-birria")?.name, "Goat Birria Soup");
+  assert.equal(byId.get("caldo-birria")?.nameEs, "Caldo de Birria de Chivo");
   assert.match(byId.get("caldo-birria")?.description ?? "", /weekends only/i);
   assert.match(byId.get("caldo-birria")?.descriptionEs ?? "", /fines de semana/i);
   assert.match(byId.get("mariscada-parrilla")?.description ?? "", /hot skillet/i);

@@ -19,9 +19,8 @@ Authority order:
 
 ## Menu Structure
 
-- Add a new `Soups / Caldos` category for `Caldo de Res` and `Caldo de Pollo`.
-- Add `Caldo de Birria` to `House Specialties / Especialidades de la Casa`, not to the soups category.
-- Display `Caldo de Birria` at `$18.99` with the only authorized descriptive facts: goat birria and weekends only.
+- Add a new `Soups / Caldos` category for `Caldo de Res`, `Caldo de Pollo` and `Caldo de Birria de Chivo`.
+- Display `Caldo de Birria de Chivo / Goat Birria Soup` at `$18.99` with the only authorized descriptive facts: goat birria and weekends only.
 - Add `Mariscada a la Parrilla` as an independent seafood dish at `$23.99`. It contains mussels, crab legs and shrimp like the broth version, but is served sizzling in a hot skillet.
 - New soups without an approved recipe description show only bilingual names and prices. No filler copy is generated.
 - Remove `Filete Limón`, the à-la-carte `Fish Fillet`, and discontinued `Helado`.
@@ -82,4 +81,3 @@ Video compression is part of the same work round but a separate commit. Preserve
 - Do not add unrelated untracked media candidates.
 - Push only the feature branch and open a PR to `master` after local and Wi-Fi approval.
 - Never push directly to `master`; a `master` update deploys Railway automatically.
-

@@ -11,8 +11,8 @@ Esta revisión reemplaza los precios anteriores de las tablas activas de este do
 - **Camarones a la Diabla: $17.99.** La cifra `17.00` del resumen Plaud fue una transcripción incorrecta.
 - **Camarones con Vegetales: $17.99.** La cifra `17.29` del resumen Plaud fue una transcripción incorrecta.
 - Se eliminan del menú activo **Filete Limón**, **Fish Fillet / Filete de Pescado a la carta** y **Helado**.
-- Se agregan **Mariscada a la Parrilla**, **Caldo de Res**, **Caldo de Pollo**, **Caldo de Birria**, **Chicken and Shrimp Fajitas**, **Enchilada de Asada** y **Quesadilla de Carne Asada**.
-- **Caldo de Birria** pertenece a Especialidades de la Casa, es birria de chivo y se ofrece sólo los fines de semana.
+- Se agregan **Mariscada a la Parrilla**, **Caldo de Res**, **Caldo de Pollo**, **Caldo de Birria de Chivo**, **Chicken and Shrimp Fajitas**, **Enchilada de Asada** y **Quesadilla de Carne Asada**.
+- **Caldo de Birria de Chivo** pertenece a Caldos y se ofrece sólo los fines de semana.
 - El aviso de desayunos es informativo; no autoriza publicar platillos ni precios de desayuno.
 
 ---
@@ -152,6 +152,7 @@ Las líneas del flyer que indicaban apertura a las 7:00 AM y “CERRAMOS DOMINGO
 |---|---|---|
 | Caldo de Res | $15.99 | — |
 | Caldo de Pollo | $14.99 | — |
+| Caldo de Birria de Chivo | $18.99 | Goat birria. Available weekends only |
 
 ---
 
@@ -194,7 +195,6 @@ Secciones anunciadas: Breakfast · Specialities · Brunch · Lunch · Dinner
 | New York Steak | $21.99 | New York steak topped with grilled onions, mushrooms and tomatillo salsa. Rice, beans and tortillas |
 | Pechuga Estilo Carmelitas | $17.99 | Charbroiled chicken breast topped with a guajillo and chipotle chile cream sauce, sprinkled with roasted sesame seeds. Rice, beans and tortillas |
 | Carne Asada | $19.99 | Grilled steak, cactus, onions, rice, beans, salad and tortillas |
-| Caldo de Birria | $18.99 | Goat birria. Available weekends only |
 
 ## HOUSE SPECIALITIES (Cont.)
 
@@ -284,7 +284,7 @@ Secciones anunciadas: Breakfast · Specialities · Brunch · Lunch · Dinner
 | **Camarones House Special** | El nombre correcto es **"Camarones Vallarta"** (el flyer lo imprimió mal). |
 | **Domingo** | Desde el 2026-08-30 se publica **9:00 AM – 8:00 PM**. |
 | **Aviso de desayunos** | Mostrar un texto informativo estético; no es botón y no publica platillos ni precios. |
-| **Caldo de Birria** | Pertenece a **Especialidades de la Casa**, cuesta **$18.99** y sólo se ofrece los fines de semana. |
+| **Caldo de Birria de Chivo** | Pertenece a **Caldos**, cuesta **$18.99** y sólo se ofrece los fines de semana. |
 
 ---
 
