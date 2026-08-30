@@ -32,6 +32,8 @@
 - Corrección de flujo audiovisual: la imagen base decorada debe aprobarse antes de animar. Candidato GPT Image 2: `public/images/local_para_eventos/patio-event-base-v1.png`.
 - Anclaje final generado con GPT Image 2: `public/images/local_para_eventos/fuente-event-end-v1.png`, conservando la fuente real y adaptando el decorado a la guía negra/blanca/plata.
 - Recorrido de 12 s enviado a Seedance 2.5 con `patio-event-base-v1.png` como inicio y `fuente-event-end-v1.png` como last frame; pendiente de resultado y revisión visual.
+- Anclaje final actualizado a `public/images/local_para_eventos/fuente-event-end-v2.png`: horizontal 16:9, puertas ligeramente entreabiertas y acabado negro mejorado. El recorrido anterior queda descartado.
+- La inserción final será una tarjeta de Private Events basada en `BarFeatureVideo`, con `aspect-video` en desktop y móvil para preservar el encuadre horizontal.
 
 ## Pendiente
 
