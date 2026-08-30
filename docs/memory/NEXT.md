@@ -1,5 +1,12 @@
 # Próxima sesión / siguiente acción
 
+## Nueva ronda prioritaria — menú y peso del video
+
+- Fuente conciliada de la nueva revisión: `docs/memory/MENU-REVISION-2026-08-30.md`.
+- Crear una rama nueva desde `origin/master`; el PR #6 ya fue fusionado y Railway ya publicó esa versión.
+- Antes de tocar `menu.ts`, actualizar `MENU-SOURCE.md` y resolver las cuatro dudas mínimas del registro.
+- Optimizar `el-alteno/public/videos/private-events-walkthrough-master-v1.mp4` (actualmente 51,338,395 bytes) en la misma ronda técnica: H.264 con `faststart`, sin audio, objetivo aproximado 15–20 MB para 1080p y variante móvil 720p de 8–12 MB; conservar el maestro aprobado como fuente y comprobar calidad visual, loop, pausa y HTTP range.
+
 ## Punto exacto
 
 La CTA, las correcciones de contenido y los cuatro módulos audiovisuales de Private Events están implementados en `codex/menu-cta-content-polish`. El maestro silencioso `public/videos/private-events-walkthrough-master-v1.mp4` está activo en la minitarjeta: Entrada → Salón → Bar → Patio, 29.8667 s, 1920×1080, 30 fps, loop y pausa/reanudación accesible.
