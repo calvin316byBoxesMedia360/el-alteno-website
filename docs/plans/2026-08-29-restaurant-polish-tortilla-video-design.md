@@ -48,7 +48,13 @@ A stable three-quarter overhead close-up shows the pale tile backsplash, everyda
 
 A tight counter-height angle establishes a compact family kitchen through white tile, simple cabinets, a normal four-burner stove, and a sink or dish rack softly in the background. Hands place a fresh tortilla on the comal, bubbles form, it puffs gently, then it is flipped and stacked on a folded cotton towel. Shallow depth of field keeps the process tactile while retaining enough kitchen context to avoid an abstract or rustic backdrop.
 
-The working action contains hands, forearms, masa, press or comal, and tortillas; no face or full person is needed. The kitchen should feel practical, contemporary, modest, and lived-in rather than luxurious, restaurant-like, farmhouse, or rustic. Branding and written graphics are absent. The two MiniMax H3 results are presented for user selection before either is integrated.
+### Selected direction B — commercial-plancha refinement
+
+The user selected Candidate B's counter-height cooking view and requested one final rerender. Replace the small home comal with a broad black rectangular commercial steel plancha, approximately 80 centimeters wide, filling the lower portion of the frame. Show 10–12 corn tortillas arranged in clear rows at different stages of cooking so the scale reads immediately. The background becomes the clean, practical cookline of a well-run, mid-range Mexican restaurant: white commercial tile, stainless prep surfaces, metal shelving, hotel pans, hanging utensils, an exhaust hood, and warm pass lights. It should feel professional and hardworking without luxury styling.
+
+Hands rotate several tortillas, flip one visibly puffed tortilla, and place it into a cloth-lined basket. Keep the selected B lens height, tactile food detail, restrained slider movement, recognizable kitchen context, centered action, and loop-friendly finish. Generate one MiniMax H3 replacement in silent 2K, 16:9, six-second format for final approval before integration.
+
+The working action contains hands, forearms, masa, plancha or comal, and tortillas; no face or full person is needed. Branding and written graphics are absent. The selected B refinement is presented before integration.
 
 ## Visual and technical alignment
 
