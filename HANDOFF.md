@@ -16,6 +16,7 @@ Este bloque prevalece sobre las referencias históricas de las secciones inferio
 - **Implementado:** CTA telefónica glass en Private Events; Mariscada y Huachinango corregidos; martes cerrado unificado; Carne Asada usa `public/images/dishes/carne-asada-clean.png`.
 - **Pendiente fuera del commit:** `el-alteno/public/images/local_para_eventos/` contiene los recursos originales y el candidato `patio-event-base-v1.png`; todavía no está integrado en la UI ni publicado.
 - **Audiovisual:** el patio activo usa `private-events-patio-walkthrough-v3.mp4`. El bar tiene maestro aprobado en `public/videos/private-events-bar-clip-approved-v1.mp4`: intervalo `00:01.000–00:06.000` del candidato v2, 5.000 s, 1920×1080, 30 fps y sin audio. Se reserva para el montaje total de Private Events; no reutilizar los segundos descartados `0–1` ni `6–8`.
+- **Montaje local:** FFmpeg/FFprobe 9.0.1 y NVIDIA `h264_nvenc` están operativos. Desde `el-alteno/`, usar `npm run video:private-events:check`, `npm run video:private-events:preview` y, sólo con Entrada/Salón/Bar/Patio aprobados, `npm run video:private-events`. El maestro permanece silencioso.
 - **Servidor local habitual:** `http://127.0.0.1:3400/`; desde el móvil usar únicamente la URL `Wi-Fi:` que imprime `npm run dev`.
 
 ---

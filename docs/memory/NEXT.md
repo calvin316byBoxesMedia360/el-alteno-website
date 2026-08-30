@@ -11,8 +11,11 @@ Desde `C:\Users\no\Documents\ChatGPT\el alteno website\el-alteno-integration-tes
 ```powershell
 npx eslint src/components/sections/Cocktails.tsx
 npx tsc --noEmit
-higgsfield account status
+npm run test:video
+npm run video:private-events:check
 ```
+
+El pipeline local usa FFmpeg 9.0.1 y la RTX 5070 Ti mediante `h264_nvenc`. `npm run video:private-events:preview` crea un montaje parcial sólo con módulos aprobados; `npm run video:private-events` se niega a crear el maestro mientras Entrada o Salón estén pendientes. El maestro permanece silencioso.
 
 El video generado ya costó 90 créditos. La versión editada está en `public/videos/private-events-patio-walkthrough-v2.mp4` (11 s, 1920×1080, silenciosa). Para continuar la revisión local:
 
@@ -27,6 +30,6 @@ El comando imprime las URLs `Local:` y `Wi-Fi:`. Revisa `http://127.0.0.1:3400/`
 1. Confirmar la revisión local y corregir sólo defectos visuales reales.
 2. Revisar en local la tarjeta activa con `v3`.
 3. Aprobar visualmente el set recomendado del salón. En el bar ya están aprobados `bar-candidate-02-service-v3.png` y `bar-candidate-03-cocktails.png`; este último incorpora al bartender real.
-4. Preparar y aprobar los clips de salón y entrada antes de ensamblar el recorrido total con el clip aprobado del bar y el patio.
+4. Preparar y aprobar los clips de Salón y Entrada; después cambiar únicamente sus estados/rutas en `el-alteno/video/private-events-manifest.json`.
 5. Incorporar sólo los candidatos aprobados al UI; el clip del bar no debe mostrarse aislado salvo nueva decisión del usuario.
-6. Abrir PR desde `codex/menu-cta-content-polish` hacia `master` cuando termine esta ronda; no hacer push directo a `master`.
+6. Ejecutar `npm run video:private-events` para producir el maestro silencioso cuando los cuatro módulos estén aprobados; después abrir PR desde `codex/menu-cta-content-polish` hacia `master`, nunca hacer push directo a `master`.

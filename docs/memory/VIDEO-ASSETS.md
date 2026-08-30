@@ -41,4 +41,9 @@ Los candidatos `bar-service-cocktails-8s-candidate-v1.mp4` y `bar-service-cockta
 - Equipo confirmado: ROG Strix 18 con NVIDIA GeForce RTX 5070 Ti Laptop GPU y 12,227 MiB de VRAM.
 - Ejecutar localmente recortes, concatenación, transiciones, overlays, logo, reencuadre, compresión y render maestro. Estas operaciones no requieren créditos de generación.
 - Reservar Higgsfield/Seedance para metraje nuevo producido con IA.
-- Estado del entorno al 2026-08-30: `ffmpeg` no está disponible en `PATH`; antes del siguiente montaje local hay que instalarlo o registrar su ejecutable. No asumir que está listo hasta validar `ffmpeg -version` y el encoder `h264_nvenc`.
+- Entorno confirmado al 2026-08-30: FFmpeg/FFprobe `9.0.1-full_build-www.gyan.dev`; `h264_nvenc` inicializa correctamente sobre la RTX 5070 Ti.
+- Manifiesto: `el-alteno/video/private-events-manifest.json`.
+- `npm run video:private-events:check`: valida herramientas, archivos y estados.
+- `npm run video:private-events:preview`: ensambla sólo módulos aprobados en un archivo local ignorado por Git.
+- `npm run video:private-events`: genera el maestro únicamente cuando todos los módulos requeridos estén aprobados.
+- Prueba real: preview Bar → Patio de `16.000 s`, H.264, 1920×1080, 30 fps y sin pistas de audio.
