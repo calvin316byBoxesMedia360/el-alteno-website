@@ -63,3 +63,14 @@ Regenerar la apertura con los anclajes refinados del salón, reensamblar a 24 fp
 - Topaz se reserva para nitidez final; no se usará para corregir continuidad o decoración.
 - No integrar, commitear ni publicar el video final hasta aprobación visual del usuario.
 
+## Revisión aprobada — máster de 12 segundos
+
+Tras revisar el corte técnico de 15.625 segundos, el usuario aprobó la mejora visual pero corrigió el contrato final:
+
+- Duración exacta: 12.0 segundos, 288 fotogramas a 24 fps.
+- Herramienta de acabado y diseño final: Gemini Omni Flash 1.1 en modo `edit`.
+- La mesera sirviendo la copa con ambas manos debe ocupar el cierre y ser claramente reconocible; no puede quedar recortada, sustituida ni oculta por la transición.
+- La secuencia debe conservar apertura refinada, detalle de mesa, lectura general del salón y servicio final, reduciendo duración sin acelerar artificialmente los movimientos.
+- El resultado debe permanecer silencioso, horizontal 16:9 y a 1080p.
+
+La orden del usuario «avanza lo antes posible» constituye aprobación explícita de esta revisión del diseño.

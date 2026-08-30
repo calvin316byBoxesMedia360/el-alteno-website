@@ -1,7 +1,7 @@
 # Salon Video Continuity Implementation Plan
 > **REQUIRED SUB-SKILL:** Use superpowers:executing-plans to implement this plan task-by-task.
-**Goal:** Produce a coherent 16:9 salon walkthrough candidate with a refined opening, frame-safe transitions, and a final Gemini Omni Flash 1.1 consistency pass.
-**Architecture:** Replace only the defective opening with a reference-driven clip, preserve the approved middle and closing clips, then rebuild the timeline at the native 24 fps while trimming generated anchor handles. Use Gemini Omni Flash 1.1 in edit mode only after the deterministic cut passes structural checks, and keep both versions for A/B review.
+**Goal:** Produce an exact 12-second coherent 16:9 salon walkthrough with a refined opening, frame-safe transitions, a clearly visible waitress serving the glass, and a final Gemini Omni Flash 1.1 consistency pass.
+**Architecture:** Replace only the defective opening with a reference-driven clip, preserve the approved middle and closing clips, then rebuild an exact 288-frame timeline at native 24 fps while trimming generated anchor handles. Reserve the final four seconds for the waitress action and use Gemini Omni Flash 1.1 in edit mode only after the deterministic cut passes structural checks.
 **Tech Stack:** Higgsfield Seedance 2.5, Google Gemini Omni Flash 1.1, Higgsfield remote sandbox, FFmpeg, H.264 MP4, local Next.js public candidates.
 
 ## Task 1: Verify sources and protect the worktree
@@ -92,7 +92,19 @@ aspect_ratio: 16:9
 
 3. Use a preservation-first prompt: keep exact timing, camera movement, architecture, people, serving action, hands, glassware, and framing; unify white balance, dark tones, white linens, black runners, silver accents, flowers, plates, cutlery, and wine glasses; remove single-frame flashes and flicker; create no text, logos, people, props, walls, windows, doors, or furniture.
 4. Wait for completion and retain the result URL.
-5. Expected result: a visually cohesive pass without redesigning the real salon.
+5. Confirm that the returned file remains exactly 12 seconds and that the waitress serving with both hands is visible during the closing sequence.
+6. Expected result: a visually cohesive 12-second pass without redesigning the real salon or losing the serving action.
+
+## Task 4B: Build the exact 12-second master input
+
+**Files:**
+- Create candidate: `el-alteno/public/images/local_para_eventos/_candidates/salon/el-alteno-salon-master-input-12s.mp4`
+
+1. Recut the approved material to exactly 288 frames at 24 fps.
+2. Use four movements: refined entrance, decorated table detail, general salon view, and waitress service close.
+3. Use frame-aligned eight-frame dissolves; total source frames minus 24 overlap frames must equal 288.
+4. Allocate approximately the final four seconds to the waitress clip and verify the glass-serving action is present before Gemini processing.
+5. Run `ffprobe` and require `duration=12.000000`, `avg_frame_rate=24/1`, `nb_read_frames=288`, H.264, 16:9, and no audio.
 
 ## Task 6: A/B verification and delivery
 
@@ -118,4 +130,3 @@ aspect_ratio: 16:9
 1. Record the selected filename, model, duration, resolution, and approval state.
 2. Keep the rejected candidate as a recoverable local backup unless the user asks to remove it.
 3. Commit only the approved asset and memory updates in a focused commit.
-
