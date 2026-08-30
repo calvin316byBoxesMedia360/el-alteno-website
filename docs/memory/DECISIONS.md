@@ -15,3 +15,6 @@
 | 2026-08-30 | Martes cerrado en todas las superficies | Corrige la discrepancia entre Ubicación y Footer |
 | 2026-08-30 | Carne Asada usa asset versionado corregido | Retira el sope/tostada ajeno sin sobrescribir el original |
 | 2026-08-30 | La carpeta `local_para_eventos/` se integra por fase | Evita mezclar assets audiovisuales pendientes con el commit de contenido/CTA |
+| 2026-08-30 | El clip maestro del bar usa únicamente `00:01.000–00:06.000` del candidato v2 | El usuario descartó la apertura `0–1` y el cierre `6–8`; el tramo central de 5 s queda aprobado para el montaje total |
+| 2026-08-30 | Conservar candidatos v1/v2 como respaldo local, pero versionar sólo el maestro aprobado | Mantiene trazabilidad sin añadir material rechazado ni archivos pesados innecesarios al commit |
+| 2026-08-30 | Usar la ROG Strix 18 para edición audiovisual determinista | La RTX 5070 Ti Laptop con 12 GB puede recortar, unir, codificar y montar localmente sin gastar créditos de generación; Higgsfield queda para crear metraje nuevo |

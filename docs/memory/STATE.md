@@ -38,13 +38,14 @@
 - La tarjeta `EventFeatureVideo.tsx` ya está integrada al inicio de Private Events, usa el poster `patio-event-base-v1.png`, autoplay silencioso, loop, `playsInline` y fallback accesible para reducción de movimiento.
 - `public/videos/private-events-patio-walkthrough-v3.mp4` quedó aprobada y activa: misma edición de 11 s, con aparición centrada del logo durante los últimos 2 s, leve escala, resolución de desenfoque y halo cálido discreto. La tarjeta ya apunta a `v3`; `v2` queda como respaldo.
 - Inpainting del bar aprobado: `public/images/local_para_eventos/_candidates/bar/bar-candidate-03-cocktails.png` ahora incorpora al bartender real detrás de la barra, conserva los dos cócteles como protagonistas y mantiene la orientación correcta del backbar. La versión anterior sin bartender queda como `bar-candidate-03-cocktails-before-bartender.png` para recuperación.
+- Clip maestro del bar aprobado: `public/videos/private-events-bar-clip-approved-v1.mp4`. Es el intervalo exacto `00:01.000–00:06.000` de `bar-service-cocktails-8s-candidate-v2.mp4`; dura 5.000 s, es silencioso, 1920×1080, H.264 y 30 fps. Se descartaron deliberadamente los segundos `0–1` y `6–8`. Queda reservado para el montaje audiovisual total de Private Events y aún no se integra de forma aislada en la UI.
 
 ## Pendiente
 
 - Crear el commit de implementación de esta unidad, incluyendo sólo los assets audiovisuales aprobados y necesarios; no incluir la carpeta completa de originales `local_para_eventos/`.
 - Generar posteriormente la galería de bar/salón en paralelo, usando la guía de graduación fijada y sin mezclar sus assets con los originales no aprobados.
 - Fase de imágenes completada para revisión: el agente del salón `01a053ed-cfd4-79d1-a323-73895259a14d` dejó 4 candidatos en `public/images/local_para_eventos/_candidates/salon/`; el set recomendado es `salon-candidate-02`, `01`, `03`, `04`. El flujo del bar `01a053ed-be00-7b51-af46-e23136744e4d` dejó `bar-candidate-01-establishing`, `02-service`, `03-cocktails` en `public/images/local_para_eventos/_candidates/bar/`; `bar-candidate-02-service-v3.png` corrige la orientación espacial y usa el rostro del bartender original, y `bar-candidate-03-cocktails.png` quedó aprobado con el mismo bartender real. No incorporar candidatos adicionales al UI sin aprobación visual.
-- El clip de bar de 8 s sigue pendiente: usar tres anclajes, cortes rápidos, limón exprimido en slow motion, gotas apetitosas, manos limpias y cierre de lente en negro degradado. Antes de enviarlos a Higgsfield se requiere autorización explícita para cargar las imágenes del bartender y del interior del negocio al servicio externo.
+- Ensamblar más adelante el clip aprobado del bar con los clips de salón, entrada y patio dentro del recorrido total; no regenerar ni ampliar el clip del bar sin una nueva solicitud.
 - Revisar CTA y menú en local, desktop, móvil y Wi‑Fi.
 - Preparar la primera generación audiovisual del patio con guía fija: golden hour, graduación consistente y cuatro clips modulares.
 - Integrar después los recursos aprobados de `local_para_eventos/` y abrir PR hacia `master`; no hacer push directo a `master`.

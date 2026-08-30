@@ -2,7 +2,7 @@
 
 ## Punto exacto
 
-La CTA de Private Events y las correcciones de contenido están implementadas en `codex/menu-cta-content-polish`. La imagen corregida de Carne Asada está lista y aprobada. Hay dos anclajes audiovisuales locales: `patio-event-base-v1.png` (inicio) y `fuente-event-end-v2.png` (last frame). El recorrido `private-events-patio-walkthrough-v3.mp4` está aprobado y activo en la tarjeta, con FX de logo en los últimos 2 s.
+La CTA de Private Events y las correcciones de contenido están implementadas en `codex/menu-cta-content-polish`. La imagen corregida de Carne Asada está lista y aprobada. El recorrido `private-events-patio-walkthrough-v3.mp4` está aprobado y activo en la tarjeta. El clip maestro del bar también está aprobado como `public/videos/private-events-bar-clip-approved-v1.mp4`: 5.000 s, 1920×1080, silencioso; corresponde exclusivamente a `00:01.000–00:06.000` del candidato v2 y queda reservado para el montaje audiovisual total.
 
 ## Continuación segura
 
@@ -27,6 +27,6 @@ El comando imprime las URLs `Local:` y `Wi-Fi:`. Revisa `http://127.0.0.1:3400/`
 1. Confirmar la revisión local y corregir sólo defectos visuales reales.
 2. Revisar en local la tarjeta activa con `v3`.
 3. Aprobar visualmente el set recomendado del salón. En el bar ya están aprobados `bar-candidate-02-service-v3.png` y `bar-candidate-03-cocktails.png`; este último incorpora al bartender real.
-4. Solicitar autorización explícita para subir los tres anclajes del bar a Higgsfield y generar el clip silencioso de 8 s. No integrar el video hasta su revisión.
-5. Incorporar sólo los candidatos aprobados al UI; después preparar videos únicamente si aportan valor.
-6. Crear commit enfocado y abrir PR desde `codex/menu-cta-content-polish` hacia `master`; no hacer push directo a `master`.
+4. Preparar y aprobar los clips de salón y entrada antes de ensamblar el recorrido total con el clip aprobado del bar y el patio.
+5. Incorporar sólo los candidatos aprobados al UI; el clip del bar no debe mostrarse aislado salvo nueva decisión del usuario.
+6. Abrir PR desde `codex/menu-cta-content-polish` hacia `master` cuando termine esta ronda; no hacer push directo a `master`.
