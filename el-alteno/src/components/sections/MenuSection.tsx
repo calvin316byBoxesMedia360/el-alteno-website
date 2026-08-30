@@ -29,8 +29,8 @@ export default function MenuSection() {
           <div className="lg:col-span-5 lg:pl-8 border-l-0 lg:border-l border-mustard/20 pt-4 lg:pt-0">
             <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
               {t(
-                "Every plate is prepared to order respecting generations of culinary heritage. All dinner plates are accompanied by our signature rice and slow-cooked refried beans.",
-                "Cada platillo se prepara al momento respetando generaciones de herencia culinaria. Todos los platos fuertes van acompañados de nuestro arroz tradicional y frijoles refritos."
+                "Every plate is prepared to order respecting generations of culinary heritage. All dinner plates are accompanied by our signature rice and beans.",
+                "Cada platillo se prepara al momento respetando generaciones de herencia culinaria. Todos los platos fuertes van acompañados de nuestro arroz tradicional y frijoles."
               )}
             </p>
             <p className="text-accent text-xs uppercase tracking-wider mt-4 font-bold">

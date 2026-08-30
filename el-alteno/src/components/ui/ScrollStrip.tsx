@@ -108,9 +108,10 @@ export default function ScrollStrip({
           ? "linear-gradient(to right, #000 calc(100% - 28px), transparent 100%)"
           : undefined;
 
+  const hasOverflow = bar.w > 0 && bar.w < 99;
   const arrow =
-    "flex absolute top-[58%] -translate-y-1/2 z-10 size-11 items-center justify-center rounded-full " +
-    "bg-transparent text-mustard transition-[opacity,transform] hover:scale-105 cursor-pointer";
+    "flex size-11 shrink-0 items-center justify-center rounded-full bg-transparent text-mustard " +
+    "transition-[opacity,transform] hover:scale-105 cursor-pointer";
 
   const arrowSurface =
     "flex size-8 items-center justify-center rounded-full bg-[#17120F]/82 dark:bg-[#0F0C0A]/88 " +
@@ -118,18 +119,6 @@ export default function ScrollStrip({
 
   return (
     <div className={`relative ${className}`}>
-      <button
-        type="button"
-        aria-label="Anterior"
-        disabled={!left}
-        onClick={() => step(-1)}
-        className={`${arrow} -left-3 ${left ? "opacity-100" : "pointer-events-none opacity-0"}`}
-      >
-        <span className={arrowSurface}>
-          <ChevronLeft size={15} />
-        </span>
-      </button>
-
       <div
         ref={ref}
         role={ariaLabel ? "group" : undefined}
@@ -140,25 +129,40 @@ export default function ScrollStrip({
         {children}
       </div>
 
-      <button
-        type="button"
-        aria-label="Siguiente"
-        disabled={!right}
-        onClick={() => step(1)}
-        className={`${arrow} -right-3 ${right ? "opacity-100" : "pointer-events-none opacity-0"}`}
-      >
-        <span className={arrowSurface}>
-          <ChevronRight size={15} />
-        </span>
-      </button>
+      {/* The lower rail keeps controls away from the category labels. */}
+      {hasOverflow && (
+        <div className="mt-2 flex items-center gap-2">
+          <button
+            type="button"
+            aria-label="Anterior"
+            disabled={!left}
+            onClick={() => step(-1)}
+            className={`${arrow} ${left ? "opacity-100" : "pointer-events-none opacity-0"}`}
+          >
+            <span className={arrowSurface}>
+              <ChevronLeft size={15} />
+            </span>
+          </button>
 
-      {/* How much of the strip you are seeing, and where in it you are. */}
-      {bar.w > 0 && bar.w < 99 && (
-        <div aria-hidden className="mt-2 h-[3px] w-full rounded-full bg-foreground/10">
-          <div
-            className="h-full rounded-full bg-accent/70 transition-[margin] duration-150"
-            style={{ width: `${bar.w}%`, marginLeft: `${bar.x}%` }}
-          />
+          {/* How much of the strip you are seeing, and where in it you are. */}
+          <div aria-hidden className="h-[3px] flex-1 rounded-full bg-foreground/10">
+            <div
+              className="h-full rounded-full bg-accent/70 transition-[margin] duration-150"
+              style={{ width: `${bar.w}%`, marginLeft: `${bar.x}%` }}
+            />
+          </div>
+
+          <button
+            type="button"
+            aria-label="Siguiente"
+            disabled={!right}
+            onClick={() => step(1)}
+            className={`${arrow} ${right ? "opacity-100" : "pointer-events-none opacity-0"}`}
+          >
+            <span className={arrowSurface}>
+              <ChevronRight size={15} />
+            </span>
+          </button>
         </div>
       )}
     </div>

@@ -50,7 +50,7 @@ export default function Events() {
             {t("Private Events", "Eventos Privados")}
           </p>
           <h2 className="text-3xl md:text-5xl font-heading font-bold mb-6 leading-tight">
-            {t("Host your celebration at", "Celebra tu evento especial en")} {" "}
+            {t("Host your celebration at", "Celebra tu evento especial en")}{" "}
             <span className="whitespace-nowrap">El Alteño</span>
           </h2>
           <p className="text-muted-foreground text-sm md:text-lg leading-relaxed mb-8">
@@ -96,10 +96,10 @@ export default function Events() {
             ))}
           </div>
 
-          <div className="flex items-center gap-3 text-muted-foreground">
-            <Phone size={16} className="text-accent" />
-            <span>{t("Prefer to call?", "¿Prefieres llamar?")}</span>
-            <a href="tel:8317689876" className="inline-flex items-center min-h-11 text-foreground font-bold hover:text-accent transition-colors">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-muted-foreground">
+            <Phone size={16} className="text-accent shrink-0" />
+            <span className="shrink-0">{t("Prefer to call?", "¿Prefieres llamar?")}</span>
+            <a href="tel:8317689876" className="inline-flex items-center min-h-11 text-foreground font-bold hover:text-accent transition-colors whitespace-nowrap">
               (831) 768-9876
             </a>
           </div>

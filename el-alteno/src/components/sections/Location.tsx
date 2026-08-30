@@ -40,7 +40,7 @@ export default function Location() {
             transition={{ delay: 0.1 }}
             className="text-3xl md:text-5xl font-heading font-bold text-foreground"
           >
-            {t("Visit", "Visita")} {" "}
+            {t("Visit", "Visita")}{" "}
             <span className="whitespace-nowrap">El Alteño</span>{" "}
             {t("in Watsonville", "en Watsonville")}
           </motion.h2>
@@ -125,43 +125,27 @@ export default function Location() {
                     {t("Hours of Operation", "Horario de Servicio")}
                   </h4>
                   <div className="text-xs md:text-sm text-muted-foreground space-y-2">
-                    <div className="flex justify-between border-b border-white/5 pb-1">
-                      <span>{t("Tuesday – Saturday", "Martes – Sábado")}</span>
-                      <span className="text-foreground font-semibold">11:00 AM – 8:00 PM</span>
+                    <div className="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-x-4 border-b border-white/5 pb-1">
+                      <span className="min-w-0">{t("Monday, Wednesday – Saturday", "Lunes, Miércoles – Sábado")}</span>
+                      <span className="text-foreground font-semibold whitespace-nowrap text-right">11:00 AM – 8:00 PM</span>
                     </div>
-                    <div className="flex justify-between border-b border-white/5 pb-1">
-                      <span>{t("Sunday", "Domingo")}</span>
-                      <span className="text-foreground font-semibold">11:00 AM – 8:00 PM</span>
+                    <div className="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-x-4 border-b border-white/5 pb-1">
+                      <span className="min-w-0">{t("Sunday", "Domingo")}</span>
+                      <span className="text-foreground font-semibold whitespace-nowrap text-right">11:00 AM – 8:00 PM</span>
                     </div>
-                    <div className="pl-4 text-xs flex justify-between text-muted-foreground">
-                      <span>↳ {t("Lunch Specials", "Especiales de Lunch")}</span>
-                      <span>11:00 AM – 3:00 PM</span>
+                    <div className="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-x-4 text-xs text-muted-foreground">
+                      <span className="min-w-0">↳ {t("Lunch Specials", "Especiales de Lunch")}</span>
+                      <span className="whitespace-nowrap text-right">11:00 AM – 3:00 PM</span>
                     </div>
-                    <div className="flex justify-between text-accent font-bold pt-1">
-                      <span>{t("Monday", "Lunes")}</span>
-                      <span className="uppercase">{t("Closed", "Cerrado")}</span>
+                    <div className="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-x-4 text-accent font-bold pt-1">
+                      <span className="min-w-0">{t("Tuesday", "Martes")}</span>
+                      <span className="uppercase whitespace-nowrap text-right">{t("Closed", "Cerrado")}</span>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Payment & Partners */}
-            <div className="bg-background/60 border border-white/5 rounded-2xl p-4 mt-4">
-              <p className="font-bold text-foreground text-xs uppercase tracking-wider mb-3">
-                {t("We Accept & Delivery Partners", "Aceptamos y Entregas a Domicilio")}
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {["Visa", "Mastercard", "Zelle", "Apple Pay", "DoorDash", "Uber Eats"].map((p) => (
-                  <span
-                    key={p}
-                    className="bg-card border border-[#E5D9C5]/10 px-2.5 py-1 rounded-lg text-[10px] font-bold text-muted-foreground tracking-wider uppercase"
-                  >
-                    {p}
-                  </span>
-                ))}
-              </div>
-            </div>
           </motion.div>
         </div>
       </div>
