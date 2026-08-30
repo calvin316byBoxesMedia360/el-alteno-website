@@ -3,6 +3,7 @@ import Link from "next/link";
 import { categories, menuItems } from "@/data/menu";
 import { Badge } from "@/components/ui/badge";
 import { MenuItem } from "@/types/menu";
+import BreakfastNotice from "@/components/menu/BreakfastNotice";
 import ScrollStrip from "@/components/ui/ScrollStrip";
 
 function ItemTags({ item, className = "" }: { item: MenuItem; className?: string }) {
@@ -140,6 +141,10 @@ export default function QRMenuPage() {
             <br />
             Menú bilingüe. Tortillas hechas a mano disponibles con cada platillo.
           </p>
+        </div>
+
+        <div className="mb-8">
+          <BreakfastNotice bilingual />
         </div>
 
         {/* Quick Jump Anchors */}
