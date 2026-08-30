@@ -8,7 +8,7 @@ export default function MenuSection() {
   const { t } = useLanguage();
 
   return (
-    <section id="menu" className="section-padding bg-background relative overflow-hidden">
+    <section id="menu" className="section-padding scroll-mt-24 bg-background relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 talavera-pattern pointer-events-none" />
 

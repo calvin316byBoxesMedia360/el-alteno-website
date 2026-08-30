@@ -109,9 +109,12 @@ export default function ScrollStrip({
           : undefined;
 
   const arrow =
-    "flex absolute top-1/2 -translate-y-1/2 z-10 size-10 items-center justify-center rounded-full " +
-    "bg-[#17120F]/82 dark:bg-[#0F0C0A]/88 backdrop-blur-md border border-mustard/35 text-mustard shadow-lg " +
-    "transition-[opacity,background-color,transform] hover:bg-[#2A211B]/90 hover:scale-105 cursor-pointer";
+    "flex absolute top-[58%] -translate-y-1/2 z-10 size-11 items-center justify-center rounded-full " +
+    "bg-transparent text-mustard transition-[opacity,transform] hover:scale-105 cursor-pointer";
+
+  const arrowSurface =
+    "flex size-8 items-center justify-center rounded-full bg-[#17120F]/82 dark:bg-[#0F0C0A]/88 " +
+    "backdrop-blur-md border border-mustard/35 text-mustard shadow-lg";
 
   return (
     <div className={`relative ${className}`}>
@@ -120,9 +123,11 @@ export default function ScrollStrip({
         aria-label="Anterior"
         disabled={!left}
         onClick={() => step(-1)}
-        className={`${arrow} -left-1 ${left ? "opacity-100" : "pointer-events-none opacity-0"}`}
+        className={`${arrow} -left-3 ${left ? "opacity-100" : "pointer-events-none opacity-0"}`}
       >
-        <ChevronLeft size={18} />
+        <span className={arrowSurface}>
+          <ChevronLeft size={15} />
+        </span>
       </button>
 
       <div
@@ -140,9 +145,11 @@ export default function ScrollStrip({
         aria-label="Siguiente"
         disabled={!right}
         onClick={() => step(1)}
-        className={`${arrow} -right-1 ${right ? "opacity-100" : "pointer-events-none opacity-0"}`}
+        className={`${arrow} -right-3 ${right ? "opacity-100" : "pointer-events-none opacity-0"}`}
       >
-        <ChevronRight size={18} />
+        <span className={arrowSurface}>
+          <ChevronRight size={15} />
+        </span>
       </button>
 
       {/* How much of the strip you are seeing, and where in it you are. */}

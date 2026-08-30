@@ -9,7 +9,7 @@ export default function Location() {
   const { t } = useLanguage();
 
   return (
-    <section id="location" className="section-padding bg-background relative overflow-hidden">
+    <section id="location" className="section-padding scroll-mt-24 bg-background relative overflow-hidden">
       {/* Subtle overlay background for the section */}
       <div className="absolute inset-0 z-0 opacity-10 mix-blend-overlay">
         <Image
@@ -40,7 +40,9 @@ export default function Location() {
             transition={{ delay: 0.1 }}
             className="text-3xl md:text-5xl font-heading font-bold text-foreground"
           >
-            {t("Visit El Alteño in Watsonville", "Visita El Alteño en Watsonville")}
+            {t("Visit", "Visita")} {" "}
+            <span className="whitespace-nowrap">El Alteño</span>{" "}
+            {t("in Watsonville", "en Watsonville")}
           </motion.h2>
         </div>
 

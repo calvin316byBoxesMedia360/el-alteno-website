@@ -34,7 +34,7 @@ export default function Events() {
   }
 
   return (
-    <section id="events" className="section-padding bg-background text-foreground relative overflow-hidden transition-colors duration-300">
+    <section id="events" className="section-padding scroll-mt-24 bg-background text-foreground relative overflow-hidden transition-colors duration-300">
       {/* Decorative gradient overlay */}
       <div className="absolute top-1/3 -left-1/4 w-80 h-80 bg-terracota/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -44,12 +44,14 @@ export default function Events() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          className="min-w-0"
         >
           <p className="text-accent text-xs md:text-sm font-bold tracking-widest uppercase mb-3">
             {t("Private Events", "Eventos Privados")}
           </p>
           <h2 className="text-3xl md:text-5xl font-heading font-bold mb-6 leading-tight">
-            {t("Host your celebration at El Alteño", "Celebra tu evento especial en El Alteño")}
+            {t("Host your celebration at", "Celebra tu evento especial en")} {" "}
+            <span className="whitespace-nowrap">El Alteño</span>
           </h2>
           <p className="text-muted-foreground text-sm md:text-lg leading-relaxed mb-8">
             {t(
@@ -87,7 +89,7 @@ export default function Events() {
             ].map((tag) => (
               <span
                 key={tag}
-                className="bg-card border border-[#E5D9C5]/10 text-muted-foreground text-xs px-3.5 py-1.5 rounded-full"
+                className="bg-card border border-[#E5D9C5]/10 text-muted-foreground text-xs px-3.5 py-1.5 rounded-full whitespace-nowrap"
               >
                 {tag}
               </span>

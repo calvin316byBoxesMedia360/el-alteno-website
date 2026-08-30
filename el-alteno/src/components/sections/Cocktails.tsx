@@ -45,7 +45,7 @@ export default function Cocktails() {
   const [selectedCocktail, setSelectedCocktail] = useState<typeof cocktails[0] | null>(null);
 
   return (
-    <section id="cocktails" className="section-padding bg-background relative overflow-hidden transition-colors duration-300">
+    <section id="cocktails" className="section-padding scroll-mt-24 bg-background relative overflow-hidden transition-colors duration-300">
       {/* Decorative background gradients */}
       <div className="absolute top-1/4 -left-1/4 w-96 h-96 bg-terracota/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-1/4 -right-1/4 w-96 h-96 bg-mustard/10 rounded-full blur-3xl pointer-events-none" />
