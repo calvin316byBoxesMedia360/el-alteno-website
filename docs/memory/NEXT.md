@@ -2,11 +2,11 @@
 
 ## Punto exacto
 
-El video ya fue generado y está integrado localmente. El siguiente checkpoint es revisión visual del sitio completo; todavía no hay push ni PR.
+La CTA de Private Events y las correcciones de contenido están implementadas en `codex/menu-cta-content-polish`. La imagen corregida de Carne Asada está lista para revisión. Todavía no hay push ni PR de esta unidad.
 
 ## Continuación segura
 
-Desde `C:\Users\no\Documents\ChatGPT\el alteno website\el-alteno-cocktails-test\el-alteno`:
+Desde `C:\Users\no\Documents\ChatGPT\el alteno website\el-alteno-integration-test\el-alteno`:
 
 ```powershell
 npx eslint src/components/sections/Cocktails.tsx
@@ -17,14 +17,14 @@ higgsfield account status
 El video generado ya costó 90 créditos. Para continuar la revisión local:
 
 ```powershell
-npm run dev -- --port 3300
+npm run dev -- --port 3400
 ```
 
-El comando imprime las URLs `Local:` y `Wi-Fi:`. Revisa `http://127.0.0.1:3300/#cocktails` y, por Wi‑Fi, usa exactamente la URL `Wi-Fi:` impresa (nunca `127.0.0.1` desde el teléfono). Comprueba rostro, manos, cubeta Pacífico, transición, crop móvil, textos EN/ES y reduced-motion.
+El comando imprime las URLs `Local:` y `Wi-Fi:`. Revisa `http://127.0.0.1:3400/` y, por Wi‑Fi, usa exactamente la URL `Wi-Fi:` impresa (nunca `127.0.0.1` desde el teléfono). Comprueba CTA `tel:`, textos EN/ES, martes cerrado y la imagen de Carne Asada.
 
-## Después del video
+## Después del checkpoint actual
 
 1. Confirmar la revisión local y corregir solo defectos visuales reales.
-2. Ejecutar `npx eslint`, `npx tsc --noEmit`, `npm run build` y pruebas visuales en desktop, móvil y Wi‑Fi.
-3. Actualizar `STATE.md`, `task.md` y `walkthrough.md` con el commit final.
-4. Push únicamente de `codex/cocktail-replacements` y abrir PR a `master`.
+2. Crear commit enfocado de menú/CTA/imagen; no añadir la carpeta de eventos aún.
+3. Generar y revisar el primer clip del patio antes de continuar con los siguientes.
+4. Integrar recursos audiovisuales aprobados, actualizar memoria y abrir PR desde la rama de trabajo hacia `master`.

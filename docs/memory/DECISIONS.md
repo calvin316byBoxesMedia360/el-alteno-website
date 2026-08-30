@@ -11,3 +11,7 @@
 | 2026-08-29 | Transición A: antebrazo como wipe práctico | Corte sutil, profesional y más estable que morphing o disolvencia |
 | 2026-08-29 | Conservar rostro del bartender y marca Pacífico | Autorización explícita del usuario sobre la imagen fuente |
 | 2026-08-29 | Texto superpuesto será HTML localizado | Evita letras deformadas por IA y mantiene EN/ES accesible |
+| 2026-08-30 | CTA de teléfono como tarjeta glass compacta | Hace visible la acción de llamada sin competir con el formulario principal |
+| 2026-08-30 | Martes cerrado en todas las superficies | Corrige la discrepancia entre Ubicación y Footer |
+| 2026-08-30 | Carne Asada usa asset versionado corregido | Retira el sope/tostada ajeno sin sobrescribir el original |
+| 2026-08-30 | La carpeta `local_para_eventos/` se integra por fase | Evita mezclar assets audiovisuales pendientes con el commit de contenido/CTA |

@@ -111,9 +111,9 @@ MARTES A SABADO DE 11:00 A.M. A 2:00 PM
 | Camarones con Vegetales | $16.99 | Shrimp with zucchini, mushrooms, cactus, broccoli, garlic and onion & our home made sauce |
 | Camarones de Tres Chiles `SPICY HOT` | $15.99 | Shrimp sautéed in tequila cooked with a sauce of guajillo, red jalapeño and chile de arbol |
 | **Camarones House Special** | $15.99 | Prawns sautéed or breaded in our sauce, **wrapped in bacon** and served with rice, refried beans, guacamole and fries |
-| Huachinango a la Plancha | $17.99 | A fresh fish grilled, with white rice and veggies |
+| Huachinango a la Plancha | $17.99 | A fresh fish grilled, with white rice, beans and veggies |
 | Filete Limon | $18.99 | A whole fish fillet sautéed in a garlic, curry, white peppers and capers. Served with rice, refried beans and guacamole |
-| Mariscada Caldo | $21.99 | — |
+| Mariscada Caldo | $21.99 | A seafood broth with mussels, crab legs and shrimp |
 | Caldo de Camaron | $15.99 | Succulent prawns entrée in a savory seafood broth, accompanied by an assortment of vegetables. Served with tortillas |
 | Caldo 7 Mares | $16.99 | An assortment of prawns, mussels, lobster leg, fish, scallops, clams served in a flavorful broth. Served with tortillas |
 | Salmon | $19.99 | Salmon with white rice, vegetables, beans and salad |

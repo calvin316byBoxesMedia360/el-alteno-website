@@ -1,12 +1,12 @@
 # Estado actual
 
 **Proyecto:** El Alteño restaurant website  
-**Rama:** `codex/cocktail-replacements`  
-**Worktree:** `C:\Users\no\Documents\ChatGPT\el alteno website\el-alteno-cocktails-test`  
+**Rama:** `codex/menu-cta-content-polish`  
+**Worktree:** `C:\Users\no\Documents\ChatGPT\el alteno website\el-alteno-integration-test`  
 **App:** `el-alteno/`  
 **Base:** `origin/master` en `b7b35d2` al crear la rama.
 
-## Completado
+## Completado previamente
 
 - Diseño aprobado para la sección de bebidas.
 - Plan detallado y handoff de la iteración registrados en `docs/plans/`.
@@ -20,16 +20,20 @@
 
 ## Completado en esta sesión
 
-- Costo Seedance 2.5: 90 créditos; generación ejecutada con autorización.
-- `public/videos/bar-service.mp4` generado, revisado y optimizado para web: 10.04 s, 1280×720, 1.28 MB, silencioso. El master generado fue 1920×1080.
-- `BarFeatureVideo.tsx` integrado antes del grid, con poster, overlay localizado y `useReducedMotion`.
+- Plan de diseño e implementación registrado en `docs/plans/2026-08-30-menu-cta-content-design.md` y `docs/plans/2026-08-30-menu-cta-content-implementation.md`.
+- CTA telefónica de Private Events convertida en enlace `tel:` completo, bilingüe, accesible y con glass blur.
+- Mariscada actualizada con mejillones, patas de cangrejo y camarones; Huachinango actualizado con frijoles en ambas fuentes.
+- Footer corregido para reflejar martes cerrado, consistente con la sección de ubicación.
+- Imagen editada de Carne Asada creada como `public/images/dishes/carne-asada-clean.png`, retirando únicamente el sope/tostada ajeno.
 - ESLint focalizado, TypeScript y build de producción pasaron.
+- Commit de documentación previo: `84fa1e5 docs: plan menu CTA and content polish`.
 
 ## Pendiente
 
-- Revisar la sección completa en local, desktop, móvil y Wi‑Fi.
-- Confirmar aceptación visual final del video integrado.
-- Actualizar walkthrough final y abrir PR independiente hacia `master`.
+- Crear el commit de implementación de esta unidad, sin incluir todavía `public/images/local_para_eventos/`.
+- Revisar CTA y menú en local, desktop, móvil y Wi‑Fi.
+- Preparar la primera generación audiovisual del patio con guía fija: golden hour, graduación consistente y cuatro clips modulares.
+- Integrar después los recursos aprobados de `local_para_eventos/` y abrir PR hacia `master`; no hacer push directo a `master`.
 
 ## Seguridad de despliegue
 
