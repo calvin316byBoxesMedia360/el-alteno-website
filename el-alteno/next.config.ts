@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import os from "node:os";
 
 /**
  * No remote image hosts are allowed. Every image the site serves lives in
@@ -9,12 +10,20 @@ import type { NextConfig } from "next";
  * cross-origin requests for dev-only assets, so opening the site from a phone
  * on the LAN returns 403 for the JS chunks: the HTML renders but hydration
  * never runs, and every element Framer Motion starts at opacity 0 stays
- * invisible. Listing the machine's LAN address makes on-device review work.
- * Localhost is included for the in-app review; if the router hands out a
- * different LAN address, update this list.
+<<<<<<< HEAD
+ * invisible. Discovering the machine's current LAN addresses at startup keeps
+ * phone review working when DHCP changes the address between sessions.
  */
+const lanIpv4Addresses = Object.values(os.networkInterfaces())
+  .flatMap((addresses) => addresses ?? [])
+  .filter((address) => {
+    const family = address.family;
+    return !address.internal && family === "IPv4";
+  })
+  .map((address) => address.address);
+
 const nextConfig: NextConfig = {
-  allowedDevOrigins: ["127.0.0.1", "localhost", "192.168.1.201"],
+  allowedDevOrigins: ["localhost", "127.0.0.1", ...lanIpv4Addresses],
 };
 
 export default nextConfig;

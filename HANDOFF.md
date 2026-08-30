@@ -10,15 +10,14 @@
 
 ```bash
 cd "C:\Users\no\Documents\Sandbox Boxes\El Alteno rest\el-alteno"
-npm run dev          # → http://localhost:3000
+npm run dev          # imprime las URLs Local y Wi-Fi; escucha en la LAN
 ```
 
 - Rama activa: **`master`**. `feat/consolidate-menu-assets` ya está mergeada; el trabajo nuevo parte de `master`
 - La app Next.js vive en la subcarpeta `el-alteno/`, **no en la raíz del repo**
 - Producción: https://web-production-004ee.up.railway.app (sirve `master` = `a190c4d`)
 
-**Para revisar en el teléfono** (mismo Wi-Fi): `http://192.168.1.201:3000`
-La IP es DHCP; si el router la cambia hay que actualizar `allowedDevOrigins` en `next.config.ts`, o el móvil recibirá el HTML sin el JavaScript (§8).
+**Para revisar en el teléfono** (mismo Wi-Fi): ejecuta `npm run dev` y abre la URL que el comando imprime como `Wi-Fi:`. El script escucha en `0.0.0.0` y `next.config.ts` descubre automáticamente las IPv4 LAN para `allowedDevOrigins`; no hay que editar una IP cuando DHCP la cambie.
 
 ---
 
@@ -248,7 +247,7 @@ Originales PNG de `about/`: `el-alteno-reports/backup-about-png-20260828-0834/`
 
 Estas ya costaron tiempo. Están documentadas para no repetirlas.
 
-**El servidor de desarrollo rechaza otros orígenes.** Abrir el sitio desde el móvil por la IP de red devuelve **403 en los recursos de desarrollo**: el HTML llega, el JavaScript no, la hidratación nunca corre, y todo lo que Framer Motion arranca en `opacity: 0` se queda invisible. Se ve el esqueleto estático —video, títulos, pestañas, pie— y nada más. La solución es `allowedDevOrigins` en `next.config.ts`. Si el síntoma es «cargó a medias en el móvil», es esto.
+**Regla permanente de revisión por Wi-Fi.** Nunca abras desde el móvil `127.0.0.1` o `localhost`: esas direcciones apuntan al propio teléfono. Ejecuta `npm run dev` dentro de `el-alteno`, usa la URL `Wi-Fi:` que imprime, y conecta ambos dispositivos a la misma red no-guest. El script siempre enlaza `0.0.0.0`; `next.config.ts` agrega automáticamente las IPv4 LAN actuales a `allowedDevOrigins`, evitando el 403 de los recursos de desarrollo cuando cambia DHCP. Si el teléfono recibe HTML pero no interacción, reinicia el servidor después de cambiar de red. Si no conecta nada, la causa está fuera de Next: red guest/aislamiento de clientes o firewall de Windows.
 
 **Medir contraste justo después de cambiar de tema da valores falsos.** El `body` tiene `transition-colors duration-300`, así que `getComputedStyle` devuelve colores interpolados a mitad de camino. Una auditoría así reportó 49 fallos inexistentes en modo oscuro. **Cargar cada tema de cero** (`localStorage.setItem('theme', …)` + recarga) en vez de pulsar el conmutador.
 
