@@ -27,4 +27,5 @@ El comando imprime las URLs `Local:` y `Wi-Fi:`. Revisa `http://127.0.0.1:3400/`
 1. Confirmar la revisión local y corregir sólo defectos visuales reales.
 2. Revisar en local la tarjeta activa con `v3`.
 3. Generar y revisar las galerías de bar y salón en paralelo, sin incorporar imágenes no aprobadas.
-4. Crear commit enfocado y abrir PR desde `codex/menu-cta-content-polish` hacia `master`; no hacer push directo a `master`.
+4. Revisar los reportes y candidatos de los agentes; aprobar imágenes antes de cualquier video.
+5. Crear commit enfocado y abrir PR desde `codex/menu-cta-content-polish` hacia `master`; no hacer push directo a `master`.
