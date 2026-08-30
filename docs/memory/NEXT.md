@@ -1,40 +1,37 @@
 # Próxima sesión / siguiente acción
 
-## Nueva ronda prioritaria — menú y peso del video
+## Estado actual — revisión del menú 2026-08-30
 
-- Fuente conciliada de la nueva revisión: `docs/memory/MENU-REVISION-2026-08-30.md`.
-- Crear una rama nueva desde `origin/master`; el PR #6 ya fue fusionado y Railway ya publicó esa versión.
-- Antes de tocar `menu.ts`, actualizar `MENU-SOURCE.md` y resolver las cuatro dudas mínimas del registro.
-- Optimizar `el-alteno/public/videos/private-events-walkthrough-master-v1.mp4` (actualmente 51,338,395 bytes) en la misma ronda técnica: H.264 con `faststart`, sin audio, objetivo aproximado 15–20 MB para 1080p y variante móvil 720p de 8–12 MB; conservar el maestro aprobado como fuente y comprobar calidad visual, loop, pausa y HTTP range.
+- Rama activa: `codex/menu-revision-2026-08-30`, creada desde el `master` verificado en `a3f2b646`.
+- Fuente conciliada: `MENU-SOURCE.md` y `docs/memory/MENU-REVISION-2026-08-30.md`.
+- Implementados: precios autorizados, altas y bajas de platillos, correcciones bilingües, categoría `Caldos / Soups`, aviso informativo de desayuno y horario dominical de `9:00 AM – 8:00 PM`.
+- Decisión final: `Caldo de Birria de Chivo / Goat Birria Soup`, `$18.99`, categoría `soups`, disponible sólo los fines de semana.
+- Validación: contrato del menú 5/5, ESLint, TypeScript y build de producción aprobados.
+- No empujar directamente a `master`; el flujo seguro sigue siendo rama → PR → revisión → merge autorizado.
 
-## Punto exacto
+## Siguiente tarea técnica — optimizar video
 
-La CTA, las correcciones de contenido y los cuatro módulos audiovisuales de Private Events están implementados en `codex/menu-cta-content-polish`. El maestro silencioso `public/videos/private-events-walkthrough-master-v1.mp4` está activo en la minitarjeta: Entrada → Salón → Bar → Patio, 29.8667 s, 1920×1080, 30 fps, loop y pausa/reanudación accesible.
+- Fuente aprobada: `el-alteno/public/videos/private-events-walkthrough-master-v1.mp4`.
+- Tamaño actual: `51,338,395 bytes` (aprox. 49 MB binarios / 51.3 MB decimales).
+- Conservar el maestro sin sobrescribirlo.
+- Crear una versión web H.264 con `faststart`, sin audio, objetivo aproximado de 15–20 MB para 1080p.
+- Crear una variante móvil 720p, objetivo aproximado de 8–12 MB.
+- Comparar calidad visual, continuidad del loop, pausa/reanudación y solicitudes HTTP Range antes de reemplazar la referencia del componente.
 
-## Continuación segura
+## Relanzamiento local y Wi-Fi
 
 Desde `C:\Users\no\Documents\ChatGPT\el alteno website\el-alteno-integration-test\el-alteno`:
-
-```powershell
-npx eslint src/components/sections/Cocktails.tsx
-npx tsc --noEmit
-npm run test:video
-npm run video:private-events:check
-```
-
-El pipeline local usa FFmpeg 9.0.1 y la RTX 5070 Ti mediante `h264_nvenc`. Los cuatro módulos ya figuran como `approved`; `npm run video:private-events` reconstruye de forma reproducible el maestro silencioso.
-
-El video generado ya costó 90 créditos. La versión editada está en `public/videos/private-events-patio-walkthrough-v2.mp4` (11 s, 1920×1080, silenciosa). Para continuar la revisión local:
 
 ```powershell
 npm run dev -- --port 3400
 ```
 
-El comando imprime las URLs `Local:` y `Wi-Fi:`. Revisa `http://127.0.0.1:3400/` y, por Wi‑Fi, usa exactamente la URL `Wi-Fi:` impresa (nunca `127.0.0.1` desde el teléfono). Comprueba CTA `tel:`, textos EN/ES, martes cerrado y la imagen de Carne Asada.
+- Local: `http://127.0.0.1:3400/`.
+- Móvil: usar exactamente la URL `Wi-Fi:` impresa al arrancar; nunca `127.0.0.1` desde el teléfono.
+- Si cambia la red, el hotspot o la IP, reiniciar el servidor. `allowedDevOrigins` se calcula al inicio y una IP nueva puede cargar HTML pero bloquear recursos de Next.js.
 
-## Después del checkpoint actual
+## Protección de alcance
 
-1. Revisar el PR [#6](https://github.com/calvin316byBoxesMedia360/el-alteno-website/pull/6) y sus checks.
-2. Fusionar únicamente con aprobación explícita: el merge a `master` activa Railway automáticamente.
-3. Tras el despliegue, validar el sitio público en desktop y móvil real antes de continuar otra ronda.
-4. Mantener el maestro silencioso hasta aprobar una estrategia separada de audio y licencias.
+- La app está en `el-alteno/`; cualquier hosting requiere `Root Directory = el-alteno`.
+- El menú no se edita a mano libre: `MENU-SOURCE.md` es la fuente de verdad.
+- Los archivos sin seguimiento de `public/images/local_para_eventos/` y los videos candidatos no pertenecen al commit del menú; no usar `git add .`.
