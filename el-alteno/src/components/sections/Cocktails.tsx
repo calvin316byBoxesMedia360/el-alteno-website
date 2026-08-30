@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import { X } from "lucide-react";
+import BarFeatureVideo from "@/components/ui/BarFeatureVideo";
 
 const cocktails = [
   {
@@ -81,6 +82,8 @@ export default function Cocktails() {
             )}
           </motion.p>
         </div>
+
+        <BarFeatureVideo />
 
         {/* Responsive Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-4 lg:px-0">
