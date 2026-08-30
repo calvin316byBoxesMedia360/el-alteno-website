@@ -1,5 +1,6 @@
 export type MenuCategoryId =
   | "seafood"
+  | "soups"
   | "specialties"
   | "enchiladas"
   | "burritos"

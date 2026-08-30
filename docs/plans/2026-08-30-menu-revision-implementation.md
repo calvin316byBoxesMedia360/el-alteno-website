@@ -219,6 +219,7 @@ git commit -m "test(menu): lock approved restaurant corrections"
 **Files:**
 
 - Modify: `el-alteno/src/data/menu.ts`
+- Modify: `el-alteno/src/types/menu.ts`
 - Modify: `el-alteno/src/components/menu/MenuItem.tsx`
 - Modify: `el-alteno/src/components/menu/MenuListRow.tsx`
 - Modify: `el-alteno/src/app/menu/page.tsx`
@@ -528,4 +529,3 @@ Check:
 **Step 3: Publish only after approval**
 
 Push `codex/menu-revision-2026-08-30`, open a PR to `master`, wait for checks and user approval, then merge. Never push directly to `master`.
-

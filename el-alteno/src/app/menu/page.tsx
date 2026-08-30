@@ -48,8 +48,12 @@ function PhotoCard({ item }: { item: MenuItem }) {
               ${item.price.toFixed(2)}
             </span>
           </div>
-          <p className="text-[#554B3F] text-[11px] leading-snug mb-1">{item.description}</p>
-          <p className="text-[#554B3F] italic text-[11px] leading-snug">{item.descriptionEs}</p>
+          {item.description && (
+            <p className="text-[#554B3F] text-[11px] leading-snug mb-1">{item.description}</p>
+          )}
+          {item.descriptionEs && (
+            <p className="text-[#554B3F] italic text-[11px] leading-snug">{item.descriptionEs}</p>
+          )}
         </div>
 
         <ItemTags item={item} className="mt-2" />
@@ -81,8 +85,12 @@ function ListRow({ item }: { item: MenuItem }) {
         </span>
       </div>
       <p className="text-[#554B3F] text-[11px] leading-snug">{item.nameEs}</p>
-      <p className="text-[#554B3F] text-[11px] leading-snug mt-1">{item.description}</p>
-      <p className="text-[#554B3F] italic text-[11px] leading-snug">{item.descriptionEs}</p>
+      {item.description && (
+        <p className="text-[#554B3F] text-[11px] leading-snug mt-1">{item.description}</p>
+      )}
+      {item.descriptionEs && (
+        <p className="text-[#554B3F] italic text-[11px] leading-snug">{item.descriptionEs}</p>
+      )}
       <ItemTags item={item} className="mt-1.5" />
     </div>
   );
