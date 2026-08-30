@@ -41,7 +41,7 @@ export default function EventFeatureVideo() {
             )}
             className="absolute inset-0 h-full w-full object-cover object-center"
           >
-            <source src="/videos/private-events-patio-walkthrough-v2.mp4" type="video/mp4" />
+            <source src="/videos/private-events-patio-walkthrough-v3.mp4" type="video/mp4" />
           </video>
         )}
 

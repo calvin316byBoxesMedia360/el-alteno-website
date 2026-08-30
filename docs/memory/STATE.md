@@ -36,10 +36,12 @@
 - La inserción final será una tarjeta de Private Events basada en `BarFeatureVideo`, con `aspect-video` en desktop y móvil para preservar el encuadre horizontal.
 - El video aprobado quedó editado como `public/videos/private-events-patio-walkthrough-v2.mp4`: se elimina el primer segundo del render original y se conserva el tramo bueno; el logo aparece con entrada suave únicamente sobre el segundo final del archivo resultante. El archivo es silencioso, 11 s, 1920×1080.
 - La tarjeta `EventFeatureVideo.tsx` ya está integrada al inicio de Private Events, usa el poster `patio-event-base-v1.png`, autoplay silencioso, loop, `playsInline` y fallback accesible para reducción de movimiento.
+- `public/videos/private-events-patio-walkthrough-v3.mp4` quedó aprobada y activa: misma edición de 11 s, con aparición centrada del logo durante los últimos 2 s, leve escala, resolución de desenfoque y halo cálido discreto. La tarjeta ya apunta a `v3`; `v2` queda como respaldo.
 
 ## Pendiente
 
 - Crear el commit de implementación de esta unidad, incluyendo sólo los assets audiovisuales aprobados y necesarios; no incluir la carpeta completa de originales `local_para_eventos/`.
+- Generar posteriormente la galería de bar/salón en paralelo, usando la guía de graduación fijada y sin mezclar sus assets con los originales no aprobados.
 - Revisar CTA y menú en local, desktop, móvil y Wi‑Fi.
 - Preparar la primera generación audiovisual del patio con guía fija: golden hour, graduación consistente y cuatro clips modulares.
 - Integrar después los recursos aprobados de `local_para_eventos/` y abrir PR hacia `master`; no hacer push directo a `master`.

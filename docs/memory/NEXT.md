@@ -2,7 +2,7 @@
 
 ## Punto exacto
 
-La CTA de Private Events y las correcciones de contenido están implementadas en `codex/menu-cta-content-polish`. La imagen corregida de Carne Asada está lista y aprobada. Hay dos anclajes audiovisuales locales: `patio-event-base-v1.png` (inicio) y `fuente-event-end-v2.png` (last frame). El recorrido fue editado a `private-events-patio-walkthrough-v2.mp4` con corte inicial y logo de cierre; todavía no hay push ni PR de esta unidad.
+La CTA de Private Events y las correcciones de contenido están implementadas en `codex/menu-cta-content-polish`. La imagen corregida de Carne Asada está lista y aprobada. Hay dos anclajes audiovisuales locales: `patio-event-base-v1.png` (inicio) y `fuente-event-end-v2.png` (last frame). El recorrido `private-events-patio-walkthrough-v3.mp4` está aprobado y activo en la tarjeta, con FX de logo en los últimos 2 s.
 
 ## Continuación segura
 
@@ -25,6 +25,6 @@ El comando imprime las URLs `Local:` y `Wi-Fi:`. Revisa `http://127.0.0.1:3400/`
 ## Después del checkpoint actual
 
 1. Confirmar la revisión local y corregir sólo defectos visuales reales.
-2. Revisar la tarjeta Private Events y el cierre del logo en desktop, móvil y Wi‑Fi.
-3. Crear commit enfocado; añadir sólo `patio-event-base-v1.png`, el video final y el componente, no la carpeta completa de originales.
-4. Abrir PR desde `codex/menu-cta-content-polish` hacia `master`; no hacer push directo a `master`.
+2. Revisar en local la tarjeta activa con `v3`.
+3. Generar y revisar las galerías de bar y salón en paralelo, sin incorporar imágenes no aprobadas.
+4. Crear commit enfocado y abrir PR desde `codex/menu-cta-content-polish` hacia `master`; no hacer push directo a `master`.
