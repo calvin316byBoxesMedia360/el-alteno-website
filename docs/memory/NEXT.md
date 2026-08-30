@@ -2,7 +2,7 @@
 
 ## Punto exacto
 
-La CTA de Private Events y las correcciones de contenido están implementadas en `codex/menu-cta-content-polish`. La imagen corregida de Carne Asada está lista y aprobada. El candidato de imagen base decorada es `public/images/local_para_eventos/patio-event-base-v1.png`; debe revisarse antes de animar. Todavía no hay push ni PR de esta unidad.
+La CTA de Private Events y las correcciones de contenido están implementadas en `codex/menu-cta-content-polish`. La imagen corregida de Carne Asada está lista y aprobada. Hay dos anclajes audiovisuales locales: `patio-event-base-v1.png` (inicio) y `fuente-event-end-v1.png` (last frame). El recorrido de 12 s está en procesamiento; todavía no hay push ni PR de esta unidad.
 
 ## Continuación segura
 
@@ -26,5 +26,5 @@ El comando imprime las URLs `Local:` y `Wi-Fi:`. Revisa `http://127.0.0.1:3400/`
 
 1. Confirmar la revisión local y corregir solo defectos visuales reales.
 2. Crear commit enfocado de menú/CTA/imagen; no añadir la carpeta de eventos aún.
-3. Revisar/aprobar `patio-event-base-v1.png`; después generar el primer clip del patio desde esa imagen editada.
+3. Revisar el recorrido Seedance 2.5: inserts de mesas, continuidad espacial, llegada a la fuente y estabilidad del last frame.
 4. Integrar recursos audiovisuales aprobados, actualizar memoria y abrir PR desde la rama de trabajo hacia `master`.

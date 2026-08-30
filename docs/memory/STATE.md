@@ -30,6 +30,8 @@
 - Commit de implementación: `a766c41 feat: polish menu content and event phone CTA`.
 - Primer clip audiovisual del patio enviado a Seedance 2.5; permanece en procesamiento para revisión antes de generar el siguiente.
 - Corrección de flujo audiovisual: la imagen base decorada debe aprobarse antes de animar. Candidato GPT Image 2: `public/images/local_para_eventos/patio-event-base-v1.png`.
+- Anclaje final generado con GPT Image 2: `public/images/local_para_eventos/fuente-event-end-v1.png`, conservando la fuente real y adaptando el decorado a la guía negra/blanca/plata.
+- Recorrido de 12 s enviado a Seedance 2.5 con `patio-event-base-v1.png` como inicio y `fuente-event-end-v1.png` como last frame; pendiente de resultado y revisión visual.
 
 ## Pendiente
 
