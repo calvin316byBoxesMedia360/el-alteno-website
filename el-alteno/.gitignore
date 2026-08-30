@@ -19,6 +19,7 @@
 
 # production
 /build
+/public/videos/*-preview-local.mp4
 
 # misc
 .DS_Store

@@ -2,7 +2,24 @@
 
 > **Lee este archivo completo antes de tocar nada.** Está escrito para que una sesión sin contexto previo pueda continuar el proyecto sin repetir errores que ya costaron caro.
 >
-> Última actualización: **2026-08-29** · **PR #2 mergeado y desplegado.** `master` = `6fd9ac0`. Esta revisión local continúa en una rama aislada y no se ha publicado.
+> Última actualización operativa: **2026-08-30** · Rama publicada y PR [#6](https://github.com/calvin316byBoxesMedia360/el-alteno-website/pull/6) abierto; `master` y producción no se han tocado.
+
+## ⚡ Estado operativo vigente — 2026-08-30
+
+Este bloque prevalece sobre las referencias históricas de las secciones inferiores cuando describen la rama o el worktree de esta revisión.
+
+- **Worktree actual:** `C:\Users\no\Documents\ChatGPT\el alteno website\el-alteno-integration-test`
+- **Rama actual:** `codex/menu-cta-content-polish`
+- **Últimos commits locales:** consultar `git log -5 --oneline`; este bloque evita fijar hashes que quedan obsoletos durante la revisión.
+- **Publicación:** `codex/menu-cta-content-polish` está publicada y el PR #6 apunta a `master`; no fusionar hasta aprobar la prueba móvil del despliegue.
+- **`master`:** no tocada y sin push directo desde esta revisión.
+- **Aplicación:** `el-alteno/`; el hosting debe usar `Root Directory = el-alteno`.
+- **Implementado:** CTA telefónica glass en Private Events; Mariscada y Huachinango corregidos; martes cerrado unificado; Carne Asada usa `public/images/dishes/carne-asada-clean.png`.
+- **Recursos fuera del commit:** `el-alteno/public/images/local_para_eventos/` conserva originales, referencias y candidatos. No añadirlos en bloque; versionar únicamente los activos aprobados que use la UI o el pipeline.
+- **Audiovisual:** la tarjeta de Private Events usa el maestro completo `private-events-walkthrough-master-v1.mp4`. El clip aprobado del bar sigue siendo `public/videos/private-events-bar-clip-approved-v1.mp4`: intervalo `00:01.000–00:06.000` del candidato v2, 5.000 s, 1920×1080, 30 fps y sin audio. No reutilizar los segundos descartados `0–1` ni `6–8`.
+- **Montaje local:** FFmpeg/FFprobe 9.0.1 y NVIDIA `h264_nvenc` están operativos. Desde `el-alteno/`, usar `npm run video:private-events:check`, `npm run video:private-events:preview` y, sólo con Entrada/Salón/Bar/Patio aprobados, `npm run video:private-events`. El maestro permanece silencioso.
+- **Maestro Private Events:** `public/videos/private-events-walkthrough-master-v1.mp4`, Entrada → Salón → Bar → Patio, 29.8667 s, 1920×1080, 30 fps, silencioso. Está activo entre el título y la descripción de Private Events, con loop, pausa/reanudación accesible y póster propio. Los cuatro módulos están `approved` en el manifiesto. Informe completo: `docs/reports/private-events-production/report.html`.
+- **Servidor local habitual:** `http://127.0.0.1:3400/`; desde el móvil usar únicamente la URL `Wi-Fi:` que imprime `npm run dev`.
 
 ---
 
@@ -14,7 +31,7 @@ npm run dev          # imprime las URLs Local y Wi-Fi; escucha en la LAN
 ```
 
 - **Worktree canónico de esta revisión:** `C:\Users\no\Documents\ChatGPT\el alteno website\el-alteno-integration-test`
-- **Rama de trabajo:** `codex/site-integration-preview` — no cambiar a `master` para revisar estos cambios
+- **Rama de trabajo:** `codex/menu-cta-content-polish` — no cambiar a `master` para revisar estos cambios
 - **Raíz de la aplicación:** `C:\Users\no\Documents\ChatGPT\el alteno website\el-alteno-integration-test\el-alteno`
 - La app Next.js vive en la subcarpeta `el-alteno/`, **no en la raíz del repo**
 - `master` permanece intacta; no hacer push desde esta revisión sin solicitar el PR explícitamente

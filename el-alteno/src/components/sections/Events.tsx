@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { Users, Calendar, Phone } from "lucide-react";
+import { ArrowUpRight, Users, Calendar, Phone } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { motion } from "framer-motion";
+import EventFeatureVideo from "@/components/ui/EventFeatureVideo";
 
 export default function Events() {
   const { t } = useLanguage();
@@ -53,6 +54,9 @@ export default function Events() {
             {t("Host your celebration at", "Celebra tu evento especial en")}{" "}
             <span className="whitespace-nowrap">El Alteño</span>
           </h2>
+
+          <EventFeatureVideo />
+
           <p className="text-muted-foreground text-sm md:text-lg leading-relaxed mb-8">
             {t(
               "From quinceañeras to corporate dinners, we have hosted hundreds of celebrations in our private dining room. Our team handles the food so you can focus on the people.",
@@ -96,13 +100,28 @@ export default function Events() {
             ))}
           </div>
 
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-muted-foreground">
-            <Phone size={16} className="text-accent shrink-0" />
-            <span className="shrink-0">{t("Prefer to call?", "¿Prefieres llamar?")}</span>
-            <a href="tel:8317689876" className="inline-flex items-center min-h-11 text-foreground font-bold hover:text-accent transition-colors whitespace-nowrap">
-              (831) 768-9876
-            </a>
-          </div>
+          <a
+            href="tel:8317689876"
+            aria-label={t("Call to reserve at (831) 768-9876", "Llama para reservar al (831) 768-9876")}
+            className="group relative flex w-full max-w-md items-center gap-3 overflow-hidden rounded-2xl border border-mustard/55 bg-[#2B211B]/78 px-4 py-3 text-foreground shadow-[0_12px_30px_rgba(0,0,0,.18)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:border-terracota/80 hover:bg-[#36261E]/88 hover:shadow-[0_16px_36px_rgba(0,0,0,.28)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mustard focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+          >
+            <span className="pointer-events-none absolute inset-x-12 top-0 h-px bg-gradient-to-r from-transparent via-mustard/80 to-transparent" />
+            <span className="grid size-10 shrink-0 place-items-center rounded-full border border-mustard/45 bg-mustard/12 text-mustard transition-colors group-hover:border-terracota/70 group-hover:bg-terracota/18 group-hover:text-[#FFDDB6]">
+              <Phone size={18} aria-hidden="true" />
+            </span>
+            <span className="min-w-0 flex-1">
+              <span className="block text-[0.68rem] font-bold uppercase tracking-[0.18em] text-mustard">
+                {t("Call to reserve", "Llama para reservar")}
+              </span>
+              <span className="mt-0.5 block whitespace-nowrap text-base font-bold text-[#FFF8EE] sm:text-lg">
+                (831) 768-9876
+              </span>
+              <span className="block text-xs text-[#EAD8C8]/75">
+                {t("Tap to call", "Toca para llamar")}
+              </span>
+            </span>
+            <ArrowUpRight size={18} aria-hidden="true" className="shrink-0 text-mustard transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+          </a>
         </motion.div>
 
         {/* Form Container */}

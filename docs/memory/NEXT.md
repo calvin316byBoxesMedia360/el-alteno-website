@@ -2,29 +2,32 @@
 
 ## Punto exacto
 
-El video ya fue generado y está integrado localmente. El siguiente checkpoint es revisión visual del sitio completo; todavía no hay push ni PR.
+La CTA, las correcciones de contenido y los cuatro módulos audiovisuales de Private Events están implementados en `codex/menu-cta-content-polish`. El maestro silencioso `public/videos/private-events-walkthrough-master-v1.mp4` está activo en la minitarjeta: Entrada → Salón → Bar → Patio, 29.8667 s, 1920×1080, 30 fps, loop y pausa/reanudación accesible.
 
 ## Continuación segura
 
-Desde `C:\Users\no\Documents\ChatGPT\el alteno website\el-alteno-cocktails-test\el-alteno`:
+Desde `C:\Users\no\Documents\ChatGPT\el alteno website\el-alteno-integration-test\el-alteno`:
 
 ```powershell
 npx eslint src/components/sections/Cocktails.tsx
 npx tsc --noEmit
-higgsfield account status
+npm run test:video
+npm run video:private-events:check
 ```
 
-El video generado ya costó 90 créditos. Para continuar la revisión local:
+El pipeline local usa FFmpeg 9.0.1 y la RTX 5070 Ti mediante `h264_nvenc`. Los cuatro módulos ya figuran como `approved`; `npm run video:private-events` reconstruye de forma reproducible el maestro silencioso.
+
+El video generado ya costó 90 créditos. La versión editada está en `public/videos/private-events-patio-walkthrough-v2.mp4` (11 s, 1920×1080, silenciosa). Para continuar la revisión local:
 
 ```powershell
-npm run dev -- --port 3300
+npm run dev -- --port 3400
 ```
 
-El comando imprime las URLs `Local:` y `Wi-Fi:`. Revisa `http://127.0.0.1:3300/#cocktails` y, por Wi‑Fi, usa exactamente la URL `Wi-Fi:` impresa (nunca `127.0.0.1` desde el teléfono). Comprueba rostro, manos, cubeta Pacífico, transición, crop móvil, textos EN/ES y reduced-motion.
+El comando imprime las URLs `Local:` y `Wi-Fi:`. Revisa `http://127.0.0.1:3400/` y, por Wi‑Fi, usa exactamente la URL `Wi-Fi:` impresa (nunca `127.0.0.1` desde el teléfono). Comprueba CTA `tel:`, textos EN/ES, martes cerrado y la imagen de Carne Asada.
 
-## Después del video
+## Después del checkpoint actual
 
-1. Confirmar la revisión local y corregir solo defectos visuales reales.
-2. Ejecutar `npx eslint`, `npx tsc --noEmit`, `npm run build` y pruebas visuales en desktop, móvil y Wi‑Fi.
-3. Actualizar `STATE.md`, `task.md` y `walkthrough.md` con el commit final.
-4. Push únicamente de `codex/cocktail-replacements` y abrir PR a `master`.
+1. Revisar el PR [#6](https://github.com/calvin316byBoxesMedia360/el-alteno-website/pull/6) y sus checks.
+2. Fusionar únicamente con aprobación explícita: el merge a `master` activa Railway automáticamente.
+3. Tras el despliegue, validar el sitio público en desktop y móvil real antes de continuar otra ronda.
+4. Mantener el maestro silencioso hasta aprobar una estrategia separada de audio y licencias.

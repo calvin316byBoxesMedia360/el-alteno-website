@@ -15,6 +15,7 @@ Built by [Boxes Media 360](https://github.com/calvin316byBoxesMedia360) for the 
 | Deploying it | [`DEPLOYMENT.md`](DEPLOYMENT.md) — the config that does *not* live in the code |
 | Touching the menu | [`MENU-SOURCE.md`](MENU-SOURCE.md) — transcription of the printed flyer. See the rule below |
 | Writing code | [`el-alteno/README.md`](el-alteno/README.md) — stack, file map, design system |
+| Reviewing the 2026 media-production phase | [`docs/reports/private-events-production/report.html`](docs/reports/private-events-production/report.html) — visual report, iterations, tools and final master |
 | Looking for history | [`CONTEXT.md`](CONTEXT.md) — superseded by `HANDOFF.md`, kept for background |
 
 ---
