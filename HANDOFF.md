@@ -4,6 +4,20 @@
 >
 > Última actualización: **2026-08-29** · **PR #2 mergeado y desplegado.** `master` = `6fd9ac0`. Esta revisión local continúa en una rama aislada y no se ha publicado.
 
+## ⚡ Estado operativo vigente — 2026-08-30
+
+Este bloque prevalece sobre las referencias históricas de las secciones inferiores cuando describen la rama o el worktree de esta revisión.
+
+- **Worktree actual:** `C:\Users\no\Documents\ChatGPT\el alteno website\el-alteno-integration-test`
+- **Rama actual:** `codex/menu-cta-content-polish`
+- **Últimos commits locales:** `857e2c0` (memoria audiovisual), `a766c41` (menú, CTA y Carne Asada), `84fa1e5` (plan)
+- **`master`:** no tocada y sin push desde esta revisión.
+- **Aplicación:** `el-alteno/`; el hosting debe usar `Root Directory = el-alteno`.
+- **Implementado:** CTA telefónica glass en Private Events; Mariscada y Huachinango corregidos; martes cerrado unificado; Carne Asada usa `public/images/dishes/carne-asada-clean.png`.
+- **Pendiente fuera del commit:** `el-alteno/public/images/local_para_eventos/` contiene los recursos originales y el candidato `patio-event-base-v1.png`; todavía no está integrado en la UI ni publicado.
+- **Audiovisual:** el flujo correcto es `foto real → imagen editada con GPT Image 2 → clips Seedance 2.5`. La imagen base decorada v1 está lista para revisión; no generar más clips hasta aprobarla.
+- **Servidor local habitual:** `http://127.0.0.1:3400/`; desde el móvil usar únicamente la URL `Wi-Fi:` que imprime `npm run dev`.
+
 ---
 
 ## 0. Arranque en 30 segundos

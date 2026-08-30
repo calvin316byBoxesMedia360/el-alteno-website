@@ -29,6 +29,7 @@
 - Commit de documentación previo: `84fa1e5 docs: plan menu CTA and content polish`.
 - Commit de implementación: `a766c41 feat: polish menu content and event phone CTA`.
 - Primer clip audiovisual del patio enviado a Seedance 2.5; permanece en procesamiento para revisión antes de generar el siguiente.
+- Corrección de flujo audiovisual: la imagen base decorada debe aprobarse antes de animar. Candidato GPT Image 2: `public/images/local_para_eventos/patio-event-base-v1.png`.
 
 ## Pendiente
 
