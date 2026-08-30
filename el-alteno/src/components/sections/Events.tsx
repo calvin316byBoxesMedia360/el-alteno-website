@@ -4,6 +4,7 @@ import { useState } from "react";
 import { ArrowUpRight, Users, Calendar, Phone } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { motion } from "framer-motion";
+import EventFeatureVideo from "@/components/ui/EventFeatureVideo";
 
 export default function Events() {
   const { t } = useLanguage();
@@ -59,6 +60,8 @@ export default function Events() {
               "Desde quinceañeras hasta cenas corporativas, hemos albergado cientos de celebraciones en nuestro salón privado. Nuestro equipo se encarga de la comida para que te enfoques en disfrutar."
             )}
           </p>
+
+          <EventFeatureVideo />
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
             <div className="bg-card border border-[#E5D9C5]/10 rounded-2xl p-5 text-center shadow-lg">

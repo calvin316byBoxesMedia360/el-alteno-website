@@ -34,10 +34,12 @@
 - Recorrido de 12 s enviado a Seedance 2.5 con `patio-event-base-v1.png` como inicio y `fuente-event-end-v1.png` como last frame; pendiente de resultado y revisión visual.
 - Anclaje final actualizado a `public/images/local_para_eventos/fuente-event-end-v2.png`: horizontal 16:9, puertas ligeramente entreabiertas y acabado negro mejorado. El recorrido anterior queda descartado.
 - La inserción final será una tarjeta de Private Events basada en `BarFeatureVideo`, con `aspect-video` en desktop y móvil para preservar el encuadre horizontal.
+- El video aprobado quedó editado como `public/videos/private-events-patio-walkthrough-v2.mp4`: se elimina el primer segundo del render original y se conserva el tramo bueno; el logo aparece con entrada suave únicamente sobre el segundo final del archivo resultante. El archivo es silencioso, 11 s, 1920×1080.
+- La tarjeta `EventFeatureVideo.tsx` ya está integrada al inicio de Private Events, usa el poster `patio-event-base-v1.png`, autoplay silencioso, loop, `playsInline` y fallback accesible para reducción de movimiento.
 
 ## Pendiente
 
-- Crear el commit de implementación de esta unidad, sin incluir todavía `public/images/local_para_eventos/`.
+- Crear el commit de implementación de esta unidad, incluyendo sólo los assets audiovisuales aprobados y necesarios; no incluir la carpeta completa de originales `local_para_eventos/`.
 - Revisar CTA y menú en local, desktop, móvil y Wi‑Fi.
 - Preparar la primera generación audiovisual del patio con guía fija: golden hour, graduación consistente y cuatro clips modulares.
 - Integrar después los recursos aprobados de `local_para_eventos/` y abrir PR hacia `master`; no hacer push directo a `master`.

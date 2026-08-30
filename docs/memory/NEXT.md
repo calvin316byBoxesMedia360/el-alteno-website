@@ -2,7 +2,7 @@
 
 ## Punto exacto
 
-La CTA de Private Events y las correcciones de contenido están implementadas en `codex/menu-cta-content-polish`. La imagen corregida de Carne Asada está lista y aprobada. Hay dos anclajes audiovisuales locales: `patio-event-base-v1.png` (inicio) y `fuente-event-end-v2.png` (last frame). El recorrido de 12 s está en procesamiento con la pareja correcta; todavía no hay push ni PR de esta unidad.
+La CTA de Private Events y las correcciones de contenido están implementadas en `codex/menu-cta-content-polish`. La imagen corregida de Carne Asada está lista y aprobada. Hay dos anclajes audiovisuales locales: `patio-event-base-v1.png` (inicio) y `fuente-event-end-v2.png` (last frame). El recorrido fue editado a `private-events-patio-walkthrough-v2.mp4` con corte inicial y logo de cierre; todavía no hay push ni PR de esta unidad.
 
 ## Continuación segura
 
@@ -14,7 +14,7 @@ npx tsc --noEmit
 higgsfield account status
 ```
 
-El video generado ya costó 90 créditos. Para continuar la revisión local:
+El video generado ya costó 90 créditos. La versión editada está en `public/videos/private-events-patio-walkthrough-v2.mp4` (11 s, 1920×1080, silenciosa). Para continuar la revisión local:
 
 ```powershell
 npm run dev -- --port 3400
@@ -24,8 +24,7 @@ El comando imprime las URLs `Local:` y `Wi-Fi:`. Revisa `http://127.0.0.1:3400/`
 
 ## Después del checkpoint actual
 
-1. Confirmar la revisión local y corregir solo defectos visuales reales.
-2. Crear commit enfocado de menú/CTA/imagen; no añadir la carpeta de eventos aún.
-3. Revisar el recorrido Seedance 2.5: inserts de mesas, continuidad espacial, llegada a la fuente y estabilidad del last frame.
-4. Integrar el video en una tarjeta de Private Events con poster inicial, `aspect-video`, loop silencioso y logo en postproducción.
-4. Integrar recursos audiovisuales aprobados, actualizar memoria y abrir PR desde la rama de trabajo hacia `master`.
+1. Confirmar la revisión local y corregir sólo defectos visuales reales.
+2. Revisar la tarjeta Private Events y el cierre del logo en desktop, móvil y Wi‑Fi.
+3. Crear commit enfocado; añadir sólo `patio-event-base-v1.png`, el video final y el componente, no la carpeta completa de originales.
+4. Abrir PR desde `codex/menu-cta-content-polish` hacia `master`; no hacer push directo a `master`.
