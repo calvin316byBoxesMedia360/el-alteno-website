@@ -40,6 +40,13 @@ La tarjeta actual `EventFeatureVideo` se adapta a esta ubicación compacta y dej
 - Relación 16:9 en móvil y desktop; ancho completo dentro de la columna izquierda.
 - Espaciado compacto para funcionar como transición visual entre título y párrafo.
 
+## Pulido final aprobado
+
+- Conservar únicamente la etiqueta `Explore Our Spaces / Conoce Nuestros Espacios`.
+- Eliminar por completo la línea secundaria `Entrance · Dining Room · Bar · Patio / Entrada · Salón · Bar · Patio` para reducir ruido visual.
+- Reducir el círculo visible del control de reproducción de 40 px a 36 px y su icono de 17 px a 15 px.
+- Mantener el contraste, el efecto glass, el foco visible y una interacción táctil clara.
+
 ## Accesibilidad y rendimiento
 
 - `preload="metadata"` y poster estático.
@@ -53,4 +60,3 @@ La tarjeta actual `EventFeatureVideo` se adapta a esta ubicación compacta y dej
 - Revisar desktop local y móvil real por Wi‑Fi.
 - Confirmar que el título, la tarjeta y el párrafo conservan una jerarquía clara.
 - Confirmar loop, pausa, reanudación, `playsInline`, ausencia de crop y reducción de movimiento.
-
