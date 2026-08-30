@@ -85,3 +85,20 @@ npm run build
 5. Open the LAN URL on the phone using the printed Wi-Fi address, never `127.0.0.1`.
 6. Leave the server running for user review and report both exact URLs.
 
+## Task 6: Apply the approved final visual polish
+
+**Files:**
+- Modify: `el-alteno/src/components/ui/EventFeatureVideo.tsx`
+
+1. Remove the complete secondary route paragraph:
+
+```tsx
+<p className="mt-1 text-xs text-white/75 sm:text-sm">
+  {t("Entrance · Dining Room · Bar · Patio", "Entrada · Salón · Bar · Patio")}
+</p>
+```
+
+2. Change the control from `size-10` to `size-9`.
+3. Change both Lucide icon sizes from `17` to `15`.
+4. Run ESLint and TypeScript, then verify local and LAN responses on port `3400`.
+5. Expected result: the card keeps only its editorial label and presents a smaller, still clear glass playback control.
