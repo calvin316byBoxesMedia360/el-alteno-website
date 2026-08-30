@@ -40,16 +40,19 @@
 - Inpainting del bar aprobado: `public/images/local_para_eventos/_candidates/bar/bar-candidate-03-cocktails.png` ahora incorpora al bartender real detrás de la barra, conserva los dos cócteles como protagonistas y mantiene la orientación correcta del backbar. La versión anterior sin bartender queda como `bar-candidate-03-cocktails-before-bartender.png` para recuperación.
 - Clip maestro del bar aprobado: `public/videos/private-events-bar-clip-approved-v1.mp4`. Es el intervalo exacto `00:01.000–00:06.000` de `bar-service-cocktails-8s-candidate-v2.mp4`; dura 5.000 s, es silencioso, 1920×1080, H.264 y 30 fps. Se descartaron deliberadamente los segundos `0–1` y `6–8`. Queda reservado para el montaje audiovisual total de Private Events y aún no se integra de forma aislada en la UI.
 - Pipeline local terminado: FFmpeg/FFprobe 9.0.1, NVIDIA `h264_nvenc`, manifiesto `el-alteno/video/private-events-manifest.json` y comandos npm para comprobar, previsualizar y renderizar. El preview Bar → Patio se generó localmente en 16.000 s, 1920×1080, 30 fps, H.264 y sin audio; está ignorado por Git.
+- Salón aprobado como `public/videos/private-events-salon-walkthrough-v2.mp4`: recorte local exacto de los primeros 2 s de `v1`; resultado de 8.000 s, 2560×1440, 24 fps y silencioso.
+- Entrada aprobada como `public/videos/private-events-entrance-intro-v1.mp4`: 5.875 s, silenciosa; el pipeline corrige su ancho fuente de 1918 px a la salida contractual de 1920 px.
+- Maestro completo generado localmente con NVENC: `public/videos/private-events-walkthrough-master-v1.mp4`, orden Entrada → Salón → Bar → Patio, 29.8667 s, 896 fotogramas, H.264, 1920×1080, 30 fps, `yuv420p` y sin audio. SHA-256: `96C301AD729F6DD4050DDE5FA558B60D387B26E900DCAA260B5C881F772F9EFC`.
+- Maestro completo activo en la UI de Private Events: minitarjeta entre título y descripción, `object-contain`, loop silencioso, pausa/reanudación, pausa fuera del viewport, póster propio y copy editorial reducido a `Explore Our Spaces / Conoce Nuestros Espacios`.
+- Expediente de la fase disponible en `docs/reports/private-events-production/`: informe HTML, tareas, walkthrough y contrato técnico.
 
 ## Pendiente
 
-- El render maestro permanece bloqueado correctamente hasta que Entrada y Salón tengan archivo aprobado y estado `approved` en el manifiesto.
+- Publicar la rama y validar el preview en desktop y móvil antes del merge a `master`.
 - Generar posteriormente la galería de bar/salón en paralelo, usando la guía de graduación fijada y sin mezclar sus assets con los originales no aprobados.
 - Fase de imágenes completada para revisión: el agente del salón `01a053ed-cfd4-79d1-a323-73895259a14d` dejó 4 candidatos en `public/images/local_para_eventos/_candidates/salon/`; el set recomendado es `salon-candidate-02`, `01`, `03`, `04`. El flujo del bar `01a053ed-be00-7b51-af46-e23136744e4d` dejó `bar-candidate-01-establishing`, `02-service`, `03-cocktails` en `public/images/local_para_eventos/_candidates/bar/`; `bar-candidate-02-service-v3.png` corrige la orientación espacial y usa el rostro del bartender original, y `bar-candidate-03-cocktails.png` quedó aprobado con el mismo bartender real. No incorporar candidatos adicionales al UI sin aprobación visual.
-- Ensamblar más adelante el clip aprobado del bar con los clips de salón, entrada y patio dentro del recorrido total; no regenerar ni ampliar el clip del bar sin una nueva solicitud.
 - Revisar CTA y menú en local, desktop, móvil y Wi‑Fi.
-- Preparar la primera generación audiovisual del patio con guía fija: golden hour, graduación consistente y cuatro clips modulares.
-- Integrar después los recursos aprobados de `local_para_eventos/` y abrir PR hacia `master`; no hacer push directo a `master`.
+- Abrir PR hacia `master` con los recursos de producción aprobados; no añadir candidatos ni hacer push directo a `master`.
 
 ## Seguridad de despliegue
 

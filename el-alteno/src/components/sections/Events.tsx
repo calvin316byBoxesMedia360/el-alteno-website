@@ -54,14 +54,15 @@ export default function Events() {
             {t("Host your celebration at", "Celebra tu evento especial en")}{" "}
             <span className="whitespace-nowrap">El Alteño</span>
           </h2>
+
+          <EventFeatureVideo />
+
           <p className="text-muted-foreground text-sm md:text-lg leading-relaxed mb-8">
             {t(
               "From quinceañeras to corporate dinners, we have hosted hundreds of celebrations in our private dining room. Our team handles the food so you can focus on the people.",
               "Desde quinceañeras hasta cenas corporativas, hemos albergado cientos de celebraciones en nuestro salón privado. Nuestro equipo se encarga de la comida para que te enfoques en disfrutar."
             )}
           </p>
-
-          <EventFeatureVideo />
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
             <div className="bg-card border border-[#E5D9C5]/10 rounded-2xl p-5 text-center shadow-lg">

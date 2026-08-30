@@ -12,15 +12,15 @@
     {
       "id": "entrance",
       "label": "Entrada",
-      "path": "public/videos/private-events-entrance-clip-approved-v1.mp4",
-      "status": "pending",
+      "path": "public/videos/private-events-entrance-intro-v1.mp4",
+      "status": "approved",
       "required": true
     },
     {
       "id": "salon",
       "label": "Salón",
-      "path": "public/videos/private-events-salon-clip-approved-v1.mp4",
-      "status": "pending",
+      "path": "public/videos/private-events-salon-walkthrough-v2.mp4",
+      "status": "approved",
       "required": true
     },
     {

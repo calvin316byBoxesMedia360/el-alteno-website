@@ -7,8 +7,8 @@ Este archivo es el índice corto para retomar producción sin releer conversacio
 | Campo | Valor |
 |---|---|
 | Activo | `el-alteno/public/videos/private-events-patio-walkthrough-v3.mp4` |
-| Estado | Aprobado y activo en la tarjeta de Private Events |
-| Uso | Clip de patio del recorrido total; también se muestra en su tarjeta actual |
+| Estado | Aprobado como módulo del maestro completo |
+| Uso | Clip final de patio dentro del recorrido total; ya no se muestra como tarjeta aislada |
 | Rasgo final | Logo centrado con aparición sutil durante los últimos 2 s |
 
 ## Bar
@@ -30,11 +30,13 @@ Este archivo es el índice corto para retomar producción sin releer conversacio
 
 Los candidatos `bar-service-cocktails-8s-candidate-v1.mp4` y `bar-service-cocktails-8s-candidate-v2.mp4` permanecen como respaldos locales, pero no forman parte del activo aprobado ni deben añadirse al commit. No regenerar ni extender el maestro del bar sin una solicitud nueva.
 
-## Próximos módulos del recorrido total
+## Módulos del recorrido total
 
-- Salón: imágenes candidatas listas; falta aprobación definitiva y generación del clip.
-- Entrada: falta preparar anclajes y clip.
-- Ensamble: realizar únicamente cuando entrada y salón estén aprobados; combinar entonces entrada, salón, bar y patio.
+- Entrada: aprobada como `el-alteno/public/videos/private-events-entrance-intro-v1.mp4`.
+- Salón: aprobado como `el-alteno/public/videos/private-events-salon-walkthrough-v2.mp4`; elimina los primeros 2 s de `v1`.
+- Bar: aprobado como `el-alteno/public/videos/private-events-bar-clip-approved-v1.mp4`.
+- Patio: aprobado como `el-alteno/public/videos/private-events-patio-walkthrough-v3.mp4`.
+- Ensamble: `el-alteno/public/videos/private-events-walkthrough-master-v1.mp4`.
 
 ## Política de producción local
 
@@ -47,3 +49,16 @@ Los candidatos `bar-service-cocktails-8s-candidate-v1.mp4` y `bar-service-cockta
 - `npm run video:private-events:preview`: ensambla sólo módulos aprobados en un archivo local ignorado por Git.
 - `npm run video:private-events`: genera el maestro únicamente cuando todos los módulos requeridos estén aprobados.
 - Prueba real: preview Bar → Patio de `16.000 s`, H.264, 1920×1080, 30 fps y sin pistas de audio.
+
+## Maestro completo
+
+| Campo | Valor |
+|---|---|
+| Activo | `el-alteno/public/videos/private-events-walkthrough-master-v1.mp4` |
+| Orden | Entrada → Salón → Bar → Patio |
+| Duración | `29.866667 s` (`896 / 30`) |
+| Formato | H.264 · 1920×1080 · 30 fps · yuv420p · sin audio |
+| Tamaño | `51,338,395 bytes` |
+| SHA-256 | `96C301AD729F6DD4050DDE5FA558B60D387B26E900DCAA260B5C881F772F9EFC` |
+| Producción | FFmpeg 9.0.1 local · NVIDIA `h264_nvenc` · RTX 5070 Ti Laptop |
+| Estado | Aprobado, técnicamente validado y activo en la minitarjeta de Private Events |

@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>El Alteño // Production Matrix</title>
+  <style>
+    :root { color-scheme: dark; --bg:#050806; --panel:rgba(13,25,18,.72); --line:rgba(109,255,166,.22); --green:#70ffad; --lime:#c7ff68; --amber:#ffca63; --text:#e8fff0; --muted:#8fb49c; --danger:#ff7285; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin:0; background:radial-gradient(circle at 18% 0%,rgba(29,111,62,.23),transparent 38%),radial-gradient(circle at 90% 12%,rgba(202,151,42,.12),transparent 28%),var(--bg); color:var(--text); font:15px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace; }
+    body::before { content:""; position:fixed; inset:0; pointer-events:none; opacity:.18; background:repeating-linear-gradient(0deg,transparent 0 3px,rgba(141,255,178,.05) 4px); }
+    .progress { position:fixed; z-index:9; top:0; left:0; width:0; height:2px; background:linear-gradient(90deg,var(--green),var(--lime),var(--amber)); box-shadow:0 0 18px var(--green); }
+    main { width:min(1180px,calc(100% - 32px)); margin:auto; padding:54px 0 96px; }
+    header { padding:46px; border:1px solid var(--line); border-radius:28px; background:linear-gradient(145deg,rgba(15,35,23,.86),rgba(5,12,8,.72)); backdrop-filter:blur(24px); box-shadow:0 30px 90px rgba(0,0,0,.38),inset 0 1px rgba(255,255,255,.04); }
+    .kicker,.terminal { color:var(--green); letter-spacing:.14em; text-transform:uppercase; }
+    h1 { margin:.3rem 0; font-size:clamp(2.4rem,7vw,6.8rem); line-height:.88; letter-spacing:-.07em; }
+    h1 span { color:var(--lime); text-shadow:0 0 34px rgba(199,255,104,.24); }
+    h2 { margin:0 0 20px; font-size:clamp(1.35rem,3vw,2.25rem); letter-spacing:-.035em; }
+    p { color:#cce3d3; }
+    a { color:var(--lime); }
+    code { color:var(--amber); }
+    .grid { display:grid; gap:16px; }
+    .stats { grid-template-columns:repeat(5,minmax(0,1fr)); margin-top:32px; }
+    .stat,.card { border:1px solid var(--line); background:var(--panel); backdrop-filter:blur(18px); border-radius:20px; }
+    .stat { padding:18px; min-height:118px; }
+    .stat b { display:block; font-size:1.85rem; color:var(--green); }
+    .stat small,.muted { color:var(--muted); }
+    section { margin-top:24px; padding:28px; }
+    .card { box-shadow:0 18px 55px rgba(0,0,0,.22); }
+    .video { padding:10px; overflow:hidden; }
+    video { width:100%; display:block; border-radius:14px; background:#000; }
+    .timeline { grid-template-columns:repeat(4,minmax(0,1fr)); }
+    .phase { padding:20px; border-left:2px solid var(--green); background:rgba(112,255,173,.045); border-radius:0 16px 16px 0; }
+    .phase strong { display:block; color:var(--lime); font-size:1.05rem; }
+    .chips { display:flex; flex-wrap:wrap; gap:9px; }
+    .chip { padding:7px 11px; border:1px solid var(--line); border-radius:999px; color:var(--green); background:rgba(112,255,173,.055); }
+    table { width:100%; border-collapse:collapse; min-width:720px; }
+    th,td { padding:13px 12px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    th { color:var(--green); }
+    .table-wrap { overflow:auto; }
+    details { border-top:1px solid var(--line); padding:16px 0; }
+    summary { color:var(--lime); cursor:pointer; font-weight:700; }
+    .ok { color:var(--green); } .warn { color:var(--amber); } .no { color:var(--danger); }
+    pre { overflow:auto; padding:18px; border:1px solid var(--line); border-radius:14px; color:var(--green); background:#020503; }
+    footer { margin-top:28px; text-align:center; color:var(--muted); }
+    @media (max-width:900px) { .stats { grid-template-columns:repeat(2,1fr); } .timeline { grid-template-columns:1fr 1fr; } header { padding:28px; } }
+    @media (max-width:560px) { main { width:min(100% - 18px,1180px); padding-top:24px; } .stats,.timeline { grid-template-columns:1fr; } section { padding:20px; } h1 { font-size:3rem; } }
+  </style>
+</head>
+<body>
+  <div class="progress" id="progress"></div>
+  <main>
+    <header>
+      <div class="kicker">El Alteño // Production Matrix // 2026-08-30</div>
+      <h1>PRIVATE<br><span>EVENTS</span></h1>
+      <p>Informe consolidado de diseño, generación con IA, iteración visual, correcciones locales, controles de seguridad y ensamblado final.</p>
+      <div class="terminal">&gt; STATUS: MASTER_READY / REVIEW_PENDING / PRODUCTION_UNTOUCHED</div>
+      <div class="grid stats">
+        <div class="stat"><small>DURACIÓN</small><b>29.867s</b><span>896 frames</span></div>
+        <div class="stat"><small>MÓDULOS</small><b>04</b><span>Entrada · Salón · Bar · Patio</span></div>
+        <div class="stat"><small>SALIDA</small><b>1080p</b><span>H.264 · 30 fps</span></div>
+        <div class="stat"><small>AUDIO</small><b>Ø</b><span>maestro silencioso</span></div>
+        <div class="stat"><small>RENDER</small><b>NVENC</b><span>RTX 5070 Ti</span></div>
+      </div>
+    </header>
+
+    <section class="card">
+      <h2>01 // Maestro final</h2>
+      <div class="video"><video controls preload="metadata" src="../../../el-alteno/public/videos/private-events-walkthrough-master-v1.mp4"></video></div>
+      <p><code>public/videos/private-events-walkthrough-master-v1.mp4</code></p>
+      <p class="muted">SHA-256 · 96C301AD729F6DD4050DDE5FA558B60D387B26E900DCAA260B5C881F772F9EFC</p>
+    </section>
+
+    <section class="card">
+      <h2>02 // Secuencia contractual</h2>
+      <div class="grid timeline">
+        <div class="phase"><strong>01 Entrada</strong><span>5.875 s fuente</span><br><small>Introducción física al restaurante.</small></div>
+        <div class="phase"><strong>02 Salón</strong><span>8.000 s</span><br><small>Primeros 2 s eliminados.</small></div>
+        <div class="phase"><strong>03 Bar</strong><span>5.000 s</span><br><small>Tramo aprobado 1–6.</small></div>
+        <div class="phase"><strong>04 Patio</strong><span>11.000 s</span><br><small>Cierre con FX de logo.</small></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>03 // Stack creativo y técnico</h2>
+      <div class="chips">
+        <span class="chip">GPT Image 2</span><span class="chip">Seedance 2.5</span><span class="chip">MiniMax H3</span><span class="chip">Higgsfield</span><span class="chip">FFmpeg 9.0.1</span><span class="chip">FFprobe</span><span class="chip">Node.js ESM</span><span class="chip">node:test</span><span class="chip">h264_nvenc</span><span class="chip">RTX 5070 Ti</span>
+      </div>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Herramienta</th><th>Uso real</th><th>Resultado</th></tr></thead>
+        <tbody>
+          <tr><td>GPT Image 2</td><td>Anclas, decoración, limpieza, bartender y galerías</td><td class="ok">Activos aprobados y candidatos trazables</td></tr>
+          <tr><td>Seedance</td><td>Movimiento de patio, bar y aperturas</td><td class="ok">Módulos generativos refinados</td></tr>
+          <tr><td>MiniMax H3</td><td>Rerenders de tortillas y material exploratorio</td><td class="warn">Iteración; sólo se integró material aprobado</td></tr>
+          <tr><td>Gemini Omni Flash 1.1</td><td>Flujo de consistencia diseñado para Salón</td><td class="warn">No atribuido al maestro sin evidencia de selección</td></tr>
+          <tr><td>FFmpeg + NVENC</td><td>Recortes, normalización y ensamblado local</td><td class="ok">Maestro final sin créditos de generación</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section class="card">
+      <h2>04 // Registro de iteraciones</h2>
+      <details open><summary>Tortillas · del fondo rústico a una cocina cotidiana</summary><p>Los primeros candidatos fueron descartados. Se ajustaron entorno, tamaño de plancha, cantidad de tortillas, manos, encuadre y limpieza. La tarjeta final quedó integrada y silenciosa.</p></details>
+      <details><summary>Patio · golden hour, anclas y logo</summary><p>Se fijó guía negro/blanco/plata, se corrigió la fuente a 16:9, se entreabrieron puertas, se eliminó un primer segundo inexistente y se diseñó un logo final de dos segundos.</p></details>
+      <details><summary>Bar · orientación, bartender real y recorte</summary><p>Se corrigió el backbar en espejo, se reemplazó una persona generada por el bartender real y se retiraron la apertura y el cierre que no aportaban. El maestro conserva exactamente los segundos 1–6 del candidato v2.</p></details>
+      <details><summary>Salón · continuidad y recorte</summary><p>Se produjeron cuatro imágenes coherentes, aperturas y cortes de prueba. El clip seleccionado fue reducido de 10 a 8 segundos al eliminar la apertura inicial.</p></details>
+      <details><summary>Entrada · nuevo prólogo</summary><p>Se incorporó como primer módulo y se normalizó de 1918×1080/24 fps a 1920×1080/30 fps sin estirar la imagen.</p></details>
+    </section>
+
+    <section class="card">
+      <h2>05 // Logros del sitio</h2>
+      <div class="grid timeline">
+        <div class="phase"><strong>Mobile</strong><small>Hero despejado, Wi‑Fi repetible, tap targets y composición.</small></div>
+        <div class="phase"><strong>Navegación</strong><small>Glassmorphism, carrusel evidente, offsets y tipografía.</small></div>
+        <div class="phase"><strong>Contenido</strong><small>Menú protegido, textos corregidos, martes cerrado y CTA de llamada.</small></div>
+        <div class="phase"><strong>Media</strong><small>Tortillas, cócteles, bartender, patio y maestro de eventos.</small></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>06 // Controles y pruebas</h2>
+      <pre>&gt; npm run test:video
+tests 7 · pass 7 · fail 0
+
+&gt; npm run video:private-events:check
+Entrada approved / Salón approved / Bar approved / Patio approved
+Encoder NVIDIA h264_nvenc / Audio disabled
+
+&gt; npm run video:private-events
+Created master-v1.mp4 (29.867 s, silent)</pre>
+      <p class="ok">✓ Ningún push a master · ✓ Ningún despliegue público · ✓ Fuentes intactas · ✓ Temporales eliminados</p>
+    </section>
+
+    <section class="card">
+      <h2>07 // Próximas decisiones</h2>
+      <p><span class="warn">01</span> Revisión visual del maestro en desktop y móvil.</p>
+      <p><span class="warn">02</span> Decidir ubicación final en la UI de Private Events.</p>
+      <p><span class="warn">03</span> Diseñar audio/licencias en una fase separada.</p>
+      <p><span class="no">04</span> Confirmar Formspree en Railway antes del despliegue.</p>
+      <p><span class="no">05</span> Publicar únicamente mediante PR hacia master.</p>
+    </section>
+
+    <footer>[ END OF LINE // EL ALTEÑO // BOXES MEDIA 360 ]</footer>
+  </main>
+  <script>
+    const bar=document.getElementById('progress');
+    addEventListener('scroll',()=>{const d=document.documentElement;bar.style.width=((d.scrollTop/(d.scrollHeight-d.clientHeight))*100)+'%'});
+  </script>
+</body>
+</html>
