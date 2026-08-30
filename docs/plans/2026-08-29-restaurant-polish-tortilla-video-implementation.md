@@ -231,6 +231,28 @@ Submit with the same six-second, `16:9`, `2K`, batch-size-one MiniMax H3 paramet
 
 Download both results to the workspace review-media folder because remote CDN embeds did not render in the Codex UI. Present local playable links for A and B. Do not rename either as the production asset, integrate it, or commit it until the user explicitly selects one.
 
+### Task 5.1: Rerender selected B with a commercial plancha
+
+**Files:**
+- Create outside the repository for review: `C:\Users\no\Documents\ChatGPT\el alteno website\review-media\tortilla-options\minimax-h3-option-b-commercial-plancha.mp4`
+- Create outside the repository for review: `C:\Users\no\Documents\ChatGPT\el alteno website\review-media\tortilla-options\minimax-h3-option-b-commercial-plancha-thumbnail.webp`
+
+The user selected direction B but requested a substantially larger plancha, more tortillas, and the recognizable cookline of a practical three-star Mexican restaurant.
+
+**Step 1: Use the refined prompt**
+
+```text
+Six-second continuous close food documentary shot from counter height inside the working cookline of a clean, practical, well-run three-star Mexican restaurant. White commercial tile walls, stainless prep tables, speed racks, stacked hotel pans, hanging ladles, an exhaust hood, and warm pass lights establish a professional mid-range kitchen. A broad black rectangular commercial steel plancha, approximately 80 centimeters wide, fills the lower two-thirds of the frame with twelve corn tortillas arranged in clear rows at different stages of cooking. The frame centers two adult hands and forearms: they rotate several tortillas, flip one visibly puffed tortilla with their fingertips, then place it into a cloth-lined basket at the edge. Several tortillas blister naturally and release delicate steam. 50mm lens, shallow depth of field while the kitchen remains recognizable, steady miniature slider move, balanced overhead kitchen light and warm stove glow, accurate food physics and hand anatomy, crisp masa texture, centered action, loop-friendly ending, unbranded and text-free.
+```
+
+**Step 2: Check cost and generate exactly one replacement**
+
+Use `higgsfield generate cost minimax_h3` with duration `6`, aspect ratio `16:9`, resolution `2K`, and batch size `1`. The user's explicit “inténtalo de nuevo” authorizes this single rerender after the art direction was presented. Submit exactly one `higgsfield generate create minimax_h3` job with the same parameters, `--wait`, and JSON output.
+
+**Step 3: Download for local review**
+
+Download the returned MP4 and thumbnail to the two review-media paths above. Verify both files exist and present the local thumbnail plus playable MP4 link. Do not integrate or commit the video until the user approves this final rerender.
+
 ### Task 6: Add the selected video to the handmade card
 
 **Files:**
