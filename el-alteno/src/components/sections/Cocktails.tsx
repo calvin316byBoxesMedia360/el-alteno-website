@@ -11,37 +11,31 @@ const cocktails = [
     id: "cantarito",
     name: "Cantarito",
     nameEs: "Cantarito",
-    image: "/images/cocktails/cantarito.jpg",
+    image: "/images/cocktails/cantarito.webp",
     description:
-      "Tequila, lime, grapefruit, and orange juice served in a traditional clay cup over ice. The classic Jalisco cocktail — citrusy, refreshing, and unmistakably Mexican.",
+      "Served ice-cold in a traditional clay cup with a chile-seasoned rim and a fresh citrus garnish. Bright, refreshing, and made to enjoy at the table.",
     descriptionEs:
-      "Tequila, limón, toronja y jugo de naranja servido en un cantarito de barro tradicional con hielo. El clásico cóctel jalisciense: cítrico, refrescante e indudablemente mexicano.",
-    badge: "Signature",
-    badgeEs: "De la Casa",
+      "Servido bien frío en un cantarito de barro tradicional, con borde sazonado con chile y cítricos frescos. Refrescante, vibrante y hecho para disfrutarse en la mesa.",
   },
   {
-    id: "sunrise",
-    name: "Tequila Sunrise",
-    nameEs: "Tequila Sunrise",
-    image: "/images/cocktails/sunrise.webp",
+    id: "paloma",
+    name: "Paloma",
+    nameEs: "Paloma",
+    image: "/images/cocktails/paloma.webp",
     description:
-      "Premium tequila, fresh orange juice, and sweet grenadine layered beautifully to create a stunning sunrise gradient. Elegant, sweet, and photo-ready.",
+      "A crisp, sparkling cocktail served over ice with a salted rim, fresh lime, and a clean citrus finish.",
     descriptionEs:
-      "Tequila premium, jugo de naranja fresco y granadina dulce servidos en capas para crear el degradado de un hermoso amanecer. Elegante, dulce y perfecto para fotos.",
-    badge: "Signature",
-    badgeEs: "De la Casa",
+      "Un cóctel fresco y burbujeante servido con hielo, borde de sal, limón fresco y un final cítrico y ligero.",
   },
   {
     id: "chavela",
     name: "Chavela",
     nameEs: "Chavela",
-    image: "/images/cocktails/chavela.png",
+    image: "/images/cocktails/chavela.webp",
     description:
-      "Chilled Mexican beer mixed with fresh lime juice, Clamato, hot sauce, and Worcestershire in a tajín and salt-rimmed glass. Bold, savory, and perfect with mariscos.",
+      "A bold, savory Chavela served ice-cold with a chile-seasoned rim, fresh citrus, cucumber, celery, and a shrimp garnish.",
     descriptionEs:
-      "Cerveza mexicana fría mezclada con jugo de limón fresco, Clamato, salsa picante y salsa inglesa en un vaso escarchado con sal y tajín. Intenso, sabroso e ideal con mariscos.",
-    badge: "Signature",
-    badgeEs: "De la Casa",
+      "Una Chavela intensa y sabrosa, servida bien fría con borde sazonado con chile, cítricos frescos, pepino, apio y camarón.",
   },
 ];
 
@@ -63,7 +57,7 @@ export default function Cocktails() {
             viewport={{ once: true }}
             className="text-accent text-xs md:text-sm font-bold tracking-widest uppercase mb-3"
           >
-            {t("Signature Cocktails", "Cócteles de la Casa")}
+            {t("Drinks from the Bar", "Bebidas de la Barra")}
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 15 }}
@@ -113,11 +107,6 @@ export default function Cocktails() {
                 {/* Vignette Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-80" />
                 
-                {/* Premium badge */}
-                <span className="absolute top-4 left-4 text-[10px] uppercase font-bold tracking-widest bg-terracota text-white px-3 py-1 rounded-full border border-white/10 shadow-lg">
-                  {t(c.badge, c.badgeEs)}
-                </span>
-
                 {/* Soft elegant shadow overlay */}
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                   <span className="bg-black/60 backdrop-blur-md text-white text-[10px] uppercase font-bold tracking-wider px-3.5 py-1.5 rounded-full scale-90 group-hover:scale-100 transition-all duration-300 shadow">
@@ -138,7 +127,7 @@ export default function Cocktails() {
                 </div>
                 <div className="mt-6 pt-4 border-t border-[#E5D9C5]/10 flex items-center justify-between">
                   <span className="text-xs uppercase tracking-wider text-accent font-semibold">
-                    {t("Handcrafted", "Artesanal")}
+                    {t("From the bar", "De la barra")}
                   </span>
                   {/* No price shown — drink prices are not on the printed menu. See MENU-SOURCE.md. */}
                   <span className="text-xs text-muted-foreground">
@@ -229,7 +218,7 @@ export default function Cocktails() {
 
                 <div className="flex flex-wrap gap-2 mt-6 pt-4 border-t border-[#E5D9C5]/10 font-sans">
                   <span className="text-xs uppercase tracking-wider text-accent font-semibold">
-                    {t("Handcrafted", "Artesanal")}
+                    {t("From the bar", "De la barra")}
                   </span>
                 </div>
               </div>
