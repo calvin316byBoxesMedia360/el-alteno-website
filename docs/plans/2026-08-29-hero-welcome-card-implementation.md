@@ -1,5 +1,6 @@
 # Hero Welcome Card Implementation Plan
 > **REQUIRED SUB-SKILL:** Use superpowers:executing-plans to implement this plan task-by-task.
+> **Status:** Rejected after visual review; the card was removed from the preview branch.
 **Goal:** Replace the repeated Hero emblem with a bilingual welcome card that preserves the approved visual identity without adding another full logo.
 **Architecture:** Modify the existing Hero content block only. Reuse the existing tortilla engraving as a low-opacity decorative image, keep the approved bilingual copy in the component, and preserve the existing Framer Motion reduced-motion behavior.
 **Tech Stack:** Next.js 16 App Router, React 19, TypeScript, Tailwind CSS v4, Framer Motion, Next Image.

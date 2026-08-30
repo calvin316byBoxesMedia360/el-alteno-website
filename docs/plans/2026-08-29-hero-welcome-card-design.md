@@ -1,4 +1,6 @@
-# Hero Welcome Card — Diseño aprobado
+# Hero Welcome Card — Exploración descartada
+
+> Este concepto se probó en la rama de integración y fue descartado tras la revisión visual: repetía contenido de la sección siguiente y añadía carga innecesaria al Hero.
 
 ## Objetivo
 

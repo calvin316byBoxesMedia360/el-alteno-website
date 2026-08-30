@@ -25,7 +25,7 @@ export default function Navbar() {
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
-        className="max-w-5xl mx-auto bg-card/95 backdrop-blur-md border border-mustard/20 h-16 rounded-full px-6 flex items-center justify-between shadow-xl pointer-events-auto transition-colors duration-300"
+        className="max-w-5xl mx-auto bg-card/95 dark:bg-[#0F0C0A]/95 backdrop-blur-md border border-mustard/20 dark:border-mustard/30 h-14 rounded-full px-6 flex items-center justify-between shadow-xl dark:shadow-[0_12px_32px_rgba(0,0,0,.42)] pointer-events-auto transition-colors duration-300"
       >
         {/* Logo */}
         <a href="#" className="flex items-center min-h-11">
@@ -118,7 +118,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden bg-card/95 backdrop-blur-lg border border-mustard/20 mt-2 px-6 py-5 rounded-2xl flex flex-col gap-4 shadow-2xl pointer-events-auto max-w-5xl mx-auto"
+            className="md:hidden bg-card/95 dark:bg-[#0F0C0A]/97 backdrop-blur-lg border border-mustard/20 dark:border-mustard/30 mt-2 px-6 py-5 rounded-2xl flex flex-col gap-4 shadow-2xl dark:shadow-[0_16px_36px_rgba(0,0,0,.5)] pointer-events-auto max-w-5xl mx-auto"
           >
             {links.map((l) => (
               <a
