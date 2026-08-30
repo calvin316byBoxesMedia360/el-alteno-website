@@ -2,7 +2,7 @@
 
 > **Lee este archivo completo antes de tocar nada.** Está escrito para que una sesión sin contexto previo pueda continuar el proyecto sin repetir errores que ya costaron caro.
 >
-> Última actualización operativa: **2026-08-30** · Esta revisión continúa en una rama aislada; `master` y producción no se han tocado.
+> Última actualización operativa: **2026-08-30** · Rama publicada y PR [#6](https://github.com/calvin316byBoxesMedia360/el-alteno-website/pull/6) abierto; `master` y producción no se han tocado.
 
 ## ⚡ Estado operativo vigente — 2026-08-30
 
@@ -11,7 +11,8 @@ Este bloque prevalece sobre las referencias históricas de las secciones inferio
 - **Worktree actual:** `C:\Users\no\Documents\ChatGPT\el alteno website\el-alteno-integration-test`
 - **Rama actual:** `codex/menu-cta-content-polish`
 - **Últimos commits locales:** consultar `git log -5 --oneline`; este bloque evita fijar hashes que quedan obsoletos durante la revisión.
-- **`master`:** no tocada y sin push desde esta revisión.
+- **Publicación:** `codex/menu-cta-content-polish` está publicada y el PR #6 apunta a `master`; no fusionar hasta aprobar la prueba móvil del despliegue.
+- **`master`:** no tocada y sin push directo desde esta revisión.
 - **Aplicación:** `el-alteno/`; el hosting debe usar `Root Directory = el-alteno`.
 - **Implementado:** CTA telefónica glass en Private Events; Mariscada y Huachinango corregidos; martes cerrado unificado; Carne Asada usa `public/images/dishes/carne-asada-clean.png`.
 - **Recursos fuera del commit:** `el-alteno/public/images/local_para_eventos/` conserva originales, referencias y candidatos. No añadirlos en bloque; versionar únicamente los activos aprobados que use la UI o el pipeline.

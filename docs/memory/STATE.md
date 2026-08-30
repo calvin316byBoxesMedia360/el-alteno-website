@@ -56,6 +56,6 @@
 
 ## Seguridad de despliegue
 
-No se ha hecho push de esta rama. `master` no se ha tocado. El PR #4 de hero/mobile permanece separado.
+La rama `codex/menu-cta-content-polish` está publicada y el PR [#6](https://github.com/calvin316byBoxesMedia360/el-alteno-website/pull/6) está abierto hacia `master`. No se ha hecho push directo a `master` ni despliegue público desde esta revisión. El PR #4 de hero/mobile permanece separado.
 
 La revisión por Wi‑Fi queda automatizada: `npm run dev` ejecuta `scripts/dev-wifi.mjs`, escucha en `0.0.0.0`, imprime la URL `Wi-Fi:` y `next.config.ts` descubre las IPv4 LAN actuales para `allowedDevOrigins`. Desde el móvil nunca usar `localhost` ni `127.0.0.1`; ambos dispositivos deben estar en la misma red no-guest.

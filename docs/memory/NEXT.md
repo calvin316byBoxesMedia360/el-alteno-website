@@ -27,8 +27,7 @@ El comando imprime las URLs `Local:` y `Wi-Fi:`. Revisa `http://127.0.0.1:3400/`
 
 ## Después del checkpoint actual
 
-1. Ejecutar las validaciones finales de código y del pipeline audiovisual.
-2. Crear un commit enfocado con los módulos aprobados, maestro, póster, manifiesto e informe.
-3. Subir `codex/menu-cta-content-polish` y abrir PR hacia `master`; nunca hacer push directo a `master`.
-4. Validar el despliegue de preview en móvil antes de decidir el merge.
-5. Mantener el maestro silencioso hasta aprobar una estrategia separada de audio y licencias.
+1. Revisar el PR [#6](https://github.com/calvin316byBoxesMedia360/el-alteno-website/pull/6) y sus checks.
+2. Fusionar únicamente con aprobación explícita: el merge a `master` activa Railway automáticamente.
+3. Tras el despliegue, validar el sitio público en desktop y móvil real antes de continuar otra ronda.
+4. Mantener el maestro silencioso hasta aprobar una estrategia separada de audio y licencias.

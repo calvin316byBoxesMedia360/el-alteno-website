@@ -43,6 +43,5 @@
 
 - [ ] Confirmar `NEXT_PUBLIC_FORMSPREE_ID` en Railway y probar la recepción real del formulario.
 - [ ] Ejecutar build final después de la próxima integración de UI.
-- [ ] Abrir PR desde la rama de trabajo hacia `master`.
+- [x] Abrir PR desde la rama de trabajo hacia `master`: [PR #6](https://github.com/calvin316byBoxesMedia360/el-alteno-website/pull/6).
 - [ ] Verificar producción después del merge; nunca empujar directamente a `master`.
-
