@@ -27,6 +27,8 @@
 - Imagen editada de Carne Asada creada como `public/images/dishes/carne-asada-clean.png`, retirando únicamente el sope/tostada ajeno.
 - ESLint focalizado, TypeScript y build de producción pasaron.
 - Commit de documentación previo: `84fa1e5 docs: plan menu CTA and content polish`.
+- Commit de implementación: `a766c41 feat: polish menu content and event phone CTA`.
+- Primer clip audiovisual del patio enviado a Seedance 2.5; permanece en procesamiento para revisión antes de generar el siguiente.
 
 ## Pendiente
 

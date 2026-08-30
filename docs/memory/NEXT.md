@@ -2,7 +2,7 @@
 
 ## Punto exacto
 
-La CTA de Private Events y las correcciones de contenido están implementadas en `codex/menu-cta-content-polish`. La imagen corregida de Carne Asada está lista para revisión. Todavía no hay push ni PR de esta unidad.
+La CTA de Private Events y las correcciones de contenido están implementadas en `codex/menu-cta-content-polish`. La imagen corregida de Carne Asada está lista para revisión. El primer clip del patio está en procesamiento en Seedance 2.5. Todavía no hay push ni PR de esta unidad.
 
 ## Continuación segura
 
