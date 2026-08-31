@@ -157,7 +157,7 @@ Add state-adjacent refs and behavior:
 const selectorRef = useRef<HTMLDivElement>(null);
 const selectorTopBeforeChange = useRef<number | null>(null);
 
-const selectCategory = (categoryId: string) => {
+const selectCategory = (categoryId: MenuCategory["id"]) => {
   if (categoryId === active) return;
   selectorTopBeforeChange.current =
     selectorRef.current?.getBoundingClientRect().top ?? null;
