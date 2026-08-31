@@ -1,8 +1,19 @@
-# Menú — Transcripción Verificada
+# Menú — Fuente de Verdad Verificada
 
-> Fuente: `menu flyer lado1.png` (alta resolución, recibida 2026-07-27)
-> Solo contiene lo que se lee con claridad en la foto. Nada inferido ni inventado.
-> **Lado 2 pendiente** — faltan: House Specialties, Enchiladas, Burritos, Fajitas, Tacos Suaves, Lunch Specials.
+> Fuentes base: `menu flyer lado1.png` y `menu flyer lado2.png` (alta resolución, recibidas 2026-07-27).
+> Revisión vigente: resumen Plaud `08-30 Reunión: Actualización de Precios y Estructura del Menú`, más las notas manuscritas `20260830_161127.jpg` y `20260830_161132.jpg`.
+> Sólo contiene datos confirmados por el restaurante. Nada inferido ni inventado.
+
+## ✅ Revisión vigente confirmada — 2026-08-30
+
+Esta revisión reemplaza los precios anteriores de las tablas activas de este documento.
+
+- **Camarones a la Diabla: $17.99.** La cifra `17.00` del resumen Plaud fue una transcripción incorrecta.
+- **Camarones con Vegetales: $17.99.** La cifra `17.29` del resumen Plaud fue una transcripción incorrecta.
+- Se eliminan del menú activo **Filete Limón**, **Fish Fillet / Filete de Pescado a la carta** y **Helado**.
+- Se agregan **Mariscada a la Parrilla**, **Caldo de Res**, **Caldo de Pollo**, **Caldo de Birria de Chivo**, **Chicken and Shrimp Fajitas**, **Enchilada de Asada** y **Quesadilla de Carne Asada**.
+- **Caldo de Birria de Chivo** pertenece a Caldos y se ofrece sólo los fines de semana.
+- El aviso de desayunos es informativo; no autoriza publicar platillos ni precios de desayuno.
 
 ---
 
@@ -29,20 +40,14 @@ El flyer de junio y este no coinciden. Cambios detectados:
 
 ---
 
-## 🕐 HORARIOS — CAMBIARON
+## 🕐 HORARIOS VIGENTES
 
-**Flyer nuevo dice:**
-```
-ABIERTO DE MARTES A SABADO DE 7:00 A.M. A 8:00 P.M.
-DOMINGO DE 7:00 A.M. A 8:00 P.M.
-CERRAMOS DOMINGOS DE 9:00 A 11:45 A.M.
-MARTES A SABADO DE 11:00 A.M. A 2:00 PM
-```
+- Lunes y miércoles–sábado: **11:00 AM – 8:00 PM**.
+- Domingo: **9:00 AM – 8:00 PM**.
+- Martes: **cerrado**.
+- Especiales de Lunch: el sitio conserva **11:00 AM – 3:00 PM** mientras no haya una corrección posterior.
 
-**El sitio en vivo dice:** Mar–Sáb 11am–8pm · Dom 9am–8pm
-
-❗ **Discrepancia grande:** ahora abren a las **7:00 AM**, no a las 11:00.
-❗ La línea "CERRAMOS DOMINGOS DE 9:00 A 11:45 A.M." es ambigua — el flyer viejo decía "DESAYUNOS" ahí. **Confirmar con el restaurante antes de publicar.**
+Las líneas del flyer que indicaban apertura a las 7:00 AM y “CERRAMOS DOMINGOS” fueron errores de impresión y no se publican.
 
 ---
 
@@ -50,21 +55,21 @@ MARTES A SABADO DE 11:00 A.M. A 2:00 PM
 
 | Platillo | Precio | Descripción |
 |---|---|---|
-| Tostadas de Camaron | $8.59 | Lime marinated shrimp, onion and salsa |
-| Tostada de Ceviche | $5.50 | Fish, tomato and onion cured in lime |
-| Orden de Guacamole | $9.99 | Fresh avocado, onions, tomatoes, cilantro and lime. Served with tortilla chips |
+| Tostadas de Camaron | $7.99 | Lime marinated shrimp, onion and salsa |
+| Tostada de Ceviche | $7.99 | Fish, tomato and onion cured in lime |
+| Orden de Guacamole | $12.00 | Fresh avocado, onions, tomatoes, cilantro and lime. Served with tortilla chips |
 | Flautas de Pollo | $10.99 | Three rolled crispy tacos with shredded chicken, cabbage, onions, pico, sour cream & guacamole |
-| Aguachile | $13.99 | Shrimp cured in a mixture of lime, chiles and onions. Served with avocado, crackers |
-| Nachos Mexicanos | $12.99 | Home made fresh chips topped with beans, cheese, salsa fresca, guacamole and sour cream. Asada or chicken |
+| Aguachile | $21.99 | Shrimp cured in a mixture of lime, chiles and onions. Served with avocado, crackers |
+| Nachos Mexicanos | $16.99 | Home made fresh chips topped with beans, cheese, salsa fresca, guacamole and sour cream. Asada or chicken |
 
 ## VEGETARIAN DISHES
 
 | Platillo | Precio | Descripción |
 |---|---|---|
-| Two Sopes de Guacamole | $12.99 | Served with guacamole, beans, cabbage, sour cream and salsa |
-| Two Cheese Enchiladas | $13.99 | Served with a side of rice, beans, sour cream and guacamole |
-| Veggie Burrito | $11.99 | Rice, beans, broccoli, mushrooms, zucchini, onions and bell peppers |
-| Veggie Fajitas | $16.99 | Mushrooms, zucchini, broccoli, onions y bell pepper. Served with a side of rice, beans, sour cream, guacamole and flour tortillas |
+| Two Sopes de Guacamole | $15.99 | Served with guacamole, beans, cabbage, sour cream and salsa |
+| Two Cheese Enchiladas | $17.99 | Served with a side of rice, beans, sour cream and guacamole |
+| Veggie Burrito | $12.99 | Rice, beans, broccoli, mushrooms, zucchini, onions and bell peppers |
+| Veggie Fajitas | $18.99 | Mushrooms, zucchini, broccoli, onions y bell pepper. Served with a side of rice, beans, sour cream, guacamole and flour tortillas |
 
 ## PARRILLADAS
 
@@ -72,8 +77,8 @@ MARTES A SABADO DE 11:00 A.M. A 2:00 PM
 
 | Opción | Precio |
 |---|---|
-| For 2 to 3 people | $68.00 |
-| For 3 to 5 people | $88.00 |
+| For 2 to 3 people | $67.99 |
+| For 3 to 5 people | $89.99 |
 
 - **Mixta:** Charbroiled chicken, beef and fish, sautéed shrimp, scallops in a garlic cilantro butter wine sauce
 - **Playa Escondida:** Scallops, rock shrimp in tomatillo sauce, fish and octopus
@@ -82,19 +87,21 @@ MARTES A SABADO DE 11:00 A.M. A 2:00 PM
 
 | Platillo | Precio |
 |---|---|
-| Fish Fillet | $8.99 |
 | Cheese Enchilada | $4.99 |
 | Chicken Enchilada | $4.99 |
-| Beef Enchilada | $4.99 |
-| Queso Quesadilla | $6.99 |
+| Beef Enchilada | $5.99 |
+| Queso Quesadilla | $7.99 |
 | *big flour tortilla / sour cream* | *$1.50* |
+
+> Eliminado el 2026-08-30: `Fish Fillet / Filete de Pescado` a la carta.
 
 ## DESSERTS
 
 | Platillo | Precio | Descripción |
 |---|---|---|
-| Helado | $2.50 | Mexican Favorite Ice Cream: Cinnamon, Chocolate, Mango, Vanilla |
-| Flan | $5.00 | With strawberries, mango sauce and sprinkled coconut strips |
+| Flan | $7.00 | With strawberries, mango sauce and sprinkled coconut strips |
+
+> Eliminado el 2026-08-30: `Helado`, descontinuado por cambio de proveedor.
 
 ---
 
@@ -104,28 +111,30 @@ MARTES A SABADO DE 11:00 A.M. A 2:00 PM
 
 | Platillo | Precio | Descripción |
 |---|---|---|
-| Camarones a La Diabla `SPICY HOT` | $15.99 | — |
+| Camarones a La Diabla `SPICY HOT` | $17.99 | — |
 | Huachinango Empanizado | $18.99 | Fish fillet breaded with nut-garlic chile, onions & our home made sauce |
-| Camarones Empanizados | $15.99 | (Breaded shrimp) served with rice, refried beans and guacamole |
-| Camarones al Mojo de Ajo | $15.99 | Prawns sautéed in a garlic, lemon and butter wine sauce |
-| Camarones con Vegetales | $16.99 | Shrimp with zucchini, mushrooms, cactus, broccoli, garlic and onion & our home made sauce |
-| Camarones de Tres Chiles `SPICY HOT` | $15.99 | Shrimp sautéed in tequila cooked with a sauce of guajillo, red jalapeño and chile de arbol |
-| **Camarones House Special** | $15.99 | Prawns sautéed or breaded in our sauce, **wrapped in bacon** and served with rice, refried beans, guacamole and fries |
+| Camarones Empanizados | $17.99 | (Breaded shrimp) served with rice, refried beans and guacamole |
+| Camarones al Mojo de Ajo | $17.99 | Prawns sautéed in a garlic, lemon and butter wine sauce |
+| Camarones con Vegetales | $17.99 | Shrimp with zucchini, mushrooms, cactus, broccoli, garlic and onion & our home made sauce |
+| Camarones de Tres Chiles `SPICY HOT` | $17.99 | Shrimp sautéed in tequila cooked with a sauce of guajillo, red jalapeño and chile de arbol |
+| **Camarones Vallarta** | $17.99 | Prawns sautéed or breaded in our sauce, **wrapped in bacon** and served with rice, refried beans, guacamole and fries |
 | Huachinango a la Plancha | $17.99 | A fresh fish grilled, with white rice, beans and veggies |
-| Filete Limon | $18.99 | A whole fish fillet sautéed in a garlic, curry, white peppers and capers. Served with rice, refried beans and guacamole |
-| Mariscada Caldo | $21.99 | A seafood broth with mussels, crab legs and shrimp |
-| Caldo de Camaron | $15.99 | Succulent prawns entrée in a savory seafood broth, accompanied by an assortment of vegetables. Served with tortillas |
-| Caldo 7 Mares | $16.99 | An assortment of prawns, mussels, lobster leg, fish, scallops, clams served in a flavorful broth. Served with tortillas |
+| Mariscada en Caldo | $23.99 | A seafood broth with mussels, crab legs and shrimp |
+| Mariscada a la Parrilla | $23.99 | Mussels, crab legs and shrimp served sizzling in a hot skillet |
+| Caldo de Camaron | $17.99 | Succulent prawns entrée in a savory seafood broth, accompanied by an assortment of vegetables. Served with tortillas |
+| Caldo 7 Mares | $19.99 | An assortment of prawns, mussels, lobster leg, fish, scallops, clams served in a flavorful broth. Served with tortillas |
 | Salmon | $19.99 | Salmon with white rice, vegetables, beans and salad |
 
-> 📸 **Nota de fotos:** la imagen que tenemos como `camarones-vallarta.png` (camarones envueltos en tocino) corresponde a **Camarones House Special**, no a "Camarones a la Vallarta" — ese platillo ya no existe en este menú.
+> Eliminado el 2026-08-30: `Filete Limón`.
+
+> 📸 **Nota de fotos:** la imagen `camarones-vallarta.png` muestra los camarones envueltos en tocino del platillo confirmado como **Camarones Vallarta**.
 
 ## COCKTAILS (cócteles de marisco, NO bebidas)
 
 | Platillo | Precio | Descripción |
 |---|---|---|
-| Shrimp | $15.99 | — |
-| Shrimp and Octopus | $16.99 | Served in a glass goblet with a savory tropical seafood tomato broth layered with salsa fresca, cucumber and avocado |
+| Shrimp | $18.99 | — |
+| Shrimp and Octopus | $19.99 | Served in a glass goblet with a savory tropical seafood tomato broth layered with salsa fresca, cucumber and avocado |
 
 > Acompañados de pico de gallo, tostada y avocado.
 > ⚠️ Esta sección **no son bebidas**. Los tragos (Cantarito, Sunrise, Chavela) no tienen precio en ningún material.
@@ -134,8 +143,16 @@ MARTES A SABADO DE 11:00 A.M. A 2:00 PM
 
 | Platillo | Precio | Descripción |
 |---|---|---|
-| Ensalada en Canasta | $13.99 | Marinated chicken breast, green beans, mixed veggies, avocado, cucumber, carrot and portobello mushroom dressing, served in a colorful taco shell |
-| Ensalada de Camaron y Avocado | $15.99 | Tender leaf greens, tomatoes, carrots & shrimp in a mild citrus jalapeño salad dressing, topped with cucumber, jicama, sprouts and avocado |
+| Ensalada en Canasta | $14.99 | Marinated chicken breast, mixed veggies, avocado, cucumber, carrot and portobello mushroom dressing, served in a colorful taco shell |
+| Ensalada de Camaron y Avocado | $18.99 | Tender leaf greens, tomatoes, carrots & shrimp in a mild citrus jalapeño salad dressing, topped with cucumber, sprouts and avocado |
+
+## CALDOS / SOUPS
+
+| Platillo | Precio | Descripción |
+|---|---|---|
+| Caldo de Res | $15.99 | — |
+| Caldo de Pollo | $14.99 | — |
+| Caldo de Birria de Chivo | $18.99 | Goat birria. Available weekends only |
 
 ---
 
@@ -163,35 +180,35 @@ Secciones anunciadas: Breakfast · Specialities · Brunch · Lunch · Dinner
 
 | Variante | Precio |
 |---|---|
-| Chicken | $19.99 |
-| Steak | $20.99 |
-| Shrimp | $21.99 |
+| Chicken | $21.99 |
+| Steak | $22.99 |
+| Shrimp | $22.99 |
 | Mixto | $23.99 |
 
 | Platillo | Precio | Descripción |
 |---|---|---|
-| Sopes! Pastor, Chicken or Asada | $13.99 | Two thin tortilla pots filled with your choice of orange chipotle chicken or marinated steak, topped with cabbage, sour cream, guacamole, salsa fresca, queso fresco, rice and beans |
-| Chiles Rellenos | $16.99 | Two roasted pasilla pepper topped with a mild white cheese, onions, tomatoes and salsa, rice, beans and tortillas |
-| Mole de Puebla | $15.99 | Slices of citrus marinated chicken breast slowly simmered in a sauce of roasted tomatillos, fresh garlic, dried fruits and nuts, Mexican chocolate, mixed herbs. Served with rice and beans |
-| Pipian Mole Verde | $15.99 | Medallions of tender marinated chicken breast in a sauce of roasted tomatillos, fresh and dried chiles, onions, pumpkin seeds, raisins and herbs. Served with rice, beans and tortillas |
-| Tacos Dorados | $14.99 | Three corn tortillas fried and filled with your choice of **garlic mushrooms, chicken tinga or steak**, topped with lettuce, guacamole, sour cream, salsa fresca and queso fresco. Rice and beans |
+| Sopes! Pastor, Chicken or Asada | $15.99 | Two thin tortilla pots filled with your choice of orange chipotle chicken or marinated steak, topped with cabbage, sour cream, guacamole, salsa fresca, queso fresco, rice and beans |
+| Chiles Rellenos | $17.99 | Two roasted pasilla pepper topped with a mild white cheese, onions, tomatoes and salsa, rice, beans and tortillas |
+| Mole de Puebla | $17.99 | Slices of citrus marinated chicken breast slowly simmered in a sauce of roasted tomatillos, fresh garlic, dried fruits and nuts, Mexican chocolate, mixed herbs. Served with rice and beans |
+| Pipian Mole Verde | $17.99 | Medallions of tender marinated chicken breast in a sauce of roasted tomatillos, fresh and dried chiles, onions, pumpkin seeds, raisins and herbs. Served with rice, beans and tortillas |
+| Tacos Dorados | $15.99 | Three corn tortillas fried and filled with your choice of **garlic mushrooms, chicken tinga or steak**, topped with lettuce, guacamole, sour cream, salsa fresca and queso fresco. Rice and beans |
 | New York Steak | $21.99 | New York steak topped with grilled onions, mushrooms and tomatillo salsa. Rice, beans and tortillas |
 | Pechuga Estilo Carmelitas | $17.99 | Charbroiled chicken breast topped with a guajillo and chipotle chile cream sauce, sprinkled with roasted sesame seeds. Rice, beans and tortillas |
-| Carne Asada | $17.99 | Grilled steak, cactus, onions, rice, beans, salad and tortillas |
+| Carne Asada | $19.99 | Grilled steak, cactus, onions, rice, beans, salad and tortillas |
 
 ## HOUSE SPECIALITIES (Cont.)
 
 | Platillo | Precio | Descripción |
 |---|---|---|
-| Enchiladas de Mole Rojo | $14.99 | Two chicken enchiladas topped with red mole de Puebla sauce and garnished with sour cream, guacamole and queso fresco. Rice and beans |
-| Enchiladas de Mole Verde | $14.99 | Two enchiladas filled with diced, cooked chipotle tomatillo chicken covered with pipián mole verde sauce, garnished with sour cream, guacamole, queso fresco, rice, beans and tortillas |
-| Enchiladas de Camaron Rico y Aguacate | $17.99 | Two tortillas filled with sautéed crabmeat, salsa fresca, garlic, onion and white wine, tomatillo sauce, topped with slices of avocado, queso fresco, rice and beans |
-| Enchiladas Verdes de Cangrejo | $17.99 | Two enchiladas filled with sautéed crab meat, salsa fresca and cilantro. Topped with a tomatillo cilantro sauce, queso fresco, sour cream, guacamole, rice and beans |
-| Enchiladas de Mariscos | $17.99 | Two enchiladas filled with crab and rock shrimp sautéed in garlic onion white wine, topped with a tomatillo cilantro sauce, queso fresco, sour cream, guacamole, rice and beans |
-| Chile Colorado | $15.99 | Slices of tender pork slowly cooked in a sour tomato cream sauce. Garlic, guajillo and New Mexico chile and spices, rice, beans and tortillas |
-| Chile Verde | $15.99 | Slices of tender pork slowly cooked with roasted tomatillo, garlic, onions, chile ancho and more spices, rice, beans and tortillas |
-| Pozole | $12.99 | A traditional Mexican soup, slowly simmered with hominy and your choice of chicken or pork, and tortillas |
-| Tortilla Soup | $11.99 | A garden vegetable and chicken soup, topped with strips of corn tortilla and bits of avocado. Tortillas included |
+| Enchiladas de Mole Rojo | $17.99 | Two chicken enchiladas topped with red mole de Puebla sauce and garnished with sour cream, guacamole and queso fresco. Rice and beans |
+| Enchiladas de Mole Verde | $17.99 | Two enchiladas filled with diced, cooked chipotle tomatillo chicken covered with pipián mole verde sauce, garnished with sour cream, guacamole, queso fresco, rice, beans and tortillas |
+| Enchiladas de Camaron Rico y Aguacate | $18.99 | Two tortillas filled with sautéed crabmeat, salsa fresca, garlic, onion and white wine, tomatillo sauce, topped with slices of avocado, queso fresco, rice and beans |
+| Enchiladas Verdes de Cangrejo | $18.99 | Two enchiladas filled with sautéed crab meat, salsa fresca and cilantro. Topped with a tomatillo cilantro sauce, queso fresco, sour cream, guacamole, rice and beans |
+| Enchiladas de Mariscos | $20.99 | Two enchiladas filled with crab and rock shrimp sautéed in garlic onion white wine, topped with a tomatillo cilantro sauce, queso fresco, sour cream, guacamole, rice and beans |
+| Chile Colorado | $17.99 | Slices of tender pork slowly cooked in a sour tomato cream sauce. Garlic, guajillo and New Mexico chile and spices, rice, beans and tortillas |
+| Chile Verde | $17.99 | Slices of tender pork slowly cooked with roasted tomatillo, garlic, onions, chile ancho and more spices, rice, beans and tortillas |
+| Pozole | $15.99 | A traditional Mexican soup, slowly simmered with hominy and your choice of chicken or pork, and tortillas |
+| Tortilla Soup | $14.99 | A garden vegetable and chicken soup, topped with strips of corn tortilla and bits of avocado. Tortillas included |
 
 > ⚠️ **Menudo ya NO aparece** en este menú (el viejo lo tenía a $11.99).
 
@@ -200,32 +217,33 @@ Secciones anunciadas: Breakfast · Specialities · Brunch · Lunch · Dinner
 
 | Variante | Precio |
 |---|---|
-| Chicken | $15.99 |
-| Steak | $16.99 |
-| Chicken and Steak | $17.99 |
-| Chicken, Steak and Prawns | $19.99 |
+| Chicken | $21.99 |
+| Steak | $21.99 |
+| Chicken and Steak | $23.99 |
+| Chicken and Shrimp | $24.99 |
+| Chicken, Steak and Prawns | $24.99 |
 
 ## BURRITOS
 > Flour tortilla, rice, beans, onions, cilantro and salsa
 
 | Variante | Precio |
 |---|---|
-| Charbroiled Steak | $10.99 |
-| Sautéed Rock Shrimp | $11.99 |
-| Chile Verde | $10.99 |
-| Chile Colorado | $10.99 |
-| Al Pastor | $9.99 |
-| Pork Carnitas | $9.99 |
-| Pollo Rojo | $9.99 |
+| Charbroiled Steak | $11.99 |
+| Sautéed Rock Shrimp | $13.99 |
+| Chile Verde | $11.99 |
+| Chile Colorado | $11.99 |
+| Al Pastor | $10.99 |
+| Pork Carnitas | $10.99 |
+| Pollo Rojo | $10.99 |
 
-## BURRITO CREATIONS — $11.99 c/u
+## BURRITO CREATIONS
 > Servidos con guacamole, crema y queso fresco
 
-| Nombre | Descripción |
-|---|---|
-| Parrilla Chicken Guajillo | Grilled chicken, rice, black beans, onions, broccoli flowers. Rolled in a spinach flour tortilla. Glazed with sweet and orange Guajillo salsa |
-| Mango Tango Shrimp | Rock shrimp sautéed in a spicy mango-papaya salsa with green onions, cilantro, mixed babygreens, carrots, jicama, rice-tomatillo vinaigrette, rolled in a sun-dried tomato flour tortilla |
-| Rock Shrimp Verde | Sautéed rock shrimp, peruvian beans, rice, green onions, green cabbage, avocado in a sun-dried tomato flour tortilla |
+| Nombre | Precio | Descripción |
+|---|---|---|
+| Parrilla Chicken Guajillo | $12.99 | Grilled chicken, rice, black beans, onions and broccoli flowers. Rolled in a regular flour tortilla. Glazed with sweet orange Guajillo salsa |
+| Mango Tango Shrimp | $13.99 | Rock shrimp sautéed in a spicy mango-papaya salsa with green onions, cilantro, mixed babygreens, carrots and rice-tomatillo vinaigrette, rolled in a regular flour tortilla |
+| Rock Shrimp Verde | $13.99 | Sautéed rock shrimp, peruvian beans, rice, green onions, green cabbage and avocado in a regular flour tortilla |
 
 ## TACOS SUAVES
 > Hechos con tortilla de maíz, cilantro, cebolla y salsa
@@ -233,8 +251,8 @@ Secciones anunciadas: Breakfast · Specialities · Brunch · Lunch · Dinner
 | Variante | Precio |
 |---|---|
 | Charbroiled Steak | $3.50 |
-| Charbroiled Red Snapper | $4.50 |
-| Pollo Rojo | $2.75 |
+| Charbroiled Red Snapper | $5.00 |
+| Grilled Chicken / Pollo a la Parrilla | $3.50 |
 | Pork Carnitas | $3.50 |
 | Al Pastor | $3.50 |
 
@@ -243,18 +261,20 @@ Secciones anunciadas: Breakfast · Specialities · Brunch · Lunch · Dinner
 
 | Platillo | Precio |
 |---|---|
-| Flautas de Pollo | $10.99 |
-| Cheese Enchilada | $10.99 |
-| Chicken Enchilada | $10.99 |
-| Quesadilla de Pollo Chipotle | $10.99 |
-| Quesadilla de Camaron | $12.99 |
-| Chile Relleno | $10.99 |
+| Flautas de Pollo | $11.99 |
+| Cheese Enchilada | $11.99 |
+| Chicken Enchilada | $11.99 |
+| Quesadilla de Pollo Chipotle | $12.99 |
+| Quesadilla de Camaron | $13.99 |
+| Chile Relleno | $12.99 |
+| Enchilada de Asada | $12.99 |
+| Quesadilla de Carne Asada | $13.99 |
 
 > ⚠️ El lado 1 del mismo flyer dice "MARTES A SABADO DE 11:00 A.M. A 2:00 PM" pero el lado 2 dice "FROM 11:00 AM TO 3:00 PM". **Contradicción dentro del propio flyer** — confirmar cuál es.
 
 ---
 
-## ✅ Decisiones del cliente (confirmadas 2026-07-27)
+## ✅ Decisiones del cliente
 
 | Tema | Resolución |
 |---|---|
@@ -262,6 +282,9 @@ Secciones anunciadas: Breakfast · Specialities · Brunch · Lunch · Dinner
 | **"CERRAMOS DOMINGOS DE 9:00 A 11:45 A.M."** | **Eliminar.** No se publica en el sitio. |
 | **Desayunos** | Se sirven **para eventos**, o en horario regular pero más corto. No hay platillos ni precios definidos. |
 | **Camarones House Special** | El nombre correcto es **"Camarones Vallarta"** (el flyer lo imprimió mal). |
+| **Domingo** | Desde el 2026-08-30 se publica **9:00 AM – 8:00 PM**. |
+| **Aviso de desayunos** | Mostrar un texto informativo estético; no es botón y no publica platillos ni precios. |
+| **Caldo de Birria de Chivo** | Pertenece a **Caldos**, cuesta **$18.99** y sólo se ofrece los fines de semana. |
 
 ---
 
@@ -271,4 +294,4 @@ Secciones anunciadas: Breakfast · Specialities · Brunch · Lunch · Dinner
 2. **Precios de bebidas** (Cantarito, Sunrise, Chavela) — no aparecen en ningún material impreso
 3. **Platillos de desayuno** — el menú anuncia "Breakfast" y "Brunch" pero dice *"Pregunte Por Nuestros Desayunos"*
 4. **¿El tagline cambió oficialmente** de "Auténtica Comida Mexicana" a "Mexican Food"?
-5. **¿Se eliminaron de verdad** Menudo, Pescado Dorado y Camarones Nuevo Vallarta?
+5. **Menudo y Pescado Dorado** permanecen fuera del menú activo; Camarones Vallarta sí está confirmado y activo.

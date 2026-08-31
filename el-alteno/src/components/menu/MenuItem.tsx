@@ -12,6 +12,8 @@ import MenuListRow from "./MenuListRow";
 export default function MenuItem({ item }: { item: MenuItemType }) {
   const { locale, t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
+  const primaryDescription = locale === "en" ? item.description : item.descriptionEs;
+  const secondaryDescription = locale === "en" ? item.descriptionEs : item.description;
   
   // No photograph of our own means no image at all — the dish reads as a
   // printed-menu row instead of borrowing a stock photo.
@@ -57,9 +59,11 @@ export default function MenuItem({ item }: { item: MenuItemType }) {
                 ${item.price.toFixed(2)}
               </span>
             </div>
-            <p className="text-muted-foreground text-[17px] leading-relaxed line-clamp-4 mb-4">
-              {locale === "en" ? item.description : item.descriptionEs}
-            </p>
+            {primaryDescription && (
+              <p className="text-muted-foreground text-[17px] leading-relaxed line-clamp-4 mb-4">
+                {primaryDescription}
+              </p>
+            )}
           </div>
           <div className="flex flex-wrap gap-1.5 font-sans pt-2 border-t border-border dark:border-white/5">
             {item.tags.includes("popular") && (
@@ -135,14 +139,16 @@ export default function MenuItem({ item }: { item: MenuItemType }) {
                     </span>
                   </div>
                   
-                  <div className="space-y-3 mt-4 font-sans text-xs md:text-sm leading-relaxed">
-                    <p className="text-[#FAF6EF]/85">
-                      {locale === "en" ? item.description : item.descriptionEs}
-                    </p>
-                    <p className="text-[#A39485] italic border-l-2 border-[#C99A3F]/25 pl-3">
-                      {locale === "en" ? item.descriptionEs : item.description}
-                    </p>
-                  </div>
+                  {(primaryDescription || secondaryDescription) && (
+                    <div className="space-y-3 mt-4 font-sans text-xs md:text-sm leading-relaxed">
+                      {primaryDescription && <p className="text-[#FAF6EF]/85">{primaryDescription}</p>}
+                      {secondaryDescription && (
+                        <p className="text-[#A39485] italic border-l-2 border-[#C99A3F]/25 pl-3">
+                          {secondaryDescription}
+                        </p>
+                      )}
+                    </div>
+                  )}
                 </div>
 
                 <div className="flex flex-wrap gap-2 mt-6 pt-4 border-t border-[#C99A3F]/10 font-sans">

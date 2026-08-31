@@ -13,6 +13,7 @@ import { useLanguage } from "@/context/LanguageContext";
  */
 export default function MenuListRow({ item }: { item: MenuItemType }) {
   const { locale, t } = useLanguage();
+  const description = locale === "en" ? item.description : item.descriptionEs;
 
   return (
     <div className="group break-inside-avoid mb-6">
@@ -29,9 +30,11 @@ export default function MenuListRow({ item }: { item: MenuItemType }) {
         </span>
       </div>
 
-      <p className="text-muted-foreground text-[17px] leading-relaxed mt-1 pr-16">
-        {locale === "en" ? item.description : item.descriptionEs}
-      </p>
+      {description && (
+        <p className="text-muted-foreground text-[17px] leading-relaxed mt-1 pr-16">
+          {description}
+        </p>
+      )}
 
       {item.tags.some((x) => ["popular", "spicy", "signature"].includes(x)) && (
         <div className="flex flex-wrap gap-1.5 font-sans mt-2">

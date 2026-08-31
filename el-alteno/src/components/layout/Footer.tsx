@@ -49,7 +49,7 @@ export default function Footer() {
             </li>
             <li className="flex justify-between gap-4 border-b border-white/5 pb-1">
               <span>{t("Sunday", "Domingo")}</span>
-              <span className="text-white font-medium">11:00 AM – 8:00 PM</span>
+              <span className="text-white font-medium">9:00 AM – 8:00 PM</span>
             </li>
             <li className="flex justify-between gap-4 text-xs text-[#A39485] ml-1 pl-3 border-l border-white/10">
               <span>{t("Lunch Specials", "Especiales de Lunch")}</span>

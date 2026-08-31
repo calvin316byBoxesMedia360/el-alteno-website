@@ -1,11 +1,12 @@
 "use client";
 
 import { categories, menuItems } from "@/data/menu";
+import BreakfastNotice from "@/components/menu/BreakfastNotice";
 import MenuTabs from "@/components/menu/MenuTabs";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function MenuSection() {
-  const { t } = useLanguage();
+  const { locale, t } = useLanguage();
 
   return (
     <section id="menu" className="section-padding scroll-mt-24 bg-background relative overflow-hidden">
@@ -14,7 +15,7 @@ export default function MenuSection() {
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Asymmetric Header */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 items-end px-4 md:px-6 lg:px-0">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-8 items-end px-4 md:px-6 lg:px-0">
           <div className="lg:col-span-7">
             <p className="text-accent text-xs font-bold tracking-[0.2em] uppercase mb-3">
               {t("Nuestro Menú · Our Menu", "Nuestro Menú · Our Menu")}
@@ -37,6 +38,10 @@ export default function MenuSection() {
               ✦ {t("Handmade corn tortillas served fresh daily", "Tortillas de maíz hechas a mano servidas al momento")} ✦
             </p>
           </div>
+        </div>
+
+        <div className="mb-12 px-4 md:px-6 lg:px-0">
+          <BreakfastNotice locale={locale} />
         </div>
 
         <MenuTabs categories={categories} items={menuItems} />

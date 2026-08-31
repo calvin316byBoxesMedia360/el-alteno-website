@@ -3,6 +3,7 @@ import Link from "next/link";
 import { categories, menuItems } from "@/data/menu";
 import { Badge } from "@/components/ui/badge";
 import { MenuItem } from "@/types/menu";
+import BreakfastNotice from "@/components/menu/BreakfastNotice";
 import ScrollStrip from "@/components/ui/ScrollStrip";
 
 function ItemTags({ item, className = "" }: { item: MenuItem; className?: string }) {
@@ -48,8 +49,12 @@ function PhotoCard({ item }: { item: MenuItem }) {
               ${item.price.toFixed(2)}
             </span>
           </div>
-          <p className="text-[#554B3F] text-[11px] leading-snug mb-1">{item.description}</p>
-          <p className="text-[#554B3F] italic text-[11px] leading-snug">{item.descriptionEs}</p>
+          {item.description && (
+            <p className="text-[#554B3F] text-[11px] leading-snug mb-1">{item.description}</p>
+          )}
+          {item.descriptionEs && (
+            <p className="text-[#554B3F] italic text-[11px] leading-snug">{item.descriptionEs}</p>
+          )}
         </div>
 
         <ItemTags item={item} className="mt-2" />
@@ -81,8 +86,12 @@ function ListRow({ item }: { item: MenuItem }) {
         </span>
       </div>
       <p className="text-[#554B3F] text-[11px] leading-snug">{item.nameEs}</p>
-      <p className="text-[#554B3F] text-[11px] leading-snug mt-1">{item.description}</p>
-      <p className="text-[#554B3F] italic text-[11px] leading-snug">{item.descriptionEs}</p>
+      {item.description && (
+        <p className="text-[#554B3F] text-[11px] leading-snug mt-1">{item.description}</p>
+      )}
+      {item.descriptionEs && (
+        <p className="text-[#554B3F] italic text-[11px] leading-snug">{item.descriptionEs}</p>
+      )}
       <ItemTags item={item} className="mt-1.5" />
     </div>
   );
@@ -132,6 +141,10 @@ export default function QRMenuPage() {
             <br />
             Menú bilingüe. Tortillas hechas a mano disponibles con cada platillo.
           </p>
+        </div>
+
+        <div className="mb-8">
+          <BreakfastNotice bilingual />
         </div>
 
         {/* Quick Jump Anchors */}
