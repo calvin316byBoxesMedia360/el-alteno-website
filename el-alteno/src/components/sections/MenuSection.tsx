@@ -26,6 +26,17 @@ export default function MenuSection() {
                   takes a deeper shade of it. Dark keeps the brand value. */}
               <span className="text-[#85340F] dark:text-terracota italic">{t("Tradición", "Tradición")}</span>
             </h2>
+            <p className="mt-5 flex flex-wrap items-baseline gap-x-2 gap-y-1 text-muted-foreground">
+              <span className="text-[0.68rem] md:text-xs font-bold uppercase tracking-[0.22em]">
+                {t("A taste of", "Sabor a")}
+              </span>
+              <span className="font-heading text-2xl md:text-3xl font-bold italic leading-none text-[#85340F] dark:text-terracota">
+                {t("Mexico,", "México,")}
+              </span>
+              <span className="text-xs md:text-sm font-semibold tracking-[0.06em]">
+                {t("seasoned in our kitchen", "con sazón de la casa")}
+              </span>
+            </p>
           </div>
           <div className="lg:col-span-5 lg:pl-8 border-l-0 lg:border-l border-mustard/20 pt-4 lg:pt-0">
             <p className="text-muted-foreground text-sm md:text-base leading-relaxed">

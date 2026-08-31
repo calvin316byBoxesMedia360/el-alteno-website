@@ -42,9 +42,9 @@ El flyer de junio y este no coinciden. Cambios detectados:
 
 ## 🕐 HORARIOS VIGENTES
 
-- Lunes y miércoles–sábado: **11:00 AM – 8:00 PM**.
+- Martes–sábado: **11:00 AM – 8:00 PM**.
 - Domingo: **9:00 AM – 8:00 PM**.
-- Martes: **cerrado**.
+- Lunes: **cerrado**.
 - Especiales de Lunch: el sitio conserva **11:00 AM – 3:00 PM** mientras no haya una corrección posterior.
 
 Las líneas del flyer que indicaban apertura a las 7:00 AM y “CERRAMOS DOMINGOS” fueron errores de impresión y no se publican.
@@ -228,7 +228,7 @@ Secciones anunciadas: Breakfast · Specialities · Brunch · Lunch · Dinner
 
 | Variante | Precio |
 |---|---|
-| Charbroiled Steak | $11.99 |
+| Burrito Steak | $11.99 |
 | Sautéed Rock Shrimp | $13.99 |
 | Chile Verde | $11.99 |
 | Chile Colorado | $11.99 |

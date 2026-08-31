@@ -537,8 +537,8 @@ export const menuItems: MenuItem[] = [
   // ── BURRITOS ────────────────────────────────────────────────────────────────
   {
     id: "burrito-charbroiled-steak",
-    name: "Charbroiled Steak Burrito",
-    nameEs: "Burrito de Res al Carbón",
+    name: "Burrito Steak",
+    nameEs: "Burrito Steak",
     description: "Flour tortilla with charbroiled steak, rice, beans, onions, cilantro and salsa.",
     descriptionEs: "Tortilla de harina con res al carbón, arroz, frijoles, cebolla, cilantro y salsa.",
     price: 11.99,

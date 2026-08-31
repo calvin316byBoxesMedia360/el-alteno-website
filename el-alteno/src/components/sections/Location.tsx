@@ -126,7 +126,7 @@ export default function Location() {
                   </h4>
                   <div className="text-xs md:text-sm text-muted-foreground space-y-2">
                     <div className="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-x-4 border-b border-white/5 pb-1">
-                      <span className="min-w-0">{t("Monday, Wednesday – Saturday", "Lunes, Miércoles – Sábado")}</span>
+                      <span className="min-w-0">{t("Tuesday – Saturday", "Martes – Sábado")}</span>
                       <span className="text-foreground font-semibold whitespace-nowrap text-right">11:00 AM – 8:00 PM</span>
                     </div>
                     <div className="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-x-4 border-b border-white/5 pb-1">
@@ -138,7 +138,7 @@ export default function Location() {
                       <span className="whitespace-nowrap text-right">11:00 AM – 3:00 PM</span>
                     </div>
                     <div className="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-x-4 text-accent font-bold pt-1">
-                      <span className="min-w-0">{t("Tuesday", "Martes")}</span>
+                      <span className="min-w-0">{t("Monday", "Lunes")}</span>
                       <span className="uppercase whitespace-nowrap text-right">{t("Closed", "Cerrado")}</span>
                     </div>
                   </div>

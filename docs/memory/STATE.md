@@ -23,7 +23,7 @@
 - Plan de diseño e implementación registrado en `docs/plans/2026-08-30-menu-cta-content-design.md` y `docs/plans/2026-08-30-menu-cta-content-implementation.md`.
 - CTA telefónica de Private Events convertida en enlace `tel:` completo, bilingüe, accesible y con glass blur.
 - Mariscada actualizada con mejillones, patas de cangrejo y camarones; Huachinango actualizado con frijoles en ambas fuentes.
-- Footer corregido para reflejar martes cerrado, consistente con la sección de ubicación.
+- Footer y Ubicación corregidos para reflejar lunes cerrado; martes–sábado permanecen abiertos.
 - Imagen editada de Carne Asada creada como `public/images/dishes/carne-asada-clean.png`, retirando únicamente el sope/tostada ajeno.
 - ESLint focalizado, TypeScript y build de producción pasaron.
 - Commit de documentación previo: `84fa1e5 docs: plan menu CTA and content polish`.
