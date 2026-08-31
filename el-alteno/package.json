@@ -13,6 +13,7 @@
     "video:private-events": "node scripts/private-events-video.mjs render",
     "test:video": "node --test scripts/private-events-video.test.mjs",
     "test:menu": "node --test scripts/menu-data.test.mjs",
+    "test:copy": "node --test scripts/site-copy.test.mjs",
     "test:menu-scroll": "node --test scripts/menu-scroll.test.mjs"
   },
   "dependencies": {
