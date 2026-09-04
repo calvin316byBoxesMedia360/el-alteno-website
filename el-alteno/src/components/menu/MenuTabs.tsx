@@ -55,22 +55,28 @@ export default function MenuTabs({ categories, items }: Props) {
 
   return (
     <div className="px-4 md:px-0 [overflow-anchor:none]">
-      <div ref={selectorRef}>
-        <div className="mb-4 flex items-end justify-between gap-4 px-1">
-          <p className="text-accent text-[11px] font-bold uppercase tracking-[0.24em]">
-            {t("Explore the menu", "Explora el menú")}
-          </p>
-          <span
-            aria-live="polite"
-            className="shrink-0 text-[10px] font-bold tracking-[0.2em] text-muted-foreground"
-          >
-            {categoryPosition}
-          </span>
-        </div>
+      <div id="menu-explorer" ref={selectorRef} className="scroll-mt-24">
+        <div className="rounded-[2rem] border border-border bg-card/65 p-4 shadow-xl shadow-foreground/5 md:p-6">
+          <div className="mb-4 flex items-end justify-between gap-4 px-1">
+            <div>
+              <p className="text-accent text-[11px] font-bold uppercase tracking-[0.24em]">
+                {t("Explore the menu", "Explora el menú")}
+              </p>
+              <p className="mt-1 text-xs font-semibold text-muted-foreground">
+                {t("Swipe to browse categories", "Desliza para ver categorías")}
+              </p>
+            </div>
+            <span
+              aria-live="polite"
+              className="shrink-0 text-[10px] font-bold tracking-[0.2em] text-muted-foreground"
+            >
+              {categoryPosition}
+            </span>
+          </div>
 
         {/* The clipped next category, progress line, and arrows make the strip's movement legible. */}
         <ScrollStrip
-          className="mb-8"
+          className="mb-1"
           ariaLabel={t("Menu categories", "Categorías del menú")}
         >
           <div className="flex gap-2.5 min-w-max pb-1">
@@ -145,6 +151,7 @@ export default function MenuTabs({ categories, items }: Props) {
           {t("Coming soon!", "¡Próximamente!")}
         </p>
       )}
+    </div>
     </div>
   );
 }

@@ -40,6 +40,31 @@ const cocktails = [
   },
 ];
 
+const barAdditions = [
+  {
+    id: "sodas",
+    name: "Sodas",
+    nameEs: "Refrescos",
+    image: "/images/cocktails/bar-sodas.webp",
+    alt: "Chilled canned and bottled sodas on a warm restaurant bar",
+    altEs: "Refrescos fríos en lata y botella sobre la barra de un restaurante",
+    description: "Classic canned favorites and Mexican bottled sodas, served ice-cold.",
+    descriptionEs: "Favoritas de siempre en lata y refrescos mexicanos en botella, servidos bien fríos.",
+    price: "$3.75",
+  },
+  {
+    id: "aguas-frescas",
+    name: "Fresh Waters",
+    nameEs: "Aguas Frescas",
+    image: "/images/cocktails/aguas-frescas.webp",
+    alt: "Three chilled glasses of jamaica, horchata, and tamarindo aguas frescas",
+    altEs: "Tres vasos fríos de aguas frescas de jamaica, horchata y tamarindo",
+    description: "Refreshing aguas frescas made for the table: Jamaica, horchata, and tamarindo.",
+    descriptionEs: "Aguas frescas refrescantes para acompañar la mesa: jamaica, horchata y tamarindo.",
+    price: "$3.50",
+  },
+];
+
 export default function Cocktails() {
   const { t, locale } = useLanguage();
   const [selectedCocktail, setSelectedCocktail] = useState<typeof cocktails[0] | null>(null);
@@ -140,6 +165,52 @@ export default function Cocktails() {
               </div>
             </motion.div>
           ))}
+        </div>
+
+        <div className="mt-16 px-4 lg:px-0">
+          <div className="mb-7 flex items-center gap-4">
+            <span className="whitespace-nowrap text-[11px] font-bold uppercase tracking-[0.2em] text-accent">
+              {t("More to enjoy", "Más para disfrutar")}
+            </span>
+            <span className="h-px flex-1 bg-border dark:bg-[#C99A3F]/15" />
+          </div>
+
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+            {barAdditions.map((item, index) => (
+              <motion.article
+                key={item.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.12 }}
+                className="overflow-hidden rounded-3xl border border-[#E5D9C5]/10 bg-card shadow-2xl"
+              >
+                <div className="relative aspect-[4/3] w-full overflow-hidden">
+                  <Image
+                    src={item.image}
+                    alt={locale === "en" ? item.alt : item.altEs}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 767px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/65 via-transparent to-transparent" />
+                </div>
+                <div className="flex items-end justify-between gap-4 p-6 md:p-8">
+                  <div>
+                    <h3 className="font-heading text-xl font-bold text-foreground md:text-2xl">
+                      {t(item.name, item.nameEs)}
+                    </h3>
+                    <p className="mt-2 text-xs leading-relaxed text-muted-foreground md:text-sm">
+                      {t(item.description, item.descriptionEs)}
+                    </p>
+                  </div>
+                  <span className="shrink-0 text-lg font-bold text-accent md:text-xl">
+                    {item.price}
+                  </span>
+                </div>
+              </motion.article>
+            ))}
+          </div>
         </div>
 
         <motion.p
