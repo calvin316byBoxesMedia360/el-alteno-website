@@ -75,31 +75,41 @@ export default function Hero() {
             <ChevronRight className="size-5 text-[#F4C56F] transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none" aria-hidden="true" />
           </motion.a>
 
-          <motion.a
-            whileHover={reduceMotion ? undefined : { scale: 1.015 }}
-            whileTap={reduceMotion ? undefined : { scale: 0.985 }}
-            href="#events"
-            className="group flex min-h-14 w-full items-center rounded-full border border-[#D8A34B]/70 bg-black/45 px-5 text-white shadow-[0_12px_28px_rgba(0,0,0,.28)] outline-none backdrop-blur-[3px] transition-colors hover:bg-black/60 focus-visible:ring-2 focus-visible:ring-[#F1BC5D] focus-visible:ring-offset-2 focus-visible:ring-offset-black motion-reduce:transition-none sm:min-h-16 sm:px-7"
-          >
-            <CalendarDays className="size-5 text-[#D8A34B] sm:size-6" aria-hidden="true" />
-            <span className="flex-1 text-sm font-extrabold uppercase tracking-[0.12em] sm:text-base">
-              {t("Book an Event", "Reservar Evento")}
-            </span>
-            <ChevronRight className="size-5 text-[#D8A34B] transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none" aria-hidden="true" />
-          </motion.a>
+          <div className="overflow-hidden rounded-[1.75rem] border border-[#D8A34B]/65 bg-black/45 shadow-[0_14px_32px_rgba(0,0,0,.28)] backdrop-blur-[4px]">
+            <div className="px-5 pb-3 pt-4 text-left sm:px-7">
+              <p className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-[#D8A34B] sm:text-xs">
+                {t("Plan Your Celebration", "Planea tu celebración")}
+              </p>
+            </div>
 
-          <motion.a
-            whileHover={reduceMotion ? undefined : { scale: 1.015 }}
-            whileTap={reduceMotion ? undefined : { scale: 0.985 }}
-            href="/gallery"
-            className="group flex min-h-14 w-full items-center rounded-full border border-[#D8A34B]/55 bg-black/25 px-5 text-white shadow-[0_10px_24px_rgba(0,0,0,.22)] outline-none backdrop-blur-[3px] transition-colors hover:border-[#D8A34B]/80 hover:bg-black/45 focus-visible:ring-2 focus-visible:ring-[#F1BC5D] focus-visible:ring-offset-2 focus-visible:ring-offset-black motion-reduce:transition-none sm:min-h-16 sm:px-7"
-          >
-            <Images className="size-5 text-[#D8A34B] sm:size-6" aria-hidden="true" />
-            <span className="flex-1 text-sm font-extrabold uppercase tracking-[0.12em] sm:text-base">
-              {t("Gallery", "Galería")}
-            </span>
-            <ChevronRight className="size-5 text-[#D8A34B] transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none" aria-hidden="true" />
-          </motion.a>
+            <div className="grid divide-y divide-[#D8A34B]/35 md:grid-cols-2 md:divide-x md:divide-y-0">
+              <motion.a
+                whileHover={reduceMotion ? undefined : { backgroundColor: "rgba(169, 67, 39, 0.92)" }}
+                whileTap={reduceMotion ? undefined : { scale: 0.98 }}
+                href="#events"
+                className="group flex min-h-14 items-center gap-3 bg-[#B94E2E]/85 px-5 py-3 text-white transition-colors hover:bg-[#A94327] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#F1BC5D] sm:px-7 motion-reduce:transition-none"
+              >
+                <CalendarDays className="size-5 shrink-0 text-[#F4C56F] sm:size-6" aria-hidden="true" />
+                <span className="flex-1 text-sm font-extrabold uppercase tracking-[0.12em] sm:text-base">
+                  {t("Book an Event", "Reservar Evento")}
+                </span>
+                <ChevronRight className="size-5 shrink-0 text-[#F4C56F] transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none" aria-hidden="true" />
+              </motion.a>
+
+              <motion.a
+                whileHover={reduceMotion ? undefined : { backgroundColor: "rgba(0, 0, 0, 0.45)" }}
+                whileTap={reduceMotion ? undefined : { scale: 0.98 }}
+                href="/gallery"
+                className="group flex min-h-14 items-center gap-3 bg-black/20 px-5 py-3 text-white transition-colors hover:bg-black/45 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#F1BC5D] sm:px-7 motion-reduce:transition-none"
+              >
+                <Images className="size-5 shrink-0 text-[#D8A34B] sm:size-6" aria-hidden="true" />
+                <span className="flex-1 text-sm font-extrabold uppercase tracking-[0.12em] sm:text-base">
+                  {t("View Gallery", "Ver Galería")}
+                </span>
+                <ChevronRight className="size-5 shrink-0 text-[#D8A34B] transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none" aria-hidden="true" />
+              </motion.a>
+            </div>
+          </div>
         </motion.div>
 
         <motion.div
