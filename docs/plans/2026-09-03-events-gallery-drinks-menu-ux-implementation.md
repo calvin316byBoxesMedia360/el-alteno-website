@@ -178,4 +178,3 @@ feat: add bar refreshments and menu discovery polish
 ```
 
 Do not push directly to `master`; hand off the branch for PR review and deployment.
-
