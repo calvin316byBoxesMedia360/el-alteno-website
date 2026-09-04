@@ -2,23 +2,42 @@
 
 > **Lee este archivo completo antes de tocar nada.** Está escrito para que una sesión sin contexto previo pueda continuar el proyecto sin repetir errores que ya costaron caro.
 >
-> Última actualización: **2026-08-29** · **PR #2 mergeado y desplegado.** `master` = `6fd9ac0`, y producción por fin coincide con el trabajo
+> Última actualización operativa: **2026-08-30** · Rama publicada y PR [#6](https://github.com/calvin316byBoxesMedia360/el-alteno-website/pull/6) abierto; `master` y producción no se han tocado.
+
+## ⚡ Estado operativo vigente — 2026-08-30
+
+Este bloque prevalece sobre las referencias históricas de las secciones inferiores cuando describen la rama o el worktree de esta revisión.
+
+- **Worktree actual:** `C:\Users\no\Documents\ChatGPT\el alteno website\el-alteno-integration-test`
+- **Rama actual:** `codex/menu-cta-content-polish`
+- **Últimos commits locales:** consultar `git log -5 --oneline`; este bloque evita fijar hashes que quedan obsoletos durante la revisión.
+- **Publicación:** `codex/menu-cta-content-polish` está publicada y el PR #6 apunta a `master`; no fusionar hasta aprobar la prueba móvil del despliegue.
+- **`master`:** no tocada y sin push directo desde esta revisión.
+- **Aplicación:** `el-alteno/`; el hosting debe usar `Root Directory = el-alteno`.
+- **Implementado:** CTA telefónica glass en Private Events; Mariscada y Huachinango corregidos; martes cerrado unificado; Carne Asada usa `public/images/dishes/carne-asada-clean.png`.
+- **Recursos fuera del commit:** `el-alteno/public/images/local_para_eventos/` conserva originales, referencias y candidatos. No añadirlos en bloque; versionar únicamente los activos aprobados que use la UI o el pipeline.
+- **Audiovisual:** la tarjeta de Private Events usa el maestro completo `private-events-walkthrough-master-v1.mp4`. El clip aprobado del bar sigue siendo `public/videos/private-events-bar-clip-approved-v1.mp4`: intervalo `00:01.000–00:06.000` del candidato v2, 5.000 s, 1920×1080, 30 fps y sin audio. No reutilizar los segundos descartados `0–1` ni `6–8`.
+- **Montaje local:** FFmpeg/FFprobe 9.0.1 y NVIDIA `h264_nvenc` están operativos. Desde `el-alteno/`, usar `npm run video:private-events:check`, `npm run video:private-events:preview` y, sólo con Entrada/Salón/Bar/Patio aprobados, `npm run video:private-events`. El maestro permanece silencioso.
+- **Maestro Private Events:** `public/videos/private-events-walkthrough-master-v1.mp4`, Entrada → Salón → Bar → Patio, 29.8667 s, 1920×1080, 30 fps, silencioso. Está activo entre el título y la descripción de Private Events, con loop, pausa/reanudación accesible y póster propio. Los cuatro módulos están `approved` en el manifiesto. Informe completo: `docs/reports/private-events-production/report.html`.
+- **Servidor local habitual:** `http://127.0.0.1:3400/`; desde el móvil usar únicamente la URL `Wi-Fi:` que imprime `npm run dev`.
 
 ---
 
 ## 0. Arranque en 30 segundos
 
 ```bash
-cd "C:\Users\no\Documents\Sandbox Boxes\El Alteno rest\el-alteno"
-npm run dev          # → http://localhost:3000
+cd "C:\Users\no\Documents\ChatGPT\el alteno website\el-alteno-integration-test\el-alteno"
+npm run dev          # imprime las URLs Local y Wi-Fi; escucha en la LAN
 ```
 
-- Rama activa: **`master`**. `feat/consolidate-menu-assets` ya está mergeada; el trabajo nuevo parte de `master`
+- **Worktree canónico de esta revisión:** `C:\Users\no\Documents\ChatGPT\el alteno website\el-alteno-integration-test`
+- **Rama de trabajo:** `codex/menu-cta-content-polish` — no cambiar a `master` para revisar estos cambios
+- **Raíz de la aplicación:** `C:\Users\no\Documents\ChatGPT\el alteno website\el-alteno-integration-test\el-alteno`
 - La app Next.js vive en la subcarpeta `el-alteno/`, **no en la raíz del repo**
+- `master` permanece intacta; no hacer push desde esta revisión sin solicitar el PR explícitamente
 - Producción: https://web-production-004ee.up.railway.app (sirve `master` = `a190c4d`)
 
-**Para revisar en el teléfono** (mismo Wi-Fi): `http://192.168.1.201:3000`
-La IP es DHCP; si el router la cambia hay que actualizar `allowedDevOrigins` en `next.config.ts`, o el móvil recibirá el HTML sin el JavaScript (§8).
+**Para revisar en el teléfono** (mismo Wi-Fi): ejecuta `npm run dev` y abre la URL que el comando imprime como `Wi-Fi:`. El script escucha en `0.0.0.0` y `next.config.ts` descubre automáticamente las IPv4 LAN para `allowedDevOrigins`; no hay que editar una IP cuando DHCP la cambie.
 
 ---
 
@@ -33,7 +52,7 @@ Lo desarrolla un contratista (el usuario) para el restaurante. **No es su propio
 |---|---|
 | Dirección | 323 Main St, Watsonville, CA 95076 |
 | Teléfono | (831) 768-9876 |
-| Horario | Mar–Dom 11:00–20:00 · **lunes cerrado** |
+| Horario de esta revisión | Lunes, miércoles–sábado y domingo 11:00–20:00 · **martes cerrado** |
 | Lunch Specials | 11:00–15:00 *(el flyer se contradice, ver §7)* |
 | Eventos | hasta 100 invitados, 2 salones, llenos vie–dom de abril a diciembre |
 | Delivery | DoorDash · Uber Eats |
@@ -248,7 +267,7 @@ Originales PNG de `about/`: `el-alteno-reports/backup-about-png-20260828-0834/`
 
 Estas ya costaron tiempo. Están documentadas para no repetirlas.
 
-**El servidor de desarrollo rechaza otros orígenes.** Abrir el sitio desde el móvil por la IP de red devuelve **403 en los recursos de desarrollo**: el HTML llega, el JavaScript no, la hidratación nunca corre, y todo lo que Framer Motion arranca en `opacity: 0` se queda invisible. Se ve el esqueleto estático —video, títulos, pestañas, pie— y nada más. La solución es `allowedDevOrigins` en `next.config.ts`. Si el síntoma es «cargó a medias en el móvil», es esto.
+**Regla permanente de revisión por Wi-Fi.** Nunca abras desde el móvil `127.0.0.1` o `localhost`: esas direcciones apuntan al propio teléfono. Ejecuta `npm run dev` dentro de `el-alteno`, usa la URL `Wi-Fi:` que imprime, y conecta ambos dispositivos a la misma red no-guest. El script siempre enlaza `0.0.0.0`; `next.config.ts` agrega automáticamente las IPv4 LAN actuales a `allowedDevOrigins`, evitando el 403 de los recursos de desarrollo cuando cambia DHCP. Si el teléfono recibe HTML pero no interacción, reinicia el servidor después de cambiar de red. Si no conecta nada, la causa está fuera de Next: red guest/aislamiento de clientes o firewall de Windows.
 
 **Medir contraste justo después de cambiar de tema da valores falsos.** El `body` tiene `transition-colors duration-300`, así que `getComputedStyle` devuelve colores interpolados a mitad de camino. Una auditoría así reportó 49 fallos inexistentes en modo oscuro. **Cargar cada tema de cero** (`localStorage.setItem('theme', …)` + recarga) en vez de pulsar el conmutador.
 
@@ -350,7 +369,7 @@ Encaja limpio en: fondos y texturas, material de marketing, o un hero más liger
 Cinco minutos de arranque, en este orden:
 
 ```bash
-cd "…/El Alteno rest/el-alteno"
+cd "C:\Users\no\Documents\ChatGPT\el alteno website\el-alteno-integration-test\el-alteno"
 npm install          # solo la primera vez en una máquina nueva
 npm run dev          # → http://localhost:3000
 npm run build        # confirma que la base está sana antes de tocar nada

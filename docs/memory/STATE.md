@@ -1,0 +1,61 @@
+# Estado actual
+
+**Proyecto:** El Alteño restaurant website  
+**Rama:** `codex/menu-cta-content-polish`  
+**Worktree:** `C:\Users\no\Documents\ChatGPT\el alteno website\el-alteno-integration-test`  
+**App:** `el-alteno/`  
+**Base:** `origin/master` en `b7b35d2` al crear la rama.
+
+## Completado previamente
+
+- Diseño aprobado para la sección de bebidas.
+- Plan detallado y handoff de la iteración registrados en `docs/plans/`.
+- Cuatro imágenes nuevas convertidas a WebP y revisadas visualmente: `cantarito.webp`, `paloma.webp`, `chavela.webp`, `bar-service-poster.webp`.
+- `Cocktails.tsx` ya apunta a Cantarito, Paloma y Chavela; Paloma reemplaza Sunrise.
+- Descripciones bilingües actualizadas sin precios ni recetas no confirmadas.
+- Badges comerciales no respaldados retirados.
+- Assets antiguos sin referencias eliminados: `cantarito.jpg`, `sunrise.webp`, `chavela.png`.
+- `npm install`, ESLint focalizado y `npx tsc --noEmit` pasaron después del cambio de tarjetas.
+- Higgsfield autenticado; catálogo y schema de `seedance_2_5` verificados.
+
+## Completado en esta sesión
+
+- Plan de diseño e implementación registrado en `docs/plans/2026-08-30-menu-cta-content-design.md` y `docs/plans/2026-08-30-menu-cta-content-implementation.md`.
+- CTA telefónica de Private Events convertida en enlace `tel:` completo, bilingüe, accesible y con glass blur.
+- Mariscada actualizada con mejillones, patas de cangrejo y camarones; Huachinango actualizado con frijoles en ambas fuentes.
+- Footer corregido para reflejar martes cerrado, consistente con la sección de ubicación.
+- Imagen editada de Carne Asada creada como `public/images/dishes/carne-asada-clean.png`, retirando únicamente el sope/tostada ajeno.
+- ESLint focalizado, TypeScript y build de producción pasaron.
+- Commit de documentación previo: `84fa1e5 docs: plan menu CTA and content polish`.
+- Commit de implementación: `a766c41 feat: polish menu content and event phone CTA`.
+- Primer clip audiovisual del patio enviado a Seedance 2.5; permanece en procesamiento para revisión antes de generar el siguiente.
+- Corrección de flujo audiovisual: la imagen base decorada debe aprobarse antes de animar. Candidato GPT Image 2: `public/images/local_para_eventos/patio-event-base-v1.png`.
+- Anclaje final generado con GPT Image 2: `public/images/local_para_eventos/fuente-event-end-v1.png`, conservando la fuente real y adaptando el decorado a la guía negra/blanca/plata.
+- Recorrido de 12 s enviado a Seedance 2.5 con `patio-event-base-v1.png` como inicio y `fuente-event-end-v1.png` como last frame; pendiente de resultado y revisión visual.
+- Anclaje final actualizado a `public/images/local_para_eventos/fuente-event-end-v2.png`: horizontal 16:9, puertas ligeramente entreabiertas y acabado negro mejorado. El recorrido anterior queda descartado.
+- La inserción final será una tarjeta de Private Events basada en `BarFeatureVideo`, con `aspect-video` en desktop y móvil para preservar el encuadre horizontal.
+- El video aprobado quedó editado como `public/videos/private-events-patio-walkthrough-v2.mp4`: se elimina el primer segundo del render original y se conserva el tramo bueno; el logo aparece con entrada suave únicamente sobre el segundo final del archivo resultante. El archivo es silencioso, 11 s, 1920×1080.
+- La tarjeta `EventFeatureVideo.tsx` ya está integrada al inicio de Private Events, usa el poster `patio-event-base-v1.png`, autoplay silencioso, loop, `playsInline` y fallback accesible para reducción de movimiento.
+- `public/videos/private-events-patio-walkthrough-v3.mp4` quedó aprobada y activa: misma edición de 11 s, con aparición centrada del logo durante los últimos 2 s, leve escala, resolución de desenfoque y halo cálido discreto. La tarjeta ya apunta a `v3`; `v2` queda como respaldo.
+- Inpainting del bar aprobado: `public/images/local_para_eventos/_candidates/bar/bar-candidate-03-cocktails.png` ahora incorpora al bartender real detrás de la barra, conserva los dos cócteles como protagonistas y mantiene la orientación correcta del backbar. La versión anterior sin bartender queda como `bar-candidate-03-cocktails-before-bartender.png` para recuperación.
+- Clip maestro del bar aprobado: `public/videos/private-events-bar-clip-approved-v1.mp4`. Es el intervalo exacto `00:01.000–00:06.000` de `bar-service-cocktails-8s-candidate-v2.mp4`; dura 5.000 s, es silencioso, 1920×1080, H.264 y 30 fps. Se descartaron deliberadamente los segundos `0–1` y `6–8`. Queda reservado para el montaje audiovisual total de Private Events y aún no se integra de forma aislada en la UI.
+- Pipeline local terminado: FFmpeg/FFprobe 9.0.1, NVIDIA `h264_nvenc`, manifiesto `el-alteno/video/private-events-manifest.json` y comandos npm para comprobar, previsualizar y renderizar. El preview Bar → Patio se generó localmente en 16.000 s, 1920×1080, 30 fps, H.264 y sin audio; está ignorado por Git.
+- Salón aprobado como `public/videos/private-events-salon-walkthrough-v2.mp4`: recorte local exacto de los primeros 2 s de `v1`; resultado de 8.000 s, 2560×1440, 24 fps y silencioso.
+- Entrada aprobada como `public/videos/private-events-entrance-intro-v1.mp4`: 5.875 s, silenciosa; el pipeline corrige su ancho fuente de 1918 px a la salida contractual de 1920 px.
+- Maestro completo generado localmente con NVENC: `public/videos/private-events-walkthrough-master-v1.mp4`, orden Entrada → Salón → Bar → Patio, 29.8667 s, 896 fotogramas, H.264, 1920×1080, 30 fps, `yuv420p` y sin audio. SHA-256: `96C301AD729F6DD4050DDE5FA558B60D387B26E900DCAA260B5C881F772F9EFC`.
+- Maestro completo activo en la UI de Private Events: minitarjeta entre título y descripción, `object-contain`, loop silencioso, pausa/reanudación, pausa fuera del viewport, póster propio y copy editorial reducido a `Explore Our Spaces / Conoce Nuestros Espacios`.
+- Expediente de la fase disponible en `docs/reports/private-events-production/`: informe HTML, tareas, walkthrough y contrato técnico.
+
+## Pendiente
+
+- Publicar la rama y validar el preview en desktop y móvil antes del merge a `master`.
+- Generar posteriormente la galería de bar/salón en paralelo, usando la guía de graduación fijada y sin mezclar sus assets con los originales no aprobados.
+- Fase de imágenes completada para revisión: el agente del salón `01a053ed-cfd4-79d1-a323-73895259a14d` dejó 4 candidatos en `public/images/local_para_eventos/_candidates/salon/`; el set recomendado es `salon-candidate-02`, `01`, `03`, `04`. El flujo del bar `01a053ed-be00-7b51-af46-e23136744e4d` dejó `bar-candidate-01-establishing`, `02-service`, `03-cocktails` en `public/images/local_para_eventos/_candidates/bar/`; `bar-candidate-02-service-v3.png` corrige la orientación espacial y usa el rostro del bartender original, y `bar-candidate-03-cocktails.png` quedó aprobado con el mismo bartender real. No incorporar candidatos adicionales al UI sin aprobación visual.
+- Revisar CTA y menú en local, desktop, móvil y Wi‑Fi.
+- Abrir PR hacia `master` con los recursos de producción aprobados; no añadir candidatos ni hacer push directo a `master`.
+
+## Seguridad de despliegue
+
+La rama `codex/menu-cta-content-polish` está publicada y el PR [#6](https://github.com/calvin316byBoxesMedia360/el-alteno-website/pull/6) está abierto hacia `master`. No se ha hecho push directo a `master` ni despliegue público desde esta revisión. El PR #4 de hero/mobile permanece separado.
+
+La revisión por Wi‑Fi queda automatizada: `npm run dev` ejecuta `scripts/dev-wifi.mjs`, escucha en `0.0.0.0`, imprime la URL `Wi-Fi:` y `next.config.ts` descubre las IPv4 LAN actuales para `allowedDevOrigins`. Desde el móvil nunca usar `localhost` ni `127.0.0.1`; ambos dispositivos deben estar en la misma red no-guest.

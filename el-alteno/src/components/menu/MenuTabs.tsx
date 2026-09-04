@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import { MenuCategory, MenuItem } from "@/types/menu";
+import { getViewportCorrection } from "@/lib/menuScroll";
 import MenuItemCard from "./MenuItem";
 import MenuListRow from "./MenuListRow";
 import { motion, AnimatePresence } from "framer-motion";
@@ -16,42 +17,86 @@ interface Props {
 export default function MenuTabs({ categories, items }: Props) {
   const { locale, t } = useLanguage();
   const [active, setActive] = useState(categories[0].id);
+  const selectorRef = useRef<HTMLDivElement>(null);
+  const selectorTopBeforeChange = useRef<number | null>(null);
+
+  const selectCategory = (categoryId: MenuCategory["id"]) => {
+    if (categoryId === active) return;
+    selectorTopBeforeChange.current =
+      selectorRef.current?.getBoundingClientRect().top ?? null;
+    setActive(categoryId);
+  };
+
+  useLayoutEffect(() => {
+    const beforeTop = selectorTopBeforeChange.current;
+    if (beforeTop === null) return;
+
+    const restorePosition = () => {
+      const afterTop = selectorRef.current?.getBoundingClientRect().top ?? null;
+      const correction = getViewportCorrection(beforeTop, afterTop);
+      if (correction !== 0) {
+        window.scrollBy({ top: correction, left: 0, behavior: "auto" });
+      }
+    };
+
+    restorePosition();
+    const frame = window.requestAnimationFrame(restorePosition);
+    selectorTopBeforeChange.current = null;
+    return () => window.cancelAnimationFrame(frame);
+  }, [active]);
 
   const filtered = items.filter((i) => i.category === active && i.available);
+  const activeIndex = Math.max(0, categories.findIndex((cat) => cat.id === active));
+  const categoryPosition = `${String(activeIndex + 1).padStart(2, "0")} / ${String(categories.length).padStart(2, "0")}`;
   // Only dishes photographed at the restaurant get a card with an image.
   // The rest read as a printed carta — see MenuListRow.
   const withPhoto = filtered.filter((i) => i.image);
   const withoutPhoto = filtered.filter((i) => !i.image);
 
   return (
-    <div className="px-4 md:px-0">
-      {/* Fourteen categories never fit one screen, so the strip has to say so. */}
-      <ScrollStrip
-        className="mb-8"
-        ariaLabel={t("Menu categories", "Categorías del menú")}
-      >
-        <div className="flex gap-2.5 min-w-max pb-1">
-          {categories.map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => setActive(cat.id)}
-              className={`px-5 min-h-11 rounded-full text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
-                active === cat.id
-                  ? "bg-terracota text-white shadow-lg shadow-terracota/20 border border-transparent"
-                  : "bg-card dark:bg-[#1E1A17] text-muted-foreground border border-border dark:border-[#E5D9C5]/10 hover:border-accent/50 hover:text-accent"
-              }`}
-            >
-              {locale === "en" ? cat.label : cat.labelEs}
-            </button>
-          ))}
+    <div className="px-4 md:px-0 [overflow-anchor:none]">
+      <div ref={selectorRef}>
+        <div className="mb-4 flex items-end justify-between gap-4 px-1">
+          <p className="text-accent text-[11px] font-bold uppercase tracking-[0.24em]">
+            {t("Explore the menu", "Explora el menú")}
+          </p>
+          <span
+            aria-live="polite"
+            className="shrink-0 text-[10px] font-bold tracking-[0.2em] text-muted-foreground"
+          >
+            {categoryPosition}
+          </span>
         </div>
-      </ScrollStrip>
+
+        {/* The clipped next category, progress line, and arrows make the strip's movement legible. */}
+        <ScrollStrip
+          className="mb-8"
+          ariaLabel={t("Menu categories", "Categorías del menú")}
+        >
+          <div className="flex gap-2.5 min-w-max pb-1">
+            {categories.map((cat) => (
+              <button
+                type="button"
+                key={cat.id}
+                onClick={() => selectCategory(cat.id)}
+                className={`px-5 min-h-11 rounded-full text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
+                  active === cat.id
+                    ? "min-h-12 px-6 md:px-7 flex items-center justify-center bg-terracota text-white shadow-lg shadow-terracota/20 border border-transparent"
+                    : "bg-card dark:bg-[#1E1A17] text-muted-foreground border border-border dark:border-[#E5D9C5]/10 hover:border-accent/50 hover:text-accent"
+                } whitespace-nowrap`}
+              >
+                {locale === "en" ? cat.label : cat.labelEs}
+              </button>
+            ))}
+          </div>
+        </ScrollStrip>
+      </div>
 
       {/* Photographed dishes — card grid */}
       {withPhoto.length > 0 && (
         <motion.div
           layout
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 [overflow-anchor:none]"
         >
           <AnimatePresence mode="popLayout">
             {withPhoto.map((item) => (
@@ -77,7 +122,7 @@ export default function MenuTabs({ categories, items }: Props) {
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.25 }}
-          className={withPhoto.length > 0 ? "mt-14" : ""}
+          className={`${withPhoto.length > 0 ? "mt-14" : ""} [overflow-anchor:none]`}
         >
           {withPhoto.length > 0 && (
             <div className="flex items-center gap-4 mb-7">

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { MapPin, Phone, Clock, DollarSign } from "lucide-react";
+import { MapPin, Phone, Clock } from "lucide-react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -9,7 +9,7 @@ export default function Location() {
   const { t } = useLanguage();
 
   return (
-    <section id="location" className="section-padding bg-background relative overflow-hidden">
+    <section id="location" className="section-padding scroll-mt-24 bg-background relative overflow-hidden">
       {/* Subtle overlay background for the section */}
       <div className="absolute inset-0 z-0 opacity-10 mix-blend-overlay">
         <Image
@@ -40,7 +40,9 @@ export default function Location() {
             transition={{ delay: 0.1 }}
             className="text-3xl md:text-5xl font-heading font-bold text-foreground"
           >
-            {t("Visit El Alteño in Watsonville", "Visita El Alteño en Watsonville")}
+            {t("Visit", "Visita")}{" "}
+            <span className="whitespace-nowrap">El Alteño</span>{" "}
+            {t("in Watsonville", "en Watsonville")}
           </motion.h2>
         </div>
 
@@ -57,7 +59,7 @@ export default function Location() {
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3197.669814674744!2d-121.7594801!3d36.9099496!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808e15033c4ebcf5%3A0x33e8b0b875ea467b!2s323+Main+St%2C+Watsonville%2C+CA+95076!5e0!3m2!1sen!2sus!4v1"
               width="100%"
               height="100%"
-              style={{ border: 0, filter: "grayscale(1) invert(0.9) contrast(1.2)" }}
+              style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
@@ -123,43 +125,27 @@ export default function Location() {
                     {t("Hours of Operation", "Horario de Servicio")}
                   </h4>
                   <div className="text-xs md:text-sm text-muted-foreground space-y-2">
-                    <div className="flex justify-between border-b border-white/5 pb-1">
-                      <span>{t("Tuesday – Saturday", "Martes – Sábado")}</span>
-                      <span className="text-foreground font-semibold">11:00 AM – 8:00 PM</span>
+                    <div className="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-x-4 border-b border-white/5 pb-1">
+                      <span className="min-w-0">{t("Monday, Wednesday – Saturday", "Lunes, Miércoles – Sábado")}</span>
+                      <span className="text-foreground font-semibold whitespace-nowrap text-right">11:00 AM – 8:00 PM</span>
                     </div>
-                    <div className="flex justify-between border-b border-white/5 pb-1">
-                      <span>{t("Sunday", "Domingo")}</span>
-                      <span className="text-foreground font-semibold">11:00 AM – 8:00 PM</span>
+                    <div className="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-x-4 border-b border-white/5 pb-1">
+                      <span className="min-w-0">{t("Sunday", "Domingo")}</span>
+                      <span className="text-foreground font-semibold whitespace-nowrap text-right">9:00 AM – 8:00 PM</span>
                     </div>
-                    <div className="pl-4 text-xs flex justify-between text-muted-foreground">
-                      <span>↳ {t("Lunch Specials", "Especiales de Lunch")}</span>
-                      <span>11:00 AM – 3:00 PM</span>
+                    <div className="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-x-4 text-xs text-muted-foreground">
+                      <span className="min-w-0">↳ {t("Lunch Specials", "Especiales de Lunch")}</span>
+                      <span className="whitespace-nowrap text-right">11:00 AM – 3:00 PM</span>
                     </div>
-                    <div className="flex justify-between text-accent font-bold pt-1">
-                      <span>{t("Monday", "Lunes")}</span>
-                      <span className="uppercase">{t("Closed", "Cerrado")}</span>
+                    <div className="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-x-4 text-accent font-bold pt-1">
+                      <span className="min-w-0">{t("Tuesday", "Martes")}</span>
+                      <span className="uppercase whitespace-nowrap text-right">{t("Closed", "Cerrado")}</span>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Payment & Partners */}
-            <div className="bg-background/60 border border-white/5 rounded-2xl p-4 mt-4">
-              <p className="font-bold text-foreground text-xs uppercase tracking-wider mb-3">
-                {t("We Accept & Delivery Partners", "Aceptamos y Entregas a Domicilio")}
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {["Visa", "Mastercard", "Zelle", "Apple Pay", "DoorDash", "Uber Eats"].map((p) => (
-                  <span
-                    key={p}
-                    className="bg-card border border-[#E5D9C5]/10 px-2.5 py-1 rounded-lg text-[10px] font-bold text-muted-foreground tracking-wider uppercase"
-                  >
-                    {p}
-                  </span>
-                ))}
-              </div>
-            </div>
           </motion.div>
         </div>
       </div>

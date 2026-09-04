@@ -25,12 +25,12 @@ export default function Navbar() {
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
-        className="max-w-5xl mx-auto bg-card/95 backdrop-blur-md border border-mustard/20 h-16 rounded-full px-6 flex items-center justify-between shadow-xl pointer-events-auto transition-colors duration-300"
+        className="max-w-5xl mx-auto bg-[#17120F]/72 dark:bg-[#0F0C0A]/78 backdrop-blur-xl backdrop-saturate-150 border border-mustard/35 dark:border-mustard/35 h-14 rounded-full px-6 flex items-center justify-between shadow-[0_14px_38px_rgba(0,0,0,.28)] dark:shadow-[0_14px_38px_rgba(0,0,0,.36)] pointer-events-auto transition-colors duration-300"
       >
         {/* Logo */}
         <a href="#" className="flex items-center min-h-11">
           <Image
-            src="/images/logo/logo.png"
+            src="/images/logo/logo-v2.png"
             alt="El Alteño Logo"
             width={100}
             height={60}
@@ -45,7 +45,7 @@ export default function Navbar() {
             <a
               key={l.href}
               href={l.href}
-              className="text-xs font-bold tracking-wider uppercase text-foreground/80 hover:text-accent transition-colors"
+              className="text-xs font-bold tracking-wider uppercase text-white/85 hover:text-mustard transition-colors"
             >
               {t(l.label, l.labelEs)}
             </a>
@@ -54,7 +54,7 @@ export default function Navbar() {
           {/* Theme Toggle Desktop */}
           <button
             onClick={toggleTheme}
-            className="min-h-11 min-w-11 flex items-center justify-center rounded-full border border-mustard/25 text-accent hover:bg-mustard/10 transition-all cursor-pointer"
+            className="min-h-11 min-w-11 flex items-center justify-center rounded-full border border-mustard/25 text-mustard hover:bg-mustard/10 transition-all cursor-pointer"
             aria-label="Toggle Theme"
           >
             {theme === "dark" ? <Sun size={14} /> : <Moon size={14} />}
@@ -63,7 +63,7 @@ export default function Navbar() {
           {/* Language Toggle Desktop */}
           <button
             onClick={() => setLocale(locale === "en" ? "es" : "en")}
-            className="text-[10px] tracking-wider font-extrabold px-3 min-h-11 rounded-full border border-mustard/25 text-accent hover:bg-mustard/10 transition-all flex items-center gap-1.5 cursor-pointer uppercase"
+            className="text-[10px] tracking-wider font-extrabold px-3 min-h-11 rounded-full border border-mustard/25 text-mustard hover:bg-mustard/10 transition-all flex items-center gap-1.5 cursor-pointer uppercase"
           >
             <Globe size={12} />
             <span>{locale === "en" ? "Español" : "English"}</span>
@@ -84,7 +84,7 @@ export default function Navbar() {
           {/* Theme Toggle Mobile */}
           <button
             onClick={toggleTheme}
-            className="min-h-11 min-w-11 flex items-center justify-center rounded-full border border-mustard/25 text-accent hover:bg-mustard/10 transition-all cursor-pointer"
+            className="min-h-11 min-w-11 flex items-center justify-center rounded-full border border-mustard/25 text-mustard hover:bg-mustard/10 transition-all cursor-pointer"
             aria-label="Toggle Theme"
           >
             {theme === "dark" ? <Sun size={12} /> : <Moon size={12} />}
@@ -93,7 +93,7 @@ export default function Navbar() {
           {/* Language Toggle Mobile */}
           <button
             onClick={() => setLocale(locale === "en" ? "es" : "en")}
-            className="text-[10px] tracking-wider font-extrabold px-2.5 min-h-11 rounded-full border border-mustard/25 text-accent hover:bg-mustard/10 transition-all flex items-center gap-1 cursor-pointer uppercase"
+            className="text-[10px] tracking-wider font-extrabold px-2.5 min-h-11 rounded-full border border-mustard/25 text-mustard hover:bg-mustard/10 transition-all flex items-center gap-1 cursor-pointer uppercase"
           >
             <Globe size={11} />
             <span>{locale === "en" ? "ES" : "EN"}</span>
@@ -101,7 +101,7 @@ export default function Navbar() {
 
           {/* Mobile hamburger */}
           <button
-            className="min-h-11 min-w-11 flex items-center justify-center text-foreground"
+            className="min-h-11 min-w-11 flex items-center justify-center text-white/90"
             onClick={() => setOpen(!open)}
             aria-label="Toggle menu"
           >
@@ -118,13 +118,13 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden bg-card/95 backdrop-blur-lg border border-mustard/20 mt-2 px-6 py-5 rounded-2xl flex flex-col gap-4 shadow-2xl pointer-events-auto max-w-5xl mx-auto"
+            className="md:hidden bg-[#17120F]/78 dark:bg-[#0F0C0A]/84 backdrop-blur-xl backdrop-saturate-150 border border-mustard/35 dark:border-mustard/35 mt-2 px-6 py-5 rounded-2xl flex flex-col gap-4 shadow-[0_16px_36px_rgba(0,0,0,.32)] dark:shadow-[0_16px_36px_rgba(0,0,0,.44)] pointer-events-auto max-w-5xl mx-auto"
           >
             {links.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
-                className="text-sm font-semibold uppercase tracking-wider text-foreground hover:text-accent border-b border-foreground/5 pb-2"
+                className="text-sm font-semibold uppercase tracking-wider text-white/90 hover:text-mustard border-b border-white/10 pb-2"
                 onClick={() => setOpen(false)}
               >
                 {t(l.label, l.labelEs)}

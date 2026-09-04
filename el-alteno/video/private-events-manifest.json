@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "output": "public/videos/private-events-walkthrough-master-v1.mp4",
+  "previewOutput": "public/videos/private-events-walkthrough-preview-local.mp4",
+  "video": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "audio": false
+  },
+  "clips": [
+    {
+      "id": "entrance",
+      "label": "Entrada",
+      "path": "public/videos/private-events-entrance-intro-v1.mp4",
+      "status": "approved",
+      "required": true
+    },
+    {
+      "id": "salon",
+      "label": "Salón",
+      "path": "public/videos/private-events-salon-walkthrough-v2.mp4",
+      "status": "approved",
+      "required": true
+    },
+    {
+      "id": "bar",
+      "label": "Bar",
+      "path": "public/videos/private-events-bar-clip-approved-v1.mp4",
+      "status": "approved",
+      "required": true
+    },
+    {
+      "id": "patio",
+      "label": "Patio",
+      "path": "public/videos/private-events-patio-walkthrough-v3.mp4",
+      "status": "approved",
+      "required": true
+    }
+  ]
+}
