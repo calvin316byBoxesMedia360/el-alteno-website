@@ -123,6 +123,51 @@ const galleryPhotos: GalleryPhoto[] = [
   },
 ];
 
+const barGalleryPhotos: GalleryPhoto[] = [
+  {
+    id: "bar-pineapple-cocktail",
+    kind: "image",
+    src: "/images/events-gallery/galeria2/image31.webp",
+    altEn: "A creamy cocktail finished with pineapple and a cherry at the bar.",
+    altEs: "Coctel cremoso terminado con piña y una cereza en la barra.",
+  },
+  {
+    id: "bar-citrus-cocktail",
+    kind: "image",
+    src: "/images/events-gallery/galeria2/image33.webp",
+    altEn: "A pale cocktail with a lime wheel and chile-salt rim.",
+    altEs: "Coctel claro con una rodaja de limón y borde de chile con sal.",
+  },
+  {
+    id: "bar-creamy-citrus-cocktail",
+    kind: "image",
+    src: "/images/events-gallery/galeria2/image36.webp",
+    altEn: "A creamy citrus cocktail with a chile-salt rim in front of the back bar.",
+    altEs: "Coctel cremoso de cítricos con borde de chile y sal frente a la barra.",
+  },
+  {
+    id: "bar-ruby-cocktail",
+    kind: "image",
+    src: "/images/events-gallery/galeria2/image29.webp",
+    altEn: "A ruby-red cocktail served with a straw and citrus garnish at the bar.",
+    altEs: "Coctel rojo rubí servido con popote y una guarnición cítrica en la barra.",
+  },
+  {
+    id: "bar-dark-red-cocktail",
+    kind: "image",
+    src: "/images/events-gallery/galeria2/image37.webp",
+    altEn: "A deep-red cocktail with a lime garnish on the bar.",
+    altEs: "Coctel rojo profundo con una guarnición de limón en la barra.",
+  },
+  {
+    id: "bar-fruit-cocktail",
+    kind: "image",
+    src: "/images/events-gallery/galeria2/image34.webp",
+    altEn: "A bright red cocktail with fresh fruit garnish and a chile-salt rim.",
+    altEs: "Coctel rojo brillante con fruta fresca y borde de chile con sal.",
+  },
+];
+
 const galleryVideos: GalleryVideo[] = [
   {
     id: "celebration-in-motion",
@@ -155,6 +200,15 @@ const photoLayout = [
   "aspect-[4/3]",
   "aspect-[4/3]",
   "aspect-[4/3]",
+];
+
+const barPhotoLayout = [
+  "col-span-2 aspect-[16/9] md:col-span-2 md:aspect-[16/9]",
+  "aspect-[4/3]",
+  "aspect-[4/3]",
+  "aspect-[4/3]",
+  "aspect-[4/3]",
+  "col-span-2 aspect-[16/9] md:col-span-2 md:aspect-[16/9]",
 ];
 
 export default function Gallery() {
@@ -294,6 +348,53 @@ export default function Gallery() {
                   <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent opacity-70" />
                 </motion.button>
               ))}
+            </div>
+
+            <div id="bar-gallery" className="mt-20 border-t border-border/60 pt-16 md:mt-28 md:pt-24">
+              <div className="mx-auto mb-10 max-w-2xl px-4 text-center lg:px-0">
+                <p className="mb-3 text-xs font-bold uppercase tracking-[0.24em] text-accent md:text-sm">
+                  {t("From the Bar", "Desde la barra")}
+                </p>
+                <h2 className="font-heading text-3xl font-bold leading-tight text-foreground md:text-5xl">
+                  {t(
+                    "A toast to the moments shared at El Alteño.",
+                    "Un brindis por los momentos compartidos en El Alteño."
+                  )}
+                </h2>
+                <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground md:text-base">
+                  {t(
+                    "Signature pours, bright garnishes, and a bar made for the next toast.",
+                    "Cocteles preparados al momento, guarniciones llenas de color y una barra lista para el próximo brindis."
+                  )}
+                </p>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3 px-4 md:grid-cols-3 md:gap-5 lg:px-0">
+                {barGalleryPhotos.map((photo, index) => (
+                  <motion.button
+                    key={photo.id}
+                    type="button"
+                    initial={{ opacity: 0, y: reduceMotion ? 0 : 18 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-10%" }}
+                    transition={{ duration: reduceMotion ? 0 : 0.45, delay: reduceMotion ? 0 : index * 0.05 }}
+                    whileHover={reduceMotion ? undefined : { y: -4 }}
+                    whileTap={reduceMotion ? undefined : { scale: 0.985 }}
+                    onClick={() => setSelectedMedia(photo)}
+                    aria-label={t("Open bar photo", "Abrir foto de la barra")}
+                    className={`group relative min-h-11 overflow-hidden rounded-2xl border border-border bg-card shadow-lg outline-none transition-shadow hover:shadow-2xl focus-visible:ring-2 focus-visible:ring-mustard focus-visible:ring-offset-2 focus-visible:ring-offset-background ${barPhotoLayout[index]}`}
+                  >
+                    <Image
+                      src={photo.src}
+                      alt={t(photo.altEn, photo.altEs)}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-105 motion-reduce:transition-none"
+                      sizes="(max-width: 767px) 50vw, (max-width: 1279px) 33vw, 420px"
+                    />
+                    <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent opacity-70" />
+                  </motion.button>
+                ))}
+              </div>
             </div>
 
             {secondaryVideo && (
