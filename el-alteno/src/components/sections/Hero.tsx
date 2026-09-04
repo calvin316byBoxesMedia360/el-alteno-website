@@ -91,7 +91,7 @@ export default function Hero() {
           <motion.a
             whileHover={reduceMotion ? undefined : { scale: 1.015 }}
             whileTap={reduceMotion ? undefined : { scale: 0.985 }}
-            href="#gallery-preview"
+            href="/gallery"
             className="group flex min-h-14 w-full items-center rounded-full border border-[#D8A34B]/55 bg-black/25 px-5 text-white shadow-[0_10px_24px_rgba(0,0,0,.22)] outline-none backdrop-blur-[3px] transition-colors hover:border-[#D8A34B]/80 hover:bg-black/45 focus-visible:ring-2 focus-visible:ring-[#F1BC5D] focus-visible:ring-offset-2 focus-visible:ring-offset-black motion-reduce:transition-none sm:min-h-16 sm:px-7"
           >
             <Images className="size-5 text-[#D8A34B] sm:size-6" aria-hidden="true" />

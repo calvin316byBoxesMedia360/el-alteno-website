@@ -1,10 +1,9 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import type { KeyboardEvent as ReactKeyboardEvent } from "react";
 import Image from "next/image";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { ChevronRight, Images, Play, X } from "lucide-react";
+import Link from "next/link";
+import { motion, useReducedMotion } from "framer-motion";
+import { ChevronRight, Images, Play } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 type PreviewImage = {
@@ -82,39 +81,9 @@ const previewLayout = [
 export default function GalleryPreview() {
   const { t } = useLanguage();
   const reduceMotion = useReducedMotion();
-  const [selectedMedia, setSelectedMedia] = useState<PreviewMedia | null>(null);
-  const closeButtonRef = useRef<HTMLButtonElement>(null);
-
-  useEffect(() => {
-    if (!selectedMedia) return;
-
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setSelectedMedia(null);
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-    window.requestAnimationFrame(() => closeButtonRef.current?.focus());
-
-    return () => {
-      document.body.style.overflow = previousOverflow;
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [selectedMedia]);
 
   const labelFor = (media: PreviewMedia) =>
     media.kind === "video" ? t(media.labelEn, media.labelEs) : t(media.altEn, media.altEs);
-
-  const handlePreviewKeyDown = (event: ReactKeyboardEvent<HTMLButtonElement>, media: PreviewMedia) => {
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      setSelectedMedia(media);
-    }
-  };
 
   return (
     <section
@@ -141,117 +110,74 @@ export default function GalleryPreview() {
             </p>
           </div>
 
-          <a
-            href="#gallery"
+          <Link
+            href="/gallery"
             className="group inline-flex min-h-11 w-fit items-center gap-2 rounded-full border border-mustard/60 bg-card/70 px-5 text-xs font-extrabold uppercase tracking-[0.14em] text-foreground shadow-lg outline-none backdrop-blur-sm transition-colors hover:border-mustard hover:bg-card focus-visible:ring-2 focus-visible:ring-mustard focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             <Images className="size-4 text-accent" aria-hidden="true" />
             <span>{t("View full gallery", "Ver galería completa")}</span>
             <ChevronRight className="size-4 text-accent transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none" aria-hidden="true" />
-          </a>
+          </Link>
         </div>
 
-        <div className="grid grid-cols-2 gap-3 px-4 md:grid-cols-4 md:gap-5 lg:px-0">
-          {previewMedia.map((media, index) => (
-            <motion.button
-              key={media.id}
-              type="button"
-              initial={{ opacity: 0, y: reduceMotion ? 0 : 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-10%" }}
-              transition={{ duration: reduceMotion ? 0 : 0.45, delay: reduceMotion ? 0 : index * 0.06 }}
-              whileHover={reduceMotion ? undefined : { y: -4 }}
-              whileTap={reduceMotion ? undefined : { scale: 0.985 }}
-              onClick={() => setSelectedMedia(media)}
-              onKeyDown={(event) => handlePreviewKeyDown(event, media)}
-              aria-label={t("Preview event media", "Vista previa de medio del evento")}
-              className={`group relative min-h-11 overflow-hidden rounded-[1.75rem] border border-border bg-card shadow-lg outline-none transition-shadow hover:shadow-2xl focus-visible:ring-2 focus-visible:ring-mustard focus-visible:ring-offset-2 focus-visible:ring-offset-background ${previewLayout[index]}`}
+        <div className="relative max-h-[30rem] overflow-hidden rounded-[2rem] md:max-h-[37rem]">
+          <div className="grid grid-cols-2 gap-3 px-4 pb-4 md:grid-cols-4 md:gap-5 lg:px-0">
+            {previewMedia.map((media, index) => (
+              <Link
+                key={media.id}
+                href="/gallery"
+                aria-label={t("Open the complete gallery", "Abrir la galería completa")}
+                className={`group relative block min-h-11 overflow-hidden rounded-[1.75rem] border border-border bg-card shadow-lg outline-none transition-shadow hover:shadow-2xl focus-visible:ring-2 focus-visible:ring-mustard focus-visible:ring-offset-2 focus-visible:ring-offset-background ${previewLayout[index]}`}
+              >
+                <motion.div
+                  initial={{ opacity: 0, y: reduceMotion ? 0 : 18 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-10%" }}
+                  transition={{ duration: reduceMotion ? 0 : 0.45, delay: reduceMotion ? 0 : index * 0.06 }}
+                  className="absolute inset-0"
+                >
+                  {media.kind === "video" ? (
+                    <video
+                      src={media.src}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      preload="metadata"
+                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-1000 group-hover:scale-[1.03] motion-reduce:transition-none"
+                      aria-hidden="true"
+                    />
+                  ) : (
+                    <Image
+                      src={media.src}
+                      alt={labelFor(media)}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-105 motion-reduce:transition-none"
+                      sizes="(max-width: 767px) 50vw, (max-width: 1279px) 25vw, 520px"
+                    />
+                  )}
+                  <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/5 to-transparent" />
+                  {media.kind === "video" && (
+                    <span className="pointer-events-none absolute bottom-4 right-4 grid size-11 place-items-center rounded-full border border-white/25 bg-black/45 text-white shadow-xl backdrop-blur-md transition-transform duration-300 group-hover:scale-105 motion-reduce:transition-none">
+                      <Play size={16} fill="currentColor" aria-hidden="true" />
+                    </span>
+                  )}
+                </motion.div>
+              </Link>
+            ))}
+          </div>
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-background via-background/80 to-transparent" aria-hidden="true" />
+          <div className="absolute inset-x-0 bottom-5 z-10 flex justify-center px-4">
+            <Link
+              href="/gallery"
+              className="pointer-events-auto inline-flex min-h-11 items-center gap-2 rounded-full border border-white/25 bg-[#1E1A17]/85 px-5 text-xs font-extrabold uppercase tracking-[0.14em] text-white shadow-2xl backdrop-blur-md outline-none transition-colors hover:border-mustard hover:bg-[#1E1A17] focus-visible:ring-2 focus-visible:ring-mustard focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
-              {media.kind === "video" ? (
-                <video
-                  src={media.src}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  preload="metadata"
-                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-1000 group-hover:scale-[1.03] motion-reduce:transition-none"
-                  aria-hidden="true"
-                />
-              ) : (
-                <Image
-                  src={media.src}
-                  alt={labelFor(media)}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105 motion-reduce:transition-none"
-                  sizes="(max-width: 767px) 50vw, (max-width: 1279px) 25vw, 520px"
-                />
-              )}
-              <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/5 to-transparent" />
-              {media.kind === "video" && (
-                <span className="pointer-events-none absolute bottom-4 right-4 grid size-11 place-items-center rounded-full border border-white/25 bg-black/45 text-white shadow-xl backdrop-blur-md transition-transform duration-300 group-hover:scale-105 motion-reduce:transition-none">
-                  <Play size={16} fill="currentColor" aria-hidden="true" />
-                </span>
-              )}
-              <span className="sr-only">{labelFor(media)}</span>
-            </motion.button>
-          ))}
+              <span>{t("Explore the collection", "Explorar la colección")}</span>
+              <ChevronRight className="size-4 text-mustard" aria-hidden="true" />
+            </Link>
+          </div>
         </div>
       </div>
-
-      <AnimatePresence>
-        {selectedMedia && (
-          <motion.div
-            role="dialog"
-            aria-modal="true"
-            aria-label={t("Preview media", "Vista previa del medio")}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setSelectedMedia(null)}
-            className="fixed inset-0 z-[60] flex cursor-zoom-out items-center justify-center bg-black/90 p-4 backdrop-blur-md"
-          >
-            <motion.div
-              initial={{ opacity: 0, scale: reduceMotion ? 1 : 0.96, y: reduceMotion ? 0 : 12 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: reduceMotion ? 1 : 0.96, y: reduceMotion ? 0 : 12 }}
-              onClick={(event) => event.stopPropagation()}
-              className="relative w-full max-w-5xl overflow-hidden rounded-3xl border border-mustard/35 bg-[#1E1A17] p-2 shadow-2xl"
-            >
-              <button
-                ref={closeButtonRef}
-                type="button"
-                onClick={() => setSelectedMedia(null)}
-                aria-label={t("Close preview", "Cerrar vista previa")}
-                className="absolute right-5 top-5 z-10 grid min-h-11 min-w-11 place-items-center rounded-full border border-white/20 bg-black/65 text-white shadow-lg backdrop-blur-md transition-colors hover:bg-black/85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mustard"
-              >
-                <X size={19} aria-hidden="true" />
-              </button>
-              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-black/30">
-                {selectedMedia.kind === "video" ? (
-                  <video
-                    key={selectedMedia.id}
-                    src={selectedMedia.src}
-                    controls
-                    autoPlay
-                    playsInline
-                    className="h-full w-full object-contain"
-                    aria-label={labelFor(selectedMedia)}
-                  />
-                ) : (
-                  <Image
-                    src={selectedMedia.src}
-                    alt={labelFor(selectedMedia)}
-                    fill
-                    className="object-contain"
-                    sizes="(max-width: 1024px) 100vw, 1024px"
-                  />
-                )}
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </section>
   );
 }

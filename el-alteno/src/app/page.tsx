@@ -5,7 +5,6 @@ import About from "@/components/sections/About";
 import MenuSection from "@/components/sections/MenuSection";
 import Events from "@/components/sections/Events";
 import GalleryPreview from "@/components/sections/GalleryPreview";
-import Gallery from "@/components/sections/Gallery";
 import Cocktails from "@/components/sections/Cocktails";
 import Location from "@/components/sections/Location";
 import ScrollGuide from "@/components/ui/ScrollGuide";
@@ -26,7 +25,6 @@ export default function Home() {
         <Cocktails />
         <Events />
         <GalleryPreview />
-        <Gallery />
         <Location />
       </main>
       <Footer />

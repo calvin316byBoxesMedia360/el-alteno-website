@@ -3,8 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 import type { KeyboardEvent as ReactKeyboardEvent } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { Images, Play, X } from "lucide-react";
+import { ArrowLeft, Images, Play, X } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 type GalleryPhoto = {
@@ -213,19 +214,34 @@ export default function Gallery() {
       <div className="absolute -left-40 bottom-12 size-96 rounded-full bg-mustard/10 blur-3xl" aria-hidden="true" />
 
       <div className="relative z-10 mx-auto max-w-7xl">
-        <div className="mx-auto mb-12 max-w-3xl px-4 text-center md:mb-16">
-          <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-accent md:text-sm">
-            {t("Celebrations at El Alteño", "Celebraciones en El Alteño")}
+        <div className="mb-10 px-4 lg:px-0">
+          <Link
+            href="/"
+            className="group inline-flex min-h-11 items-center gap-2 rounded-full border border-border bg-card/70 px-4 text-xs font-extrabold uppercase tracking-[0.14em] text-muted-foreground shadow-sm outline-none backdrop-blur-sm transition-colors hover:border-mustard hover:text-foreground focus-visible:ring-2 focus-visible:ring-mustard focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+          >
+            <ArrowLeft className="size-4 text-accent transition-transform group-hover:-translate-x-0.5 motion-reduce:transition-none" aria-hidden="true" />
+            <span>{t("Back to home", "Volver al inicio")}</span>
+          </Link>
+        </div>
+
+        <div className="mx-auto mb-14 max-w-4xl px-4 text-center md:mb-20">
+          <p className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-accent md:text-sm">
+            {t("The El Alteño experience", "La experiencia El Alteño")}
           </p>
-          <h2 className="mb-5 font-heading text-3xl font-bold leading-tight text-foreground md:text-5xl">
-            {t("Moments worth celebrating", "Momentos que vale la pena celebrar")}
-          </h2>
-          <p className="text-sm leading-relaxed text-muted-foreground md:text-lg">
+          <h1 className="font-heading text-4xl font-bold leading-[1.08] text-foreground md:text-6xl">
+            {t("Moments made to be remembered", "Momentos hechos para recordar")}
+          </h1>
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-xl">
             {t(
-              "Every celebration has a story. From joyful tables to unforgettable milestones, discover the moments our guests have shared with us at El Alteño.",
-              "Cada celebración tiene una historia. Descubre los momentos que nuestros invitados han compartido con nosotros: mesas llenas de alegría y recuerdos inolvidables en El Alteño."
+              "From the first detail to the last toast, every celebration at El Alteño is prepared with warmth, flavor, and a table made for gathering.",
+              "Desde el primer detalle hasta el último brindis, cada celebración en El Alteño se prepara con calidez, sabor y una mesa hecha para reunirnos."
             )}
           </p>
+          <div className="mx-auto mt-8 flex max-w-xs items-center justify-center gap-3" aria-hidden="true">
+            <span className="h-px flex-1 bg-gradient-to-r from-transparent to-mustard/70" />
+            <span className="size-1.5 rounded-full bg-mustard" />
+            <span className="h-px flex-1 bg-gradient-to-l from-transparent to-mustard/70" />
+          </div>
         </div>
 
         {galleryPhotos.length > 0 ? (
