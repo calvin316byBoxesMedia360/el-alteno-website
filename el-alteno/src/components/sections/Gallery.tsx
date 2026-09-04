@@ -31,13 +31,6 @@ type GalleryMedia = GalleryPhoto | GalleryVideo;
 // EXIF-corrected WebP derivatives so the page remains lighter on mobile.
 const galleryPhotos: GalleryPhoto[] = [
   {
-    id: "2025-birthday-backdrop",
-    kind: "image",
-    src: "/images/events-gallery/IMG_20250627_133454.webp",
-    altEn: "Colorful birthday backdrop framed by pink and orange balloons.",
-    altEs: "Telón colorido de cumpleaños enmarcado por globos rosas y naranjas.",
-  },
-  {
     id: "2025-festive-table",
     kind: "image",
     src: "/images/events-gallery/IMG_20250627_133528.webp",
@@ -159,7 +152,6 @@ const photoLayout = [
   "aspect-[4/3]",
   "aspect-[4/3]",
   "col-span-2 aspect-[16/9] md:col-span-2 md:aspect-[16/9]",
-  "aspect-[4/3]",
   "aspect-[4/3]",
   "aspect-[4/3]",
   "aspect-[4/3]",

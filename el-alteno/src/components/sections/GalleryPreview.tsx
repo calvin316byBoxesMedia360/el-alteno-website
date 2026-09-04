@@ -26,13 +26,6 @@ type PreviewMedia = PreviewImage | PreviewVideo;
 
 const previewMedia: PreviewMedia[] = [
   {
-    id: "preview-birthday-backdrop",
-    kind: "image",
-    src: "/images/events-gallery/IMG_20250627_133454.webp",
-    altEn: "Colorful birthday backdrop framed by pink and orange balloons.",
-    altEs: "Telón colorido de cumpleaños enmarcado por globos rosas y naranjas.",
-  },
-  {
     id: "preview-festive-table",
     kind: "image",
     src: "/images/events-gallery/IMG_20250627_133528.webp",
@@ -71,7 +64,6 @@ const previewMedia: PreviewMedia[] = [
 
 const previewLayout = [
   "col-span-2 min-h-[18rem] md:row-span-2 md:min-h-[30rem]",
-  "min-h-[9rem] md:min-h-[14rem]",
   "min-h-[9rem] md:min-h-[14rem]",
   "min-h-[9rem] md:min-h-[14rem]",
   "min-h-[9rem] md:min-h-[14rem]",
