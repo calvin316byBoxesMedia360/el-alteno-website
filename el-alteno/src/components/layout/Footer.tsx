@@ -44,7 +44,7 @@ export default function Footer() {
           </div>
           <ul className="space-y-2 text-sm text-[#A39485]">
             <li className="flex justify-between gap-4 border-b border-white/5 pb-1">
-              <span>{t("Monday, Wednesday – Saturday", "Lunes, Miércoles – Sábado")}</span>
+              <span>{t("Tuesday – Saturday", "Martes – Sábado")}</span>
               <span className="text-white font-medium">11:00 AM – 8:00 PM</span>
             </li>
             <li className="flex justify-between gap-4 border-b border-white/5 pb-1">
@@ -56,7 +56,7 @@ export default function Footer() {
               <span>11:00 AM – 3:00 PM</span>
             </li>
             <li className="mt-2 pt-2 text-terracota font-bold uppercase tracking-wider text-xs">
-              {t("Tuesday — Closed", "Martes — Cerrado")}
+              {t("Monday — Closed", "Lunes — Cerrado")}
             </li>
           </ul>
         </div>

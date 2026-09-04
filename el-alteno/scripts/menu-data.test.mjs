@@ -141,6 +141,10 @@ test("new dishes use their approved categories and facts", () => {
 });
 
 test("approved names and ingredient corrections are bilingual", () => {
+  const steakBurrito = byId.get("burrito-charbroiled-steak");
+  assert.equal(steakBurrito?.name, "Burrito Steak");
+  assert.equal(steakBurrito?.nameEs, "Burrito Steak");
+
   const chickenTaco = byId.get("taco-pollo-rojo");
   assert.equal(chickenTaco?.name, "Grilled Chicken Taco");
   assert.equal(chickenTaco?.nameEs, "Taco de Pollo a la Parrilla");

@@ -14,7 +14,7 @@ Este bloque prevalece sobre las referencias históricas de las secciones inferio
 - **Publicación:** `codex/menu-cta-content-polish` está publicada y el PR #6 apunta a `master`; no fusionar hasta aprobar la prueba móvil del despliegue.
 - **`master`:** no tocada y sin push directo desde esta revisión.
 - **Aplicación:** `el-alteno/`; el hosting debe usar `Root Directory = el-alteno`.
-- **Implementado:** CTA telefónica glass en Private Events; Mariscada y Huachinango corregidos; martes cerrado unificado; Carne Asada usa `public/images/dishes/carne-asada-clean.png`.
+- **Implementado:** CTA telefónica glass en Private Events; Mariscada y Huachinango corregidos; lunes cerrado unificado; Carne Asada usa `public/images/dishes/carne-asada-clean.png`.
 - **Recursos fuera del commit:** `el-alteno/public/images/local_para_eventos/` conserva originales, referencias y candidatos. No añadirlos en bloque; versionar únicamente los activos aprobados que use la UI o el pipeline.
 - **Audiovisual:** la tarjeta de Private Events usa el maestro completo `private-events-walkthrough-master-v1.mp4`. El clip aprobado del bar sigue siendo `public/videos/private-events-bar-clip-approved-v1.mp4`: intervalo `00:01.000–00:06.000` del candidato v2, 5.000 s, 1920×1080, 30 fps y sin audio. No reutilizar los segundos descartados `0–1` ni `6–8`.
 - **Montaje local:** FFmpeg/FFprobe 9.0.1 y NVIDIA `h264_nvenc` están operativos. Desde `el-alteno/`, usar `npm run video:private-events:check`, `npm run video:private-events:preview` y, sólo con Entrada/Salón/Bar/Patio aprobados, `npm run video:private-events`. El maestro permanece silencioso.
@@ -52,7 +52,7 @@ Lo desarrolla un contratista (el usuario) para el restaurante. **No es su propio
 |---|---|
 | Dirección | 323 Main St, Watsonville, CA 95076 |
 | Teléfono | (831) 768-9876 |
-| Horario de esta revisión | Lunes, miércoles–sábado y domingo 11:00–20:00 · **martes cerrado** |
+| Horario de esta revisión | Martes–sábado 11:00–20:00 · domingo 9:00–20:00 · **lunes cerrado** |
 | Lunch Specials | 11:00–15:00 *(el flyer se contradice, ver §7)* |
 | Eventos | hasta 100 invitados, 2 salones, llenos vie–dom de abril a diciembre |
 | Delivery | DoorDash · Uber Eats |
