@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowUpRight, CalendarDays, ChevronRight, UtensilsCrossed } from "lucide-react";
+import { ArrowUpRight, CalendarDays, ChevronRight, Images, UtensilsCrossed } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { DELIVERY_LINKS } from "@/lib/deliveryLinks";
 
@@ -65,7 +65,7 @@ export default function Hero() {
           <motion.a
             whileHover={reduceMotion ? undefined : { scale: 1.015 }}
             whileTap={reduceMotion ? undefined : { scale: 0.985 }}
-            href="#menu"
+            href="#menu-explorer"
             className="group flex min-h-14 w-full items-center rounded-full border border-[#F0B55B]/75 bg-[linear-gradient(180deg,#D66B42,#B94E2E)] px-5 text-white shadow-[0_14px_32px_rgba(75,26,10,.4)] outline-none transition-colors hover:from-[#DE754D] hover:to-[#C15836] focus-visible:ring-2 focus-visible:ring-[#F1BC5D] focus-visible:ring-offset-2 focus-visible:ring-offset-black motion-reduce:transition-none sm:min-h-16 sm:px-7"
           >
             <UtensilsCrossed className="size-5 text-[#F4C56F] sm:size-6" aria-hidden="true" />
@@ -84,6 +84,19 @@ export default function Hero() {
             <CalendarDays className="size-5 text-[#D8A34B] sm:size-6" aria-hidden="true" />
             <span className="flex-1 text-sm font-extrabold uppercase tracking-[0.12em] sm:text-base">
               {t("Book an Event", "Reservar Evento")}
+            </span>
+            <ChevronRight className="size-5 text-[#D8A34B] transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none" aria-hidden="true" />
+          </motion.a>
+
+          <motion.a
+            whileHover={reduceMotion ? undefined : { scale: 1.015 }}
+            whileTap={reduceMotion ? undefined : { scale: 0.985 }}
+            href="#gallery"
+            className="group flex min-h-14 w-full items-center rounded-full border border-[#D8A34B]/55 bg-black/25 px-5 text-white shadow-[0_10px_24px_rgba(0,0,0,.22)] outline-none backdrop-blur-[3px] transition-colors hover:border-[#D8A34B]/80 hover:bg-black/45 focus-visible:ring-2 focus-visible:ring-[#F1BC5D] focus-visible:ring-offset-2 focus-visible:ring-offset-black motion-reduce:transition-none sm:min-h-16 sm:px-7"
+          >
+            <Images className="size-5 text-[#D8A34B] sm:size-6" aria-hidden="true" />
+            <span className="flex-1 text-sm font-extrabold uppercase tracking-[0.12em] sm:text-base">
+              {t("Gallery", "Galería")}
             </span>
             <ChevronRight className="size-5 text-[#D8A34B] transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none" aria-hidden="true" />
           </motion.a>
