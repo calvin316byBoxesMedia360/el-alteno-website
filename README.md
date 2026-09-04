@@ -48,18 +48,19 @@ npm run build                  # must pass before any deploy
 
 | | |
 |---|---|
-| **Platform** | Railway |
-| **Live URL** | https://web-production-004ee.up.railway.app |
-| **Deploys from** | `master`, automatically on push. Last deploy: `6fd9ac0`, 2026-08-29 |
-| **Root Directory** | `el-alteno` (set in the Railway dashboard) |
-| **Build / Start** | `npm run build` / `npm start`, auto-detected via Nixpacks |
-| **Custom domain** | none yet — candidate `elalteno.restaurant` |
+| **Platform** | Netlify |
+| **Live URL** | https://elaltenorestaurant.com |
+| **Deploys from** | `master`, automatically on push. Current published commit: `8ed161b` |
+| **Netlify project** | `el-alteno-website` |
+| **Base / Publish Directory** | `el-alteno` / `el-alteno/.next` |
+| **Build command** | `npm run build` |
+| **Railway URL** | https://web-production-004ee.up.railway.app (legacy/parallel deployment) |
 
-There is no `railway.json` and no `Dockerfile`; Railway auto-detects Next.js. The only environment variable is `NEXT_PUBLIC_FORMSPREE_ID`, set in the dashboard.
+There is no `railway.json` and no `Dockerfile`. Netlify builds the Next.js app from the `el-alteno` base directory. The required environment variable is `NEXT_PUBLIC_FORMSPREE_ID`, configured in the Netlify project dashboard.
 
 **No database and no backend of its own.** The events form posts to Formspree, a third-party service. That makes the site a good fit for Vercel too — `DEPLOYMENT.md` has the comparison and the migration steps.
 
-> ⚠️ `NEXT_PUBLIC_FORMSPREE_ID` has **never been confirmed** as set in Railway. Without it the events form fails silently: the visitor believes they booked and nothing arrives. Verify by submitting the real form and confirming the email.
+> ✅ `NEXT_PUBLIC_FORMSPREE_ID=mbgjklrl` is configured in Netlify. Netlify currently reports that production deploys are paused because the team has exhausted its available credits, so a new deploy is required before the published bundle can use the variable.
 
 ---
 

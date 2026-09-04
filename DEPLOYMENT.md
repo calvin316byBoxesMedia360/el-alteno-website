@@ -31,11 +31,13 @@ Sin esto el build falla al instante (no encuentra `package.json`).
 
 | | |
 |---|---|
-| **Plataforma** | Railway |
-| **URL en vivo** | https://web-production-004ee.up.railway.app |
+| **Plataforma pública** | Netlify |
+| **URL en vivo** | https://elaltenorestaurant.com |
+| **Proyecto** | `el-alteno-website` |
 | **Repo conectado** | https://github.com/calvin316byBoxesMedia360/el-alteno-website |
-| **Rama** | `master` |
-| **Deploy** | Automático al hacer push |
+| **Rama publicada** | `master` |
+| **Deploy** | Automático al hacer push; actualmente pausado por créditos agotados |
+| **Railway paralelo/legacy** | https://web-production-004ee.up.railway.app |
 
 ---
 
@@ -45,17 +47,23 @@ Se configuran **en el dashboard de la plataforma**, no en el repo.
 
 | Variable | Requerida | Para qué |
 |---|---|---|
-| `NEXT_PUBLIC_FORMSPREE_ID` | Sí | Formulario de reservas de eventos |
+| `NEXT_PUBLIC_FORMSPREE_ID` | Sí | Formulario de reservas de eventos; configurada en Netlify como `mbgjklrl` |
 
 > ⚠️ **Pendiente de verificar:** confirmar que esta variable está configurada en Railway. Si falta, el formulario de eventos falla en silencio — el usuario cree que envió su solicitud pero nunca llega.
 >
 > Prueba: llena el formulario en `/#events` y confirma que llega el correo.
 
+> **Estado vigente:** la variable ya está guardada en Netlify como `mbgjklrl`. La nota anterior corresponde a la configuración histórica de Railway; el dominio público actual se sirve desde Netlify.
+
 Ver [`el-alteno/.env.example`](el-alteno/.env.example) para instrucciones de cómo obtener el ID.
 
 ---
 
-## Railway — configuración
+## Estado verificado: Netlify
+
+El dominio público `elaltenorestaurant.com` pertenece al proyecto Netlify `el-alteno-website`, que publica desde `master` con base directory `el-alteno`. La variable `NEXT_PUBLIC_FORMSPREE_ID` ya está guardada en Netlify con el valor `mbgjklrl`. Netlify reporta que los deploys de producción están pausados por créditos agotados, por lo que falta publicar un nuevo build para que el bundle actual use la variable.
+
+## Railway — configuración histórica/paralela
 
 | Ajuste | Valor |
 |---|---|
