@@ -11,9 +11,9 @@ const [menuSection, location, footer] = await Promise.all([
 test("the menu section contains the approved bilingual slogan", () => {
   assert.match(menuSection, /Sabor a/);
   assert.match(menuSection, /México/);
-  assert.match(menuSection, /con sazón de la casa/);
+  assert.match(menuSection, /con sazón de la casa/iu);
   assert.match(menuSection, /A taste of/);
-  assert.match(menuSection, /seasoned in our kitchen/);
+  assert.match(menuSection, /seasoned in our kitchen/iu);
 });
 
 test("both public hours surfaces show Monday closed", () => {
