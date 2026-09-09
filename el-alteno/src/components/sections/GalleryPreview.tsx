@@ -56,7 +56,7 @@ const previewMedia: PreviewMedia[] = [
   {
     id: "preview-celebration-video",
     kind: "video",
-    src: "/images/events-gallery/VID_20231203_134004.mp4",
+    src: "/videos/optimized/gallery-celebration-720.mp4",
     labelEn: "A celebration in motion",
     labelEs: "Una celebración en movimiento",
   },
