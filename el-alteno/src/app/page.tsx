@@ -4,6 +4,7 @@ import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
 import MenuSection from "@/components/sections/MenuSection";
 import Events from "@/components/sections/Events";
+import GalleryPreview from "@/components/sections/GalleryPreview";
 import Cocktails from "@/components/sections/Cocktails";
 import Location from "@/components/sections/Location";
 import ScrollGuide from "@/components/ui/ScrollGuide";
@@ -23,6 +24,7 @@ export default function Home() {
             booking ask and belongs after someone has seen the food. */}
         <Cocktails />
         <Events />
+        <GalleryPreview />
         <Location />
       </main>
       <Footer />

@@ -135,7 +135,7 @@ export default function About() {
                   poster="/images/about/tortillas-handmade-poster.webp"
                   className="absolute inset-0 h-full w-full object-cover object-[center_58%]"
                 >
-                  <source src="/videos/tortillas-handmade.mp4" type="video/mp4" />
+                  <source src="/videos/optimized/tortillas-720.mp4" type="video/mp4" />
                 </video>
               )}
             </div>
