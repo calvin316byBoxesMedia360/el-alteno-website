@@ -29,7 +29,7 @@ export default function Hero() {
           aria-hidden="true"
           className="pointer-events-none block aspect-video h-auto w-full object-contain md:h-full md:aspect-auto md:object-cover"
         >
-          <source src="/videos/hero-bg.mp4" type="video/mp4" />
+          <source src="/videos/optimized/hero-720.mp4" type="video/mp4" />
         </video>
 
         <div className="absolute inset-0 bg-black/20 md:bg-black/35" />

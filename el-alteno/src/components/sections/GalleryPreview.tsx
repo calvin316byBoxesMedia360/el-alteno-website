@@ -129,16 +129,7 @@ export default function GalleryPreview() {
                   className="absolute inset-0"
                 >
                   {media.kind === "video" ? (
-                    <video
-                      src={media.src}
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      preload="metadata"
-                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-1000 group-hover:scale-[1.03] motion-reduce:transition-none"
-                      aria-hidden="true"
-                    />
+                    <Image src="/videos/optimized/gallery-celebration-720.jpg" alt={labelFor(media)} fill sizes="(max-width: 767px) 50vw, 25vw" className="object-cover" />
                   ) : (
                     <Image
                       src={media.src}

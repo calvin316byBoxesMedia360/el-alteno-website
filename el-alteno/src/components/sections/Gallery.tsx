@@ -172,7 +172,7 @@ const galleryVideos: GalleryVideo[] = [
   {
     id: "celebration-in-motion",
     kind: "video",
-    src: "/images/events-gallery/VID_20231203_134004.mp4",
+    src: "/videos/optimized/gallery-celebration-720.mp4",
     labelEn: "A celebration in motion",
     labelEs: "Una celebración en movimiento",
     featured: true,
@@ -180,7 +180,7 @@ const galleryVideos: GalleryVideo[] = [
   {
     id: "room-ready-for-events",
     kind: "video",
-    src: "/images/events-gallery/VID_20231021_140635.mp4",
+    src: "/videos/optimized/gallery-room-360.mp4",
     labelEn: "The room, ready for your event",
     labelEs: "El salón, listo para tu evento",
   },
@@ -305,16 +305,7 @@ export default function Gallery() {
                 aria-label={t(featuredVideo.labelEn, featuredVideo.labelEs)}
                 className="group relative mx-4 mb-5 min-h-11 cursor-zoom-in overflow-hidden rounded-[2rem] border border-mustard/30 bg-[#1E1A17] shadow-2xl outline-none transition-shadow hover:shadow-[0_24px_80px_-24px_rgba(0,0,0,0.75)] focus-visible:ring-2 focus-visible:ring-mustard focus-visible:ring-offset-2 focus-visible:ring-offset-background lg:mx-0"
               >
-                <video
-                  src={featuredVideo.src}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  preload="metadata"
-                  className="aspect-[16/9] w-full object-cover transition-transform duration-1000 group-hover:scale-[1.015] motion-reduce:transition-none"
-                  aria-hidden="true"
-                />
+                <Image src="/videos/optimized/gallery-celebration-720.jpg" alt="" width={540} height={960} className="aspect-[16/9] w-full object-cover" />
                 <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
                 <span className="pointer-events-none absolute bottom-5 right-5 grid size-12 place-items-center rounded-full border border-white/25 bg-black/45 text-white shadow-xl backdrop-blur-md transition-transform duration-300 group-hover:scale-105 motion-reduce:transition-none">
                   <Play size={18} fill="currentColor" aria-hidden="true" />
@@ -349,6 +340,18 @@ export default function Gallery() {
                 </motion.button>
               ))}
             </div>
+
+            {secondaryVideo && (
+              <motion.div
+                initial={{ opacity: 0, y: reduceMotion ? 0 : 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-10%" }}
+                transition={{ duration: reduceMotion ? 0 : 0.5 }}
+                className="mx-4 mt-5 overflow-hidden rounded-[2rem] border border-border bg-card p-2 shadow-xl lg:mx-0"
+              >
+                <button type="button" onClick={() => setSelectedMedia(secondaryVideo)} aria-label={t(secondaryVideo.labelEn, secondaryVideo.labelEs)} className="relative block w-full overflow-hidden rounded-[1.5rem] focus-visible:outline-4 focus-visible:outline-mustard"><Image src="/videos/optimized/gallery-room-540.jpg" alt="" width={540} height={960} className="aspect-video w-full object-cover" /><span className="absolute inset-0 grid place-items-center"><span className="grid size-16 place-items-center rounded-full bg-black/60 text-white"><Play size={26} /></span></span></button>
+              </motion.div>
+            )}
 
             <div id="bar-gallery" className="mt-20 border-t border-border/60 pt-16 md:mt-28 md:pt-24">
               <div className="mx-auto mb-10 max-w-2xl px-4 text-center lg:px-0">
@@ -397,24 +400,6 @@ export default function Gallery() {
               </div>
             </div>
 
-            {secondaryVideo && (
-              <motion.div
-                initial={{ opacity: 0, y: reduceMotion ? 0 : 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-10%" }}
-                transition={{ duration: reduceMotion ? 0 : 0.5 }}
-                className="mx-4 mt-5 overflow-hidden rounded-[2rem] border border-border bg-card p-2 shadow-xl lg:mx-0"
-              >
-                <video
-                  src={secondaryVideo.src}
-                  controls
-                  playsInline
-                  preload="metadata"
-                  className="aspect-video w-full rounded-[1.5rem] bg-black object-cover"
-                  aria-label={t(secondaryVideo.labelEn, secondaryVideo.labelEs)}
-                />
-              </motion.div>
-            )}
           </>
         ) : (
           <div className="mx-4 rounded-3xl border border-dashed border-border bg-card/45 px-6 py-14 text-center shadow-lg lg:mx-0">
